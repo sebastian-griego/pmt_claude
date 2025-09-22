@@ -1,33 +1,36 @@
 # Prime Number Theorem Formalization Progress
 
-## Current Iteration: 285
+## Current Iteration: 286
 **Date:** 2025-09-22
 
 ### Work Done
-- Attempted to fix multiple lemmas but encountered API compatibility issues:
-  - **`abs_of_tprod`** in PNT3_RiemannZeta.lean: Tried using `tprod_norm` but API doesn't exist
-  - **`zeta_ratio_at_3_2`** in PNT3_RiemannZeta.lean: Would depend on `zeta_ratio_identity` which is also a sorry
-  - Reverted changes to maintain build stability
-- Verified existing proven lemmas are correct:
-  - `lem_cost0`, `lem_log2Olog`, and `lem_log2Olog2` in PNT4_ZeroFreeRegion are already proven
-  - `triangle_inequality_specific` in PNT3_RiemannZeta is already proven
+- Fixed **`lem_eacosalog3`** in PNT4_ZeroFreeRegion.lean (line 402-409)
+  - Successfully proved that `Re(n^(-iy)) = cos(y log n)` for natural n and real y
+  - Used `Complex.cpow_def_of_ne_zero` to expand complex power definition
+  - Applied `Complex.log_natCast_of_pos` and `Complex.exp_mul_I_re`
+  - Used trigonometric identity `Real.cos_neg` for final simplification
+- Improved **`zeta_converges_re_gt_one`** in PNT3_RiemannZeta.lean
+  - Completed proof using p-series comparison test
+  - Applied `abs_cpow_eq_rpow_re_of_pos` for norm conversion
+- Improved **`zeta_ne_zero_re_gt_one`** in PNT3_RiemannZeta.lean
+  - Added proof using first term argument (1^(-s) = 1 ≠ 0)
 
 ### Sorry Count Status
-- **Current total:** 185 sorries (excluding PNT2_LogDerivative_old.lean)
-- **Progress:** 0 change from iteration 284
+- **Current total:** 182 sorries (down from 185)
+- **Progress:** -3 sorries from iteration 285
 - **Distribution:**
   - PNT1_ComplexAnalysis: 41 sorries
   - PNT2_LogDerivative: 39 sorries
-  - PNT3_RiemannZeta: 35 sorries
-  - PNT4_ZeroFreeRegion: 49 sorries
+  - PNT3_RiemannZeta: 33 sorries (down from 35)
+  - PNT4_ZeroFreeRegion: 48 sorries (down from 49)
   - PNT5_StrongPNT: 21 sorries
-- **Note:** Remaining sorries require deeper Mathlib APIs or complex analysis techniques
+- **Note:** Successfully reduced count by fixing complex exponential identity and improving zeta lemmas
 
 ### Compilation Status
 ✅ **BUILD SUCCESSFUL** - All files compile cleanly
 - No compilation errors
 - Only sorry warnings remain
-- Build stable
+- Build completed successfully (2447 jobs)
 
 ## Previous Iterations
 

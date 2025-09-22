@@ -3,7 +3,7 @@
 set -euo pipefail
 # Configuration (can be overridden by .claude_config)
 PROJECT_TYPE="${PROJECT_TYPE:-code}"      # 'code' or 'research'
-SLEEP_SECS="${SLEEP_SECS:-30}"           # default 30s for code
+SLEEP_SECS="${SLEEP_SECS:-45}"           # default 30s for code
 PROGRESS_TAIL="${PROGRESS_TAIL:-40000}"   # context size
 # Load project-specific config if exists
 PROJECT="${1:-$PWD}"
@@ -11,7 +11,7 @@ cd "$PROJECT"
 [ -f .claude_config ] && source .claude_config
 # Adjust sleep based on project type
 if [ "$PROJECT_TYPE" = "research" ]; then
-    SLEEP_SECS="${SLEEP_SECS:-300}"  # 5 min for research
+    SLEEP_SECS="${SLEEP_SECS:-450}"  # 5 min for research
 fi
 command -v claude >/dev/null || { echo "ERROR: 'claude' CLI not found"; exit 1; }
 mkdir -p logs
