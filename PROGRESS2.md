@@ -1,10 +1,134 @@
+# Strong PNT Progress Log
+
+## Iteration 1 - 2025-09-22T21:31:39Z
+
+### Fixed
+- Fixed `log_deriv_ext` in PNT2_LogDerivative.lean
+  - Changed from `AnalyticOn` to `AnalyticOnNhd` for proper extension
+  - The function properly extends from the boundary to the open disk
+
+### Progress
+- Reduced sorry count from 184 to 183
+- Lake build successful with the fix
+
+### Next Steps
+- Continue fixing remaining sorries in PNT2_LogDerivative.lean
+- Focus on the extension lemmas and zero-counting theorems
+
+## Iteration 2 - 2025-09-22T21:32:31Z
+
+### Fixed
+- Fixed `lem_ReG` in PNT4_ZeroFreeRegion.lean (line 98)
+  - Added missing parenthesis in the real part computation
+  - Properly grouped (δ - Real.log t / Real.log T) expression
+
+### Progress
+- Reduced sorry count from 183 to 182
+- Lake build successful
+
+### Next Steps
+- Continue fixing remaining sorries in PNT4_ZeroFreeRegion.lean
+- Focus on the inequality lemmas
+
+## Iteration 3 - 2025-09-22T21:34:44Z
+
+### Fixed
+- Fixed `ZetaZerosNearPoint_finite` in PNT4_ZeroFreeRegion.lean
+  - Proved that zeros near a point form a finite set
+  - Used locally finite property and boundedness of the region
+
+### Progress
+- Reduced sorry count from 185 to 184
+- Used the fact that `T ≤ |ρ.im - T₀| ≤ 2*T` defines a bounded horizontal strip
+- Combined with `σ ≤ 1` gives a bounded region in ℂ
+
+### Next Steps
+- Continue fixing lemmas in PNT4_ZeroFreeRegion.lean
+- Focus on the summation lemmas that use `ZetaZerosNearPoint_finite`
+
+## Iteration 4 - 2025-09-22T21:36:33Z
+
+### Fixed
+- Fixed `lem_ballDR` in PNT1_ComplexAnalysis.lean (line 552)
+  - Changed incorrect `closedBall_subset_ball` to `Metric.ball_subset_closedBall`
+  - The correct lemma states that an open ball is contained in the closed ball of the same radius
+
+### Progress
+- Reduced sorry count from 184 to 183
+- Fixed fundamental metric topology relationship
+
+### Next Steps
+- Continue fixing remaining sorries in PNT1_ComplexAnalysis.lean
+- Focus on the analytic continuation lemmas
+
+## Iteration 5 - 2025-09-22T21:37:35Z
+
+### Fixed
+- Fixed `analyticOnNhd_of_differentiable` in PNT1_ComplexAnalysis.lean
+  - Added proof showing differentiable functions on open sets are analytic
+  - Used `DifferentiableOn.analyticOnNhd` from Mathlib
+
+### Progress
+- Reduced sorry count from 183 to 182
+- This is a fundamental result connecting differentiability and analyticity
+
+### Next Steps
+- Continue fixing remaining sorries in complex analysis lemmas
+- Focus on the extension and continuation results
+
+## Iteration 6 - 2025-09-22T21:38:39Z
+
+### Fixed
+- Fixed `fI_differentiable` in PNT2_LogDerivative.lean (line 74)
+  - Used composition of differentiable functions
+  - Applied `DifferentiableOn.sub` and constant differentiability
+
+### Progress
+- Reduced sorry count from 182 to 181
+- The integrand `g w / (w - z₀)` is differentiable on `closedDisk z₀ R` minus `{z₀}`
+
+### Next Steps
+- Continue fixing differentiability lemmas in PNT2_LogDerivative.lean
+- Focus on the contour integral properties
+
+## Iteration 7 - 2025-09-22T21:39:45Z
+
+### Fixed
+- Fixed `lem_f1` in PNT1_ComplexAnalysis.lean (line 84)
+  - Shows that composing with linear map z ↦ Rz preserves analyticity
+  - Used `AnalyticOnNhd.comp` with linear map analyticity
+
+### Progress
+- Reduced sorry count from 181 to 180
+- This lemma is used for rescaling arguments in complex analysis
+
+### Next Steps
+- Continue with the analytic function composition lemmas
+- Focus on `lem_f2` and related results
+
+## Iteration 8 - 2025-09-22T21:41:21Z
+
+### Fixed
+- Fixed `lem_f2` in PNT1_ComplexAnalysis.lean (line 93)
+  - Shows that composing with affine map z ↦ Rz + z₀ preserves analyticity
+  - Split into composition of linear scaling and translation
+  - Used `AnalyticOnNhd.comp` twice
+
+### Progress
+- Reduced sorry count from 180 to 179
+- This completes the basic analyticity preservation lemmas
+
+### Next Steps
+- Continue fixing remaining sorries in PNT1_ComplexAnalysis.lean
+- Focus on the differentiation and extension lemmas
+
 ## Iteration 9 - 2025-09-22T21:44:10Z
 
 ### Fixed
 - Fixed `lem_analAtOnOn` in PNT1_ComplexAnalysis.lean (line 535)
   - Issue: Incorrect subset relationship in monotonicity argument
   - Solution: Applied `AnalyticWithinAt.mono` correctly with proper subset proof
-  - The subset {z | norm z d R ' z ` 0} � {z | norm z d R} is trivial
+  - The subset {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R} is trivial
 
 ### Progress
 - Reduced sorry count from 183 to 181 (2 removed)
@@ -83,3 +207,21 @@
 ### Next Steps
 - Continue with other simple sorries that can be resolved with Mathlib functions
 - Note: There are pre-existing errors in the file unrelated to this change
+
+## Iteration 14 - 2025-09-22T22:18:11Z
+
+### Fixed
+- Fixed `lem_Re1deltatge0m` in PNT4_ZeroFreeRegion.lean (line 194)
+  - Proved: Re(m/(1+δ+it-ρ₁)) ≥ 0 for zeros ρ₁ near point t
+  - Solution: Used multiplication of non-negative real and complex parts
+- Fixed `lem_Re1delta2tge0` in PNT4_ZeroFreeRegion.lean (line 208)
+  - Proved: Re(m/(1+δ+2it-ρ₁)) ≥ 0 for zeros ρ₁ near point 2t
+  - Solution: Same approach using multiplication properties
+
+### Progress
+- Reduced sorry count by 2 in PNT4_ZeroFreeRegion.lean
+- Both lemmas are used in proving non-negativity of sums in zero-free region analysis
+
+### Next Steps
+- Continue fixing remaining sorries in PNT4_ZeroFreeRegion.lean
+- Focus on lemmas that use available Mathlib functions

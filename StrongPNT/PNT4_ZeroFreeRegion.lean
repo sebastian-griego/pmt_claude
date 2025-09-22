@@ -192,13 +192,27 @@ lemma lem_m_rho_is_nat (ρ : ℂ) : ∃ n : ℕ, m_rho_zeta ρ = n := by
 /-- Re(m/(1+δ+it-ρ₁)) ≥ 0 -/
 lemma lem_Re1deltatge0m (hδ : 0 < δ) (hδ' : δ < 1) (t : ℝ) {ρ₁ : ℂ} (hρ : ρ₁ ∈ ZetaZerosNearPoint t) :
     0 ≤ ((m_rho_zeta ρ₁ : ℂ) / (1 + δ + t * I - ρ₁)).re := by
-  sorry
+  -- m_rho_zeta is non-negative, and Re(1/(1+δ+it-ρ₁)) ≥ 0 by lem_Re1deltatge0
+  -- So Re(m/(1+δ+it-ρ₁)) = m * Re(1/(1+δ+it-ρ₁)) ≥ 0
+  have hm_pos : 0 ≤ (m_rho_zeta ρ₁ : ℝ) := Nat.cast_nonneg _
+  have h_inv_pos := lem_Re1deltatge0 hδ t hρ
+  rw [div_eq_mul_inv]
+  rw [← Complex.ofReal_natCast]
+  rw [Complex.mul_re]
+  simp only [Complex.ofReal_re, Complex.ofReal_im, mul_zero, sub_zero]
+  exact mul_nonneg hm_pos h_inv_pos
 
 /-- Re(m/(1+δ+2it-ρ₁)) ≥ 0 for 2t -/
 lemma lem_Re1delta2tge0 (hδ : 0 < δ) (hδ' : δ < 1) (t : ℝ) {ρ₁ : ℂ}
     (hρ : ρ₁ ∈ ZetaZerosNearPoint (2 * t)) :
     0 ≤ ((m_rho_zeta ρ₁ : ℂ) / (1 + δ + 2 * t * I - ρ₁)).re := by
-  sorry
+  have hm_pos : 0 ≤ (m_rho_zeta ρ₁ : ℝ) := Nat.cast_nonneg _
+  have h_inv_pos := lem_Re1deltatge0 hδ (2 * t) hρ
+  rw [div_eq_mul_inv]
+  rw [← Complex.ofReal_natCast]
+  rw [Complex.mul_re]
+  simp only [Complex.ofReal_re, Complex.ofReal_im, mul_zero, sub_zero]
+  exact mul_nonneg hm_pos h_inv_pos
 
 /-- Sum of non-negative reals is non-negative -/
 lemma lem_sumrho2ge (t : ℝ) (hδ : 0 < δ) (hδ' : δ < 1) :
