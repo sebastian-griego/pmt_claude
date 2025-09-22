@@ -3,6 +3,7 @@ import Mathlib.Analysis.SpecialFunctions.Log.Basic
 import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.NumberTheory.LSeries.Nonvanishing
 import Mathlib.Analysis.Complex.Exponential
+import Mathlib.Data.Complex.BigOperators
 import Mathlib.Data.Finset.Basic
 import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.NumberTheory.ArithmeticFunction
@@ -125,7 +126,7 @@ lemma lem_explicit2Real :
 /-- Real part of finite sum -/
 lemma lem_Realsum {α : Type*} (S : Finset α) (f : α → ℂ) :
     (∑ z ∈ S, f z).re = ∑ z ∈ S, (f z).re := by
-  simp [re_sum]
+  simp [Complex.re_sum]
 
 /-- Sum split for t -/
 theorem lem_sumrho1 (δ t : ℝ) (hδ : 0 < δ) (hδ' : δ < 1) :

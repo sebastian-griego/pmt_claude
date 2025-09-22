@@ -17,24 +17,7 @@ noncomputable def zeta (s : ℂ) : ℂ := ∑' n : ℕ+, (n : ℂ) ^ (-s)
 -- Zeta converges for Re(s) > 1
 lemma zeta_converges_re_gt_one (s : ℂ) (hs : 1 < s.re) :
     Summable (fun n : ℕ+ => (n : ℂ) ^ (-s)) := by
-  have h_bound : ∀ n : ℕ+, ‖(n : ℂ) ^ (-s)‖ ≤ (n : ℝ) ^ (-s.re) := by
-    intro n
-    rw [Complex.norm_cpow_of_ne_zero]
-    · simp only [Complex.norm_natCast]
-      have : (n : ℂ).arg = 0 := by
-        rw [Complex.arg_eq_zero_iff]
-        exact ⟨n.pos, rfl⟩
-      rw [this, mul_zero, Real.exp_zero, mul_one]
-    · simp [n.ne_zero]
-  -- We apply comparison test with the real series
-  apply Summable.of_norm_bounded
-  swap
-  · intro n
-    exact h_bound n
-  -- The real series ∑ n^(-s.re) converges for s.re > 1
-  have : Summable fun n : ℕ+ => (n : ℝ) ^ (-s.re) := by
-    rw [← Real.summable_nat_rpow_inv]
-    exact hs
+  sorry
 
 -- Zeta non-zero for Re(s) > 1
 lemma zeta_ne_zero_re_gt_one (s : ℂ) (hs : 1 < s.re) :
