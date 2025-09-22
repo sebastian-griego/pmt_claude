@@ -11,3 +11,13 @@
 - Location: StrongPNT/PNT3_RiemannZeta.lean:18-33
 
 **Status**: 186 sorries remaining (was 187)
+
+## Iteration 3 (2025-09-22T21:15:00Z)
+### Fixed: `Re2s` and `zeta_ratio_prod`
+- Proved that (2*s).re = 2 * s.re for complex s
+- Used simp with mul_re, mul_zero, sub_zero and norm_num
+- This enabled `zeta_ratio_prod` to compile properly
+- The lemma relates the Riemann zeta Euler product at s and 2s
+- Location: StrongPNT/PNT3_RiemannZeta.lean:149-151, 135-139
+
+**Status**: 185 sorries remaining (was 186)
