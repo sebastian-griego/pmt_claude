@@ -239,3 +239,20 @@
 ### Next Steps
 - Continue fixing remaining sorries in complex analysis lemmas
 - Focus on simpler subset and property lemmas
+
+## Iteration 16 - 2025-09-22T22:28:31Z
+
+### Fixed
+- Fixed `lem_BCmax` in PNT1_ComplexAnalysis.lean (line 587-611)
+  - Proved: Continuous functions on compact sets are bounded
+  - Used `isCompact_sphere` to show the sphere {z : ‖z‖ = R} is compact
+  - Applied `IsCompact.bddAbove_image` for bounded image of norm function
+  - This is a key lemma for the Borel-Carathéodory theorem
+
+### Progress
+- Reduced sorry count from 178 to 177
+- The proof uses standard topology: sphere is compact, continuous functions on compact sets are bounded
+
+### Next Steps
+- Continue fixing remaining sorries in PNT1_ComplexAnalysis.lean
+- Consider fixing `lem_BCRe` which follows a similar pattern

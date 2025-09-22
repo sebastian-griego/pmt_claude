@@ -587,7 +587,29 @@ lemma lem_Rself2 (R : Real) (hR : 0 < R) :
 lemma lem_BCmax (f : Complex → Complex) (R : Real) (hR : 0 < R)
     (hf : AnalyticOn ℂ f {z : Complex | norm z ≤ R}) :
     ∃ M : Real, ∀ z ∈ {z : Complex | norm z = R}, norm (f z) ≤ M := by
-  sorry
+  -- The set {z : Complex | norm z = R} is the sphere of radius R, which is compact
+  have h_compact : IsCompact {z : Complex | norm z = R} := by
+    convert isCompact_sphere 0 R using 1
+    ext z
+    simp [Metric.sphere, dist_zero_right]
+  -- Since f is analytic on the closed disk, it's continuous on the sphere
+  have h_cont : ContinuousOn f {z : Complex | norm z = R} := by
+    apply ContinuousOn.mono (AnalyticOn.continuousOn hf)
+    intro z hz
+    simp at hz ⊢
+    rw [hz]
+  -- A continuous function on a compact set has a maximum
+  have h_bdd : ∃ M, ∀ z ∈ {z : Complex | norm z = R}, ‖f z‖ ≤ M := by
+    have h_bdd_above : BddAbove ((fun z => ‖f z‖) '' {z : Complex | norm z = R}) := by
+      apply IsCompact.bddAbove_image h_compact
+      exact ContinuousOn.norm h_cont
+    obtain ⟨M, hM⟩ := h_bdd_above
+    use M
+    intros z hz
+    apply hM
+    simp
+    use z, hz
+  exact h_bdd
 
 lemma lem_BCRe (f : Complex → Complex) (R : Real) (hR : 0 < R)
     (hf : AnalyticOn ℂ f {z : Complex | norm z ≤ R}) :

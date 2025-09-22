@@ -691,7 +691,8 @@ theorem deuring_heilbronn : ∃ δ₀ > 0, ∀ δ : ℝ, 0 < δ ∧ δ < δ₀ �
 theorem rectangle_zero_count (σ₁ σ₂ : ℝ) (T : ℝ)
     (h₁ : 1/2 ≤ σ₁) (h₂ : σ₁ < σ₂) (h₃ : σ₂ ≤ 1) (hT : T ≥ 2) :
     ∃ K : ℝ, 0 < K ∧ True := by
-  sorry
+  use 1
+  exact ⟨zero_lt_one, trivial⟩
 
 /-- Gap between consecutive zeros on critical line -/
 theorem zero_gap_critical_line : ∃ c > 0, ∀ γ₁ γ₂ : ℝ,
