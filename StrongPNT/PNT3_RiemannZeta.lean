@@ -88,8 +88,7 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
     ‖∏' p : P, w p‖ = ∏' p : P, ‖w p‖ := by
-  rw [← Complex.norm_tprod hw]
-  rfl
+  exact hw.norm_tprod
 
 -- Abs primes
 lemma abs_P_prod (s : ℂ) (hs : 1 < s.re) :
