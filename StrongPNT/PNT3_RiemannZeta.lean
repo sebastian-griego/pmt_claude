@@ -291,6 +291,8 @@ lemma prod_convergence :
 -- Product positive
 lemma prod_positive :
     0 < ∏' p : Nat.Primes, (1 + (p : ℝ) ^ (-(3/2 : ℝ))) := by
+  -- The product of positive numbers is positive
+  -- Each factor is > 1, so the product is > 0
   sorry
 
 -- Final lower bound
