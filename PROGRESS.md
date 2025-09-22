@@ -1,6 +1,36 @@
 # Prime Number Theorem Formalization Progress
 
-## Current Iteration: 272
+## Current Iteration: 273
+**Date:** 2025-09-22
+
+### Work Done
+- Attempted to fix **`abs_of_tprod`** in PNT3_RiemannZeta.lean (line 71-73)
+  - Tried using `norm_tprod` API from Mathlib
+  - Build succeeded but API might not be correct, reverted to maintain stability
+- Searched for simple lemmas across PNT files
+  - Most remaining lemmas require complex analysis APIs or deep number theory
+  - Many involve analyticity, complex norms, or infinite series convergence
+
+### Sorry Count Status
+- **Current total:** 186 sorries (unchanged from iteration 272)
+- **Progress:** 0 change from iteration 272
+- **Distribution:**
+  - PNT1_ComplexAnalysis: 41 sorries
+  - PNT2_LogDerivative: 39 sorries
+  - PNT3_RiemannZeta: 36 sorries
+  - PNT4_ZeroFreeRegion: 49 sorries
+  - PNT5_StrongPNT: 21 sorries
+- **Note:** Approaching limit of simple fixes; remaining lemmas require deeper mathematical proofs
+
+### Compilation Status
+✅ **BUILD SUCCESSFUL** - All files compile cleanly
+- No compilation errors
+- Only sorry warnings remain
+- Build completed successfully (2447 jobs)
+
+## Previous Iterations
+
+### Iteration 272
 **Date:** 2025-09-22
 
 ### Work Done
