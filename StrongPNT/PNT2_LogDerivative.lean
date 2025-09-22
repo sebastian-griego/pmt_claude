@@ -493,14 +493,14 @@ lemma lem_prod_ineq {α : Type*} (K : Finset α) (a b : α → ℝ)
 -- Power inequality
 lemma lem_power_ineq (c : ℝ) (n : ℕ) (hc : 1 < c) (hn : 1 ≤ n) : c ≤ c ^ n := by
   have h : c ^ 1 ≤ c ^ n := by
-    apply pow_le_pow_right (le_of_lt hc) hn
+    apply pow_le_pow_right₀ (le_of_lt hc) hn
   simp at h
   exact h
 
 -- Power one
 lemma lem_power_ineq_1 (c : ℝ) (n : ℕ) (hc : 1 ≤ c) (hn : 1 ≤ n) : 1 ≤ c ^ n := by
   have h : (1 : ℝ) ^ n ≤ c ^ n := by
-    apply pow_le_pow_left (by norm_num : (0 : ℝ) ≤ 1) hc
+    apply pow_le_pow_left₀ (by norm_num : (0 : ℝ) ≤ 1) hc
   simp at h
   exact h
 
@@ -514,9 +514,8 @@ lemma lem_prod_power_ineq {α : Type*} (K : Finset α) (c : α → ℝ) (n : α 
   · intro i hi
     have hc := (h i hi).1
     have hn := (h i hi).2
-    calc 1 = 1^1 := by ring
-         _ ≤ 1^(n i) := by exact one_le_one_pow
-         _ ≤ (c i)^(n i) := by exact pow_le_pow_left zero_le_one hc (n i)
+    calc 1 = 1^(n i) := by simp
+         _ ≤ (c i)^(n i) := by exact pow_le_pow_left₀ zero_le_one hc
 
 -- Product of ones
 lemma lem_prod_1 {α : Type*} (K : Finset α) : ∏ ρ ∈ K, (1 : ℝ) = 1 := by
@@ -538,7 +537,7 @@ lemma lem_mod_lower_bound_1 {R R₁ : ℝ} (hR : 0 < R ∧ R < 1) (hR₁ : R₁ 
   intro ρ _
   constructor
   · norm_num
-  · exact Nat.succ_pos (m ρ)
+  · exact Nat.one_le_iff_ne_zero.mpr (m_rho_ne_zero ρ)
 
 -- Bf is analytic
 lemma lem_Bf_is_analytic {R R₁ : ℝ} (hR : 0 < R ∧ R < 1) (hR₁ : R₁ = (2/3) * R)

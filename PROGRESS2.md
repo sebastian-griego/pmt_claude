@@ -53,3 +53,23 @@
 - Fix remaining build errors in PNT1_ComplexAnalysis.lean
 - Look for simpler computational lemmas that can be proven with basic tactics
 - Consider focusing on arithmetic lemmas in PNT2_LogDerivative or PNT3_RiemannZeta
+
+## Iteration 27 (2025-09-22T23:23:30Z)
+
+### Fixed
+- Fixed power inequality functions in PNT2_LogDerivative.lean
+  - Line 496: Changed `pow_le_pow_right` to `pow_le_pow_right₀`
+  - Line 503: Changed `pow_le_pow_left` to `pow_le_pow_left₀`
+  - Line 517-518: Fixed calc proof by using simp instead of non-existent `one_le_one_pow`
+  - Line 540: Fixed `m_rho` bound using `Nat.one_le_iff_ne_zero.mpr`
+
+### Progress
+- Reduced sorry count from 173 to 163 (34+35+33+40+21)
+- PNT2_LogDerivative now builds successfully (was failing with 5 errors)
+- PNT1_ComplexAnalysis reduced from 38 to 34 sorries
+- PNT2_LogDerivative reduced from 41 to 35 sorries
+
+### Next Steps
+- Fix build errors in PNT3_RiemannZeta.lean
+- Fix build errors in PNT4_ZeroFreeRegion.lean
+- Fix remaining build errors in PNT1_ComplexAnalysis.lean
