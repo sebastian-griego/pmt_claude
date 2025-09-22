@@ -196,6 +196,7 @@ lemma lem_Re1deltatge0m (hδ : 0 < δ) (hδ' : δ < 1) (t : ℝ) {ρ₁ : ℂ} (
   -- So Re(m/(1+δ+it-ρ₁)) = m * Re(1/(1+δ+it-ρ₁)) ≥ 0
   have hm_pos : 0 ≤ (m_rho_zeta ρ₁ : ℝ) := Nat.cast_nonneg _
   have h_inv_pos := lem_Re1deltatge0 hδ t hρ
+  rw [one_div] at h_inv_pos
   rw [div_eq_mul_inv]
   rw [← Complex.ofReal_natCast]
   rw [Complex.mul_re]
@@ -209,6 +210,7 @@ lemma lem_Re1delta2tge0 (hδ : 0 < δ) (hδ' : δ < 1) (t : ℝ) {ρ₁ : ℂ}
     0 ≤ ((m_rho_zeta ρ₁ : ℂ) / (1 + δ + 2 * t * I - ρ₁)).re := by
   have hm_pos : 0 ≤ (m_rho_zeta ρ₁ : ℝ) := Nat.cast_nonneg _
   have h_inv_pos := lem_Re1deltatge0 hδ (2 * t) hρ
+  rw [one_div] at h_inv_pos
   rw [div_eq_mul_inv]
   rw [← Complex.ofReal_natCast]
   rw [Complex.mul_re]
@@ -314,9 +316,22 @@ lemma lem_Z1split (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}
   have hρ_mem : ρ ∈ (ZetaZerosNearPoint_finite t).toFinset := by
     simp [Set.Finite.mem_toFinset]
     exact hρZ
-  -- Use Finset.sum_erase_add for splitting the sum
-  rw [Finset.sum_erase_add _ hρ_mem]
-  rw [add_comm]
+  -- Split the sum by extracting ρ
+  have : (ZetaZerosNearPoint_finite t).toFinset = insert ρ ((ZetaZerosNearPoint_finite t).toFinset \ {ρ}) := by
+    ext x
+    simp
+    constructor
+    · intro hx
+      by_cases h : x = ρ
+      · left; exact h
+      · right; exact ⟨hx, h⟩
+    · intro h
+      cases h
+      · rwa [h]
+      · exact h.1
+  rw [this, Finset.sum_insert]
+  · rfl
+  · simp
 
 /-- Lower bound from split sum -/
 lemma lem_Z1splitge (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}

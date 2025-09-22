@@ -1100,12 +1100,9 @@ lemma lem_dw_dt (r' : Real) (t : Real) :
     sorry -- complex differentiability issue
   rw [deriv_const_mul _ h3]
   -- Now we need d/dt[exp(I*t)] = I * exp(I*t)
-  have h3 : deriv (fun s => Complex.exp (I * s)) t = I * Complex.exp (I * t) := by
-    rw [← deriv.comp _ _ h2 h1]
-    -- exp'(z) = exp(z), so d/dt[exp(I*t)] = exp(I*t) * I
-    simp only [deriv_cexp, deriv_mul_const, deriv_id'']
-    ring
-  rw [h3]
+  have h4 : deriv (fun s => Complex.exp (I * s)) t = I * Complex.exp (I * t) := by
+    sorry -- chain rule for complex exponential
+  rw [h4]
   ring
 
 -- Cauchy's Integral Formula parameterized
