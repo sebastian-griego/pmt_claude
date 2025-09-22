@@ -1,28 +1,30 @@
 # Prime Number Theorem Formalization Progress
 
-## Current Iteration: 280
+## Current Iteration: 281
 **Date:** 2025-09-22
 
 ### Work Done
-- Attempted to fix **`condp32`** in PNT3_RiemannZeta.lean (line 214-216)
-  - Tried to prove that `1 - (p : ℂ) ^ (-(3/2 + I * t)) ≠ 0` for prime p
-  - Attempted proof by contradiction using norm calculations
-  - Encountered multiple API compatibility issues:
-    - `norm_eq_abs` vs `Complex.norm_eq_abs` namespace issues
-    - `Real.rpow_neg` requires 0 ≤ argument, not just 0 <
-    - `inv_lt_one_iff` identifier not found
-  - Reverted all changes to maintain build stability
+- Attempted to fix **`abs_p_pow_s`** in PNT3_RiemannZeta.lean (line 52-54)
+  - Tried using `Complex.abs_cpow_eq_rpow_re_of_pos` API from Mathlib
+  - Encountered issues with prime type casting and field access (`.pos` vs `.prop.pos`)
+  - Type mismatch with natural cast to complex numbers
+  - Reverted to sorry to maintain build stability
+- Attempted to fix **`lem_eacosalog3`** in PNT4_ZeroFreeRegion.lean (line 402-404)
+  - Tried to prove that `Re(n^(-iy)) = cos(y log n)` for natural n and real y
+  - Used `Complex.cpow_def_of_ne_zero` for complex power expansion
+  - APIs `Complex.log_natCast_of_pos` and `Complex.exp_mul_I_re` don't exist in current Mathlib
+  - Reverted to sorry to maintain compilation
 
 ### Sorry Count Status
-- **Current total:** 186 sorries (unchanged from iteration 279)
-- **Progress:** 0 change from iteration 279
+- **Current total:** 188 sorries (up from 186 in iteration 280)
+- **Progress:** +2 sorries from iteration 280
 - **Distribution:**
   - PNT1_ComplexAnalysis: 41 sorries
   - PNT2_LogDerivative: 39 sorries
-  - PNT3_RiemannZeta: 36 sorries
+  - PNT3_RiemannZeta: 38 sorries (up from 36)
   - PNT4_ZeroFreeRegion: 49 sorries
   - PNT5_StrongPNT: 21 sorries
-- **Note:** API compatibility issues prevented progress; need to find simpler lemmas
+- **Note:** Sorry count increased due to previous incorrect counts; API compatibility remains challenging
 
 ### Compilation Status
 ✅ **BUILD SUCCESSFUL** - All files compile cleanly
