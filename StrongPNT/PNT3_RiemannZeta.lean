@@ -51,7 +51,10 @@ lemma zeta_residue_one :
 -- Abs p pow s
 lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     ‖(p : ℂ) ^ (-s)‖ = (p : ℝ) ^ (-s.re) := by
-  sorry
+  have hp : 0 < (p : ℝ) := Nat.cast_pos.mpr p.pos
+  rw [norm_eq_abs]
+  rw [Complex.abs_cpow_eq_rpow_re_of_pos hp]
+  simp [Complex.ofReal_natCast, Complex.neg_re]
 
 -- Prime decay lemma
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
@@ -204,7 +207,19 @@ lemma inv_inequality {a b : ℝ} (ha : 0 < a) (hab : a ≤ b) :
 -- Nonzero term at 3/2
 lemma condp32 (p : Nat.Primes) (t : ℝ) :
     1 - (p : ℂ) ^ (-(3/2 + I * t)) ≠ 0 := by
-  sorry
+  intro h
+  have eq1 : (p : ℂ) ^ (-(3/2 + I * t)) = 1 := by linarith [h]
+  have norm_eq : ‖(p : ℂ) ^ (-(3/2 + I * t))‖ = ‖(1 : ℂ)‖ := by rw [eq1]
+  rw [abs_p_pow_s] at norm_eq
+  simp [Complex.add_re, Complex.I_re] at norm_eq
+  have : (p : ℝ) ^ (-(3/2 : ℝ)) = 1 := norm_eq
+  have hp : 2 ≤ (p : ℕ) := p.two_le
+  have hp_real : 2 ≤ (p : ℝ) := by norm_cast; exact hp
+  have : 1 < (p : ℝ) ^ (3/2 : ℝ) := by
+    apply Real.one_lt_rpow hp_real
+    norm_num
+  rw [Real.rpow_neg (Nat.cast_pos.mpr p.pos), inv_eq_one_div] at this
+  linarith
 
 -- Abs term inverse bound
 lemma abs_term_inv_bound (p : Nat.Primes) (t : ℝ) :
