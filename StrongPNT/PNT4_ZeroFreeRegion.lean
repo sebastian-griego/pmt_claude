@@ -401,7 +401,7 @@ lemma RealLambdaxy (n : ℕ) (x y : ℝ) :
   · have hn_pos : 0 < n := Nat.pos_of_ne_zero hn
     have hn_ge : 1 ≤ n := Nat.one_le_iff_ne_zero.mpr hn
     -- Split the exponent
-    rw [← Complex.cpow_add _ _ (Complex.natCast_ne_zero.mpr hn)]
+    rw [← Complex.cpow_add _ _ (Nat.cast_ne_zero.mpr hn)]
     -- Apply real multiplication
     rw [lem_realbw]
     -- vonMangoldt n is real
@@ -426,9 +426,10 @@ lemma RealLambdaxy (n : ℕ) (x y : ℝ) :
 /-- Re(n^(-iy)) = cos(y log n) -/
 lemma lem_eacosalog3 (n : ℕ) (y : ℝ) (hn : 1 ≤ n) :
     ((n : ℂ)^(-y * I : ℂ)).re = Real.cos (y * Real.log n) := by
-  have hn_pos : 0 < n := Nat.one_le_iff_ne_zero.mp hn
-  rw [Complex.cpow_def_of_ne_zero (Complex.natCast_ne_zero.mpr (Nat.one_le_iff_ne_zero.mp hn))]
-  simp only [Complex.log_natCast_of_pos hn_pos]
+  have hn_pos : n ≠ 0 := Nat.one_le_iff_ne_zero.mp hn
+  have hn_pos' : 0 < n := Nat.pos_of_ne_zero hn_pos
+  rw [Complex.cpow_def_of_ne_zero (Nat.cast_ne_zero.mpr (Nat.one_le_iff_ne_zero.mp hn))]
+  simp only [Complex.log_natCast_of_pos hn_pos']
   rw [Complex.mul_comm, Complex.exp_mul_I_re]
   simp only [Complex.ofReal_mul, Complex.ofReal_log, Complex.ofReal_neg]
   rw [Real.cos_neg]

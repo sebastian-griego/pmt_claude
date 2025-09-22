@@ -59,7 +59,10 @@ lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
   simp only [Complex.norm_natCast, Complex.neg_re]
   -- p is a positive real number, so arg(p) = 0
   have : Complex.arg (p : ℂ) = 0 := by
-    rw [Complex.arg_natCast]
+    -- A natural number cast to ℂ is a positive real number
+    have hp_pos : 0 < (p : ℝ) := Nat.cast_pos.mpr p.prop.pos
+    -- For positive reals, the argument is 0
+    exact Complex.arg_coe_of_pos hp_pos
   rw [this]
   simp [Real.exp_zero]
 
@@ -71,7 +74,7 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
   have hp : 2 ≤ (p : ℝ) := by
     exact_mod_cast p.prop.two_le
   -- p^(-Re(s)) = 1/p^(Re(s))
-  rw [Real.rpow_neg (Nat.cast_pos.mpr p.prop.pos)]
+  rw [Real.rpow_neg (Nat.cast_nonneg _)]
   -- Since Re(s) > 1 and p ≥ 2, we have p^(Re(s)) > p^1 = p ≥ 2 > 1
   have h1 : 1 < (p : ℝ) ^ s.re := by
     calc (p : ℝ) ^ s.re
@@ -264,7 +267,7 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
     -- Since p ≥ 2, we have p^(3/2) > 2^(3/2) > 2 > 1
     -- So p^(-3/2) = 1/p^(3/2) < 1
     calc (p : ℝ) ^ (-(3/2 : ℝ)) = 1 / (p : ℝ) ^ (3/2 : ℝ) := by
-      rw [Real.rpow_neg hp_pos]
+      rw [Real.rpow_neg (le_of_lt hp_pos)]
     _ < 1 := by
       rw [div_lt_one]
       calc (p : ℝ) ^ (3/2 : ℝ) ≥ 2 ^ (3/2 : ℝ) := by
@@ -273,10 +276,10 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
         · exact hp_ge2
         · linarith
       _ > 1 := by
-        have : 2 ^ (3/2 : ℝ) = Real.sqrt (2 ^ 3) := by
-          rw [Real.rpow_natCast_mul]
-          simp [Real.sq_sqrt]
-          linarith
+        have : 2 ^ (3/2 : ℝ) = Real.sqrt 8 := by
+          norm_num
+          rw [Real.sqrt_eq_rpow']
+          norm_num
         rw [this]
         simp
         norm_num

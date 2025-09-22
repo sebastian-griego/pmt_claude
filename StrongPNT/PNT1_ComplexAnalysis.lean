@@ -536,7 +536,7 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     -- Show {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
     intro w hw
     simp only [Set.mem_setOf] at hw ⊢
-    exact hw.left
+    exact And.left hw
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
