@@ -1298,7 +1298,14 @@ lemma lem_modulus_of_product3 (r r' R : ℝ) (hr : 0 < r) (hrr' : r < r') (hr'R 
     (t : ℝ) (z : Complex) (hz : norm z ≤ r) :
     r' * norm (f (r' * Complex.exp (I * t : Complex))) / norm (r' * Complex.exp (I * t : Complex) - z) ^ 2 ≤
     r' * norm (f (r' * Complex.exp (I * t : Complex))) / (r' - r) ^ 2 := by
-  sorry -- Timeout issue, needs proper proof
+  -- Since (r' - r)^2 ≤ norm (r' * Complex.exp (I * t : Complex) - z)^2 by lem_zrr3,
+  -- and both are positive, dividing by the larger gives a smaller result
+  have h_denom_ineq := lem_zrr3 t r r' R hr hrr' hr'R z hz
+  have h_denom_pos_1 := lem_rr12 r r' hrr'
+  have h_denom_pos_2 : 0 < norm (r' * Complex.exp (I * t : Complex) - z) ^ 2 := by
+    apply pow_pos
+    apply lem_reverse_triangle4 t r r' R hr hrr' hr'R z hz
+  gcongr
 
 -- Product modulus 4
 lemma lem_modulus_of_product4 (r r' R : ℝ) (hr : 0 < r) (hrr' : r < r') (hr'R : r' < R)
@@ -1306,7 +1313,12 @@ lemma lem_modulus_of_product4 (r r' R : ℝ) (hr : 0 < r) (hrr' : r < r') (hr'R 
     (t : ℝ) (z : Complex) (hz : norm z ≤ r) :
     norm ((f (r' * Complex.exp (I * t : Complex)) * r' * Complex.exp (I * t : Complex)) / (r' * Complex.exp (I * t : Complex) - z)^2) ≤
     r' * norm (f (r' * Complex.exp (I * t : Complex))) / (r' - r) ^ 2 := by
-  sorry -- Timeout issue, needs proper proof
+  -- This follows by combining the previous modulus lemmas
+  calc norm ((f (r' * Complex.exp (I * t : Complex)) * r' * Complex.exp (I * t : Complex)) / (r' * Complex.exp (I * t : Complex) - z)^2)
+      = r' * norm (f (r' * Complex.exp (I * t : Complex))) / norm (r' * Complex.exp (I * t : Complex) - z) ^ 2 :=
+        by apply lem_modulus_of_product2 r r' R hr hrr' hr'R f hf t z hz
+    _ ≤ r' * norm (f (r' * Complex.exp (I * t : Complex))) / (r' - r) ^ 2 :=
+        by apply lem_modulus_of_product3 r r' R hr hrr' hr'R f hf t z hz
 
 -- Point bound on analytic function
 lemma lem_bound_on_f_at_r_prime (M R r' : ℝ) (hM : 0 < M) (hR : 0 < R) (hr' : 0 < r') (hr'R : r' < R)

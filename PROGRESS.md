@@ -155,3 +155,18 @@
 - Location: PNT1_ComplexAnalysis.lean:1337-1344
 
 **Status**: 165 sorries remaining (was 167)
+
+## Iteration 26 (2025-09-22T23:21:14Z)
+### Fixed: Product modulus inequality lemmas in PNT1_ComplexAnalysis
+- Fixed `lem_modulus_of_product3`: Proved inequality for product modulus bounds
+  - Key insight: When (r' - r)² ≤ ‖r'e^(it) - z‖², dividing by the larger denominator yields a smaller quotient
+  - Used `lem_zrr3` to establish the denominator inequality
+  - Applied `gcongr` tactic for the monotonicity argument
+  - Location: PNT1_ComplexAnalysis.lean:1296-1308
+- Fixed `lem_modulus_of_product4`: Extended modulus bound for complex products
+  - Proved using a calc chain combining `lem_modulus_of_product2` and `lem_modulus_of_product3`
+  - Establishes ‖(f(r'e^(it)) * r'e^(it)) / (r'e^(it) - z)²‖ ≤ r'‖f(r'e^(it))‖ / (r' - r)²
+  - This lemma is used for bounding integrands in Cauchy integral formulas
+  - Location: PNT1_ComplexAnalysis.lean:1311-1321
+
+**Status**: 163 sorries remaining (was 165)
