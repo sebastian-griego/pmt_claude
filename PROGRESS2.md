@@ -90,3 +90,21 @@
 ### Next Steps
 - Continue fixing build errors in PNT1_ComplexAnalysis.lean
 - Look for simple computational lemmas that can be proven with basic tactics
+
+## Iteration 29 (2025-09-22T23:35:30Z)
+
+### Fixed
+- Fixed multiple build errors in PNT1_ComplexAnalysis.lean:
+  - Line 529-538: Fixed incomplete proof case by properly closing the subset inclusion proof
+  - Line 625-630: Fixed type mismatch for `isCompact_sphere` by adding proper conversion between set representations
+  - Line 1313: Fixed gcongr proof by adding non-negativity proof for multiplication
+  - Line 1364: Fixed incorrect use of `Set.mem_of_mem_diff` by directly using membership proof
+
+### Progress
+- Sorry count remains at 163 (34+35+33+40+21)
+- Fixed 4 build errors in PNT1_ComplexAnalysis.lean
+- Build progresses further - only warnings remain before final build error
+
+### Next Steps
+- Continue fixing remaining build errors in PNT1_ComplexAnalysis.lean
+- Focus on simple computational lemmas that can be proven with basic tactics

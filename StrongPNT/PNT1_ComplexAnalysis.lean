@@ -534,8 +534,7 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     -- Since {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}, we can use monotonicity
     apply AnalyticWithinAt.mono h'
     -- Show {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
-    simp only [Set.subset_def, Set.mem_setOf]
-    intros w ⟨hw_norm, _⟩
+    intro w ⟨hw_norm, _⟩
     exact hw_norm
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
@@ -553,8 +552,8 @@ lemma lem_ballDR (R : Real) (hR : 0 < R) :
     simp [Metric.closedBall, dist_zero_right]
   -- Use the fact that closure of open ball equals closed ball in normed spaces
   rw [h1, ← h2]
-  -- In a normed space, closure of open ball equals closed ball
-  sorry
+  -- In a normed space, closure of open ball equals closed ball when radius is positive
+  exact Metric.closure_ball 0 (ne_of_gt hR)
 
 lemma lem_inDR (R : Real) (hR : 0 < R) (w : Complex) (hw : w ∈ {z : Complex | norm z ≤ R}) :
     norm w ≤ R := by
@@ -623,7 +622,12 @@ lemma lem_BCRe (f : Complex → Complex) (R : Real) (hR : 0 < R)
       hf.continuousOn
     exact continuous_re.comp_continuousOn (hf_cont.mono (fun _ hz => le_of_eq hz))
   -- The sphere is compact
-  have hcomp : IsCompact {z : Complex | norm z = R} := isCompact_sphere (0 : ℂ) R
+  have hcomp : IsCompact {z : Complex | norm z = R} := by
+    have h : {z : Complex | norm z = R} = Metric.sphere (0 : ℂ) R := by
+      ext z
+      simp [Metric.sphere, dist_zero_right]
+    rw [h]
+    exact isCompact_sphere (0 : ℂ) R
   -- Continuous functions on compact sets are bounded above
   have hbdd : BddAbove ((fun z => (f z).re) '' {z : Complex | norm z = R}) :=
     hcomp.bddAbove_image hcont
@@ -1306,6 +1310,7 @@ lemma lem_modulus_of_product3 (r r' R : ℝ) (hr : 0 < r) (hrr' : r < r') (hr'R 
     apply pow_pos
     apply lem_reverse_triangle4 t r r' R hr hrr' hr'R z hz
   gcongr
+  exact mul_nonneg (le_of_lt (by linarith : 0 < r')) (norm_nonneg _)
 
 -- Product modulus 4
 lemma lem_modulus_of_product4 (r r' R : ℝ) (hr : 0 < r) (hrr' : r < r') (hr'R : r' < R)
@@ -1356,7 +1361,7 @@ lemma lem_integral_inequality (g : ℝ → ℝ) (C : ℝ) (a b : ℝ) (hab : a �
     ∫ t in a..b, g t ≤ ∫ t in a..b, C := by
   apply intervalIntegral.integral_mono_on hab hg_int hC_int
   intro x hx
-  exact hg x (Set.mem_of_mem_diff hx)
+  exact hg x hx
 
 -- Derivative bound by integral of constant
 lemma lem_f_prime_bound_by_integral_of_constant (M R r r' : ℝ) (hM : 0 < M) (hR : 0 < R)
