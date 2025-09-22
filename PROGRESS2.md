@@ -73,3 +73,20 @@
 - Fix build errors in PNT3_RiemannZeta.lean
 - Fix build errors in PNT4_ZeroFreeRegion.lean
 - Fix remaining build errors in PNT1_ComplexAnalysis.lean
+
+## Iteration 28 (2025-09-22T23:27:30Z)
+
+### Fixed
+- Fixed set membership projection error in PNT1_ComplexAnalysis.lean (line 537-541)
+  - Changed from invalid projection `hw.1` to proper pattern matching
+  - Used `simp only [Set.subset_def, Set.mem_setOf]` to unfold the membership
+  - Pattern matched with `⟨hw_norm, _⟩` to extract the norm bound
+
+### Progress
+- Sorry count remains at 163 (34+35+33+40+21)
+- Fixed one build error in PNT1_ComplexAnalysis (was failing with projection error)
+- PNT1_ComplexAnalysis still has 11 more build errors to fix
+
+### Next Steps
+- Continue fixing build errors in PNT1_ComplexAnalysis.lean
+- Look for simple computational lemmas that can be proven with basic tactics

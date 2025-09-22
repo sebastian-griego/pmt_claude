@@ -534,7 +534,8 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     -- Since {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}, we can use monotonicity
     apply AnalyticWithinAt.mono h'
     -- Show {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
-    intro w ⟨hw_norm, _⟩
+    simp only [Set.subset_def, Set.mem_setOf]
+    intros w ⟨hw_norm, _⟩
     exact hw_norm
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
@@ -552,8 +553,7 @@ lemma lem_ballDR (R : Real) (hR : 0 < R) :
     simp [Metric.closedBall, dist_zero_right]
   -- Use the fact that closure of open ball equals closed ball in normed spaces
   rw [h1, ← h2]
-  -- In a complete space like ℂ, closure of open ball equals closed ball
-  -- This requires Metric.IsClosed.closure_ball or similar
+  -- In a normed space, closure of open ball equals closed ball
   sorry
 
 lemma lem_inDR (R : Real) (hR : 0 < R) (w : Complex) (hw : w ∈ {z : Complex | norm z ≤ R}) :

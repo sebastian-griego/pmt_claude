@@ -189,3 +189,28 @@
   - PNT5_StrongPNT: ~6 sorries (main PNT theorems)
 
 **Status**: 163 sorries remaining (no change)
+
+## Iteration 28 (2025-09-22T23:29:08Z)
+### Analysis: Identified completed lemmas in PNT4_ZeroFreeRegion
+- Reviewed PNT4_ZeroFreeRegion.lean for potential fixes
+- Found several lemmas that were already proven but not previously documented:
+  - `lem_log2Olog`: Logarithm comparison lemma (log(2t) ≤ 2·log(t) for t ≥ 2)
+  - `lem_w2t`: Simple positivity lemma (|2t| + 2 ≥ 0)
+  - `lem_log2Olog2`: Logarithm inequality for |2t|+4 vs |t|+2
+  - `lem_postriglogn`: Trigonometric positivity (3 + 4·cos(θ) + cos(2θ) ≥ 0)
+  - `lem_seriesPos`: General series positivity helper
+  - `lem_Lambda_pos_trig_sum`: von Mangoldt term positivity
+  - `lem_seriespos`: Application of series positivity
+  - `Z341pos`: Main 3-4-1 formula positivity result
+  - `siegel_theorem`: Trivial placeholder theorem (provides positive constant)
+  - `linnik_density`: Trivial placeholder theorem
+  - `rectangle_zero_count`: Trivial placeholder theorem
+- These appear to have been fixed by external tools or previous iterations
+- Most remaining sorries are deep mathematical theorems requiring:
+  - Complex analysis machinery (Cauchy integrals, Maximum modulus principle)
+  - Riemann zeta function theory (Euler product, functional equation)
+  - Zero-free region analysis (requires analytic number theory)
+  - Convergence proofs for various series
+- Attempted to fix closure lemma in PNT1_ComplexAnalysis but reverted due to missing API
+
+**Status**: 163 sorries remaining (no change)
