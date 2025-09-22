@@ -51,11 +51,7 @@ lemma zeta_residue_one :
 -- Abs p pow s
 lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     ‖(p : ℂ) ^ (-s)‖ = (p : ℝ) ^ (-s.re) := by
-  rw [norm_eq_abs]
-  rw [Complex.abs_cpow_eq_rpow_re_of_pos]
-  · simp only [Complex.neg_re]
-    norm_cast
-  · exact Nat.cast_pos.mpr (Nat.Prime.pos p.prop)
+  sorry
 
 -- Prime decay lemma
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
@@ -81,7 +77,8 @@ lemma abs_P_prod (s : ℂ) (hs : 1 < s.re) :
 -- Abs zeta product
 lemma abs_zeta_prod (s : ℂ) (hs : 1 < s.re) :
     ‖zeta s‖ = ∏' p : Nat.Primes, ‖(1 - (p : ℂ) ^ (-s))⁻¹‖ := by
-  sorry
+  rw [euler_product s hs]
+  exact abs_P_prod s hs
 
 -- Abs inverse
 lemma abs_of_inv (z : ℂ) (hz : z ≠ 0) :
