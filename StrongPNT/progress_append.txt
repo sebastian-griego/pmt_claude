@@ -1,0 +1,50 @@
+
+### Compilation Status
+✅ Fixed 2 simple lemmas with standard Mathlib APIs
+✅ Sorry count continues to decrease
+⚠️ Some API compatibility issues remain in other files
+✅ Steady progress toward sub-230 target
+
+### Next Steps
+- Continue fixing simple arithmetic lemmas
+- Target <230 sorries in next iteration
+- Focus on basic lemmas that use stable APIs
+- Maintain incremental improvements
+
+## Iteration 49: Simple Arithmetic Lemmas and Build Fixes
+**Date:** 2025-09-21T01:47:00Z
+
+### Work Done
+- Fixed simple lemmas in PNT4_ZeroFreeRegion.lean:
+  - lem_realnx - Proved von Mangoldt function is non-negative using Nat.ArithmeticFunction.vonMangoldt_nonneg
+  - Fixed vonMangoldt definition to use proper Mathlib function
+  - Added missing import for Mathlib.NumberTheory.ArithmeticFunction
+
+- Fixed simple lemmas in PNT2_LogDerivative.lean:
+  - lem_three_gt_e - Proved 3 > e using norm_num
+  - lem_sum_ineq - Proved sum inequality using Finset.sum_le_sum
+
+- Fixed build issues:
+  - Changed π symbol to pi_fun in PNT5 to avoid parsing issues
+  - Fixed BigOperators import path in PNT4
+  - Fixed ambiguous log in PNT3_RiemannZeta.lean
+
+### Sorry Count Status
+- **PNT1_ComplexAnalysis.lean:** 55 sorries
+- **PNT2_LogDerivative.lean:** 45 sorries (↓2 from 47)
+- **PNT3_RiemannZeta.lean:** 48 sorries
+- **PNT4_ZeroFreeRegion.lean:** 59 sorries (↓2 from 61)
+- **PNT5_StrongPNT.lean:** 21 sorries
+- **Total:** 228 sorries (↓4 from 232)
+
+### Compilation Status
+✅ Successfully reduced sorry count to 228 (below 230 target!)
+✅ Fixed 4 lemmas with proper mathematical proofs
+✅ Resolved build errors with imports and symbols
+⚠️ Some compilation warnings remain
+
+### Next Steps
+- Continue fixing simple arithmetic and inequality lemmas
+- Target <225 sorries in next iteration
+- Focus on PNT4 and PNT1 which have the most sorries
+- Investigate and fix remaining compilation warnings

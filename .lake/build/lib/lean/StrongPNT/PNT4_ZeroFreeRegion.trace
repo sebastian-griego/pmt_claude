@@ -1,0 +1,280 @@
+{"synthetic": false,
+ "outputs":
+ {"o": ["10575540011392737251"],
+  "i": "1325005204808392197",
+  "c": "5717535585577967421"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/home/jovyan/pmt_claude/.lake/packages/Cli/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/batteries/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/Qq/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/aesop/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/importGraph/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/plausible/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/build/lib/lean /home/jovyan/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /home/jovyan/pmt_claude/StrongPNT/PNT4_ZeroFreeRegion.lean -o /home/jovyan/pmt_claude/.lake/build/lib/lean/StrongPNT/PNT4_ZeroFreeRegion.olean -i /home/jovyan/pmt_claude/.lake/build/lib/lean/StrongPNT/PNT4_ZeroFreeRegion.ilean -c /home/jovyan/pmt_claude/.lake/build/ir/StrongPNT/PNT4_ZeroFreeRegion.c --setup /home/jovyan/pmt_claude/.lake/build/ir/StrongPNT/PNT4_ZeroFreeRegion.setup.json --json",
+   "level": "trace"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:42:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:98:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:105:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:112:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:119:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:131:31: unused variable `hδ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:131:44: unused variable `hδ'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:137:31: unused variable `hδ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:137:44: unused variable `hδ'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:156:21: unused variable `hδ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:192:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:197:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:219:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:245:10: This simp argument is unused:\n  abs_two\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵a̵b̵s̵_̵t̵w̵o̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:261:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:290:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:298:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:311:23: unused variable `hδ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:311:36: unused variable `hδ'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:312:26: unused variable `hρZ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:317:23: unused variable `hδ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:317:36: unused variable `hδ'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:317:50: unused variable `hσ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:325:24: unused variable `hδ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:326:5: unused variable `hρ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:326:26: unused variable `hρZ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:378:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:383:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:388:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:397:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:402:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:407:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:417:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:422:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:427:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:432:25: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:436:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:441:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:446:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:451:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:456:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:483:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:488:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:496:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:501:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:507:65: unused variable `hsum`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:512:55: unused variable `hδ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:535:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:540:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:545:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:549:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:554:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:561:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:566:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:571:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:577:4: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:581:4: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:585:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:590:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:595:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:601:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:609:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:615:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:627:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:633:40: unused variable `hσ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:633:63: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:639:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:645:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT4_ZeroFreeRegion.lean:651:8: declaration uses 'sorry'",
+   "level": "warning"}],
+ "inputs":
+ [["StrongPNT.PNT4_ZeroFreeRegion:deps",
+   [["deps",
+     [["StrongPNT/PNT:extraDep", [["@StrongPNT:extraDep", "1723"]]],
+      ["imports",
+       [["Mathlib.Analysis.Complex.Basic transitive imports (legacy)",
+         "6312699467231775052"],
+        ["Mathlib.Analysis.Complex.Basic:importAllArts",
+         "16181265703339697890"],
+        ["Mathlib.Analysis.SpecialFunctions.Log.Basic transitive imports (legacy)",
+         "5828322712696461694"],
+        ["Mathlib.Analysis.SpecialFunctions.Log.Basic:importAllArts",
+         "6532217370483136181"],
+        ["Mathlib.NumberTheory.LSeries.RiemannZeta transitive imports (legacy)",
+         "16895764473548881091"],
+        ["Mathlib.NumberTheory.LSeries.RiemannZeta:importAllArts",
+         "8004718404539618790"],
+        ["Mathlib.NumberTheory.LSeries.Nonvanishing transitive imports (legacy)",
+         "16819519697134198100"],
+        ["Mathlib.NumberTheory.LSeries.Nonvanishing:importAllArts",
+         "8655387509211863662"],
+        ["Mathlib.Analysis.Complex.Exponential transitive imports (legacy)",
+         "11094645338876732265"],
+        ["Mathlib.Analysis.Complex.Exponential:importAllArts",
+         "4609330469760148389"],
+        ["Mathlib.Data.Finset.Basic transitive imports (legacy)",
+         "1549831655490159982"],
+        ["Mathlib.Data.Finset.Basic:importAllArts", "15914340179837875712"],
+        ["Mathlib.Algebra.BigOperators.Group.Finset.Basic transitive imports (legacy)",
+         "12307169521566722511"],
+        ["Mathlib.Algebra.BigOperators.Group.Finset.Basic:importAllArts",
+         "9418778258070986371"],
+        ["Mathlib.NumberTheory.ArithmeticFunction transitive imports (legacy)",
+         "11078419374030657348"],
+        ["Mathlib.NumberTheory.ArithmeticFunction:importAllArts",
+         "499708008135253702"],
+        ["Mathlib.NumberTheory.VonMangoldt transitive imports (legacy)",
+         "5452314212886773525"],
+        ["Mathlib.NumberTheory.VonMangoldt:importAllArts",
+         "7800272393229824833"],
+        ["Mathlib.Data.Complex.BigOperators transitive imports (legacy)",
+         "18061525526095171921"],
+        ["Mathlib.Data.Complex.BigOperators:importAllArts",
+         "7986848980165696894"],
+        ["Mathlib.Data.Complex.Basic transitive imports (legacy)",
+         "17349243355035983180"],
+        ["Mathlib.Data.Complex.Basic:importAllArts",
+         "16706394122373611478"]]]]],
+    ["libs",
+     [["import dynlibs", "1723"],
+      ["package external libraries", "1723"],
+      ["module dynlibs", "1723"],
+      ["module plugins", "1723"]]]]],
+  ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
+   "16820442660988836695"],
+  ["/home/jovyan/pmt_claude/StrongPNT/PNT4_ZeroFreeRegion.lean",
+   "6620469498282439665"],
+  ["options",
+   [["-Dpp.proofs.withType=false", "17856924786787508970"],
+    ["-DrelaxedAutoImplicit=false", "8404479228809428608"],
+    ["-Dpp.unicode.fun=true", "11210593074386665387"],
+    ["-DautoImplicit=false", "5369888039164004816"]]],
+  ["Module.leanArgs: #[]", "1723"]],
+ "depHash": "7984335196818650266"}
