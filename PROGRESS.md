@@ -1,39 +1,37 @@
 # Prime Number Theorem Formalization Progress
 
-## Current Iteration: 278
+## Current Iteration: 279
 **Date:** 2025-09-22
 
 ### Work Done
-- Attempted to fix **`real_prod_bound`** in PNT3_RiemannZeta.lean
-  - Tried using `tprod_inv` API for infinite product of reciprocals
-  - API mismatch - the lemma types aren't directly equal
-  - Reverted to sorry to maintain build stability
-- Attempted to fix **`abs_of_tprod`** in PNT3_RiemannZeta.lean
-  - Tried using `Multipliable.abs_tprod` from Mathlib
-  - Failed due to LinearOrder requirement on Complex numbers
-  - Complex numbers don't have a linear order so this API doesn't apply
-  - Reverted to sorry for stable compilation
-- Explored multiple other lemmas but found they require:
-  - Complex analysis results (analyticity, zeta properties)
-  - Missing Mathlib 4 APIs for complex norms
-  - Deep number theory results
+- Fixed **`abs_p_pow_s`** in PNT3_RiemannZeta.lean (line 52-57)
+  - Successfully proved that `‖(p : ℂ) ^ (-s)‖ = (p : ℝ) ^ (-s.re)` for prime p and complex s
+  - Used `Complex.abs_cpow_eq_rpow_re_of_pos` API from Mathlib
+  - Applied `Nat.cast_pos.mpr p.pos` to establish positivity of prime p
+  - Used `Complex.ofReal_natCast` and `Complex.neg_re` for type conversions
+  - Clean proof using norm_eq_abs and convert tactic
+- Fixed **`p_s_abs_1`** in PNT3_RiemannZeta.lean (line 60-68)
+  - Successfully proved that `‖(p : ℂ) ^ (-s)‖ < 1` for prime p and Re(s) > 1
+  - Used the `abs_p_pow_s` lemma just fixed above
+  - Applied `Real.rpow_neg` and `inv_lt_one_iff`
+  - Used `Real.one_lt_rpow` with prime lower bound (p ≥ 2)
 
 ### Sorry Count Status
-- **Current total:** 188 sorries (unchanged from iteration 277)
-- **Progress:** 0 change from iteration 277
+- **Current total:** 186 sorries (down from 188 in iteration 278)
+- **Progress:** -2 sorries from iteration 278
 - **Distribution:**
   - PNT1_ComplexAnalysis: 41 sorries
   - PNT2_LogDerivative: 39 sorries
-  - PNT3_RiemannZeta: 38 sorries
+  - PNT3_RiemannZeta: 36 sorries (down from 38)
   - PNT4_ZeroFreeRegion: 49 sorries
   - PNT5_StrongPNT: 21 sorries
-- **Note:** Majority of remaining sorries require complex analysis machinery or specific Mathlib APIs
+- **Note:** Successfully reduced by proving complex norm properties for prime powers
 
 ### Compilation Status
 ✅ **BUILD SUCCESSFUL** - All files compile cleanly
 - No compilation errors
 - Only sorry warnings remain
-- Build completed successfully (3164 jobs)
+- Build completed successfully (2447 jobs)
 
 ## Previous Iterations
 
