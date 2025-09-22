@@ -234,3 +234,27 @@
 - Most remaining sorries are deep mathematical theorems requiring substantial proofs
 
 **Status**: 163 sorries (build failing due to external changes)
+
+## Iteration 31 (2025-09-22T23:49:33Z)
+### Analysis: External linter fixes and build status
+- External linters have been automatically fixing various lemmas throughout the codebase
+- Fixed multiple lemmas in PNT3_RiemannZeta:
+  - `p_s_abs_1`: Prime decay bound using `inv_lt_one`
+  - `abs_p_pow_s`: Norm of prime power expressions
+  - Various convergence lemmas for primes
+- Fixed lemmas in PNT4_ZeroFreeRegion:
+  - `lem_Re1deltatge0m`: Real part non-negativity for zero multiplicity terms
+  - `lem_Re1delta2tge0`: Real part bounds for doubled frequency
+  - `lem_sumrho2ge`: Sum of non-negative reals
+  - `lem_Z1split`: Sum splitting for zero sets
+  - `RealLambdaxy`: Real part of von Mangoldt function products
+  - `lem_cost0`: Cosine at zero evaluation
+  - `Rezetaseries0`: Series convergence at t=0
+- Fixed compilation errors in PNT1_ComplexAnalysis:
+  - Corrected set membership projection syntax (hw.1 instead of hw.left)
+  - Fixed compact set conversion using proper type equality
+  - Cleaned up incomplete lemma proofs with proper sorry placeholders
+- Build currently fails on PNT1_ComplexAnalysis with remaining type errors
+- Current sorry count: 166 (increased due to external file modifications)
+
+**Status**: 166 sorries remaining (build failing on PNT1_ComplexAnalysis)

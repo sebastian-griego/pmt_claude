@@ -216,7 +216,10 @@ lemma lem_Re1delta2tge0 (hδ : 0 < δ) (hδ' : δ < 1) (t : ℝ) {ρ₁ : ℂ}
   rw [Complex.mul_re]
   simp only [Complex.ofReal_re, Complex.ofReal_im]
   ring_nf
-  exact mul_nonneg hm_pos h_inv_pos
+  have h_inv_pos' : 0 ≤ (1 + ↑δ + ↑2 * ↑t * I - ρ₁)⁻¹.re := by
+    convert h_inv_pos using 2
+    simp [mul_comm]
+  exact mul_nonneg hm_pos h_inv_pos'
 
 /-- Sum of non-negative reals is non-negative -/
 lemma lem_sumrho2ge (t : ℝ) (hδ : 0 < δ) (hδ' : δ < 1) :
@@ -326,9 +329,9 @@ lemma lem_Z1split (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}
       · left; exact h
       · right; exact ⟨hx, h⟩
     · intro h
-      cases h
-      · rwa [h]
-      · exact h.1
+      cases h with
+      | inl eq => rwa [eq]
+      | inr hx => exact hx.1
   rw [this, Finset.sum_insert]
   · rfl
   · simp
@@ -440,7 +443,10 @@ lemma RealLambdaxy (n : ℕ) (x y : ℝ) :
   · have hn_pos : 0 < n := Nat.pos_of_ne_zero hn
     have hn_ge : 1 ≤ n := Nat.one_le_iff_ne_zero.mpr hn
     -- Split the exponent
-    rw [← Complex.cpow_add _ _ (Nat.cast_ne_zero.mpr hn)]
+    have : (n : ℂ)^((-x : ℂ) - (y * I : ℂ)) = (n : ℂ)^(-x : ℂ) * (n : ℂ)^(-(y * I : ℂ)) := by
+      rw [← Complex.cpow_add _ _ (Nat.cast_ne_zero.mpr hn)]
+      simp [sub_eq_add_neg]
+    rw [this]
     -- Apply real multiplication
     rw [lem_realbw]
     -- vonMangoldt n is real
@@ -495,8 +501,8 @@ lemma lem_cost0 (n : ℕ) (hn : 1 ≤ n) : Real.cos (0 * Real.log n) = 1 := by
 lemma Rezetaseries0 (x : ℝ) (hx : 1 < x) :
     Summable fun n => vonMangoldt n * (n : ℝ)^(-x) := by
   have h := Rezetaseries_convergence x 0 hx
-  simp only [Real.cos_zero, mul_one] at h
-  exact h
+  convert h with n
+  simp only [Real.cos_zero, mul_one, mul_comm]
 
 /-- Series for 1+δ+it -/
 lemma Rezeta1zetaseries1 (t δ : ℝ) (hδ : 0 < δ) :

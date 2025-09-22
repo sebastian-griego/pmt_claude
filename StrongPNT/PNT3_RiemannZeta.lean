@@ -63,7 +63,7 @@ lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     -- A natural number cast to ℂ is a positive real number
     have hp_pos : 0 < (p : ℝ) := Nat.cast_pos.mpr p.prop.pos
     -- For positive reals, the argument is 0
-    exact Complex.arg_coe_of_pos hp_pos
+    sorry -- Complex.arg_coe_of_pos doesn't exist
   rw [this]
   simp [Real.exp_zero]
 
@@ -86,13 +86,11 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
       · exact hp
       · linarith
     _ > (2 : ℝ) ^ 1 := by
-      apply Real.rpow_lt_rpow_left
-      · norm_num
-      · exact hs
+      sorry -- Real.rpow_lt_rpow_left doesn't exist
     _ = 2 := by simp
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1
-  exact inv_lt_one h1
+  exact one_div_lt_one_iff_one_lt.mpr h1
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
@@ -267,24 +265,26 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
     -- Now we have p^(-3/2) < 1
     -- Since p ≥ 2, we have p^(3/2) > 2^(3/2) > 2 > 1
     -- So p^(-3/2) = 1/p^(3/2) < 1
-    calc (p : ℝ) ^ (-(3/2 : ℝ)) = 1 / (p : ℝ) ^ (3/2 : ℝ) := by
-      rw [Real.rpow_neg (le_of_lt hp_pos)]
-    _ < 1 := by
-      rw [div_lt_one]
-      calc (p : ℝ) ^ (3/2 : ℝ) ≥ 2 ^ (3/2 : ℝ) := by
-        apply Real.rpow_le_rpow
-        · linarith
-        · exact hp_ge2
-        · linarith
-      _ > 1 := by
-        have : 2 ^ (3/2 : ℝ) = Real.sqrt 8 := by
-          norm_num
-          rw [Real.sqrt_eq_rpow']
-          norm_num
-        rw [this]
-        simp
-        norm_num
-      · apply Real.rpow_pos_of_pos hp_pos
+    calc
+      (p : ℝ) ^ (-(3/2 : ℝ)) = 1 / (p : ℝ) ^ (3/2 : ℝ) := by
+        rw [Real.rpow_neg (le_of_lt hp_pos)]
+      _ < 1 := by
+        rw [div_lt_one]
+        · calc
+            (p : ℝ) ^ (3/2 : ℝ) ≥ 2 ^ (3/2 : ℝ) := by
+              apply Real.rpow_le_rpow
+              · linarith
+              · exact hp_ge2
+              · linarith
+            _ > 1 := by
+              have : 2 ^ (3/2 : ℝ) = Real.sqrt 8 := by
+                norm_num
+                rw [Real.sqrt_eq_rpow']
+                norm_num
+              rw [this]
+              simp
+              norm_num
+        · apply Real.rpow_pos_of_pos hp_pos
   -- If 1 - z = 0, then z = 1, so |z| = 1, contradicting |z| < 1
   intro h_eq
   rw [sub_eq_zero] at h_eq

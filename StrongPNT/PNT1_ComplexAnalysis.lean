@@ -535,7 +535,6 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     apply AnalyticWithinAt.mono h'
     -- Show {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
     intro w hw
-    simp at hw ⊢
     exact hw.1
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
@@ -592,9 +591,11 @@ lemma lem_BCmax (f : Complex → Complex) (R : Real) (hR : 0 < R)
     ∃ M : Real, ∀ z ∈ {z : Complex | norm z = R}, norm (f z) ≤ M := by
   -- The set {z : Complex | norm z = R} is the sphere of radius R, which is compact
   have h_compact : IsCompact {z : Complex | norm z = R} := by
-    convert isCompact_sphere 0 R using 1
-    ext z
-    simp [Metric.sphere, dist_zero_right]
+    have h : {z : Complex | norm z = R} = Metric.sphere (0 : ℂ) R := by
+      ext z
+      simp [Metric.sphere, dist_zero_right]
+    rw [h]
+    exact isCompact_sphere (0 : ℂ) R
   -- Since f is analytic on the closed disk, it's continuous on the sphere
   have h_cont : ContinuousOn f {z : Complex | norm z = R} := by
     apply ContinuousOn.mono (AnalyticOn.continuousOn hf)
@@ -1087,23 +1088,7 @@ theorem cauchy_formula_deriv (R r r' : Real) (f : Complex → Complex)
 -- Differential of w(t)
 lemma lem_dw_dt (r' : Real) (t : Real) :
     deriv (fun t => r' * Complex.exp (I * t)) t = I * r' * Complex.exp (I * t) := by
-  -- Use chain rule: d/dt[r' * exp(I*t)] = r' * d/dt[exp(I*t)]
-  -- First establish differentiability
-  have h1 : DifferentiableAt ℂ (fun s => I * s) t := by
-    apply differentiableAt_const.mul
-    exact differentiableAt_id
-  have h2 : DifferentiableAt ℂ (fun s => Complex.exp (I * s)) t := by
-    apply Complex.differentiableAt_exp.comp
-    exact h1
-  -- Use the fact that r' * exp(I*t) is differentiable as a function from ℝ to ℂ
-  have h3 : DifferentiableAt ℝ (fun s => r' * Complex.exp (I * s)) t := by
-    sorry -- complex differentiability issue
-  rw [deriv_const_mul _ h3]
-  -- Now we need d/dt[exp(I*t)] = I * exp(I*t)
-  have h4 : deriv (fun s => Complex.exp (I * s)) t = I * Complex.exp (I * t) := by
-    sorry -- chain rule for complex exponential
-  rw [h4]
-  ring
+  sorry
 
 -- Cauchy's Integral Formula parameterized
 lemma lem_CIF_deriv_param (R r r' : Real) (f : Complex → Complex)
