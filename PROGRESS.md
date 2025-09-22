@@ -1,30 +1,33 @@
 # Prime Number Theorem Formalization Progress
 
-## Current Iteration: 284
+## Current Iteration: 285
 **Date:** 2025-09-22
 
 ### Work Done
-- Verified current sorry count after previous fixes
-  - `abs_p_pow_s` and `p_s_abs_1` lemmas were already fixed in PNT3_RiemannZeta.lean
-  - Confirmed these fixes are stable and compile successfully
-  - No new lemmas fixed this iteration - maintaining stable state
+- Attempted to fix multiple lemmas but encountered API compatibility issues:
+  - **`abs_of_tprod`** in PNT3_RiemannZeta.lean: Tried using `tprod_norm` but API doesn't exist
+  - **`zeta_ratio_at_3_2`** in PNT3_RiemannZeta.lean: Would depend on `zeta_ratio_identity` which is also a sorry
+  - Reverted changes to maintain build stability
+- Verified existing proven lemmas are correct:
+  - `lem_cost0`, `lem_log2Olog`, and `lem_log2Olog2` in PNT4_ZeroFreeRegion are already proven
+  - `triangle_inequality_specific` in PNT3_RiemannZeta is already proven
 
 ### Sorry Count Status
 - **Current total:** 185 sorries (excluding PNT2_LogDerivative_old.lean)
-- **Progress:** -1 sorry from iteration 268 baseline
+- **Progress:** 0 change from iteration 284
 - **Distribution:**
   - PNT1_ComplexAnalysis: 41 sorries
   - PNT2_LogDerivative: 39 sorries
   - PNT3_RiemannZeta: 35 sorries
   - PNT4_ZeroFreeRegion: 49 sorries
   - PNT5_StrongPNT: 21 sorries
-- **Note:** Maintaining stable build with previously fixed lemmas
+- **Note:** Remaining sorries require deeper Mathlib APIs or complex analysis techniques
 
 ### Compilation Status
 ✅ **BUILD SUCCESSFUL** - All files compile cleanly
 - No compilation errors
 - Only sorry warnings remain
-- Build completed successfully
+- Build stable
 
 ## Previous Iterations
 
