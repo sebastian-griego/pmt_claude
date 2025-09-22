@@ -105,3 +105,16 @@
 ### Remaining
 - 35 sorries remaining (reduced from 39 due to fixed compilation)
 - Next targets: Continue with simple computational lemmas
+
+## Iteration 8 - 2025-09-22T21:17:30Z
+
+### Completed
+12. **Proved `zeta_ratio_prod`**: Established that the ratio of zeta functions can be expressed as a ratio of Euler products
+
+### Changes Made
+- Replaced 1 sorry with complete proof using the Euler product representation
+- Used existing lemmas `euler_product` and `Re2sge1` to derive the result directly
+
+### Remaining
+- 34 sorries remaining (reduced from 35)
+- Next targets: Look for other lemmas that follow directly from existing results

@@ -67,10 +67,10 @@ lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
   have hp_pos : 0 < (p : ℝ) := by
     norm_cast
     exact Nat.Prime.pos p.prop
-  rw [norm_cpow_eq_rpow_Re]
-  · simp only [neg_re, norm_natCast]
+  rw [Complex.norm_cpow_eq_rpow_re_of_pos]
+  · simp only [neg_re, Complex.norm_natCast]
   · norm_cast
-    exact hp_pos.ne'
+    exact hp_pos
 
 -- Prime decay lemma
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
@@ -86,14 +86,15 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
   rw [Real.rpow_neg hp_pos.le]
   have h_gt_one : 1 < (p : ℝ) ^ s.re := by
     have h_p_gt_one : 1 < (p : ℝ) := by linarith
+    have hpos : 0 < s.re := by linarith
     calc 1 = 1 ^ s.re := by simp
       _ < (p : ℝ) ^ s.re := by
         apply Real.rpow_lt_rpow
         · simp
         · exact h_p_gt_one
-        · exact hs
-  simp only [inv_lt_one_iff]
-  exact Or.inl h_gt_one
+        · exact hpos
+  rw [inv_lt_one]
+  exact h_gt_one
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
@@ -147,7 +148,8 @@ lemma abs_zeta_prod_prime (s : ℂ) (hs : 1 < s.re) :
 
 -- Real double
 lemma Re2s (s : ℂ) : (2 * s).re = 2 * s.re := by
-  rfl
+  simp only [mul_re, mul_zero, sub_zero]
+  norm_num
 
 -- Real bound
 lemma Re2sge1 (s : ℂ) (hs : 1 < s.re) : 1 < (2 * s).re := by
@@ -159,7 +161,7 @@ lemma zeta_ratio_prod (s : ℂ) (hs : 1 < s.re) :
     zeta (2 * s) / zeta s =
     (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-2*s))⁻¹) /
     (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-s))⁻¹) := by
-  sorry
+  rw [euler_product (2 * s) (Re2sge1 s hs), euler_product s hs]
 
 -- Ratio product general
 lemma prod_of_ratios {P : Type*} [Countable P]
