@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["5969510858390947894"],
-  "i": "10425902721988261557",
+ {"o": ["12220024684803147271"],
+  "i": "4382100367063301130",
   "c": "18035040388222541126"},
  "log":
  [{"message":
@@ -167,64 +167,70 @@
    "StrongPNT/PNT2_LogDerivative.lean:476:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:494:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:501:53: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:498:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:510:31: unused variable `ρ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:502:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:521:48: unused variable `ρ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:514:48: unused variable `ρ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:532:40: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:525:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:532:61: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:532:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:533:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:539:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:533:57: unused variable `hf0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:546:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:544:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:555:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:551:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:564:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:558:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:572:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:567:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:580:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:576:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:588:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:584:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT2_LogDerivative.lean:592:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
    "StrongPNT/PNT2_LogDerivative.lean:600:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:613:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:612:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:626:34: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:625:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:626:55: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:638:34: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:627:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:638:55: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:629:6: unused variable `ρ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:639:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:640:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:641:6: unused variable `ρ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "StrongPNT/PNT2_LogDerivative.lean:652:6: declaration uses 'sorry'",
    "level": "warning"}],
  "inputs":
  [["StrongPNT.PNT2_LogDerivative:deps",
@@ -286,11 +292,11 @@
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
   ["/home/jovyan/pmt_claude/StrongPNT/PNT2_LogDerivative.lean",
-   "16115563321039878756"],
+   "13985278468930469253"],
   ["options",
    [["-Dpp.proofs.withType=false", "17856924786787508970"],
     ["-DrelaxedAutoImplicit=false", "8404479228809428608"],
     ["-Dpp.unicode.fun=true", "11210593074386665387"],
     ["-DautoImplicit=false", "5369888039164004816"]]],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "12458433982416662157"}
+ "depHash": "16004970480754010391"}

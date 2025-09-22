@@ -108,3 +108,20 @@
 ### Next Steps
 - Continue fixing remaining build errors in PNT1_ComplexAnalysis.lean
 - Focus on simple computational lemmas that can be proven with basic tactics
+
+## Iteration 30 (2025-09-22T23:43:00Z)
+
+### Fixed
+- Fixed build errors in PNT2_LogDerivative.lean:
+  - Line 535: Added missing hypothesis `hm : ∀ ρ ∈ hfinite.toFinset, m ρ ≥ 1` to `lem_mod_lower_bound_1`
+  - Line 541: Fixed reference to non-existent `m_rho_ne_zero` by using the new hypothesis `hm ρ hρ`
+  - Line 518: Fixed `pow_le_pow_left₀` application by adding the missing argument `(n i)`
+
+### Progress
+- Sorry count remains at 163 (34+35+33+40+21)
+- PNT2_LogDerivative now builds successfully (was failing with 2 errors)
+- Remaining build errors are in PNT3_RiemannZeta, PNT4_ZeroFreeRegion, and PNT1_ComplexAnalysis
+
+### Next Steps
+- Fix build errors in PNT3_RiemannZeta.lean (5+ errors including unknown constants)
+- Continue fixing remaining build errors in other files
