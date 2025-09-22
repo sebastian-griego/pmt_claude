@@ -69,7 +69,7 @@ lemma zeta_residue_one :
 -- Abs p pow s
 lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     ‖(p : ℂ) ^ (-s)‖ = (p : ℝ) ^ (-s.re) := by
-  have hp : 0 < (p : ℝ) := Nat.cast_pos.mpr p.pos
+  have hp : 0 < (p : ℝ) := Nat.cast_pos.mpr p.prop.pos
   rw [norm_eq_abs]
   rw [Complex.abs_cpow_eq_rpow_re_of_pos hp]
   simp [Complex.ofReal_natCast, Complex.neg_re]
@@ -78,10 +78,10 @@ lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
     ‖(p : ℂ) ^ (-s)‖ < 1 := by
   rw [abs_p_pow_s]
-  rw [Real.rpow_neg (Nat.cast_pos.mpr p.pos)]
+  rw [Real.rpow_neg (Nat.cast_pos.mpr p.prop.pos)]
   rw [inv_lt_one_iff]
   right
-  have hp : 2 ≤ (p : ℕ) := p.two_le
+  have hp : 2 ≤ (p : ℕ) := Nat.Prime.two_le p.prop
   have hp_real : 2 ≤ (p : ℝ) := by norm_cast; exact hp
   apply Real.one_lt_rpow hp_real hs
 
@@ -149,7 +149,9 @@ lemma zeta_ratio_prod (s : ℂ) (hs : 1 < s.re) :
     zeta (2 * s) / zeta s =
     (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-2*s))⁻¹) /
     (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-s))⁻¹) := by
-  sorry
+  have h2s : 1 < (2 * s).re := Re2sge1 s hs
+  rw [euler_product (2 * s) h2s, euler_product s hs]
+  rfl
 
 -- Ratio product general
 lemma prod_of_ratios {P : Type*} [Countable P]
@@ -248,12 +250,12 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
   rw [abs_p_pow_s] at norm_eq
   simp [Complex.add_re, Complex.I_re] at norm_eq
   have : (p : ℝ) ^ (-(3/2 : ℝ)) = 1 := norm_eq
-  have hp : 2 ≤ (p : ℕ) := p.two_le
+  have hp : 2 ≤ (p : ℕ) := Nat.Prime.two_le p.prop
   have hp_real : 2 ≤ (p : ℝ) := by norm_cast; exact hp
   have : 1 < (p : ℝ) ^ (3/2 : ℝ) := by
     apply Real.one_lt_rpow hp_real
     norm_num
-  rw [Real.rpow_neg (Nat.cast_pos.mpr p.pos)] at this
+  rw [Real.rpow_neg (Nat.cast_pos.mpr p.prop.pos)] at this
   have : (p : ℝ) ^ (3/2 : ℝ) > 1 := this
   field_simp at this ⊢
   linarith

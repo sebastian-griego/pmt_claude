@@ -44,3 +44,18 @@
 ### Remaining
 - 31 sorries left to prove (reduced from 32)
 - Next targets: Focus on simpler computational lemmas or those with trivial proofs
+
+## Iteration 4 - 2025-09-22T20:31:12Z
+
+### Completed
+7. **Fixed compilation issues**: Corrected field access syntax for Nat.Primes
+8. **Fixed `zeta_ratio_prod`**: Added missing `rfl` to complete the proof
+
+### Changes Made
+- Fixed all references to `p.pos` and `p.two_le` to use proper syntax: `p.prop.pos` and `Nat.Prime.two_le p.prop`
+- Fixed `abs_p_pow_s`, `p_s_abs_1`, and `condp32` lemmas to use correct field access
+- Added `rfl` to complete `zeta_ratio_prod` proof
+
+### Remaining
+- 31 sorries still to prove (no reduction this iteration, focused on fixing errors)
+- Next targets: Look for lemmas that can be completed with simple tactics
