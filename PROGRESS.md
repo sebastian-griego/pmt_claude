@@ -214,3 +214,12 @@
 - Attempted to fix closure lemma in PNT1_ComplexAnalysis but reverted due to missing API
 
 **Status**: 163 sorries remaining (no change)
+
+## Iteration 29 (2025-09-22T23:35:05Z)
+### Fixed: Set inclusion subset proof in PNT1_ComplexAnalysis
+- Fixed the proof that {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
+- Changed from pattern matching syntax to simpler membership extraction
+- Used `simp` to extract membership condition then applied `.1` projection
+- Location: PNT1_ComplexAnalysis.lean:537-539
+
+**Status**: 162 sorries remaining (was 163)
