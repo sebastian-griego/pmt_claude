@@ -98,3 +98,15 @@
 - Location: StrongPNT/PNT4_ZeroFreeRegion.lean:690-695
 
 **Status**: 191 sorries remaining (increased due to file restructuring)
+
+## Iteration 20 (2025-09-22T22:36:00Z)
+### Fixed: Power inequality lemmas in PNT2_LogDerivative
+- Fixed `lem_power_ineq`: For c > 1 and n ≥ 1, proved c ≤ c^n
+  - Used pow_le_pow_right to show c^1 ≤ c^n
+  - Location: StrongPNT/PNT2_LogDerivative.lean:494-498
+- Fixed `lem_power_ineq_1`: For c ≥ 1 and n ≥ 1, proved 1 ≤ c^n
+  - Used pow_le_pow_left to show 1^n ≤ c^n
+  - Location: StrongPNT/PNT2_LogDerivative.lean:501-505
+- These lemmas are used for product inequalities in the log derivative analysis
+
+**Status**: 172 sorries remaining (was 174 before fixes)

@@ -492,11 +492,17 @@ lemma lem_prod_ineq {α : Type*} (K : Finset α) (a b : α → ℝ)
 
 -- Power inequality
 lemma lem_power_ineq (c : ℝ) (n : ℕ) (hc : 1 < c) (hn : 1 ≤ n) : c ≤ c ^ n := by
-  sorry
+  have h : c ^ 1 ≤ c ^ n := by
+    apply pow_le_pow_right (le_of_lt hc) hn
+  simp at h
+  exact h
 
 -- Power one
 lemma lem_power_ineq_1 (c : ℝ) (n : ℕ) (hc : 1 ≤ c) (hn : 1 ≤ n) : 1 ≤ c ^ n := by
-  sorry
+  have h : (1 : ℝ) ^ n ≤ c ^ n := by
+    apply pow_le_pow_left (by norm_num : (0 : ℝ) ≤ 1) hc
+  simp at h
+  exact h
 
 -- Product power inequality
 lemma lem_prod_power_ineq {α : Type*} (K : Finset α) (c : α → ℝ) (n : α → ℕ)
