@@ -59,3 +59,22 @@
 ### Remaining
 - 31 sorries still to prove (no reduction this iteration, focused on fixing errors)
 - Next targets: Look for lemmas that can be completed with simple tactics
+
+## Iteration 5 - 2025-09-22T20:39:12Z
+
+### Attempted
+9. **Tried to restore proven lemmas**: Attempted to restore `zeta_converges_re_gt_one`, `zeta_ne_zero_re_gt_one`, `abs_p_pow_s`, `p_s_abs_1`, `abs_of_tprod`
+
+### Issues Encountered
+- Missing Mathlib lemmas: `summable_pow_neg_iff` not available in current Mathlib version
+- `Multipliable.norm_tprod` doesn't exist in the expected namespace
+- Had to revert these proofs back to sorries due to missing dependencies
+
+### Changes Made
+- Fixed `condp32` lemma with correct proof
+- Fixed `zeta_ratio_prod` to use existing lemmas
+- Maintained `diff_of_squares` and other simple lemmas already proven
+
+### Remaining
+- 34 sorries (increased from 31 due to reverted proofs)
+- Next targets: Focus on lemmas that don't depend on missing Mathlib functionality
