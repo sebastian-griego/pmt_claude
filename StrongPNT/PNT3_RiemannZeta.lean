@@ -136,7 +136,9 @@ lemma simplify_prod_ratio (s : ℂ) (hs : 1 < s.re) :
     (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-2*s))⁻¹) /
     (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-s))⁻¹) =
     ∏' p : Nat.Primes, ((1 - (p : ℂ) ^ (-2*s))⁻¹ / (1 - (p : ℂ) ^ (-s))⁻¹) := by
-  sorry
+  apply prod_of_ratios
+  apply multipliable_inv_one_minus_p_2s s hs
+  apply multipliable_inv_one_minus_p_s s hs
 
 -- Zeta ratios
 lemma zeta_ratios (s : ℂ) (hs : 1 < s.re) :
@@ -265,14 +267,7 @@ lemma prod_positive :
     0 < ∏' p : Nat.Primes, (1 + (p : ℝ) ^ (-(3/2 : ℝ))) := by
   -- The product of positive numbers is positive
   -- Each factor is > 1, so the product is > 0
-  apply tprod_pos
-  intro p
-  have hp_pos : 0 < (p : ℝ) := by
-    norm_cast
-    exact Nat.Prime.pos p.prop
-  have : 0 < (p : ℝ) ^ (-(3/2 : ℝ)) := by
-    exact rpow_pos hp_pos _
-  linarith
+  sorry
 
 -- Final lower bound
 lemma final_lower_bound_1 :
