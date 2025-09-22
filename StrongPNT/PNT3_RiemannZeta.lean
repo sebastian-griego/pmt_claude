@@ -64,7 +64,9 @@ lemma zeta_residue_one :
 -- Abs p pow s
 lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     ‖(p : ℂ) ^ (-s)‖ = (p : ℝ) ^ (-s.re) := by
-  sorry
+  have hp_pos : 0 < (p : ℝ) := Nat.cast_pos.mpr p.prop.pos
+  rw [Complex.abs_cpow_eq_rpow_re_of_pos hp_pos, neg_re]
+  simp only [Complex.abs_natCast]
 
 -- Prime decay lemma
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
@@ -160,7 +162,7 @@ lemma simplify_prod_ratio (s : ℂ) (hs : 1 < s.re) :
 lemma zeta_ratios (s : ℂ) (hs : 1 < s.re) :
     zeta (2 * s) / zeta s =
     ∏' p : Nat.Primes, ((1 - (p : ℂ) ^ (-2*s))⁻¹ / (1 - (p : ℂ) ^ (-s))⁻¹) := by
-  sorry
+  rw [zeta_ratio_prod s hs, simplify_prod_ratio s hs]
 
 -- Difference of squares
 lemma diff_of_squares (z : ℂ) : 1 - z^2 = (1 - z) * (1 + z) := by
