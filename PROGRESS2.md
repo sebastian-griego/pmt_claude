@@ -273,3 +273,26 @@
 ### Next Steps
 - Continue fixing remaining sorries in complex analysis
 - Focus on simpler lemmas that use available Mathlib functions
+
+## Iteration 18 - 2025-09-22T22:39:25Z
+
+### Attempted
+- Investigated multiple lemmas across all PNT files
+- Attempted to fix `lem_Liouville` but API not available
+- Attempted to fix `prod_of_ratios` but API not available
+- Attempted to fix `lem_integral_bound` but integration API issues
+
+### Progress
+- Sorry count remains at 188 (excluding old file: 173)
+- No reduction this iteration due to missing Mathlib APIs
+- Files breakdown:
+  - PNT1_ComplexAnalysis: 38 sorries
+  - PNT2_LogDerivative: 37 sorries
+  - PNT3_RiemannZeta: 33 sorries
+  - PNT4_ZeroFreeRegion: 44 sorries
+  - PNT5_StrongPNT: 21 sorries
+
+### Next Steps
+- Focus on simpler algebraic lemmas that don't require missing APIs
+- Look for basic inequalities or set-theoretic proofs
+- Consider lemmas that use only basic Mathlib functions
