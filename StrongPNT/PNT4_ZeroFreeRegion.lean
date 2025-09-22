@@ -298,10 +298,9 @@ lemma lem_rhoinZt {σ t : ℝ} (hζ : riemannZeta (σ + t * I) = 0)
 
 /-- Multiplicity is at least 1 for zeros -/
 lemma lem_m_rho_ge_1 (ρ : ℂ) (hρ : riemannZeta ρ = 0) : 1 ≤ m_rho_zeta ρ := by
+  -- By definition of m_rho_zeta: if riemannZeta ρ = 0, then m_rho_zeta ρ = 1
   unfold m_rho_zeta
-  simp only [if_neg]
-  · norm_num
-  · exact ne_of_eq_of_ne hρ (by norm_num : (0 : ℂ) ≠ 0)
+  simp [hρ, if_false]
 
 /-- Split sum with ρ ∈ Z_t -/
 lemma lem_Z1split (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}
@@ -309,7 +308,14 @@ lemma lem_Z1split (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}
     ∑ ρ₁ ∈ (ZetaZerosNearPoint_finite t).toFinset, ((m_rho_zeta ρ₁ : ℂ) / (1 + δ + t * I - ρ₁)).re =
     ((m_rho_zeta ρ : ℂ) / (1 + δ + t * I - ρ)).re +
     ∑ ρ₁ ∈ ((ZetaZerosNearPoint_finite t).toFinset) \ {ρ}, ((m_rho_zeta ρ₁ : ℂ) / (1 + δ + t * I - ρ₁)).re := by
-  sorry
+  -- Since ρ ∈ ZetaZerosNearPoint t, it's in the finite set
+  have hρ_mem : ρ ∈ (ZetaZerosNearPoint_finite t).toFinset := by
+    simp [Set.Finite.mem_toFinset]
+    exact hρZ
+  -- Use Finset.sum_eq_sum_diff_add for splitting the sum
+  rw [← Finset.sum_sdiff_add hρ_mem]
+  simp only [Finset.sdiff_singleton_eq_erase]
+  rw [Finset.sum_singleton]
 
 /-- Lower bound from split sum -/
 lemma lem_Z1splitge (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}
@@ -436,20 +442,9 @@ lemma RealLambdaxy (n : ℕ) (x y : ℝ) :
       simp [Complex.ofReal_im]
     -- Apply lem_eacosalog3
     have h3 : ((n : ℂ)^(-y * I : ℂ)).re = Real.cos (y * Real.log n) := by
-      exact lem_eacosalog3 n y hn_ge
+      exact lem_eacosalog3 n hn_ge y
     rw [h1, h2, h3]
     simp
-
-/-- Re(n^(-iy)) = cos(y log n) -/
-lemma lem_eacosalog3 (n : ℕ) (y : ℝ) (hn : 1 ≤ n) :
-    ((n : ℂ)^(-y * I : ℂ)).re = Real.cos (y * Real.log n) := by
-  have hn_pos : n ≠ 0 := Nat.one_le_iff_ne_zero.mp hn
-  have hn_pos' : 0 < n := Nat.pos_of_ne_zero hn_pos
-  rw [Complex.cpow_def_of_ne_zero (Nat.cast_ne_zero.mpr (Nat.one_le_iff_ne_zero.mp hn))]
-  simp only [Complex.log_natCast_of_pos hn_pos']
-  rw [Complex.mul_comm, Complex.exp_mul_I_re]
-  simp only [Complex.ofReal_mul, Complex.ofReal_log, Complex.ofReal_neg]
-  rw [Real.cos_neg]
 
 /-- Real part series with cos -/
 lemma ReZseriesRen (x y : ℝ) (hx : 1 < x) :
@@ -483,7 +478,9 @@ lemma lem_cost0 (n : ℕ) (hn : 1 ≤ n) : Real.cos (0 * Real.log n) = 1 := by
 /-- Series at t=0 -/
 lemma Rezetaseries0 (x : ℝ) (hx : 1 < x) :
     Summable fun n => vonMangoldt n * (n : ℝ)^(-x) := by
-  sorry
+  have h := Rezetaseries_convergence x 0 hx
+  simp only [Real.cos_zero, mul_one] at h
+  exact h
 
 /-- Series for 1+δ+it -/
 lemma Rezeta1zetaseries1 (t δ : ℝ) (hδ : 0 < δ) :
