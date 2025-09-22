@@ -60,7 +60,12 @@ lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
 -- Prime decay lemma
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
     ‖(p : ℂ) ^ (-s)‖ < 1 := by
-  sorry
+  rw [abs_p_pow_s]
+  rw [Real.rpow_neg (Nat.cast_pos.mpr (Nat.Prime.pos p.prop))]
+  rw [inv_lt_one]
+  apply Real.one_lt_rpow
+  · exact Nat.one_lt_cast.mpr (Nat.Prime.one_lt p.prop)
+  · exact hs
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
