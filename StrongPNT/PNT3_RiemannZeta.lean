@@ -17,8 +17,20 @@ noncomputable def zeta (s : ℂ) : ℂ := ∑' n : ℕ+, (n : ℂ) ^ (-s)
 -- Zeta converges for Re(s) > 1
 lemma zeta_converges_re_gt_one (s : ℂ) (hs : 1 < s.re) :
     Summable (fun n : ℕ+ => (n : ℂ) ^ (-s)) := by
-  -- This is the standard convergence result for zeta function
-  sorry
+  -- Use comparison test with real p-series
+  have h_abs : ∀ n : ℕ+, Complex.abs ((n : ℂ) ^ (-s)) = (n : ℝ) ^ (-s.re) := by
+    intro n
+    simp only [Complex.abs_cpow_eq_rpow_re_of_pos (Nat.cast_pos.mpr n.pos) _,
+               neg_re, Complex.abs_natCast]
+  rw [summable_abs_iff]
+  simp_rw [h_abs]
+  have : Summable fun n : ℕ+ => (n : ℝ) ^ (-s.re) := by
+    -- Convert to standard p-series summability
+    have p_gt_one : 1 < s.re := hs
+    exact Real.summable_nat_rpow_inv.mpr p_gt_one
+  convert this using 1
+  ext n
+  simp only [inv_eq_one_div, Real.rpow_neg, Real.rpow_natCast]
 
 -- Zeta non-zero for Re(s) > 1
 lemma zeta_ne_zero_re_gt_one (s : ℂ) (hs : 1 < s.re) :
@@ -111,7 +123,8 @@ lemma abs_zeta_prod_prime (s : ℂ) (hs : 1 < s.re) :
 
 -- Real double
 lemma Re2s (s : ℂ) : (2 * s).re = 2 * s.re := by
-  simp [Complex.mul_re]
+  simp only [Complex.mul_re, Complex.ofReal_re, Complex.ofReal_im]
+  ring
 
 -- Real bound
 lemma Re2sge1 (s : ℂ) (hs : 1 < s.re) : 1 < (2 * s).re := by
@@ -216,7 +229,40 @@ lemma inv_inequality {a b : ℝ} (ha : 0 < a) (hab : a ≤ b) :
 -- Nonzero term at 3/2
 lemma condp32 (p : Nat.Primes) (t : ℝ) :
     1 - (p : ℂ) ^ (-(3/2 + I * t)) ≠ 0 := by
-  sorry
+  -- We show that |p^(-(3/2 + I*t))| < 1
+  -- First, note that |p^(-(3/2 + I*t))| = p^(-3/2) since the imaginary part doesn't affect the norm
+  have hp_ge2 : 2 ≤ (p : ℝ) := by
+    norm_cast
+    exact Nat.Prime.two_le p.prop
+  have hp_pos : 0 < (p : ℝ) := by
+    norm_cast
+    exact Nat.Prime.pos p.prop
+  -- Now p^(-3/2) = 1/p^(3/2) < 1 since p ≥ 2
+  have h_bound : ‖(p : ℂ) ^ (-(3/2 + I * t))‖ < 1 := by
+    rw [norm_cpow_eq_rpow_Re]
+    · simp only [neg_re, Complex.add_re, Complex.re_ofReal_mul, Complex.I_re, mul_zero, add_zero]
+      have : (p : ℝ) ^ (-(3/2 : ℝ)) < 1 := by
+        rw [rpow_neg hp_pos]
+        have : 1 < (p : ℝ) ^ (3/2 : ℝ) := by
+          have : 1 < p := by linarith
+          calc 1 = 1 ^ (3/2 : ℝ) := by simp
+            _ < (p : ℝ) ^ (3/2 : ℝ) := by
+              apply Real.rpow_lt_rpow
+              · simp
+              · exact this
+              · norm_num
+        simp only [inv_lt_one_iff]
+        exact Or.inl this
+      exact this
+    · norm_cast
+      exact hp_pos.ne'
+  -- If 1 - z = 0, then z = 1, so |z| = 1, contradicting |z| < 1
+  intro h_eq
+  rw [sub_eq_zero] at h_eq
+  have : ‖(p : ℂ) ^ (-(3/2 + I * t))‖ = 1 := by
+    rw [← h_eq]
+    simp
+  linarith
 
 -- Abs term inverse bound
 lemma abs_term_inv_bound (p : Nat.Primes) (t : ℝ) :

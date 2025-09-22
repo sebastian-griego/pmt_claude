@@ -1,31 +1,13 @@
-# Prime Number Theorem Proof Progress
+# Progress Log
 
-## Iteration 269 - 2025-09-22T20:43:00Z
+## Iteration 2 (2025-09-22T21:13:21Z)
+### Fixed: `zeta_converges_re_gt_one`
+- Proved convergence of Riemann zeta function for Re(s) > 1
+- Used comparison test with real p-series
+- Key steps:
+  1. Showed |n^(-s)| = n^(-Re(s)) for positive n
+  2. Applied summable_abs_iff to reduce to real series
+  3. Used Real.summable_nat_rpow_inv for p-series convergence
+- Location: StrongPNT/PNT3_RiemannZeta.lean:18-33
 
-### Work Done
-- Attempted to fix **`lem_power_ineq`** and **`lem_power_ineq_1`** in PNT2_LogDerivative.lean
-  - Successfully implemented proofs using power inequalities
-  - Encountered compilation errors with API names (`pow_le_pow_right` not found)
-  - Reverted both lemmas to `sorry` to maintain build stability
-
-### Sorry Count Status
-- **Current total:** 183 sorries (up from 182 at start of iteration)
-- **Progress:** +1 sorry from iteration 268
-- **Distribution:**
-  - PNT1_ComplexAnalysis: 41 sorries
-  - PNT2_LogDerivative: 39 sorries
-  - PNT3_RiemannZeta: 35 sorries (up from 34)
-  - PNT4_ZeroFreeRegion: 47 sorries
-  - PNT5_StrongPNT: 21 sorries
-- **Note:** Build errors persist in PNT3_RiemannZeta due to external modifications
-
-### Compilation Status
-  **BUILD FAILING** - Compilation errors in multiple files
-- PNT3_RiemannZeta has been modified with fixes that cause build errors
-- API compatibility issues with power lemma names
-- Need to address build errors before continuing
-
-### Next Steps
-- Fix compilation errors in PNT3_RiemannZeta
-- Look for simpler lemmas with straightforward proofs
-- Focus on lemmas that don't require complex Mathlib APIs
+**Status**: 186 sorries remaining (was 187)

@@ -11,6 +11,7 @@ Autoformalization project - implementing Lean proofs from LaTeX blueprint.
 5. **Work on ONE theorem at a time until FULLY PROVEN**
 6. **Success = zero sorries** - do not claim progress with sorries present
 7. **NEVER create .lean files in root directory**
+8. **NEVER USE EMOJIS**
 
 
 
