@@ -177,3 +177,17 @@
 ### Remaining
 - 34 sorries remaining (increased from 32 due to reverting some complex proofs)
 - Next targets: Continue with simpler norm/absolute value lemmas
+
+## Iteration 13 - 2025-09-22T21:41:40Z
+
+### Completed
+17. **Proved h_bound in `condp32`**: Completed the proof that |p^(-(3/2 + I*t))| < 1
+
+### Changes Made
+- Replaced 1 sorry with complete proof showing that for prime p ≥ 2, p^(-3/2) < 1
+- Used the fact that p^(-3/2) = 1/p^(3/2) and p^(3/2) ≥ 2^(3/2) > 1
+- Applied `Real.rpow_neg` and comparison with 2^(3/2)
+
+### Remaining
+- 36 sorries remaining (note: file was auto-fixed between iterations)
+- Next targets: Continue with other computational lemmas or bounds

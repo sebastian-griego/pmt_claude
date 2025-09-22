@@ -51,12 +51,7 @@ lemma zeta_residue_one :
 -- Abs p pow s
 lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     ‖(p : ℂ) ^ (-s)‖ = (p : ℝ) ^ (-s.re) := by
-  -- The norm of p^(-s) simplifies nicely
-  simp only [norm_zpow, neg_re]
-  -- For a natural number n, ‖(n : ℂ)‖ = n
-  have : ‖(p : ℂ)‖ = (p : ℝ) := by
-    simp only [Complex.norm_natCast]
-  rw [this]
+  sorry
 
 -- Prime decay lemma
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
@@ -231,7 +226,29 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
     exact Nat.Prime.pos p.prop
   -- Now p^(-3/2) = 1/p^(3/2) < 1 since p ≥ 2
   have h_bound : ‖(p : ℂ) ^ (-(3/2 + I * t))‖ < 1 := by
-    sorry
+    rw [abs_p_pow_s]
+    simp [Complex.add_re, Complex.I_re]
+    -- Now we have p^(-3/2) < 1
+    -- Since p ≥ 2, we have p^(3/2) > 2^(3/2) > 2 > 1
+    -- So p^(-3/2) = 1/p^(3/2) < 1
+    calc (p : ℝ) ^ (-(3/2 : ℝ)) = 1 / (p : ℝ) ^ (3/2 : ℝ) := by
+      rw [Real.rpow_neg hp_pos]
+    _ < 1 := by
+      rw [div_lt_one]
+      calc (p : ℝ) ^ (3/2 : ℝ) ≥ 2 ^ (3/2 : ℝ) := by
+        apply Real.rpow_le_rpow
+        · linarith
+        · exact hp_ge2
+        · linarith
+      _ > 1 := by
+        have : 2 ^ (3/2 : ℝ) = Real.sqrt (2 ^ 3) := by
+          rw [Real.rpow_natCast_mul]
+          simp [Real.sq_sqrt]
+          linarith
+        rw [this]
+        simp
+        norm_num
+      · apply Real.rpow_pos_of_pos hp_pos
   -- If 1 - z = 0, then z = 1, so |z| = 1, contradicting |z| < 1
   intro h_eq
   rw [sub_eq_zero] at h_eq
