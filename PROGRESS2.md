@@ -32,3 +32,24 @@
 ### Next Steps
 - Continue fixing build errors in PNT1_ComplexAnalysis.lean
 - Fix simple computational lemmas in other files
+
+## Iteration 26 (2025-09-22T23:14:00Z)
+
+### Attempted
+- Tried to fix `lem_ballDR` in PNT1_ComplexAnalysis.lean (line 542-557)
+  - Attempted to prove that closure of open ball equals closed ball
+  - Could not find the right Mathlib function (Metric.closure_ball_eq_closedBall doesn't exist)
+  - Left as sorry for now
+- Fixed syntax error in PNT1_ComplexAnalysis.lean (line 537-538)
+  - Changed from `⟨hw_norm, _⟩` pattern to `hw.1` accessor
+  - Build still has other errors to fix
+
+### Progress
+- Sorry count remains at 173 (38+41+33+40+21)
+- PNT1_ComplexAnalysis still has build errors that need fixing
+- Identified several complex lemmas that need deeper proofs
+
+### Next Steps
+- Fix remaining build errors in PNT1_ComplexAnalysis.lean
+- Look for simpler computational lemmas that can be proven with basic tactics
+- Consider focusing on arithmetic lemmas in PNT2_LogDerivative or PNT3_RiemannZeta
