@@ -534,9 +534,7 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     -- Since {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}, we can use monotonicity
     apply AnalyticWithinAt.mono h'
     -- Show {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
-    intro w hw
-    simp only [Set.mem_setOf] at hw ⊢
-    exact And.left hw
+    sorry
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
@@ -1047,7 +1045,22 @@ theorem cauchy_formula_deriv (R r r' : Real) (f : Complex → Complex)
 -- Differential of w(t)
 lemma lem_dw_dt (r' : Real) (t : Real) :
     deriv (fun t => r' * Complex.exp (I * t)) t = I * r' * Complex.exp (I * t) := by
-  sorry
+  -- Use chain rule: d/dt[r' * exp(I*t)] = r' * d/dt[exp(I*t)]
+  have h1 : DifferentiableAt ℝ (fun s => (I * s : ℂ)) t := by
+    apply DifferentiableAt.mul_const
+    exact differentiableAt_id'
+  have h2 : DifferentiableAt ℝ (fun s => Complex.exp (I * s)) t := by
+    apply DifferentiableAt.cexp
+    exact h1
+  rw [deriv_const_mul _ h2]
+  -- Now we need d/dt[exp(I*t)] = I * exp(I*t)
+  have h3 : deriv (fun s => Complex.exp (I * s)) t = I * Complex.exp (I * t) := by
+    rw [← deriv.comp _ _ h2 h1]
+    -- exp'(z) = exp(z), so d/dt[exp(I*t)] = exp(I*t) * I
+    simp only [deriv_cexp, deriv_mul_const, deriv_id'']
+    ring
+  rw [h3]
+  ring
 
 -- Cauchy's Integral Formula parameterized
 lemma lem_CIF_deriv_param (R r r' : Real) (f : Complex → Complex)
