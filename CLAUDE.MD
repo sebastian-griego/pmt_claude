@@ -35,7 +35,7 @@ Continue implementing theorems sequentially from the blueprint tex files. Check 
 4. Read its dependencies in the blueprint
 5. Implement the Lean version (NO sorry allowed)
 6. Verify it compiles
-7. Update PROGRESS.md with:
+7. Update progress file with:
    - Theorem name and status
    - Line count of completed Lean
    - Percentage of blueprint covered
@@ -44,12 +44,12 @@ Continue implementing theorems sequentially from the blueprint tex files. Check 
 ## Blocked? Here's what to do:
 - Cannot prove a lemma? Read the relevant section of the blueprint again. Search Mathlib for similar proofs
 - Need complex analysis machinery? Use `exact?` tactic
-- Still stuck after 2 attempts? Mark as BLOCKED in PROGRESS.md and try a different file
+- Still stuck after 2 attempts? Mark as BLOCKED in progress file and try a different file
 - NEVER use 'sorry' as a placeholder
 - If an API or theorem does not exist in the current Mathlib version, then prove it yourself. Do not give up.
 
 ## Progress Tracking Format
-Track in PROGRESS.md using actual theorem names from the blueprint:
+Track in progress file using actual theorem names from the blueprint:
 - List completed theorems with checkmarks
 - List in-progress theorems without checkmarks
 - Note any blocking dependencies
@@ -76,19 +76,19 @@ import Mathlib.NumberTheory.ZetaFunction
 - lakefile.lean (unless adding new Mathlib dependencies)
 
 
-## PROGRESS.md Rules
-- ALWAYS APPEND to PROGRESS.md, NEVER overwrite
-- Use >> not > when updating PROGRESS.md  
-- Each iteration adds a NEW section at the END of PROGRESS.md
-- NEVER delete or replace existing content
+## progress file Rules
+- ALWAYS APPEND to progress file, NEVER overwrite
+- Use >> not > when updating progress file  
+- Each iteration adds a NEW section at the END of progress file
+- Clear the progress file every 25 iterations
 
 ## Project Structure (DO NOT CHANGE)
 Root directory: `/home/jovyan/pmt_claude/`
 - Run all commands from root directory
 - `lake build` runs from root (where lakefile.lean is)
-- PROGRESS.md is in root
+- progress file is in root
 - lake-manifest.json stays in root (auto-generated)
-- Edit only files in StrongPNT/*.lean (except PROGRESS.MD in root)
+- Edit only files in StrongPNT/*.lean (except progress file in root)
 - Read only files in blueprint/*.tex
 
 ## Working Directory

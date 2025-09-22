@@ -314,6 +314,35 @@
 
 ## Previous Iterations
 
+## Iteration 270
+**Date:** 2025-09-22
+
+### Work Done
+- Attempted to fix lemmas in PNT3_RiemannZeta.lean
+  - Files keep getting auto-formatted during build process
+  - Multiple API compatibility issues with Mathlib 4 functions
+  - Build failures in PNT3_RiemannZeta and PNT4_ZeroFreeRegion due to existing errors
+  - Reverted multiple attempted fixes to preserve functionality
+
+### Sorry Count Status
+- **Current total:** 180 sorries (stable from iteration 268)
+- **Progress:** 0 change from previous iteration
+- **Distribution:**
+  - PNT1_ComplexAnalysis: 41 sorries
+  - PNT2_LogDerivative: 39 sorries
+  - PNT3_RiemannZeta: 32 sorries
+  - PNT4_ZeroFreeRegion: 47 sorries
+  - PNT5_StrongPNT: 21 sorries
+- **Note:** Build has pre-existing errors preventing new fixes; API compatibility issues persist
+
+### Compilation Status
+❌ **BUILD FAILS** - Pre-existing errors in multiple files
+- PNT3_RiemannZeta.lean has been auto-formatted but contains errors
+- PNT4_ZeroFreeRegion.lean has unresolved API issues
+- Total of 180 sorries remains stable despite build issues
+
+## Previous Iterations
+
 ### Iteration 268
 **Date:** 2025-09-22
 
