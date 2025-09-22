@@ -51,7 +51,7 @@ Time: $TS"
     claude -p "$FULL_PROMPT" \
         --dangerously-skip-permissions \
         --output-format json \
-        > logs/last_claude.json 2>&1
+        > logs/last_claude2.json 2>&1
     
     # Git commit after each iteration
     echo "[$TS] committing to git..."
