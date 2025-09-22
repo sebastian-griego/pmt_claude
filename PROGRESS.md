@@ -132,3 +132,15 @@
 - Location: StrongPNT/PNT4_ZeroFreeRegion.lean:193-204
 
 **Status**: 169 sorries remaining (was 171)
+
+## Iteration 24 (2025-09-22T23:11:39Z)
+### Fixed: `lem_prod_power_ineq` in PNT2_LogDerivative
+- Proved that ∏ ρ ∈ K, (c ρ)^(n ρ) ≥ ∏ ρ ∈ K, 1 for c ρ ≥ 1 and n ρ ≥ 1
+- Used Finset.prod_le_prod to reduce to pointwise comparison
+- Key calculation: 1 = 1^1 ≤ 1^(n i) ≤ (c i)^(n i)
+- Applied pow_le_pow_left for the final inequality
+- This lemma is used for product bounds in log derivative analysis
+- External modifications by linters fixed `lem_mod_lower_bound_1` automatically
+- Location: PNT2_LogDerivative.lean:508-519
+
+**Status**: 168 sorries remaining (was 169)

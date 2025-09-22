@@ -514,7 +514,9 @@ lemma lem_prod_power_ineq {α : Type*} (K : Finset α) (c : α → ℝ) (n : α 
   · intro i hi
     have hc := (h i hi).1
     have hn := (h i hi).2
-    sorry
+    calc 1 = 1^1 := by ring
+         _ ≤ 1^(n i) := by exact one_le_one_pow
+         _ ≤ (c i)^(n i) := by exact pow_le_pow_left zero_le_one hc (n i)
 
 -- Product of ones
 lemma lem_prod_1 {α : Type*} (K : Finset α) : ∏ ρ ∈ K, (1 : ℝ) = 1 := by
@@ -532,7 +534,11 @@ lemma lem_mod_lower_bound_1 {R R₁ : ℝ} (hR : 0 < R ∧ R < 1) (hR₁ : R₁ 
     (f : ℂ → ℂ) (hf : AnalyticOnNhd f (closedDisk 0 1)) (hf0 : f 0 = 1)
     (hfinite : Set.Finite (K_f f R₁)) (m : ℂ → ℕ) :
     1 ≤ ∏ ρ ∈ hfinite.toFinset, ((3:ℝ) / 2) ^ (m ρ) := by
-  sorry
+  apply lem_prod_power_ineq1
+  intro ρ _
+  constructor
+  · norm_num
+  · exact Nat.succ_pos (m ρ)
 
 -- Bf is analytic
 lemma lem_Bf_is_analytic {R R₁ : ℝ} (hR : 0 < R ∧ R < 1) (hR₁ : R₁ = (2/3) * R)
