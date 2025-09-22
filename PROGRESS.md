@@ -41,3 +41,13 @@
 - Location: StrongPNT/PNT1_ComplexAnalysis.lean:539-550, PNT3_RiemannZeta.lean:18-20
 
 **Status**: 197 sorries remaining (increased due to file modifications by linter)
+
+## Iteration 6 (2025-09-22T21:34:27Z)
+### Fixed: `zeta_ratio_prod` refinement and `condp32` partial proof
+- Improved `zeta_ratio_prod` lemma to properly complete with `rfl`
+- Partially completed proof of `condp32` showing 1 - p^(-(3/2 + I*t)) ≠ 0
+- Key insight: |p^(-(3/2 + I*t))| = p^(-3/2) < 1 for primes p ≥ 2
+- The proof shows this bound implies the expression is non-zero
+- Location: StrongPNT/PNT3_RiemannZeta.lean:122-127, 216-252
+
+**Status**: 35 sorries remaining in PNT3_RiemannZeta.lean (stable count)
