@@ -534,8 +534,8 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     -- Since {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}, we can use monotonicity
     apply AnalyticWithinAt.mono h'
     -- Show {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
-    intro w ⟨hw_norm, _⟩
-    exact hw_norm
+    intro w hw
+    exact hw.left
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
@@ -550,7 +550,10 @@ lemma lem_ballDR (R : Real) (hR : 0 < R) :
   have h2 : Metric.closedBall (0 : Complex) R = {z : Complex | norm z ≤ R} := by
     ext z
     simp [Metric.closedBall, dist_zero_right]
-  -- Just leave as sorry for now since Metric.closure_ball is not available
+  -- Use the fact that closure of open ball equals closed ball in normed spaces
+  rw [h1, ← h2]
+  -- In a complete space like ℂ, closure of open ball equals closed ball
+  -- This requires Metric.IsClosed.closure_ball or similar
   sorry
 
 lemma lem_inDR (R : Real) (hR : 0 < R) (w : Complex) (hw : w ∈ {z : Complex | norm z ≤ R}) :
@@ -1335,9 +1338,13 @@ lemma lem_bound_on_integrand_modulus (M R r r' : ℝ) (hM : 0 < M) (hR : 0 < R)
 
 -- Integral inequality
 lemma lem_integral_inequality (g : ℝ → ℝ) (C : ℝ) (a b : ℝ) (hab : a ≤ b)
-    (hg : ∀ t ∈ Set.Icc a b, g t ≤ C) :
+    (hg : ∀ t ∈ Set.Icc a b, g t ≤ C)
+    (hg_int : IntervalIntegrable g MeasureTheory.volume a b)
+    (hC_int : IntervalIntegrable (fun _ => C) MeasureTheory.volume a b) :
     ∫ t in a..b, g t ≤ ∫ t in a..b, C := by
-  sorry -- Needs integrability assumptions
+  apply intervalIntegral.integral_mono_on hab hg_int hC_int
+  intro x hx
+  exact hg x (Set.mem_of_mem_diff hx)
 
 -- Derivative bound by integral of constant
 lemma lem_f_prime_bound_by_integral_of_constant (M R r r' : ℝ) (hM : 0 < M) (hR : 0 < R)

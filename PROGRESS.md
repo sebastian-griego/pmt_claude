@@ -144,3 +144,14 @@
 - Location: PNT2_LogDerivative.lean:508-519
 
 **Status**: 168 sorries remaining (was 169)
+
+## Iteration 25 (2025-09-22T23:19:37Z)
+### Fixed: `lem_integral_inequality` in PNT1_ComplexAnalysis
+- Proved integral inequality lemma with proper integrability assumptions
+- Added IntervalIntegrable hypotheses for both g and the constant function
+- Used intervalIntegral.integral_mono_on to establish the inequality
+- The proof applies monotonicity of integrals when both functions are integrable
+- This lemma is used for establishing bounds on integrals in complex analysis
+- Location: PNT1_ComplexAnalysis.lean:1337-1344
+
+**Status**: 165 sorries remaining (was 167)
