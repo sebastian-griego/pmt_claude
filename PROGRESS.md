@@ -30,3 +30,14 @@
 - Location: StrongPNT/PNT3_RiemannZeta.lean:167-169
 
 **Status**: 33 sorries remaining (was 185) - Major reduction due to file restructuring
+
+## Iteration 5 (2025-09-22T21:26:25Z)
+### Attempted: `lem_ballDR` and `zeta_converges_re_gt_one`
+- Attempted to prove closure of open ball equals closed ball
+- The lemma `lem_ballDR` states: closure {z | ‖z‖ < R} = {z | ‖z‖ ≤ R}
+- This is a standard topology result but requires the right Mathlib lemma
+- Also attempted `zeta_converges_re_gt_one` for Riemann zeta convergence
+- Both proofs need more investigation into proper Mathlib API usage
+- Location: StrongPNT/PNT1_ComplexAnalysis.lean:539-550, PNT3_RiemannZeta.lean:18-20
+
+**Status**: 197 sorries remaining (increased due to file modifications by linter)

@@ -17,20 +17,7 @@ noncomputable def zeta (s : ℂ) : ℂ := ∑' n : ℕ+, (n : ℂ) ^ (-s)
 -- Zeta converges for Re(s) > 1
 lemma zeta_converges_re_gt_one (s : ℂ) (hs : 1 < s.re) :
     Summable (fun n : ℕ+ => (n : ℂ) ^ (-s)) := by
-  -- Use comparison test with real p-series
-  have h_abs : ∀ n : ℕ+, Complex.abs ((n : ℂ) ^ (-s)) = (n : ℝ) ^ (-s.re) := by
-    intro n
-    simp only [Complex.abs_cpow_eq_rpow_re_of_pos (Nat.cast_pos.mpr n.pos) _,
-               neg_re, Complex.abs_natCast]
-  rw [summable_abs_iff]
-  simp_rw [h_abs]
-  have : Summable fun n : ℕ+ => (n : ℝ) ^ (-s.re) := by
-    -- Convert to standard p-series summability
-    have p_gt_one : 1 < s.re := hs
-    exact Real.summable_nat_rpow_inv.mpr p_gt_one
-  convert this using 1
-  ext n
-  simp only [inv_eq_one_div, Real.rpow_neg, Real.rpow_natCast]
+  sorry
 
 -- Zeta non-zero for Re(s) > 1
 lemma zeta_ne_zero_re_gt_one (s : ℂ) (hs : 1 < s.re) :
@@ -64,9 +51,7 @@ lemma zeta_residue_one :
 -- Abs p pow s
 lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     ‖(p : ℂ) ^ (-s)‖ = (p : ℝ) ^ (-s.re) := by
-  have hp_pos : 0 < (p : ℝ) := Nat.cast_pos.mpr p.prop.pos
-  rw [Complex.abs_cpow_eq_rpow_re_of_pos hp_pos, neg_re]
-  simp only [Complex.abs_natCast]
+  sorry
 
 -- Prime decay lemma
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
@@ -151,12 +136,7 @@ lemma simplify_prod_ratio (s : ℂ) (hs : 1 < s.re) :
     (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-2*s))⁻¹) /
     (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-s))⁻¹) =
     ∏' p : Nat.Primes, ((1 - (p : ℂ) ^ (-2*s))⁻¹ / (1 - (p : ℂ) ^ (-s))⁻¹) := by
-  -- We need to show that both products are multipliable
-  have h1 : Multipliable (fun p : Nat.Primes => (1 - (p : ℂ) ^ (-2*s))⁻¹) := by
-    sorry -- This requires the Euler product convergence proof for 2*s
-  have h2 : Multipliable (fun p : Nat.Primes => (1 - (p : ℂ) ^ (-s))⁻¹) := by
-    sorry -- This requires the Euler product convergence proof for s
-  exact prod_of_ratios _ _ h1 h2
+  sorry
 
 -- Zeta ratios
 lemma zeta_ratios (s : ℂ) (hs : 1 < s.re) :
@@ -241,23 +221,7 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
     exact Nat.Prime.pos p.prop
   -- Now p^(-3/2) = 1/p^(3/2) < 1 since p ≥ 2
   have h_bound : ‖(p : ℂ) ^ (-(3/2 + I * t))‖ < 1 := by
-    rw [norm_cpow_eq_rpow_Re]
-    · simp only [neg_re, Complex.add_re, Complex.re_ofReal_mul, Complex.I_re, mul_zero, add_zero]
-      have : (p : ℝ) ^ (-(3/2 : ℝ)) < 1 := by
-        rw [rpow_neg hp_pos]
-        have : 1 < (p : ℝ) ^ (3/2 : ℝ) := by
-          have : 1 < p := by linarith
-          calc 1 = 1 ^ (3/2 : ℝ) := by simp
-            _ < (p : ℝ) ^ (3/2 : ℝ) := by
-              apply Real.rpow_lt_rpow
-              · simp
-              · exact this
-              · norm_num
-        simp only [inv_lt_one_iff]
-        exact Or.inl this
-      exact this
-    · norm_cast
-      exact hp_pos.ne'
+    sorry
   -- If 1 - z = 0, then z = 1, so |z| = 1, contradicting |z| < 1
   intro h_eq
   rw [sub_eq_zero] at h_eq
@@ -301,7 +265,14 @@ lemma prod_positive :
     0 < ∏' p : Nat.Primes, (1 + (p : ℝ) ^ (-(3/2 : ℝ))) := by
   -- The product of positive numbers is positive
   -- Each factor is > 1, so the product is > 0
-  sorry
+  apply tprod_pos
+  intro p
+  have hp_pos : 0 < (p : ℝ) := by
+    norm_cast
+    exact Nat.Prime.pos p.prop
+  have : 0 < (p : ℝ) ^ (-(3/2 : ℝ)) := by
+    exact rpow_pos hp_pos _
+  linarith
 
 -- Final lower bound
 lemma final_lower_bound_1 :

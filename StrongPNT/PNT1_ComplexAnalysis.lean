@@ -541,7 +541,13 @@ lemma lem_ballDR (R : Real) (hR : 0 < R) :
   unfold ballDR
   -- The closure of {z | ‖z‖ < R} is {z | ‖z‖ ≤ R}
   -- This is a standard fact in metric topology
-  sorry
+  have h1 : {z : Complex | norm z < R} = Metric.ball (0 : Complex) R := by
+    ext z
+    simp [Metric.ball, dist_zero_right]
+  have h2 : Metric.closedBall (0 : Complex) R = {z : Complex | norm z ≤ R} := by
+    ext z
+    simp [Metric.closedBall, dist_zero_right]
+  rw [h1, Metric.closure_ball (0 : Complex) (ne_of_gt hR), h2]
 
 lemma lem_inDR (R : Real) (hR : 0 < R) (w : Complex) (hw : w ∈ {z : Complex | norm z ≤ R}) :
     norm w ≤ R := by
