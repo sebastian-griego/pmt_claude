@@ -199,7 +199,8 @@ lemma lem_Re1deltatge0m (hδ : 0 < δ) (hδ' : δ < 1) (t : ℝ) {ρ₁ : ℂ} (
   rw [div_eq_mul_inv]
   rw [← Complex.ofReal_natCast]
   rw [Complex.mul_re]
-  simp only [Complex.ofReal_re, Complex.ofReal_im, mul_zero, sub_zero]
+  simp only [Complex.ofReal_re, Complex.ofReal_im]
+  ring_nf
   exact mul_nonneg hm_pos h_inv_pos
 
 /-- Re(m/(1+δ+2it-ρ₁)) ≥ 0 for 2t -/
@@ -211,7 +212,8 @@ lemma lem_Re1delta2tge0 (hδ : 0 < δ) (hδ' : δ < 1) (t : ℝ) {ρ₁ : ℂ}
   rw [div_eq_mul_inv]
   rw [← Complex.ofReal_natCast]
   rw [Complex.mul_re]
-  simp only [Complex.ofReal_re, Complex.ofReal_im, mul_zero, sub_zero]
+  simp only [Complex.ofReal_re, Complex.ofReal_im]
+  ring_nf
   exact mul_nonneg hm_pos h_inv_pos
 
 /-- Sum of non-negative reals is non-negative -/
@@ -312,10 +314,9 @@ lemma lem_Z1split (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}
   have hρ_mem : ρ ∈ (ZetaZerosNearPoint_finite t).toFinset := by
     simp [Set.Finite.mem_toFinset]
     exact hρZ
-  -- Use Finset.sum_eq_sum_diff_add for splitting the sum
-  rw [← Finset.sum_sdiff_add hρ_mem]
-  simp only [Finset.sdiff_singleton_eq_erase]
-  rw [Finset.sum_singleton]
+  -- Use Finset.sum_erase_add for splitting the sum
+  rw [Finset.sum_erase_add _ hρ_mem]
+  rw [add_comm]
 
 /-- Lower bound from split sum -/
 lemma lem_Z1splitge (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}
