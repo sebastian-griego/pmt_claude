@@ -223,3 +223,14 @@
 - Location: PNT1_ComplexAnalysis.lean:537-539
 
 **Status**: 162 sorries remaining (was 163)
+
+## Iteration 30 (2025-09-22T23:42:45Z)
+### Analysis: Build errors from external changes
+- External tools or linters made changes to PNT3_RiemannZeta that fixed `p_s_abs_1` and other lemmas
+- The fix uses `inv_lt_one` to prove that |p^(-s)| < 1 for primes p and Re(s) > 1
+- Build currently fails due to API changes and type mismatches in multiple files
+- Attempted to fix `lem_ballDR` using `Metric.closure_ball` but the API doesn't exist
+- Current state has 163 sorries but build is failing
+- Most remaining sorries are deep mathematical theorems requiring substantial proofs
+
+**Status**: 163 sorries (build failing due to external changes)

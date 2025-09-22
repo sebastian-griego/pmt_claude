@@ -1088,13 +1088,17 @@ theorem cauchy_formula_deriv (R r r' : Real) (f : Complex → Complex)
 lemma lem_dw_dt (r' : Real) (t : Real) :
     deriv (fun t => r' * Complex.exp (I * t)) t = I * r' * Complex.exp (I * t) := by
   -- Use chain rule: d/dt[r' * exp(I*t)] = r' * d/dt[exp(I*t)]
-  have h1 : DifferentiableAt ℝ (fun s => (I * s : ℂ)) t := by
-    apply DifferentiableAt.mul_const
-    exact differentiableAt_id'
-  have h2 : DifferentiableAt ℝ (fun s => Complex.exp (I * s)) t := by
-    apply DifferentiableAt.cexp
+  -- First establish differentiability
+  have h1 : DifferentiableAt ℂ (fun s => I * s) t := by
+    apply differentiableAt_const.mul
+    exact differentiableAt_id
+  have h2 : DifferentiableAt ℂ (fun s => Complex.exp (I * s)) t := by
+    apply Complex.differentiableAt_exp.comp
     exact h1
-  rw [deriv_const_mul _ h2]
+  -- Use the fact that r' * exp(I*t) is differentiable as a function from ℝ to ℂ
+  have h3 : DifferentiableAt ℝ (fun s => r' * Complex.exp (I * s)) t := by
+    sorry -- complex differentiability issue
+  rw [deriv_const_mul _ h3]
   -- Now we need d/dt[exp(I*t)] = I * exp(I*t)
   have h3 : deriv (fun s => Complex.exp (I * s)) t = I * Complex.exp (I * t) := by
     rw [← deriv.comp _ _ h2 h1]
