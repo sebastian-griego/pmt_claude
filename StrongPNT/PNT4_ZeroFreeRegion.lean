@@ -536,12 +536,7 @@ lemma lem341series (t δ : ℝ) (hδ : 0 < δ) :
     4 * ∑' n : ℕ, vonMangoldt n * (n : ℝ)^(-(1 + δ)) * Real.cos (t * Real.log n) +
     ∑' n : ℕ, vonMangoldt n * (n : ℝ)^(-(1 + δ)) * Real.cos (2 * t * Real.log n) =
     ∑' n : ℕ, vonMangoldt n * (n : ℝ)^(-(1 + δ)) * (3 + 4 * Real.cos (t * Real.log n) + Real.cos (2 * t * Real.log n)) := by
-  -- Factor out the common terms from the sum
-  conv_lhs =>
-    rw [← tsum_mul_left, ← tsum_mul_left, ← tsum_add (by sorry), ← tsum_add (by sorry)]
-  congr 1
-  ext n
-  ring
+  sorry
 
 /-- Convergence of factored form -/
 lemma lem_341seriesConverge (t δ : ℝ) (hδ : 0 < δ) :
