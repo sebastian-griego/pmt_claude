@@ -142,7 +142,7 @@ lemma zeta_ratio_prod (s : ℂ) (hs : 1 < s.re) :
 lemma prod_of_ratios {P : Type*} [Countable P]
     (a b : P → ℂ) (ha : Multipliable a) (hb : Multipliable b) :
     (∏' p : P, a p) / (∏' p : P, b p) = ∏' p : P, (a p / b p) := by
-  sorry
+  exact Multipliable.tprod_div ha hb
 
 -- Simplify prod ratio
 lemma simplify_prod_ratio (s : ℂ) (hs : 1 < s.re) :
