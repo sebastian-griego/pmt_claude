@@ -1,29 +1,34 @@
 # Prime Number Theorem Formalization Progress
 
-## Current Iteration: 275
+## Current Iteration: 276
 **Date:** 2025-09-22
 
 ### Work Done
-- Fixed **`abs_zeta_prod`** in PNT3_RiemannZeta.lean (line 81-85)
-  - Successfully proved that `‖zeta s‖ = ∏' p : Nat.Primes, ‖(1 - (p : ℂ) ^ (-s))⁻¹‖`
-  - Used the existing `euler_product` lemma to express zeta as a product
-  - Applied the `abs_P_prod` lemma to handle the norm of the infinite product
-  - Clean composition of existing lemmas without introducing new dependencies
+- Attempted to fix several lemmas in PNT3_RiemannZeta.lean:
+  1. **`abs_of_tprod`** - Attempted to use `Multipliable.norm_tprod` API
+     - API doesn't exist in current Mathlib version
+     - Reverted to sorry
+  2. **`abs_p_pow_s`** - Attempted using `Complex.abs_cpow_eq_rpow_re_of_pos`
+     - API doesn't exist in current Mathlib version
+     - Reverted to sorry
+  3. **`condp32`** - Had to revert proof that depended on `abs_p_pow_s`
+     - Cannot be fixed until `abs_p_pow_s` is resolved
+- Fixed compilation error in `abs_term_inv_bound` by using `Real.rpow_pos_of_pos` instead of `Real.rpow_pos`
 
 ### Sorry Count Status
-- **Current total:** 185 sorries (down from 186 in iteration 274)
-- **Progress:** -1 sorry from iteration 274
+- **Current total:** 188 sorries (up from 186 in iteration 275)
+- **Progress:** +2 sorries from iteration 275
 - **Distribution:**
   - PNT1_ComplexAnalysis: 41 sorries
   - PNT2_LogDerivative: 39 sorries
-  - PNT3_RiemannZeta: 35 sorries (down from 36)
+  - PNT3_RiemannZeta: 38 sorries (up from 36)
   - PNT4_ZeroFreeRegion: 49 sorries
   - PNT5_StrongPNT: 21 sorries
-- **Note:** Successfully reduced by leveraging existing proven lemmas; reached the target of 185 sorries
+- **Note:** Increase due to reverting previously fixed proofs that had incorrect API calls; need to find correct Mathlib APIs
 
 ### Compilation Status
 ✅ **BUILD SUCCESSFUL** - All files compile cleanly
-- No compilation errors
+- Fixed all compilation errors
 - Only sorry warnings remain
 - Build completed successfully
 

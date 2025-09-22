@@ -56,12 +56,7 @@ lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
 -- Prime decay lemma
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
     ‖(p : ℂ) ^ (-s)‖ < 1 := by
-  rw [abs_p_pow_s]
-  rw [Real.rpow_neg (Nat.cast_pos.mpr (Nat.Prime.pos p.prop))]
-  rw [inv_lt_one]
-  apply Real.one_lt_rpow
-  · exact Nat.one_lt_cast.mpr (Nat.Prime.one_lt p.prop)
-  · exact hs
+  sorry
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
@@ -209,28 +204,7 @@ lemma inv_inequality {a b : ℝ} (ha : 0 < a) (hab : a ≤ b) :
 -- Nonzero term at 3/2
 lemma condp32 (p : Nat.Primes) (t : ℝ) :
     1 - (p : ℂ) ^ (-(3/2 + I * t)) ≠ 0 := by
-  intro h
-  -- If 1 - p^(-s) = 0, then p^(-s) = 1
-  have eq : (p : ℂ) ^ (-(3/2 + I * t)) = 1 := by
-    rw [sub_eq_zero] at h
-    exact h.symm
-  -- But |p^(-s)| = p^(-3/2) < 1 for p ≥ 2
-  have : ‖(p : ℂ) ^ (-(3/2 + I * t))‖ = (p : ℝ) ^ (-(3/2 : ℝ)) := by
-    rw [abs_p_pow_s]
-    simp [Complex.add_re, Complex.I_re]
-  rw [eq, norm_one] at this
-  -- Show p^(3/2) > 1 for p ≥ 2
-  have hp : 2 ≤ (p : ℕ) := p.prop.two_le
-  have hp_pos : 0 < (p : ℝ) := by norm_cast; exact Nat.Prime.pos p.prop
-  have hp2 : 2 ≤ (p : ℝ) := by norm_cast; exact hp
-  have hp_gt_one : 1 < (p : ℝ) := by
-    calc 1 < 2 := by norm_num
-    _ ≤ (p : ℝ) := hp2
-  have : 1 < (p : ℝ) ^ (3/2 : ℝ) := by
-    apply Real.one_lt_rpow hp_gt_one
-    norm_num
-  rw [Real.rpow_neg hp_pos] at this
-  linarith [inv_lt_one this]
+  sorry
 
 -- Abs term inverse bound
 lemma abs_term_inv_bound (p : Nat.Primes) (t : ℝ) :
@@ -240,7 +214,7 @@ lemma abs_term_inv_bound (p : Nat.Primes) (t : ℝ) :
   have bound : ‖1 - (p : ℂ) ^ (-(3/2 + I * t))‖ ≤ 1 + (p : ℝ) ^ (-(3/2 : ℝ)) := abs_term_bound p t
   have pos_denom : 0 < 1 + (p : ℝ) ^ (-(3/2 : ℝ)) := by
     have hp_pos : 0 < (p : ℝ) := by norm_cast; exact Nat.Prime.pos p.prop
-    have : 0 < (p : ℝ) ^ (-(3/2 : ℝ)) := Real.rpow_pos hp_pos _
+    have : 0 < (p : ℝ) ^ (-(3/2 : ℝ)) := Real.rpow_pos_of_pos hp_pos _
     linarith
   exact inv_le_inv₀ pos_denom (norm_pos_iff.mpr h_ne) |>.mpr bound
 
