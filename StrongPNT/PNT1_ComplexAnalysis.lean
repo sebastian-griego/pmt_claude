@@ -535,7 +535,7 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     apply AnalyticWithinAt.mono h'
     -- Show {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
     intro w hw
-    exact hw.1
+    exact hw.left
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
@@ -617,7 +617,7 @@ lemma lem_BCRe (f : Complex → Complex) (R : Real) (hR : 0 < R)
   -- The real part function is continuous
   have hcont : ContinuousOn (fun z => (f z).re) {z : Complex | norm z = R} := by
     have hf_cont : ContinuousOn f {z : Complex | norm z ≤ R} :=
-      (analyticOn_iff_differentiableOn hf.isOpen).mp hf |>.continuousOn
+      hf.continuousOn
     exact continuous_re.comp_continuousOn (hf_cont.mono (fun _ hz => le_of_eq hz))
   -- The sphere is compact
   have hcomp : IsCompact {z : Complex | norm z = R} := isCompact_sphere (0 : ℂ) R

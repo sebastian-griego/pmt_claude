@@ -256,3 +256,20 @@
 ### Next Steps
 - Continue fixing remaining sorries in PNT1_ComplexAnalysis.lean
 - Consider fixing `lem_BCRe` which follows a similar pattern
+
+## Iteration 17 - 2025-09-22T22:34:35Z
+
+### Fixed
+- Fixed `lem_BCRe` in PNT1_ComplexAnalysis.lean (line 614-628)
+  - Proved: Analytic functions on closed disks have bounded real parts on the boundary
+  - Used similar approach to `lem_BCmax`: sphere is compact, real part is continuous
+  - Applied `IsCompact.bddAbove_image` to get supremum bound
+
+### Progress
+- Reduced sorry count from 197 to 196
+- Fixed subset proof in `lem_analAtOnOn` (line 537-538) using `hw.left`
+- This completes the Borel-Carathéodory setup lemmas
+
+### Next Steps
+- Continue fixing remaining sorries in complex analysis
+- Focus on simpler lemmas that use available Mathlib functions
