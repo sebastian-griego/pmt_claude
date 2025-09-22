@@ -85,7 +85,7 @@ import Mathlib.NumberTheory.ZetaFunction
 - ALWAYS APPEND to progress file, NEVER overwrite
 - Use >> not > when updating progress file  
 - Each iteration adds a NEW section at the END of progress file
-- Clear the progress file every 10 iterations
+- Clear the progress file and remove all text. every 10 iterations.
 
 ## Project Structure (DO NOT CHANGE)
 Root directory: `/home/jovyan/pmt_claude/`

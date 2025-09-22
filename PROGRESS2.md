@@ -78,3 +78,17 @@
 ### Remaining
 - 34 sorries (increased from 31 due to reverted proofs)
 - Next targets: Focus on lemmas that don't depend on missing Mathlib functionality
+
+## Iteration 6 - 2025-09-22T20:40:22Z
+
+### Completed
+10. **Proved `abs_of_inv`**: Completed proof that norm of inverse equals inverse of norm
+
+### Changes Made
+- Replaced 1 sorry with complete proof using `simp only [norm_inv]`
+- Fixed compilation errors by reverting problematic proofs to sorries
+- Ensured build succeeds
+
+### Remaining
+- 39 sorries remaining (some proofs reverted to fix compilation)
+- Next targets: Look for other simple lemmas with straightforward proofs
