@@ -71,3 +71,14 @@
 - Location: StrongPNT/PNT2_LogDerivative_old.lean:141-144
 
 **Status**: 195 sorries remaining (was 197)
+
+## Iteration 11 (2025-09-22T21:51:40Z)
+### Fixed: `p_s_abs_1` prime decay bound
+- Proved that |p^(-s)| < 1 for primes p and Re(s) > 1
+- Key insight: |p^(-s)| = p^(-Re(s)) = 1/p^(Re(s))
+- Since p ≥ 2 and Re(s) > 1, we have p^(Re(s)) ≥ 2^(Re(s)) > 2^1 = 2 > 1
+- Therefore 1/p^(Re(s)) < 1
+- This lemma is crucial for proving convergence of the Euler product
+- Location: StrongPNT/PNT3_RiemannZeta.lean:67-91
+
+**Status**: 180 sorries remaining (was 181)

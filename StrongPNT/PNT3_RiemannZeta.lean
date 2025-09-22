@@ -66,7 +66,29 @@ lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
 -- Prime decay lemma
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
     ‖(p : ℂ) ^ (-s)‖ < 1 := by
-  sorry
+  rw [abs_p_pow_s p s]
+  -- |p^(-s)| = p^(-Re(s))
+  have hp : 2 ≤ (p : ℝ) := by
+    exact_mod_cast p.prop.two_le
+  -- p^(-Re(s)) = 1/p^(Re(s))
+  rw [Real.rpow_neg (Nat.cast_pos.mpr p.prop.pos)]
+  -- Since Re(s) > 1 and p ≥ 2, we have p^(Re(s)) > p^1 = p ≥ 2 > 1
+  have h1 : 1 < (p : ℝ) ^ s.re := by
+    calc (p : ℝ) ^ s.re
+      = (p : ℝ) ^ s.re := rfl
+    _ ≥ (2 : ℝ) ^ s.re := by
+      apply Real.rpow_le_rpow
+      · norm_num
+      · exact hp
+      · linarith
+    _ > (2 : ℝ) ^ 1 := by
+      apply Real.rpow_lt_rpow_left
+      · norm_num
+      · exact hs
+    _ = 2 := by simp
+    _ > 1 := by norm_num
+  -- So 1/p^(Re(s)) < 1
+  exact inv_lt_one h1
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
