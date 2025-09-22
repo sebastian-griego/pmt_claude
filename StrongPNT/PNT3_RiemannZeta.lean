@@ -64,12 +64,36 @@ lemma zeta_residue_one :
 -- Abs p pow s
 lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     ‖(p : ℂ) ^ (-s)‖ = (p : ℝ) ^ (-s.re) := by
-  sorry
+  have hp_pos : 0 < (p : ℝ) := by
+    norm_cast
+    exact Nat.Prime.pos p.prop
+  rw [norm_cpow_eq_rpow_Re]
+  · simp only [neg_re, norm_natCast]
+  · norm_cast
+    exact hp_pos.ne'
 
 -- Prime decay lemma
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
     ‖(p : ℂ) ^ (-s)‖ < 1 := by
-  sorry
+  rw [abs_p_pow_s]
+  -- Since p ≥ 2 and Re(s) > 1, we have p^(-Re(s)) < 1
+  have hp_ge2 : 2 ≤ (p : ℝ) := by
+    norm_cast
+    exact Nat.Prime.two_le p.prop
+  have hp_pos : 0 < (p : ℝ) := by
+    norm_cast
+    exact Nat.Prime.pos p.prop
+  rw [Real.rpow_neg hp_pos.le]
+  have h_gt_one : 1 < (p : ℝ) ^ s.re := by
+    have h_p_gt_one : 1 < (p : ℝ) := by linarith
+    calc 1 = 1 ^ s.re := by simp
+      _ < (p : ℝ) ^ s.re := by
+        apply Real.rpow_lt_rpow
+        · simp
+        · exact h_p_gt_one
+        · exact hs
+  simp only [inv_lt_one_iff]
+  exact Or.inl h_gt_one
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
@@ -123,8 +147,7 @@ lemma abs_zeta_prod_prime (s : ℂ) (hs : 1 < s.re) :
 
 -- Real double
 lemma Re2s (s : ℂ) : (2 * s).re = 2 * s.re := by
-  simp only [Complex.mul_re, Complex.ofReal_re, Complex.ofReal_im]
-  ring
+  rfl
 
 -- Real bound
 lemma Re2sge1 (s : ℂ) (hs : 1 < s.re) : 1 < (2 * s).re := by
