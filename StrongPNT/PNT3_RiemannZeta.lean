@@ -17,12 +17,30 @@ noncomputable def zeta (s : ℂ) : ℂ := ∑' n : ℕ+, (n : ℂ) ^ (-s)
 -- Zeta converges for Re(s) > 1
 lemma zeta_converges_re_gt_one (s : ℂ) (hs : 1 < s.re) :
     Summable (fun n : ℕ+ => (n : ℂ) ^ (-s)) := by
-  sorry
+  -- Use comparison test with p-series
+  have : Summable (fun n : ℕ+ => (n : ℝ) ^ (-s.re)) := by
+    -- p-series converges for p > 1
+    rw [summable_pow_neg_iff]
+    exact hs
+  -- Compare complex with real series
+  apply Summable.of_norm
+  simp_rw [norm_pow]
+  convert this using 1
+  ext n
+  simp [abs_cpow_eq_rpow_re_of_pos (Nat.cast_pos.mpr n.pos)]
 
 -- Zeta non-zero for Re(s) > 1
 lemma zeta_ne_zero_re_gt_one (s : ℂ) (hs : 1 < s.re) :
     zeta s ≠ 0 := by
-  sorry
+  unfold zeta
+  -- The sum starts with 1 and all terms are positive when Re(s) > 1
+  intro h_zero
+  have h_sum := tsum_eq_zero_iff (zeta_converges_re_gt_one s hs)
+  rw [h_zero] at h_sum
+  -- First term is 1^(-s) = 1 ≠ 0
+  specialize h_sum 1
+  simp at h_sum
+  exact one_ne_zero h_sum
 
 -- Von Mangoldt function (simplified for now)
 noncomputable def vonMangoldt (n : ℕ) : ℝ :=

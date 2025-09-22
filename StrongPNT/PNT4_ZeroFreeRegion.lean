@@ -401,7 +401,12 @@ lemma RealLambdaxy (n : ℕ) (x y : ℝ) :
 /-- Re(n^(-iy)) = cos(y log n) -/
 lemma lem_eacosalog3 (n : ℕ) (y : ℝ) (hn : 1 ≤ n) :
     ((n : ℂ)^(-y * I : ℂ)).re = Real.cos (y * Real.log n) := by
-  sorry
+  have hn_pos : 0 < n := Nat.one_le_iff_ne_zero.mp hn
+  rw [Complex.cpow_def_of_ne_zero (Complex.natCast_ne_zero.mpr (Nat.one_le_iff_ne_zero.mp hn))]
+  simp only [Complex.log_natCast_of_pos hn_pos]
+  rw [Complex.mul_comm, Complex.exp_mul_I_re]
+  simp only [Complex.ofReal_mul, Complex.ofReal_log, Complex.ofReal_neg]
+  rw [Real.cos_neg]
 
 /-- Real part series with cos -/
 lemma ReZseriesRen (x y : ℝ) (hx : 1 < x) :
