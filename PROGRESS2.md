@@ -31,3 +31,20 @@
 ### Next Steps
 - Continue with related lemmas in PNT3_RiemannZeta.lean
 - Consider fixing `p_s_abs_1` which directly uses `abs_p_pow_s`
+
+## Iteration 11 - 2025-09-22T21:47:43Z
+
+### Fixed
+- Fixed subset inclusion issue in `lem_analAtOnOn` (line 537-539)
+  - Issue: Invalid projection syntax `⟨hw_norm, _⟩` on non-structure type
+  - Solution: Use `hw.1` or `hw.left` after simplification
+- Left `lem_ballDR` as sorry (line 555)
+  - `Metric.closure_ball` function is not available in this Mathlib version
+
+### Progress
+- Sorry count: 197 (increased by 1 due to unavailable Metric.closure_ball)
+- Fixed syntax errors that were preventing compilation
+
+### Next Steps
+- Fix errors in PNT3_RiemannZeta.lean (Complex.arg_natCast issue)
+- Continue fixing remaining sorries
