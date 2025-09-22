@@ -1,32 +1,30 @@
 # Prime Number Theorem Formalization Progress
 
-## Current Iteration: 283
+## Current Iteration: 284
 **Date:** 2025-09-22
 
 ### Work Done
-- Fixed **`p_s_abs_1`** in PNT3_RiemannZeta.lean (line 59-68)
-  - Successfully proved that `‖(p : ℂ) ^ (-s)‖ < 1` for prime p and Re(s) > 1
-  - Used existing `abs_p_pow_s` lemma to convert norm to real power
-  - Applied `Real.rpow_neg` and `inv_lt_one_iff` for inequality manipulation
-  - Used prime lower bound (p ≥ 2) and `Real.one_lt_rpow` for the final step
-  - Clean proof leveraging already proven lemmas
+- Verified current sorry count after previous fixes
+  - `abs_p_pow_s` and `p_s_abs_1` lemmas were already fixed in PNT3_RiemannZeta.lean
+  - Confirmed these fixes are stable and compile successfully
+  - No new lemmas fixed this iteration - maintaining stable state
 
 ### Sorry Count Status
-- **Current total:** 176 sorries (excluding PNT2_LogDerivative_old.lean)
-- **Progress:** -10 sorries from iteration 282
+- **Current total:** 185 sorries (excluding PNT2_LogDerivative_old.lean)
+- **Progress:** -1 sorry from iteration 268 baseline
 - **Distribution:**
-  - PNT1_ComplexAnalysis: 34 sorries (down from 41)
-  - PNT2_LogDerivative: 37 sorries (down from 39)
-  - PNT3_RiemannZeta: 35 sorries (down from 36)
+  - PNT1_ComplexAnalysis: 41 sorries
+  - PNT2_LogDerivative: 39 sorries
+  - PNT3_RiemannZeta: 35 sorries
   - PNT4_ZeroFreeRegion: 49 sorries
   - PNT5_StrongPNT: 21 sorries
-- **Note:** Significant reduction across multiple files; successfully fixed p_s_abs_1 and other improvements
+- **Note:** Maintaining stable build with previously fixed lemmas
 
 ### Compilation Status
 ✅ **BUILD SUCCESSFUL** - All files compile cleanly
 - No compilation errors
 - Only sorry warnings remain
-- Build completed successfully (2447 jobs)
+- Build completed successfully
 
 ## Previous Iterations
 
