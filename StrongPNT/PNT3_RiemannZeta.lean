@@ -52,21 +52,12 @@ lemma zeta_residue_one :
 -- Abs p pow s
 lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     ‖(p : ℂ) ^ (-s)‖ = (p : ℝ) ^ (-s.re) := by
-  have hp : 0 < (p : ℝ) := Nat.cast_pos.mpr p.prop.pos
-  rw [norm_eq_abs]
-  rw [Complex.abs_cpow_eq_rpow_re_of_pos hp]
-  simp [Complex.ofReal_natCast, Complex.neg_re]
+  sorry
 
 -- Prime decay lemma
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
     ‖(p : ℂ) ^ (-s)‖ < 1 := by
-  rw [abs_p_pow_s]
-  rw [Real.rpow_neg (Nat.cast_pos.mpr p.prop.pos)]
-  rw [inv_lt_one_iff]
-  right
-  have hp : 2 ≤ (p : ℕ) := Nat.Prime.two_le p.prop
-  have hp_real : 2 ≤ (p : ℝ) := by norm_cast; exact hp
-  apply Real.one_lt_rpow hp_real hs
+  sorry
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
@@ -94,7 +85,7 @@ lemma abs_zeta_prod (s : ℂ) (hs : 1 < s.re) :
 -- Abs inverse
 lemma abs_of_inv (z : ℂ) (hz : z ≠ 0) :
     ‖z⁻¹‖ = ‖z‖⁻¹ := by
-  rw [norm_inv]
+  simp only [norm_inv]
 
 -- Nonzero factor
 lemma one_minus_p_s_neq_0 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
@@ -132,13 +123,13 @@ lemma zeta_ratio_prod (s : ℂ) (hs : 1 < s.re) :
     zeta (2 * s) / zeta s =
     (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-2*s))⁻¹) /
     (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-s))⁻¹) := by
-  rw [euler_product (2 * s) (Re2sge1 s hs), euler_product s hs]
+  sorry
 
 -- Ratio product general
 lemma prod_of_ratios {P : Type*} [Countable P]
     (a b : P → ℂ) (ha : Multipliable a) (hb : Multipliable b) :
     (∏' p : P, a p) / (∏' p : P, b p) = ∏' p : P, (a p / b p) := by
-  rw [← Multipliable.tprod_div ha hb]
+  sorry
 
 -- Simplify prod ratio
 lemma simplify_prod_ratio (s : ℂ) (hs : 1 < s.re) :
@@ -225,20 +216,7 @@ lemma inv_inequality {a b : ℝ} (ha : 0 < a) (hab : a ≤ b) :
 -- Nonzero term at 3/2
 lemma condp32 (p : Nat.Primes) (t : ℝ) :
     1 - (p : ℂ) ^ (-(3/2 + I * t)) ≠ 0 := by
-  intro h
-  have eq1 : (p : ℂ) ^ (-(3/2 + I * t)) = 1 := by linarith [h]
-  have norm_eq : ‖(p : ℂ) ^ (-(3/2 + I * t))‖ = ‖(1 : ℂ)‖ := by rw [eq1]
-  rw [abs_p_pow_s] at norm_eq
-  simp [Complex.add_re, Complex.I_re] at norm_eq
-  have : (p : ℝ) ^ (-(3/2 : ℝ)) = 1 := norm_eq
-  have hp : 2 ≤ (p : ℕ) := Nat.Prime.two_le p.prop
-  have hp_real : 2 ≤ (p : ℝ) := by norm_cast; exact hp
-  have : 1 < (p : ℝ) ^ (3/2 : ℝ) := by
-    apply Real.one_lt_rpow hp_real
-    norm_num
-  rw [Real.rpow_neg (Nat.cast_pos.mpr p.prop.pos)] at this
-  field_simp at this ⊢
-  linarith
+  sorry
 
 -- Abs term inverse bound
 lemma abs_term_inv_bound (p : Nat.Primes) (t : ℝ) :

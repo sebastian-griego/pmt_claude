@@ -75,12 +75,17 @@ import Mathlib.NumberTheory.ZetaFunction
 - blueprint/ folder (read-only reference)
 - lakefile.lean (unless adding new Mathlib dependencies)
 
+## CRITICAL: NEVER ADD SORRY TO PROVEN LEMMAS
+- If a lemma compiles without sorry, NEVER add sorry to it
+- If fixing one lemma breaks another, find a different solution
+- Adding sorry to a previously working proof is REGRESSION
+- Check git diff before committing - reject changes that add sorries to proven lemmas
 
 ## progress file Rules
 - ALWAYS APPEND to progress file, NEVER overwrite
 - Use >> not > when updating progress file  
 - Each iteration adds a NEW section at the END of progress file
-- Clear the progress file every 25 iterations
+- Clear the progress file every 10 iterations
 
 ## Project Structure (DO NOT CHANGE)
 Root directory: `/home/jovyan/pmt_claude/`
