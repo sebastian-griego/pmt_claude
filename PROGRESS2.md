@@ -225,3 +225,17 @@
 ### Next Steps
 - Continue fixing remaining sorries in PNT4_ZeroFreeRegion.lean
 - Focus on lemmas that use available Mathlib functions
+## Iteration 15 - 2025-09-22T22:24:35Z
+
+### Fixed
+- Fixed subset proof in `lem_analAtOnOn` in PNT1_ComplexAnalysis.lean (line 537)
+  - Proved: {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
+  - Simple subset proof using `intro w hw; exact hw.1`
+
+### Progress
+- Reduced sorry count from 179 to 178
+- This fixes a basic subset relationship needed for analyticity monotonicity
+
+### Next Steps
+- Continue fixing remaining sorries in complex analysis lemmas
+- Focus on simpler subset and property lemmas
