@@ -124,3 +124,15 @@
 - Location: StrongPNT/PNT1_ComplexAnalysis.lean:535-537
 
 **Status**: 196 sorries remaining (was 197 - fixed by external linter modifications to PNT3_RiemannZeta.lean)
+
+## Iteration 16 (2025-09-22T22:17:13Z)
+### Attempted: Set inclusion subset proof
+- Attempted to fix the set inclusion proof in `lem_analAtOnOn`
+- The lemma states {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
+- Multiple approaches tried but Lean's type system handling of set membership proved challenging
+- The membership predicate cannot be decomposed using standard product notation
+- Restored sorry to maintain compilability
+- External modifications by linters reduced sorry count by 2
+- Location: StrongPNT/PNT1_ComplexAnalysis.lean:535-537
+
+**Status**: 179 sorries remaining (was 181)
