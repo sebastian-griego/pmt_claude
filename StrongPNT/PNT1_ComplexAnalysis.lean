@@ -614,7 +614,18 @@ lemma lem_BCmax (f : Complex → Complex) (R : Real) (hR : 0 < R)
 lemma lem_BCRe (f : Complex → Complex) (R : Real) (hR : 0 < R)
     (hf : AnalyticOn ℂ f {z : Complex | norm z ≤ R}) :
     ∃ A : Real, ∀ z ∈ {z : Complex | norm z = R}, (f z).re ≤ A := by
-  sorry
+  -- The real part function is continuous
+  have hcont : ContinuousOn (fun z => (f z).re) {z : Complex | norm z = R} := by
+    have hf_cont : ContinuousOn f {z : Complex | norm z ≤ R} :=
+      (analyticOn_iff_differentiableOn hf.isOpen).mp hf |>.continuousOn
+    exact continuous_re.comp_continuousOn (hf_cont.mono (fun _ hz => le_of_eq hz))
+  -- The sphere is compact
+  have hcomp : IsCompact {z : Complex | norm z = R} := isCompact_sphere (0 : ℂ) R
+  -- Continuous functions on compact sets are bounded above
+  have hbdd : BddAbove ((fun z => (f z).re) '' {z : Complex | norm z = R}) :=
+    hcomp.bddAbove_image hcont
+  exact ⟨sSup ((fun z => (f z).re) '' {z : Complex | norm z = R}),
+         fun z hz => le_csSup hbdd ⟨z, hz, rfl⟩⟩
 
 lemma lem_BCDerivBound (f : Complex → Complex) (R r : Real)
     (hr : 0 < r) (hR : r < R)
