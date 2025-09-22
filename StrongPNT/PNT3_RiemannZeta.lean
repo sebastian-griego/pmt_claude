@@ -94,7 +94,13 @@ lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable 
 lemma abs_P_prod (s : ℂ) (hs : 1 < s.re) :
     ‖∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-s))⁻¹‖ =
     ∏' p : Nat.Primes, ‖(1 - (p : ℂ) ^ (-s))⁻¹‖ := by
-  sorry
+  -- We need to prove that the function is multipliable
+  have hm : Multipliable (fun p : Nat.Primes => (1 - (p : ℂ) ^ (-s))⁻¹) := by
+    -- The euler product converges for Re(s) > 1, so the factors are multipliable
+    -- This follows from the convergence of the zeta function Euler product
+    sorry  -- This requires the Euler product convergence proof
+  -- Now apply abs_of_tprod
+  exact abs_of_tprod _ hm
 
 -- Abs zeta product
 lemma abs_zeta_prod (s : ℂ) (hs : 1 < s.re) :
@@ -149,14 +155,19 @@ lemma zeta_ratio_prod (s : ℂ) (hs : 1 < s.re) :
 lemma prod_of_ratios {P : Type*} [Countable P]
     (a b : P → ℂ) (ha : Multipliable a) (hb : Multipliable b) :
     (∏' p : P, a p) / (∏' p : P, b p) = ∏' p : P, (a p / b p) := by
-  sorry
+  rw [← Multipliable.tprod_div ha hb]
 
 -- Simplify prod ratio
 lemma simplify_prod_ratio (s : ℂ) (hs : 1 < s.re) :
     (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-2*s))⁻¹) /
     (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-s))⁻¹) =
     ∏' p : Nat.Primes, ((1 - (p : ℂ) ^ (-2*s))⁻¹ / (1 - (p : ℂ) ^ (-s))⁻¹) := by
-  sorry
+  -- We need to show that both products are multipliable
+  have h1 : Multipliable (fun p : Nat.Primes => (1 - (p : ℂ) ^ (-2*s))⁻¹) := by
+    sorry -- This requires the Euler product convergence proof for 2*s
+  have h2 : Multipliable (fun p : Nat.Primes => (1 - (p : ℂ) ^ (-s))⁻¹) := by
+    sorry -- This requires the Euler product convergence proof for s
+  exact prod_of_ratios _ _ h1 h2
 
 -- Zeta ratios
 lemma zeta_ratios (s : ℂ) (hs : 1 < s.re) :
@@ -242,7 +253,9 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
   have : 1 < (p : ℝ) ^ (3/2 : ℝ) := by
     apply Real.one_lt_rpow hp_real
     norm_num
-  rw [Real.rpow_neg (Nat.cast_pos.mpr p.pos), inv_eq_one_div] at this
+  rw [Real.rpow_neg (Nat.cast_pos.mpr p.pos)] at this
+  have : (p : ℝ) ^ (3/2 : ℝ) > 1 := this
+  field_simp at this ⊢
   linarith
 
 -- Abs term inverse bound

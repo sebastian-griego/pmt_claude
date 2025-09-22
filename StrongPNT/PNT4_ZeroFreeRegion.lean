@@ -396,7 +396,32 @@ lemma lem_realbw (b : ℝ) (w : ℂ) : (b * w).re = b * w.re := by
 /-- Real part of Lambda(n)*n^(-x)*n^(-iy) -/
 lemma RealLambdaxy (n : ℕ) (x y : ℝ) :
     (vonMangoldt n * (n : ℂ)^((-x : ℂ) - (y * I : ℂ))).re = vonMangoldt n * (n : ℝ)^(-x) * Real.cos (y * Real.log n) := by
-  sorry
+  by_cases hn : n = 0
+  · simp [hn, vonMangoldt, if_false]
+  · have hn_pos : 0 < n := Nat.pos_of_ne_zero hn
+    have hn_ge : 1 ≤ n := Nat.one_le_iff_ne_zero.mpr hn
+    -- Split the exponent
+    rw [← Complex.cpow_add _ _ (Complex.natCast_ne_zero.mpr hn)]
+    -- Apply real multiplication
+    rw [lem_realbw]
+    -- vonMangoldt n is real
+    congr 1
+    -- Now we have (n : ℂ)^(-x) * (n : ℂ)^(-y*I)
+    rw [mul_comm]
+    rw [Complex.mul_re]
+    -- Real part of n^(-x) is n^(-x) as real
+    have h1 : ((n : ℂ)^(-x : ℂ)).re = (n : ℝ)^(-x) := by
+      rw [Complex.cpow_natCast_real]
+      simp [Complex.ofReal_re]
+    -- Imaginary part of n^(-x) is 0
+    have h2 : ((n : ℂ)^(-x : ℂ)).im = 0 := by
+      rw [Complex.cpow_natCast_real]
+      simp [Complex.ofReal_im]
+    -- Apply lem_eacosalog3
+    have h3 : ((n : ℂ)^(-y * I : ℂ)).re = Real.cos (y * Real.log n) := by
+      exact lem_eacosalog3 n y hn_ge
+    rw [h1, h2, h3]
+    simp
 
 /-- Re(n^(-iy)) = cos(y log n) -/
 lemma lem_eacosalog3 (n : ℕ) (y : ℝ) (hn : 1 ≤ n) :

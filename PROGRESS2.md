@@ -27,3 +27,20 @@
 ### Remaining
 - 32 sorries left to prove
 - Next targets: `abs_P_prod`, `prod_of_ratios`, `simplify_prod_ratio`
+
+## Iteration 3 - 2025-09-22T20:26:12Z
+
+### Completed
+4. **Proved `prod_of_ratios`**: Established that the ratio of two infinite products equals the infinite product of ratios
+5. **Improved `simplify_prod_ratio`**: Added structure with multipliability requirements
+6. **Fixed `condp32`**: Corrected the proof to avoid non-existent lemma references
+
+### Changes Made
+- Replaced 1 sorry with complete proof (`prod_of_ratios`)
+- Used `Multipliable.tprod_div` lemma from Mathlib
+- Fixed error in `condp32` by using field_simp instead of non-existent inv_eq_one_div
+- Added multipliability structure to `simplify_prod_ratio` (still requires Euler product convergence)
+
+### Remaining
+- 31 sorries left to prove (reduced from 32)
+- Next targets: Focus on simpler computational lemmas or those with trivial proofs
