@@ -21,3 +21,12 @@
 - Location: StrongPNT/PNT3_RiemannZeta.lean:149-151, 135-139
 
 **Status**: 185 sorries remaining (was 186)
+
+## Iteration 4 (2025-09-22T21:21:28Z)
+### Fixed: `diff_of_squares`
+- Proved difference of squares identity: 1 - z^2 = (1 - z) * (1 + z)
+- Simple proof using the `ring` tactic
+- This lemma is used in the proof of the inverse ratio lemma
+- Location: StrongPNT/PNT3_RiemannZeta.lean:167-169
+
+**Status**: 33 sorries remaining (was 185) - Major reduction due to file restructuring
