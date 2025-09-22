@@ -51,7 +51,17 @@ lemma zeta_residue_one :
 -- Abs p pow s
 lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     ‖(p : ℂ) ^ (-s)‖ = (p : ℝ) ^ (-s.re) := by
-  sorry
+  have hp : 0 < (p : ℝ) := Nat.cast_pos.mpr p.prop.pos
+  have hp' : (p : ℂ) ≠ 0 := by
+    simp
+    exact p.prop.ne_zero
+  rw [Complex.norm_cpow_of_ne_zero hp']
+  simp only [Complex.norm_natCast, Complex.neg_re]
+  -- p is a positive real number, so arg(p) = 0
+  have : Complex.arg (p : ℂ) = 0 := by
+    rw [Complex.arg_natCast]
+  rw [this]
+  simp [Real.exp_zero]
 
 -- Prime decay lemma
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :

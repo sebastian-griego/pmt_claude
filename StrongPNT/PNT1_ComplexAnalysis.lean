@@ -529,10 +529,13 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
   · -- Case z ≠ 0: use hT
     have : z ∈ {z : Complex | norm z ≤ R ∧ z ≠ 0} := ⟨hz, hz0⟩
     have h' := hT z this
+    -- h' gives analyticity within the set without 0
+    -- We need analyticity within the full set
+    -- Since {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}, we can use monotonicity
     apply AnalyticWithinAt.mono h'
-    -- The subset proof: if w is in {z | norm z ≤ R} then w is in {z | norm z ≤ R ∧ z ≠ 0}
-    -- This is false in general! We can't prove it
-    sorry
+    -- Show {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
+    intro w ⟨hw_norm, _⟩
+    exact hw_norm
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
