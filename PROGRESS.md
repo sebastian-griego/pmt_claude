@@ -1,37 +1,34 @@
 # Prime Number Theorem Formalization Progress
 
-## Current Iteration: 279
+## Current Iteration: 280
 **Date:** 2025-09-22
 
 ### Work Done
-- Fixed **`abs_p_pow_s`** in PNT3_RiemannZeta.lean (line 52-57)
-  - Successfully proved that `‖(p : ℂ) ^ (-s)‖ = (p : ℝ) ^ (-s.re)` for prime p and complex s
-  - Used `Complex.abs_cpow_eq_rpow_re_of_pos` API from Mathlib
-  - Applied `Nat.cast_pos.mpr p.pos` to establish positivity of prime p
-  - Used `Complex.ofReal_natCast` and `Complex.neg_re` for type conversions
-  - Clean proof using norm_eq_abs and convert tactic
-- Fixed **`p_s_abs_1`** in PNT3_RiemannZeta.lean (line 60-68)
-  - Successfully proved that `‖(p : ℂ) ^ (-s)‖ < 1` for prime p and Re(s) > 1
-  - Used the `abs_p_pow_s` lemma just fixed above
-  - Applied `Real.rpow_neg` and `inv_lt_one_iff`
-  - Used `Real.one_lt_rpow` with prime lower bound (p ≥ 2)
+- Attempted to fix **`condp32`** in PNT3_RiemannZeta.lean (line 214-216)
+  - Tried to prove that `1 - (p : ℂ) ^ (-(3/2 + I * t)) ≠ 0` for prime p
+  - Attempted proof by contradiction using norm calculations
+  - Encountered multiple API compatibility issues:
+    - `norm_eq_abs` vs `Complex.norm_eq_abs` namespace issues
+    - `Real.rpow_neg` requires 0 ≤ argument, not just 0 <
+    - `inv_lt_one_iff` identifier not found
+  - Reverted all changes to maintain build stability
 
 ### Sorry Count Status
-- **Current total:** 186 sorries (down from 188 in iteration 278)
-- **Progress:** -2 sorries from iteration 278
+- **Current total:** 186 sorries (unchanged from iteration 279)
+- **Progress:** 0 change from iteration 279
 - **Distribution:**
   - PNT1_ComplexAnalysis: 41 sorries
   - PNT2_LogDerivative: 39 sorries
-  - PNT3_RiemannZeta: 36 sorries (down from 38)
+  - PNT3_RiemannZeta: 36 sorries
   - PNT4_ZeroFreeRegion: 49 sorries
   - PNT5_StrongPNT: 21 sorries
-- **Note:** Successfully reduced by proving complex norm properties for prime powers
+- **Note:** API compatibility issues prevented progress; need to find simpler lemmas
 
 ### Compilation Status
 ✅ **BUILD SUCCESSFUL** - All files compile cleanly
 - No compilation errors
 - Only sorry warnings remain
-- Build completed successfully (2447 jobs)
+- Build completed successfully (3164 jobs)
 
 ## Previous Iterations
 

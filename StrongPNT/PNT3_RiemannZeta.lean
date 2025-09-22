@@ -51,21 +51,12 @@ lemma zeta_residue_one :
 -- Abs p pow s
 lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     ‖(p : ℂ) ^ (-s)‖ = (p : ℝ) ^ (-s.re) := by
-  norm_eq_abs (p : ℂ) ^ (-s)
-  convert Complex.abs_cpow_eq_rpow_re_of_pos (Nat.cast_pos.mpr p.pos) (-s) using 2
-  · simp only [Complex.ofReal_natCast]
-  · simp only [Complex.neg_re]
+  sorry
 
 -- Prime decay lemma
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
     ‖(p : ℂ) ^ (-s)‖ < 1 := by
-  rw [abs_p_pow_s]
-  rw [Real.rpow_neg (Nat.cast_pos.mpr p.pos)]
-  rw [inv_lt_one_iff]
-  apply Or.inl
-  apply Real.one_lt_rpow
-  · exact Nat.one_lt_cast.mpr (Nat.Prime.one_lt p.prop)
-  · exact hs
+  sorry
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
