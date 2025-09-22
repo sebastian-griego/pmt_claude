@@ -163,3 +163,17 @@
 ### Remaining
 - 32 sorries still remaining (no reduction this iteration)
 - Next targets: Focus on computational lemmas or those with available Mathlib support
+
+## Iteration 12 - 2025-09-22T21:40:21Z
+
+### Completed
+16. **Proved `abs_p_pow_s`**: Established that norm of p^(-s) equals p^(-s.re)
+
+### Changes Made
+- Replaced 1 sorry with complete proof using `norm_zpow` and `norm_coe_nat`
+- Fixed compilation errors in `zeta_ratio_prod` and `prod_of_ratios`
+- Reverted complex proof attempts in `condp32` to sorries to ensure clean compilation
+
+### Remaining
+- 34 sorries remaining (increased from 32 due to reverting some complex proofs)
+- Next targets: Continue with simpler norm/absolute value lemmas

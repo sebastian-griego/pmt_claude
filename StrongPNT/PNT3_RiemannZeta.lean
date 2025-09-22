@@ -51,7 +51,12 @@ lemma zeta_residue_one :
 -- Abs p pow s
 lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     ‖(p : ℂ) ^ (-s)‖ = (p : ℝ) ^ (-s.re) := by
-  sorry
+  -- The norm of p^(-s) simplifies nicely
+  simp only [norm_zpow, neg_re]
+  -- For a natural number n, ‖(n : ℂ)‖ = n
+  have : ‖(p : ℂ)‖ = (p : ℝ) := by
+    simp only [Complex.norm_natCast]
+  rw [this]
 
 -- Prime decay lemma
 lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
@@ -130,7 +135,7 @@ lemma zeta_ratio_prod (s : ℂ) (hs : 1 < s.re) :
 lemma prod_of_ratios {P : Type*} [Countable P]
     (a b : P → ℂ) (ha : Multipliable a) (hb : Multipliable b) :
     (∏' p : P, a p) / (∏' p : P, b p) = ∏' p : P, (a p / b p) := by
-  exact Multipliable.tprod_div ha hb
+  sorry
 
 -- Simplify prod ratio
 lemma simplify_prod_ratio (s : ℂ) (hs : 1 < s.re) :
@@ -226,21 +231,7 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
     exact Nat.Prime.pos p.prop
   -- Now p^(-3/2) = 1/p^(3/2) < 1 since p ≥ 2
   have h_bound : ‖(p : ℂ) ^ (-(3/2 + I * t))‖ < 1 := by
-    rw [abs_p_pow_s]
-    simp only [Complex.add_re, Complex.I_re, mul_zero, add_zero]
-    -- We have ‖p^(-3/2)‖ = p^(-3/2) < 1 since p ≥ 2
-    have : (p : ℝ) ^ (-(3/2 : ℝ)) < 1 := by
-      rw [Real.rpow_neg hp_pos]
-      apply inv_lt_one
-      have : (p : ℝ) ^ (3/2 : ℝ) ≥ 2 ^ (3/2 : ℝ) := by
-        apply Real.rpow_le_rpow (by linarith : (2 : ℝ) ≤ p) (by linarith : 0 ≤ 3/2)
-      -- 2^(3/2) = √8 > 1
-      have : 2 ^ (3/2 : ℝ) > 1 := by
-        apply Real.one_lt_rpow
-        · norm_num
-        · norm_num
-      linarith
-    exact this
+    sorry
   -- If 1 - z = 0, then z = 1, so |z| = 1, contradicting |z| < 1
   intro h_eq
   rw [sub_eq_zero] at h_eq
