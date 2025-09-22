@@ -111,3 +111,16 @@
   - PNT5_StrongPNT: 21 sorries (main PNT theorems)
 
 **Status**: 197 sorries remaining (no change - fixes failed to compile)
+
+## Iteration 15 (2025-09-22T22:10:14Z)
+### Attempted: Set inclusion lemma fix
+- Attempted to fix the set inclusion proof in `lem_analAtOnOn`
+- The lemma requires showing {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
+- This is a simple logical fact: any element satisfying both conditions satisfies the first
+- However, the proof failed due to type system issues with projection syntax
+- The expected type after intro is not a structure type that supports projection
+- Multiple attempted syntaxes (pattern matching, simp, obtain) failed to resolve the issue
+- Restored the sorry to maintain compilability
+- Location: StrongPNT/PNT1_ComplexAnalysis.lean:535-537
+
+**Status**: 196 sorries remaining (was 197 - fixed by external linter modifications to PNT3_RiemannZeta.lean)
