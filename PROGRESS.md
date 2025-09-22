@@ -1,6 +1,37 @@
 # Prime Number Theorem Formalization Progress
 
-## Current Iteration: 271
+## Current Iteration: 272
+**Date:** 2025-09-22
+
+### Work Done
+- Fixed **`abs_term_inv_bound`** in PNT3_RiemannZeta.lean (line 239-248)
+  - Successfully proved that `‖(1 - (p : ℂ) ^ (-(3/2 + I * t)))⁻¹‖ ≥ ((1 + (p : ℝ) ^ (-(3/2 : ℝ))))⁻¹`
+  - Used `norm_inv` to convert norm of inverse to inverse of norm
+  - Applied the already-proven `abs_term_bound` lemma for the upper bound
+  - Used `condp32` lemma to ensure the expression is non-zero
+  - Applied `inv_le_inv₀` for the final inequality with appropriate positivity conditions
+  - Clean proof leveraging existing lemmas
+
+### Sorry Count Status
+- **Current total:** 186 sorries (down from 187 in iteration 271)
+- **Progress:** -1 sorry from iteration 271
+- **Distribution:**
+  - PNT1_ComplexAnalysis: 41 sorries
+  - PNT2_LogDerivative: 39 sorries
+  - PNT3_RiemannZeta: 36 sorries (down from 37)
+  - PNT4_ZeroFreeRegion: 49 sorries
+  - PNT5_StrongPNT: 21 sorries
+- **Note:** Successfully reduced by proving inverse norm inequality
+
+### Compilation Status
+✅ **BUILD SUCCESSFUL** - All files compile cleanly
+- No compilation errors
+- Only sorry warnings remain
+- Build completed successfully
+
+## Previous Iterations
+
+### Iteration 271
 **Date:** 2025-09-22
 
 ### Work Done
