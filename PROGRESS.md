@@ -419,3 +419,18 @@
 
 **Status**: 180 sorries remaining (increased from 173 due to external file modifications)
 
+## Iteration 44 (2025-09-23T01:06:00Z)
+### Fixed: Three simple lemmas across PNT files
+- Fixed set inclusion subset proof in PNT1_ComplexAnalysis.lean:537
+  - Proved {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R} using `intro w hw; exact hw.1`
+  - Simple logical fact: any element satisfying both conditions satisfies the first
+- Fixed closure of open ball lemma in PNT1_ComplexAnalysis.lean:555
+  - Proved closure of {z | ‖z‖ < R} equals {z | ‖z‖ ≤ R} using `Metric.closure_ball`
+  - Standard fact from metric topology available in Mathlib
+- Fixed real/imaginary parts of real powers in PNT4_ZeroFreeRegion.lean:465-470
+  - Proved ((n : ℂ)^(-x : ℂ)).re = (n : ℝ)^(-x) using `Complex.cpow_natCast_real`
+  - Proved ((n : ℂ)^(-x : ℂ)).im = 0 for real n and x
+  - Key fact: complex power of real numbers yields real results
+
+**Status**: 170 sorries remaining (was 180)
+
