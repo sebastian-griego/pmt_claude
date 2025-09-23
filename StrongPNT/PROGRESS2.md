@@ -63,3 +63,25 @@
 ### Stats:
 - Total sorries: 160 (reduced by 1)
 - Build status: Has some build errors but the partial fix is valid
+
+## Iteration 14 - 2025-09-23T22:36:00Z
+
+### Focus: PNT1_ComplexAnalysis.lean - Completed `lem_analAtOnOn`
+- Fixed lemma at lines 520-532 showing analyticity extends from punctured disk to full disk
+- This is a key lemma for extending analytic functions
+
+### Progress:
+- Successfully completed proof of `lem_analAtOnOn`
+- Case 1 (z = 0): Used analyticWithinAt from the hypothesis h0
+- Case 2 (z ≠ 0): Applied AnalyticWithinAt.mono to extend from smaller set to larger set
+- Fixed type issues with proper subset proof
+
+### Implementation:
+- For z = 0, used the given analyticity at 0 directly
+- For z ≠ 0, showed z is in the punctured disk, applied hT, then used monotonicity
+- The subset {w | ‖w‖ ≤ R ∧ w ≠ 0} ⊆ {w | ‖w‖ ≤ R} is shown by projection to first component
+
+### Stats:
+- PNT1_ComplexAnalysis.lean: 34 sorries (reduced from 35)
+- Total project sorries: 162 (PNT1: 34, PNT2: 32, PNT3: 34, PNT4: 41, PNT5: 21)
+- Build status: Still has one error with deriv_const_mul but lem_analAtOnOn compiles
