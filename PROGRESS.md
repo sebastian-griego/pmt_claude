@@ -2,6 +2,31 @@
 
 This file tracks the progress of removing `sorry` statements from the StrongPNT project.
 
+## Iteration 2025-09-23T23:49:50Z
+
+### Fixed
+- Fixed `zeta_converges_re_gt_one` in PNT3_RiemannZeta.lean (line 21-28) - Removed 1 sorry
+  - Used `Complex.summable_nat_cpow` from `Mathlib.Analysis.PSeriesComplex` to prove convergence
+  - Added import for `Mathlib.Analysis.PSeriesComplex`
+  - The lemma proves that the Riemann zeta series converges for Re(s) > 1
+
+### Current Status
+- Total sorries: 166 (was 170)
+  - PNT1_ComplexAnalysis.lean: 35 sorries
+  - PNT2_LogDerivative.lean: 33 sorries
+  - PNT3_RiemannZeta.lean: 32 sorries (was 34)
+  - PNT4_ZeroFreeRegion.lean: 45 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build successful
+
+### Notes
+- Successfully proved the convergence of the Riemann zeta function series for Re(s) > 1
+- The linter also automatically improved some proofs in PNT3_RiemannZeta.lean
+
+### Next Steps
+- Continue fixing simple lemmas that can use existing Mathlib functions
+- Focus on convergence and summability lemmas
+
 ## Iteration 2025-09-23T23:44:00Z
 
 ### Fixed

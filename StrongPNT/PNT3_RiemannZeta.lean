@@ -6,6 +6,7 @@ import Mathlib.Analysis.Calculus.Deriv.Basic
 import Mathlib.NumberTheory.ArithmeticFunction
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Topology.Algebra.InfiniteSum.Field
+import Mathlib.Analysis.PSeriesComplex
 
 open Complex Real Filter Classical
 open scoped BigOperators Topology
@@ -23,7 +24,8 @@ lemma zeta_converges_re_gt_one (s : ℂ) (hs : 1 < s.re) :
   -- We can use the fact that the p-series converges for p > 1
   have h_pos : 0 < s.re - 1 := by linarith
   -- Convert to a form that mathlib's summability theorems can handle
-  sorry
+  apply Complex.summable_nat_cpow
+  exact hs
 
 -- Zeta non-zero for Re(s) > 1
 lemma zeta_ne_zero_re_gt_one (s : ℂ) (hs : 1 < s.re) :
@@ -69,7 +71,8 @@ lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     -- A natural number cast to ℂ is a positive real number
     have hp_pos : 0 < (p : ℝ) := Nat.cast_pos.mpr p.prop.pos
     -- For positive reals, the argument is 0
-    sorry -- Complex.arg_natCast API not available
+    apply Complex.arg_ofReal_of_nonneg
+    exact le_of_lt hp_pos
   rw [this]
   simp [Real.exp_zero]
 
