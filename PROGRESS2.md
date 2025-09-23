@@ -279,3 +279,28 @@
 - Continue looking for simpler computational lemmas
 - Focus on fixing build errors before reducing sorries further
 - Investigate which Mathlib functions are available for real power inequalities
+
+## Iteration 38 (2025-09-23T00:31:00Z)
+
+### Fixed
+- Fixed build errors in PNT1_ComplexAnalysis.lean:
+  - Line 537-540: Fixed pattern matching for set membership projection using `cases` tactic
+- Fixed build errors in PNT4_ZeroFreeRegion.lean:
+  - Line 341: Added sorry for Finset sum equality after splitting
+  - Line 471-473: Added sorry for missing `lem_eacosalog` lemma
+  - Line 510: Fixed simp issue by removing `ring` tactic
+
+### Progress
+- Sorry count increased from 171 to 173 (34+35+37+46+21)
+  - PNT1_ComplexAnalysis: 34 sorries (was 35)
+  - PNT2_LogDerivative: 35 sorries (unchanged)
+  - PNT3_RiemannZeta: 37 sorries (unchanged)
+  - PNT4_ZeroFreeRegion: 46 sorries (was 43)
+  - PNT5_StrongPNT: 21 sorries (unchanged)
+- Build errors are mostly resolved, but some remain
+- Added sorries for missing Mathlib functions and complex proofs
+
+### Next Steps
+- Continue fixing remaining build errors to get a clean build
+- Once build is clean, focus on reducing sorries by finding provable lemmas
+- Look for numerical computations that can be proven with `norm_num`

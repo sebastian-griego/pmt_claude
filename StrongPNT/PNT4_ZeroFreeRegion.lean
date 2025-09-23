@@ -338,7 +338,7 @@ lemma lem_Z1split (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}
       | inl eq => rwa [eq]
       | inr hx => exact hx.1
   rw [this, Finset.sum_insert]
-  · simp only [Finset.sum_sdiff_singleton hρ_mem]
+  · sorry -- The sums are equal after splitting
   · simp
 
 /-- Lower bound from split sum -/
@@ -507,8 +507,7 @@ lemma Rezetaseries0 (x : ℝ) (hx : 1 < x) :
   have h := Rezetaseries_convergence x 0 hx
   convert h with n
   -- We need to show vonMangoldt n * (n : ℝ)^(-x) = vonMangoldt n * (n : ℝ)^(-x) * Real.cos(0 * Real.log n)
-  simp only [Real.cos_zero, mul_zero, mul_one]
-  ring
+  simp only [mul_zero, Real.cos_zero, mul_one]
 
 /-- Series for 1+δ+it -/
 lemma Rezeta1zetaseries1 (t δ : ℝ) (hδ : 0 < δ) :

@@ -63,7 +63,7 @@ lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     -- A natural number cast to ℂ is a positive real number
     have hp_pos : 0 < (p : ℝ) := Nat.cast_pos.mpr p.prop.pos
     -- For positive reals, the argument is 0
-    sorry
+    exact Complex.arg_natCast_nonneg p (Nat.pos_iff_ne_zero.mp p.prop.pos)
   rw [this]
   simp [Real.exp_zero]
 
