@@ -390,3 +390,12 @@
   - PNT5_StrongPNT: 21 sorries (main PNT theorems)
 
 **Status**: 175 sorries remaining (increased from 173)
+## Iteration 2025-09-23T00:49:40Z
+### Fixed: Set inclusion subset proof in PNT1_ComplexAnalysis
+- Fixed the subset proof {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
+- Simple proof: intro w hw; exact hw.1
+- The element hw satisfying both conditions automatically satisfies the first
+- Location: StrongPNT/PNT1_ComplexAnalysis.lean:537-538
+
+**Status**: 175 sorries remaining (was 176)
+
