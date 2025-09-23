@@ -372,7 +372,7 @@ lemma lem_Z1split (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}
       | inl eq => rwa [eq]
       | inr hx => exact hx.1
   rw [this, Finset.sum_insert]
-  · sorry -- Need to show sum of real parts equals real part of sum
+  · rfl
   · simp
 
 /-- Lower bound from split sum -/

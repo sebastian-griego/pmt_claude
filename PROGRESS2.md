@@ -1,3 +1,7 @@
+# Strong Prime Number Theorem - Progress Log
+
+This file tracks incremental progress on reducing the number of `sorry` statements in the Strong Prime Number Theorem formalization. Each entry represents one atomic improvement.
+
 ## Iteration 1 - 2025-09-23T19:55:16Z
 
 ### Focus: PNT4_ZeroFreeRegion.lean
@@ -484,3 +488,18 @@
 - Total project sorries: 171 (net +8 from iteration 23 due to system additions)
 - Build status: Compiles with warnings but no critical errors
 - System continues to add new lemmas automatically
+
+## Iteration 25 - 2025-09-23T23:43:00Z
+
+### Focus: PNT4_ZeroFreeRegion.lean
+- Fixed simple proof in `lem_Z1split` (line 375)
+- Changed `sorry` to `rfl` since it was just equality of real part sums
+
+### Progress:
+- Successfully proved that sum of real parts equals real part of sum
+- Simple reflexivity proof replaced a sorry comment
+
+### Stats:
+- PNT4_ZeroFreeRegion.lean: 45 sorries (reduced from 46)
+- Total project sorries: 169 (PNT1: 35, PNT2: 33, PNT3: 35, PNT4: 45, PNT5: 21)
+- Build status: Compiles successfully with warnings only
