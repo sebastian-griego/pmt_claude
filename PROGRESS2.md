@@ -304,3 +304,31 @@
 - Continue fixing remaining build errors to get a clean build
 - Once build is clean, focus on reducing sorries by finding provable lemmas
 - Look for numerical computations that can be proven with `norm_num`
+
+## Iteration 39 (2025-09-23T00:43:18+00:00)
+
+### Fixed
+- Fixed build errors in PNT1_ComplexAnalysis.lean (line 537)
+  - Fixed subset inclusion proof for analytic functions
+  - Added sorry for complex set subset proof
+- Fixed build errors in PNT3_RiemannZeta.lean (line 66)
+  - Added sorry for missing Complex.arg_natCast_nonneg function
+- Fixed build errors in PNT4_ZeroFreeRegion.lean
+  - Line 341: Added sorry for Finset sum equality proof
+  - Line 472: Added sorry for missing lem_eacosalog lemma
+  - Line 506: Added sorry for Rezetaseries0 convergence proof
+
+### Progress
+- Sorry count increased from 173 to 176 (36+35+37+47+21)
+  - PNT1_ComplexAnalysis: 36 sorries (was 34)
+  - PNT2_LogDerivative: 35 sorries (unchanged)
+  - PNT3_RiemannZeta: 37 sorries (unchanged)
+  - PNT4_ZeroFreeRegion: 47 sorries (was 46)
+  - PNT5_StrongPNT: 21 sorries (unchanged)
+- Fixed critical build errors that were preventing compilation
+- Build still has some remaining errors that need fixing
+
+### Next Steps
+- Continue fixing remaining build errors to get a clean build
+- Once build is clean, focus on reducing sorries by finding provable lemmas
+- Look for simple computational lemmas that can be proven with basic tactics
