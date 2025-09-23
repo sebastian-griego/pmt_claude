@@ -522,14 +522,11 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     (hT : AnalyticOn ℂ h {z : Complex | norm z ≤ R ∧ z ≠ 0}) :
     AnalyticOn ℂ h {z : Complex | norm z ≤ R} := by
   intro z hz
-  by_cases hzero : z = 0
-  · rw [hzero]
-    exact h0.analyticWithinAt
-  · -- For z ≠ 0, we have z ∈ {w | norm w ≤ R ∧ w ≠ 0}
-    have hz' : z ∈ {w : Complex | norm w ≤ R ∧ w ≠ 0} := ⟨hz, hzero⟩
-    have hana := hT z hz'
-    -- hana is analyticWithinAt at the smaller set, we need it at the larger set
-    exact AnalyticWithinAt.mono hana (fun w hw => hw.1)
+  by_cases h_eq : z = 0
+  · rw [h_eq]
+    exact h0
+  · have : z ∈ {w : Complex | norm w ≤ R ∧ w ≠ 0} := ⟨hz, h_eq⟩
+    exact hT z this
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
