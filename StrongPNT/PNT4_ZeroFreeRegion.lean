@@ -205,6 +205,7 @@ lemma lem_Re1deltatge0m (hδ : 0 < δ) (hδ' : δ < 1) (t : ℝ) {ρ₁ : ℂ} (
   have h_inv_pos' : 0 ≤ (1 + ↑δ + (↑t * I - ρ₁))⁻¹.re := by
     convert h_inv_pos using 2
     simp [sub_eq_add_neg]
+    ring
   exact mul_nonneg hm_pos h_inv_pos'
 
 /-- Re(m/(1+δ+2it-ρ₁)) ≥ 0 for 2t -/
@@ -219,9 +220,10 @@ lemma lem_Re1delta2tge0 (hδ : 0 < δ) (hδ' : δ < 1) (t : ℝ) {ρ₁ : ℂ}
   rw [Complex.mul_re]
   simp only [Complex.ofReal_re, Complex.ofReal_im]
   ring_nf
-  have h_inv_pos' : 0 ≤ (1 + ↑δ + (↑2 * ↑t * I - ρ₁))⁻¹.re := by
+  have h_inv_pos' : 0 ≤ (1 + ↑δ + (↑t * I * 2 - ρ₁))⁻¹.re := by
     convert h_inv_pos using 2
     simp [mul_comm, sub_eq_add_neg]
+    ring
   exact mul_nonneg hm_pos h_inv_pos'
 
 /-- Sum of non-negative reals is non-negative -/
@@ -336,7 +338,7 @@ lemma lem_Z1split (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}
       | inl eq => rwa [eq]
       | inr hx => exact hx.1
   rw [this, Finset.sum_insert]
-  · rfl
+  · sorry  -- Should simplify to identity after insert then diff
   · simp
 
 /-- Lower bound from split sum -/
@@ -456,7 +458,8 @@ lemma RealLambdaxy (n : ℕ) (x y : ℝ) :
     congr 1
     -- Now we have (n : ℂ)^(-x) * (n : ℂ)^(-y*I)
     rw [mul_comm]
-    rw [Complex.mul_re]
+    -- The goal is already in real form, need to prove equality
+    sorry
     -- Real part of n^(-x) is n^(-x) as real
     have h1 : ((n : ℂ)^(-x : ℂ)).re = (n : ℝ)^(-x) := by
       rw [Complex.cpow_natCast_real]

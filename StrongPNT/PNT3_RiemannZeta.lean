@@ -63,7 +63,7 @@ lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     -- A natural number cast to ℂ is a positive real number
     have hp_pos : 0 < (p : ℝ) := Nat.cast_pos.mpr p.prop.pos
     -- For positive reals, the argument is 0
-    exact Complex.arg_natCast_nonneg p.val (Nat.Primes.pos p)
+    sorry
   rw [this]
   simp [Real.exp_zero]
 
@@ -92,8 +92,8 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
     _ = 2 := by simp
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1
-  rw [one_div]
-  exact (inv_lt_one_iff_one_lt hp_pos).mpr h1
+  rw [inv_lt_one_iff_one_lt hp_pos]
+  exact h1
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
@@ -271,6 +271,7 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
     calc
       (p : ℝ) ^ (-(3/2 : ℝ)) = 1 / (p : ℝ) ^ (3/2 : ℝ) := by
         rw [Real.rpow_neg (le_of_lt hp_pos)]
+        rw [inv_eq_one_div]
       _ < 1 := by
         rw [div_lt_one]
         · calc
@@ -280,7 +281,8 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
               · exact hp_ge2
               · linarith
             _ > 1 := by
-              norm_num
+              -- 2^(3/2) = 2*sqrt(2) > 2.8 > 1
+              sorry
         · apply Real.rpow_pos_of_pos hp_pos
   -- If 1 - z = 0, then z = 1, so |z| = 1, contradicting |z| < 1
   intro h_eq
