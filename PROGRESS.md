@@ -2,6 +2,30 @@
 
 This file tracks the progress of removing `sorry` statements from the StrongPNT project.
 
+## Iteration 2025-09-23T23:44:00Z
+
+### Fixed
+- Fixed `zeta_ne_zero_re_gt_one` in PNT3_RiemannZeta.lean (line 28-31) - Removed 1 sorry
+  - Used `riemannZeta_ne_zero_of_one_le_re` from Mathlib with `linarith` to prove
+  - Added import for `Mathlib.NumberTheory.LSeries.Nonvanishing`
+
+### Current Status
+- Total sorries: 168 (was 169)
+  - PNT1_ComplexAnalysis.lean: 35 sorries
+  - PNT2_LogDerivative.lean: 33 sorries
+  - PNT3_RiemannZeta.lean: 34 sorries (was 35)
+  - PNT4_ZeroFreeRegion.lean: 45 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build successful
+
+### Notes
+- Successfully proved that Riemann zeta is non-zero for Re(s) > 1 using existing Mathlib lemma
+- Required adding an additional import to access the necessary theorem
+
+### Next Steps
+- Continue fixing simple lemmas that can use existing Mathlib functions
+- Focus on lemmas with straightforward proofs
+
 ## Iteration 2025-09-23T22:22:27Z
 
 ### Fixed
