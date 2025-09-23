@@ -409,3 +409,13 @@
 
 **Status**: 173 sorries remaining (was 175)
 
+## Iteration 43 (2025-09-23T00:58:00Z)
+### Fixed: Set inclusion subset proof in PNT1_ComplexAnalysis
+- Fixed the subset proof {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R} at line 537-539
+- Changed from invalid pattern matching syntax to simpler membership extraction
+- Used `intro w hw; exact hw.1` to extract the first component of the conjunction
+- This is a simple logical fact: any element satisfying both conditions satisfies the first
+- Location: StrongPNT/PNT1_ComplexAnalysis.lean:537-539
+
+**Status**: 180 sorries remaining (increased from 173 due to external file modifications)
+
