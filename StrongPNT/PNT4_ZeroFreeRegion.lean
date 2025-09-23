@@ -469,7 +469,6 @@ lemma RealLambdaxy (n : ℕ) (x y : ℝ) :
     -- Apply lem_eacosalog
     have h3 : ((n : ℂ)^(-y * I : ℂ)).re = Real.cos (y * Real.log n) := by
       sorry -- lem_eacosalog doesn't exist
-    rw [h1, h2]
     sorry
 
 /-- Real part series with cos -/
