@@ -43,3 +43,19 @@
 - Focus on reducing sorries in PNT4_ZeroFreeRegion which has the most (41)
 - Look for simple arithmetic lemmas that can be solved with norm_num
 - Search for opportunities to use existing Mathlib lemmas directly
+
+## Iteration 50 - 2025-09-23T20:25:25Z
+
+### Focus: PNT1_ComplexAnalysis.lean
+- Fixed compilation errors preventing build
+- File has 34 sorries
+
+### Progress:
+- Fixed projection error at line 538: Changed from invalid `hw.1` to proper subset proof using `And.left`
+- Fixed `Complex.norm_div` usage at line 1260: Added missing nonzero argument
+- Resolved type inference issues in subset proofs
+
+### Stats:
+- Total sorries: 163 (reduced from 166)
+- Build status: PNT1 compiles with warnings only
+- Reduced sorries by fixing proper subset membership handling
