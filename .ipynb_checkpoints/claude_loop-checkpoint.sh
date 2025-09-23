@@ -35,11 +35,11 @@ fi
 echo "[startup] universal_claude_loop.sh in $PWD (type=$PROJECT_TYPE, sleep=${SLEEP_SECS}s)"
 while true; do
     [ -f STOP ] && { echo "STOP detected"; exit 0; }
-
+    
     TS="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
     PROG_TAIL="$(tail -c "$PROGRESS_TAIL" PROGRESS.md 2>/dev/null || true)"
     CLAUDE_SPEC="$(cat CLAUDE.md 2>/dev/null || echo "No CLAUDE.md found")"
-
+    
     FULL_PROMPT="$BASE_PROMPT
 Current PROGRESS.md (tail):
 $PROG_TAIL
@@ -47,18 +47,18 @@ Project specification (CLAUDE.md):
 $CLAUDE_SPEC
 Time: $TS"
     echo "[$TS] calling claude..."
-
+    
     claude -p "$FULL_PROMPT" \
         --dangerously-skip-permissions \
         --output-format json \
         > logs/last_claude.json 2>&1
-
+    
     # Git commit after each iteration
     echo "[$TS] committing to git..."
     SORRY_COUNT=$(grep -r "sorry" StrongPNT/*.lean 2>/dev/null | wc -l || echo "unknown")
     git add -A 2>/dev/null || true
     git commit -m "Auto-commit at $TS - $SORRY_COUNT sorries" 2>/dev/null || true
     git push origin main 2>/dev/null || true
-
+    
     sleep "$SLEEP_SECS"
 done
