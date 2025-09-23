@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["12220024684803147271"],
-  "i": "4382100367063301130",
+ {"o": ["10509395889601605796"],
+  "i": "1276966082981531269",
   "c": "18035040388222541126"},
  "log":
  [{"message":
@@ -20,217 +20,214 @@
    "StrongPNT/PNT2_LogDerivative.lean:80:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:85:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:94:54: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:90:54: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:104:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:100:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:152:30: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:148:30: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:153:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:149:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:153:57: unused variable `hf0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:149:57: unused variable `hf0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:154:13: unused variable `hρ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:150:13: unused variable `hρ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:158:31: unused variable `hS`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:154:31: unused variable `hS`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:158:55: unused variable `hw`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:154:55: unused variable `hw`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:188:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:184:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:196:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:192:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:204:34: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:200:34: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:204:55: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:200:55: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:205:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:201:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:205:57: unused variable `hf0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:201:57: unused variable `hf0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:210:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:206:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:218:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:214:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:225:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:221:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:232:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:228:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:245:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:241:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:251:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:247:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:258:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:254:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:269:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:265:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:276:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:272:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:284:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:280:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:299:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:295:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:308:29: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:304:29: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:308:50: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:304:50: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:309:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:305:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:309:57: unused variable `hf0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:305:57: unused variable `hf0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:310:47: unused variable `hz`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:306:47: unused variable `hz`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:317:33: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:313:33: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:317:54: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:313:54: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:318:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:314:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:318:57: unused variable `hf0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:314:57: unused variable `hf0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:319:59: unused variable `hz`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:315:59: unused variable `hz`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:325:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:321:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:353:35: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:349:35: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:418:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:414:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:430:31: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:426:31: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:430:52: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:426:52: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:431:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:427:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:438:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:434:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:446:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:442:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:454:32: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:450:32: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:463:43: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:459:43: unused variable `h`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:465:8: This simp argument is unused:\n  norm_div\n\nHint: Omit it from the simp argument list.\n  simp [̵n̵o̵r̵m̵_̵d̵i̵v̵,̵ ̵n̵o̵r̵m̵_̵n̵e̵g̵]̵[̲n̲o̲r̲m̲_̲n̲e̲g̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:461:8: This simp argument is unused:\n  norm_div\n\nHint: Omit it from the simp argument list.\n  simp [̵n̵o̵r̵m̵_̵d̵i̵v̵,̵ ̵n̵o̵r̵m̵_̵n̵e̵g̵]̵[̲n̲o̲r̲m̲_̲n̲e̲g̲]̲\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "StrongPNT/PNT2_LogDerivative.lean:468:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:464:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:480:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:476:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:505:53: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:501:53: unused variable `hn`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:514:31: unused variable `ρ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:510:31: unused variable `ρ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:525:48: unused variable `ρ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:521:48: unused variable `ρ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:536:40: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:532:40: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:536:61: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:532:61: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:537:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:533:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:537:57: unused variable `hf0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:533:57: unused variable `hf0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:548:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:544:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:555:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:551:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:562:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:558:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:571:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:567:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:580:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:576:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:588:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:584:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:596:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:592:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:604:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:600:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:616:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:612:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:629:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:625:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:642:34: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:638:34: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:642:55: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:638:55: unused variable `hR₁`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:643:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:639:17: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "StrongPNT/PNT2_LogDerivative.lean:645:6: unused variable `ρ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:641:6: unused variable `ρ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
-   "level": "warning"},
-  {"message":
-   "StrongPNT/PNT2_LogDerivative.lean:652:6: declaration uses 'sorry'",
+   "StrongPNT/PNT2_LogDerivative.lean:656:6: declaration uses 'sorry'",
    "level": "warning"}],
  "inputs":
  [["StrongPNT.PNT2_LogDerivative:deps",
@@ -292,11 +289,11 @@
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
   ["/home/jovyan/pmt_claude/StrongPNT/PNT2_LogDerivative.lean",
-   "13985278468930469253"],
+   "156121534729546493"],
   ["options",
    [["-Dpp.proofs.withType=false", "17856924786787508970"],
     ["-DrelaxedAutoImplicit=false", "8404479228809428608"],
     ["-Dpp.unicode.fun=true", "11210593074386665387"],
     ["-DautoImplicit=false", "5369888039164004816"]]],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "16004970480754010391"}
+ "depHash": "9046215577813635171"}

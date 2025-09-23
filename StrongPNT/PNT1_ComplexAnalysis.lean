@@ -900,6 +900,8 @@ lemma lem_removable_singularity (R : Real) (hR : R > 0) (f : Complex → Complex
     (hf : AnalyticOn ℂ f {z : Complex | norm z ≤ R})
     (hf0 : f 0 = 0) :
     AnalyticOn ℂ (fun z => f z / z) {z : Complex | norm z ≤ R} := by
+  -- Since f is analytic with f(0) = 0, we can write f(z) = z * g(z) where g is analytic
+  -- Therefore f(z)/z = g(z) which is analytic
   sorry
 
 lemma lem_quotient_analytic (R : Real) (hR : R > 0) (h₁ h₂ : Complex → Complex)

@@ -2,6 +2,35 @@
 
 This file tracks the progress of removing `sorry` statements from the StrongPNT project.
 
+## Iteration 2025-09-23T21:37:30Z
+
+### Attempted
+- Tried to fix `lem_analAtOnOn` in PNT1_ComplexAnalysis.lean (line 520-525)
+  - Issue: Type mismatch between AnalyticAt/AnalyticOn and AnalyticWithinAt
+  - Reverted to sorry due to type system complications
+- Tried to fix `lem_blaschke_pow_diff_nonzero` in PNT2_LogDerivative.lean (line 269-273)
+  - Issue: Order of operations in differentiability proof
+  - Reverted to sorry due to compilation errors
+
+### Current Status
+- Total sorries: 162 (unchanged from previous iteration)
+  - PNT1_ComplexAnalysis.lean: 33 sorries
+  - PNT2_LogDerivative.lean: 33 sorries
+  - PNT3_RiemannZeta.lean: 33 sorries
+  - PNT4_ZeroFreeRegion.lean: 41 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build has issues in PNT3 and PNT4 with missing constants
+
+### Notes
+- Several files have build errors with missing constants (e.g., `Complex.arg_coe_nonneg`, `Complex.deriv_exp`)
+- Need to focus on simpler lemmas that don't rely on advanced library functions
+- Many lemmas require deep complex analysis results
+
+### Next Steps
+- Focus on fixing build errors in PNT3 and PNT4
+- Look for simpler arithmetic or boolean lemmas to prove
+- Consider updating to match latest Mathlib API changes
+
 ## Iteration 2025-09-23T21:34:00Z
 
 ### Fixed

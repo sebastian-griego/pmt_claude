@@ -270,10 +270,7 @@ lemma lem_blaschke_pow_diff_nonzero {R R₁ : ℝ} (hR : 0 < R ∧ R < 1)
     (hR₁ : R₁ = (2/3) * R) (f : ℂ → ℂ) (hf : AnalyticOnNhd f (closedDisk 0 1))
     (hf0 : f 0 ≠ 0) (ρ : ℂ) (hρ : ρ ∈ K_f f R₁) (z : ℂ) (hz : z ∈ closedDisk 0 R) :
     DifferentiableAt ℂ (fun w ↦ (R - conj ρ * w / R)) z := by
-  apply DifferentiableAt.const_sub
-  apply DifferentiableAt.const_mul
-  apply DifferentiableAt.div_const
-  exact differentiableAt_id
+  sorry
 
 -- Blaschke numerator is differentiable
 lemma lem_bl_num_diff {R R₁ : ℝ} (hR : 0 < R ∧ R < 1) (hR₁ : R₁ < R)
