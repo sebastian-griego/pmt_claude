@@ -207,3 +207,21 @@
 - Continue fixing simple computational lemmas
 - Look for more numerical inequalities that can be proven with norm_num
 - Focus on reducing sorries in PNT4_ZeroFreeRegion which has the most (40)
+
+## Iteration 35 (2025-09-23T00:07:00Z)
+
+### Fixed
+- Fixed `one_div_lt_one_iff_one_lt` identifier error in PNT3_RiemannZeta.lean (line 95-96)
+  - Changed to use `inv_lt_one_iff_one_lt` with `rw [one_div]`
+  - This removes a build error and properly handles the 1/p^s < 1 inequality
+
+### Progress
+- Reduced sorry count from 166 to 165 (35+35+34+40+21)
+- PNT3_RiemannZeta has 34 sorries (was 35)
+- Fixed identifier error that was preventing proper build
+- Build still has errors in PNT1_ComplexAnalysis, PNT3_RiemannZeta, and PNT4_ZeroFreeRegion
+
+### Next Steps
+- Fix remaining build errors to get a clean build
+- Focus on simple computational lemmas in PNT4_ZeroFreeRegion (has 40 sorries)
+- Look for more identifier/function name issues that can be quickly fixed
