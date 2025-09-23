@@ -465,3 +465,12 @@
 
 **Status**: 165 sorries remaining (was 167)
 
+## Iteration 47 (2025-09-23T01:45:21Z)
+### Fixed: `lem_Z1split` sum decomposition in PNT4_ZeroFreeRegion  
+- Proved that after applying `Finset.sum_insert`, the goal is directly achieved
+- The rewrite statement produces exactly the expected sum decomposition
+- Simple fix: replaced `sorry` with `rfl` after the rewrite
+- This lemma splits a sum over zeros for analysis purposes
+- Location: StrongPNT/PNT4_ZeroFreeRegion.lean:341
+
+**Status**: 164 sorries remaining (was 165)
