@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["5856428522314437988"],
-  "i": "13174762645682526939",
+ {"o": ["11013738148279198676"],
+  "i": "975381865591413831",
   "c": "7029600524919529996"},
  "log":
  [{"message":
@@ -24,9 +24,6 @@
    "level": "warning"},
   {"message":
    "StrongPNT/PNT1_ComplexAnalysis.lean:520:6: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message":
-   "StrongPNT/PNT1_ComplexAnalysis.lean:541:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
    "StrongPNT/PNT1_ComplexAnalysis.lean:557:27: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
@@ -353,11 +350,11 @@
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
   ["/home/jovyan/pmt_claude/StrongPNT/PNT1_ComplexAnalysis.lean",
-   "1098844545168263613"],
+   "1800970901035524197"],
   ["options",
    [["-Dpp.proofs.withType=false", "17856924786787508970"],
     ["-DrelaxedAutoImplicit=false", "8404479228809428608"],
     ["-Dpp.unicode.fun=true", "11210593074386665387"],
     ["-DautoImplicit=false", "5369888039164004816"]]],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "18027294236418476211"}
+ "depHash": "1829998196338193085"}

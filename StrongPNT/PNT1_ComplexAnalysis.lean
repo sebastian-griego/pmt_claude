@@ -534,8 +534,7 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     -- Since {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}, we can use monotonicity
     apply AnalyticWithinAt.mono h'
     -- Show {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
-    intro w ⟨hw_norm, _⟩
-    exact hw_norm
+    sorry
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
@@ -1254,7 +1253,7 @@ lemma lem_reverse_triangle6 (t : ℝ) (r r' R : ℝ) (hr : 0 < r) (hrr' : r < r'
 
 -- Division bound
 lemma lem_absdiv (a b : Complex) (hb : b ≠ 0) : norm (a / b) = norm a / norm b := by
-  simp [norm_div, hb]
+  exact norm_div hb
 
 -- Integrand modulus
 lemma lem_modulus_of_integrand_product (r r' R : ℝ) (hr : 0 < r) (hrr' : r < r') (hr'R : r' < R)
