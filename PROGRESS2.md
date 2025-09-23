@@ -356,3 +356,21 @@
 - Fix remaining build errors in PNT4_ZeroFreeRegion
 - Search for simpler lemmas that can be proven with available Mathlib functions
 - Focus on arithmetic and set-theoretic lemmas rather than real analysis proofs
+
+## Iteration 41 (2025-09-23T00:51:45Z)
+
+### Fixed
+- Fixed projection error in PNT1_ComplexAnalysis.lean (line 537-538)
+  - Changed from invalid `hw.1` projection to proper pattern matching `⟨hw_norm, _⟩`
+  - This fixes set membership destructuring for `{z | norm z ≤ R ∧ z ≠ 0}`
+
+### Progress
+- Reduced sorry count from 176 to 175 (35+35+37+47+21)
+  - PNT1_ComplexAnalysis: 35 sorries (was 36)
+  - Other files unchanged
+- Fixed critical build error that was preventing compilation
+
+### Next Steps
+- Continue fixing remaining build errors to get a clean build
+- Look for simple computational lemmas that can be proven with basic tactics
+- Focus on PNT4_ZeroFreeRegion which has the most sorries (47)
