@@ -281,9 +281,13 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
               · exact hp_ge2
               · linarith
             _ > 1 := by
-              have : (2 : ℝ) ^ (3/2 : ℝ) = Real.sqrt 2 * Real.sqrt 2 * Real.sqrt 2 := by
-                sorry  -- Power computation
-              rw [this]
+              have h1 : (2 : ℝ) ^ (3/2 : ℝ) = 2 * Real.sqrt 2 := by
+                rw [show (3/2 : ℝ) = 1 + 1/2 by norm_num]
+                rw [Real.rpow_add (by norm_num : (2 : ℝ) ≠ 0)]
+                rw [Real.rpow_one]
+                rw [Real.rpow_div_two_eq_sqrt (by norm_num : (0 : ℝ) ≤ 2) (by norm_num : (2 : ℝ) ≠ 0)]
+                ring
+              rw [h1]
               norm_num
         · apply Real.rpow_pos_of_pos hp_pos
   -- If 1 - z = 0, then z = 1, so |z| = 1, contradicting |z| < 1

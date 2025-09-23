@@ -458,8 +458,6 @@ lemma RealLambdaxy (n : ℕ) (x y : ℝ) :
     congr 1
     -- Now we have (n : ℂ)^(-x) * (n : ℂ)^(-y*I)
     rw [mul_comm]
-    -- The goal is already in real form, need to prove equality
-    sorry
     -- Real part of n^(-x) is n^(-x) as real
     have h1 : ((n : ℂ)^(-x : ℂ)).re = (n : ℝ)^(-x) := by
       simp only [Complex.cpow_natCast_real]
@@ -468,10 +466,15 @@ lemma RealLambdaxy (n : ℕ) (x y : ℝ) :
     have h2 : ((n : ℂ)^(-x : ℂ)).im = 0 := by
       simp only [Complex.cpow_natCast_real]
       rfl
-    -- Apply lem_eacosalog
-    have h3 : ((n : ℂ)^(-y * I : ℂ)).re = Real.cos (y * Real.log n) := by
-      sorry -- lem_eacosalog doesn't exist
-    sorry
+    -- Apply lem_eacosalog3
+    have h3 : ((n : ℂ)^(-(y * I : ℂ))).re = Real.cos (y * Real.log n) := by
+      -- Convert -(y * I) to -I * y
+      have : -(y * I : ℂ) = -I * (y : ℂ) := by simp [mul_comm]
+      rw [this]
+      exact PNT1_ComplexAnalysis.lem_eacosalog3 n hn_ge y
+    -- Combine the real and imaginary parts
+    simp only [Complex.mul_re, h1, h2, h3]
+    ring
 
 /-- Real part series with cos -/
 lemma ReZseriesRen (x y : ℝ) (hx : 1 < x) :

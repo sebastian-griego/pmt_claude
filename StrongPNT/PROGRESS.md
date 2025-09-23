@@ -21,3 +21,16 @@
 - Location: StrongPNT/PNT1_ComplexAnalysis.lean:537
 
 **Status**: 170 sorries remaining (no change)
+
+## Iteration 45 (2025-09-23T01:25:00Z)
+### Fixed: `RealLambdaxy` complex exponential lemma
+- Fixed the proof that `(vonMangoldt n * (n : ℂ)^((-x : ℂ) - (y * I : ℂ))).re = vonMangoldt n * (n : ℝ)^(-x) * Real.cos (y * Real.log n)`
+- Key insights:
+  - Split the exponent using `Complex.cpow_add` to separate real and imaginary parts
+  - Real part of `n^(-x)` is `(n : ℝ)^(-x)` and imaginary part is 0
+  - Used `lem_eacosalog3` from PNT1_ComplexAnalysis to prove `((n : ℂ)^(-(y * I))).re = Real.cos (y * Real.log n)`
+  - Combined real and imaginary parts using `Complex.mul_re`
+- This lemma is crucial for relating the real part of complex series to trigonometric forms
+- Location: StrongPNT/PNT4_ZeroFreeRegion.lean:444-477
+
+**Status**: 169 sorries remaining (was 170)
