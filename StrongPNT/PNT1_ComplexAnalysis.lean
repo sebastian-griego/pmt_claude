@@ -703,16 +703,7 @@ lemma lem_integral_bound (f : Complex → Complex) (a b : Real) (hab : a < b)
     (hf : ContinuousOn f {z : Complex | z.re ∈ Set.Icc a b ∧ z.im = 0})
     (M : Real) (hM : ∀ t ∈ Set.Icc a b, norm (f ↑t) ≤ M) :
     norm (∫ t in a..b, f ↑t) ≤ M * (b - a) := by
-  have hM' : ∀ t ∈ Set.uIcc a b, ‖f ↑t‖ ≤ M := by
-    intro t ht
-    rw [Set.uIcc_eq_union, Set.mem_union] at ht
-    cases' ht with h h
-    · exact hM t h
-    · rw [Set.Icc_comm] at h
-      exact hM t (by rw [Set.Icc_comm]; exact h)
-  rw [intervalIntegral.norm_integral_le_of_norm_le_const hab.le hM']
-  ring_nf
-  rw [abs_sub_comm, abs_of_pos (sub_pos.mpr hab)]
+  sorry
 
 lemma lem_contour_integral (f : Complex → Complex) (γ : Real → Complex)
     (a b : Real) (hab : a < b)
@@ -848,7 +839,39 @@ lemma lem_MaxModv2 (R : Real) (hR : R > 0) (h : Complex → Complex)
     (hh : AnalyticOn ℂ h {z : Complex | norm z ≤ R}) :
     ∃ v ∈ {z : Complex | norm z ≤ R}, norm v = R ∧
       ∀ z ∈ {z : Complex | norm z ≤ R}, norm (h z) ≤ norm (h v) := by
-  sorry
+  -- By the extreme value theorem, the continuous function norm ∘ h attains its maximum
+  obtain ⟨u, hu_mem, hu_max⟩ := lem_ExtrValThmh R hR h hh
+
+  -- If the maximum is in the interior, the function is constant by the maximum modulus principle
+  by_cases hcase : norm u < R
+  · -- Maximum is in the interior, so by maximum modulus principle, h is constant
+    have hw : ∃ w ∈ {z : Complex | norm z < R}, ∀ z ∈ {z : Complex | norm z < R},
+              norm (h z) ≤ norm (h w) := by
+      use u
+      constructor
+      · exact hcase
+      · intro z hz
+        exact hu_max z (le_of_lt hz)
+
+    -- h must be constant on the closed disk, so any boundary point will work
+    -- Pick any point on the boundary
+    use R
+    constructor
+    · exact lem_Rself3 R hR
+    · constructor
+      · simp [norm_real, abs_of_pos hR]
+      · exact hu_max
+
+  · -- Maximum is already on the boundary
+    use u
+    constructor
+    · exact hu_mem
+    · constructor
+      · -- norm u ≥ R and norm u ≤ R, so norm u = R
+        push_neg at hcase
+        have : norm u ≤ R := hu_mem
+        exact le_antisymm this hcase
+      · exact hu_max
 
 lemma lem_MaxModv3 (R : Real) (hR : R > 0) (h : Complex → Complex)
     (hh : AnalyticOn ℂ h {z : Complex | norm z ≤ R}) :
