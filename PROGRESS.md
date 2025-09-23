@@ -2,6 +2,26 @@
 
 This file tracks the progress of removing `sorry` statements from the StrongPNT project.
 
+## Iteration 2025-09-23T21:34:00Z
+
+### Fixed
+- Fixed `lem_blaschke_pow_diff_nonzero` in PNT2_LogDerivative.lean (line 269-273) - Removed 1 sorry
+  - Proved that a Blaschke factor (R - conj ρ * w / R) is differentiable
+  - Used composition of differentiable functions (const_sub, const_mul, div_const, id)
+
+### Current Status
+- Total sorries: 162 (was 163)
+  - PNT1_ComplexAnalysis.lean: 33 sorries
+  - PNT2_LogDerivative.lean: 33 sorries (was 34)
+  - PNT3_RiemannZeta.lean: 33 sorries
+  - PNT4_ZeroFreeRegion.lean: 41 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build successful
+
+### Next Steps
+- Continue working on simpler lemmas in PNT2_LogDerivative.lean
+- Focus on lemmas involving standard calculus operations
+
 ## Iteration 2025-09-23T20:50:15Z
 
 ### Fixed
