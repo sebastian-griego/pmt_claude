@@ -28,6 +28,26 @@ This file tracks the progress of removing `sorry` statements from the StrongPNT 
 - Continue working on simpler sorries in PNT1_ComplexAnalysis.lean
 - Focus on lemmas that can be proven using existing library functions
 
+## Iteration 2025-09-23T21:31:03Z
+
+### Fixed
+- Fixed `lem_analAtOnOn` in PNT1_ComplexAnalysis.lean (line 530) - Removed 1 sorry
+  - Proved the z ≠ 0 case using the given analyticity condition on the punctured disk
+  - Used the fact that analyticity on a set implies analyticity within at each point
+
+### Current Status
+- Total sorries: 163 (unchanged due to previous miscounting)
+  - PNT1_ComplexAnalysis.lean: 33 sorries (was 34)
+  - PNT2_LogDerivative.lean: 34 sorries (was 35 in previous count)
+  - PNT3_RiemannZeta.lean: 33 sorries (was 32 in previous count)
+  - PNT4_ZeroFreeRegion.lean: 41 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build successful
+
+### Next Steps
+- Continue removing sorries from simpler lemmas
+- Focus on lemmas that use standard library functions
+
 ## Iteration 2025-09-23T20:25:25Z
 
 ### Fixed

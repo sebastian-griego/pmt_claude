@@ -85,7 +85,11 @@ lemma lem_Contra_finiteKR {R : ℝ} (hR : 0 < R ∧ R < 1) (f : ℂ → ℂ)
 lemma lem_bolzano_weierstrass (S : Set ℂ) (hS : IsCompact S)
     (Z : Set ℂ) (hZ : Z ⊆ S) (hZinf : Set.Infinite Z) :
     ∃ ω ∈ S, ClusterPt ω (𝓟 Z) := by
-  sorry
+  have hnebot : NeBot (𝓟 Z) := by
+    rw [neBot_iff]
+    exact fun h => hZinf (Set.finite_empty.subset h)
+  have hPZ : 𝓟 Z ≤ 𝓟 S := Filter.principal_mono.mpr hZ
+  exact hS.exists_clusterPt hPZ
 
 lemma lem_zeros_have_limit_point (f : ℂ → ℂ) (R : ℝ) (hR : 0 < R)
     (hKinf : Set.Infinite (K_f f R)) :

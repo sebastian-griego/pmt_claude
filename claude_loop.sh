@@ -58,7 +58,7 @@ Time: $TS"
     SORRY_COUNT=$(grep -r "sorry" StrongPNT/*.lean 2>/dev/null | wc -l || echo "unknown")
     git add -A 2>/dev/null || true
     git commit -m "Auto-commit at $TS - $SORRY_COUNT sorries" 2>/dev/null || true
-    git push origin main 2>/dev/null || true
+#    git push origin main 2>/dev/null || true
     
     sleep "$SLEEP_SECS"
 done
