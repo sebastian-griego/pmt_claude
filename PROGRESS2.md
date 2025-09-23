@@ -190,3 +190,20 @@
 ### Next Steps
 - Continue fixing remaining build errors in PNT4_ZeroFreeRegion and PNT1_ComplexAnalysis
 - Look for simple lemmas that can be proven without adding sorries
+
+## Iteration 34 (2025-09-23T00:05:33Z)
+
+### Fixed
+- Fixed `2^(3/2) > 1` proof in PNT3_RiemannZeta.lean (line 282)
+  - Replaced sorry with `norm_num` tactic
+  - This was a simple numerical computation that norm_num can verify
+
+### Progress
+- Reduced sorry count from 167 to 166 (35+35+35+40+21)
+- PNT3_RiemannZeta has 35 sorries (was 36)
+- Build continues successfully with fewer sorries
+
+### Next Steps
+- Continue fixing simple computational lemmas
+- Look for more numerical inequalities that can be proven with norm_num
+- Focus on reducing sorries in PNT4_ZeroFreeRegion which has the most (40)
