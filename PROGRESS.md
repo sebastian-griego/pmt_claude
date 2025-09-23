@@ -2,6 +2,35 @@
 
 This file tracks the progress of removing `sorry` statements from the StrongPNT project.
 
+## Iteration 2025-09-23T21:58:45Z
+
+### Attempted
+- Tried to fix `lem_integral_bound` in PNT1_ComplexAnalysis.lean (line 702-706)
+  - Issue: Library function `IntervalIntegral.norm_integral_le_of_norm_le_const` not found
+  - Reverted to sorry after compilation errors
+- Tried to fix `lem_analAtOnOn` in PNT1_ComplexAnalysis.lean (line 520-528)
+  - Issue: Type mismatch between AnalyticWithinAt on punctured disk vs full disk
+  - Reverted to sorry due to API differences
+
+### Current Status
+- Total sorries: 159 (unchanged)
+  - PNT1_ComplexAnalysis.lean: 31 sorries
+  - PNT2_LogDerivative.lean: 33 sorries
+  - PNT3_RiemannZeta.lean: 33 sorries
+  - PNT4_ZeroFreeRegion.lean: 41 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build has other errors that need addressing
+
+### Notes
+- Mathlib API seems to have changed significantly
+- Need to focus on simpler arithmetic lemmas first
+- Library function names and types may be different in this version
+
+### Next Steps
+- Look for simpler boolean or arithmetic lemmas that don't rely on complex library functions
+- Fix existing build errors before tackling more sorries
+- Consider checking Mathlib docs for correct function names
+
 ## Iteration 2025-09-23T21:44:10Z
 
 ### Attempted
