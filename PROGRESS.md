@@ -452,3 +452,16 @@
 
 **Status**: 167 sorries remaining (was 170)
 
+## Iteration 46 (2025-09-23T01:40:00Z)
+### Fixed: Two simple lemmas in PNT1_ComplexAnalysis
+- Fixed set inclusion subset proof at line 537
+  - Proved {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
+  - Used `intro w hw; exact hw.1` to extract the first conjunct
+- Fixed closure of ball equals closed ball at line 556
+  - Proved closure of {z | ‖z‖ < R} equals {z | ‖z‖ ≤ R}
+  - Used `Metric.closure_ball` which is a standard fact in metric topology
+- Both fixes were straightforward applications of existing API
+- Location: StrongPNT/PNT1_ComplexAnalysis.lean:537-538, 555-556
+
+**Status**: 165 sorries remaining (was 167)
+
