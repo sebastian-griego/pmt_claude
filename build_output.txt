@@ -1,717 +1,267 @@
-⚠ [2483/2631] Replayed StrongPNT.PNT2_LogDerivative
-warning: StrongPNT/PNT2_LogDerivative.lean:42:44: This simp argument is unused:
-  Metric.mem_closedBall
-
-Hint: Omit it from the simp argument list.
-  simp only [closedDisk, Metric.closedBall, M̵e̵t̵r̵i̵c̵.̵m̵e̵m̵_̵c̵l̵o̵s̵e̵d̵B̵a̵l̵l̵,̵ ̵Complex.dist_eq]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT2_LogDerivative.lean:46:22: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:68:37: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:80:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:85:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:90:54: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:100:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:148:30: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:149:17: unused variable `hf`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:149:57: unused variable `hf0`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:150:13: unused variable `hρ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:154:31: unused variable `hS`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:154:55: unused variable `hw`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:184:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:192:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:200:34: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:200:55: unused variable `hR₁`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:201:17: unused variable `hf`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:201:57: unused variable `hf0`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:206:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:214:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:221:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:228:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:241:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:247:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:254:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:265:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:272:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:280:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:295:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:304:29: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:304:50: unused variable `hR₁`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:305:17: unused variable `hf`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:305:57: unused variable `hf0`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:306:47: unused variable `hz`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:313:33: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:313:54: unused variable `hR₁`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:314:17: unused variable `hf`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:314:57: unused variable `hf0`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:315:59: unused variable `hz`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:321:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:349:35: unused variable `hR₁`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:414:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:426:31: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:426:52: unused variable `hR₁`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:427:17: unused variable `hf`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:434:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:442:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:450:32: unused variable `h`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:459:43: unused variable `h`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:461:8: This simp argument is unused:
-  norm_div
-
-Hint: Omit it from the simp argument list.
-  simp [̵n̵o̵r̵m̵_̵d̵i̵v̵,̵ ̵n̵o̵r̵m̵_̵n̵e̵g̵]̵[̲n̲o̲r̲m̲_̲n̲e̲g̲]̲
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT2_LogDerivative.lean:464:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:476:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:501:53: unused variable `hn`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:510:31: unused variable `ρ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:521:48: unused variable `ρ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:532:40: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:532:61: unused variable `hR₁`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:533:17: unused variable `hf`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:533:57: unused variable `hf0`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:544:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:551:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:558:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:567:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:576:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:584:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:592:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:600:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:612:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:625:6: declaration uses 'sorry'
-warning: StrongPNT/PNT2_LogDerivative.lean:638:34: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:638:55: unused variable `hR₁`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:639:17: unused variable `hf`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:641:6: unused variable `ρ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT2_LogDerivative.lean:652:6: declaration uses 'sorry'
-✖ [3161/3165] Building StrongPNT.PNT3_RiemannZeta (3.8s)
-trace: .> LEAN_PATH=/home/jovyan/pmt_claude/.lake/packages/Cli/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/batteries/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/Qq/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/aesop/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/importGraph/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/plausible/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/build/lib/lean /home/jovyan/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /home/jovyan/pmt_claude/StrongPNT/PNT3_RiemannZeta.lean -o /home/jovyan/pmt_claude/.lake/build/lib/lean/StrongPNT/PNT3_RiemannZeta.olean -i /home/jovyan/pmt_claude/.lake/build/lib/lean/StrongPNT/PNT3_RiemannZeta.ilean -c /home/jovyan/pmt_claude/.lake/build/ir/StrongPNT/PNT3_RiemannZeta.c --setup /home/jovyan/pmt_claude/.lake/build/ir/StrongPNT/PNT3_RiemannZeta.setup.json --json
-warning: StrongPNT/PNT3_RiemannZeta.lean:19:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:24:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:38:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:43:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:48:6: declaration uses 'sorry'
-error: StrongPNT/PNT3_RiemannZeta.lean:66:10: Unknown constant `Complex.arg_coe_of_pos`
-error: StrongPNT/PNT3_RiemannZeta.lean:89:12: Unknown constant `Real.rpow_lt_rpow_left`
-error: StrongPNT/PNT3_RiemannZeta.lean:90:6: No goals to be solved
-error: StrongPNT/PNT3_RiemannZeta.lean:95:8: Unknown identifier `inv_lt_one`
-warning: StrongPNT/PNT3_RiemannZeta.lean:103:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:121:26: unused variable `hz`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT3_RiemannZeta.lean:149:21: This simp argument is unused:
-  mul_zero
-
-Hint: Omit it from the simp argument list.
-  simp only [mul_re, m̵u̵l̵_̵z̵e̵r̵o̵,̵ ̵sub_zero]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT3_RiemannZeta.lean:149:31: This simp argument is unused:
-  sub_zero
-
-Hint: Omit it from the simp argument list.
-  simp only [mul_re, mul_zero,̵ ̵s̵u̵b̵_̵z̵e̵r̵o̵]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT3_RiemannZeta.lean:166:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:172:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:221:8: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:226:6: declaration uses 'sorry'
-error: StrongPNT/PNT3_RiemannZeta.lean:271:6: expected '{' or indented tactic sequence
-error: StrongPNT/PNT3_RiemannZeta.lean:270:61: unsolved goals
-p : Nat.Primes
-t : ℝ
-hp_ge2 : 2 ≤ ↑↑p
-hp_pos : 0 < ↑↑p
-⊢ ↑↑p ^ (-(3 / 2)) = 1 / ↑↑p ^ (3 / 2)
-error: StrongPNT/PNT3_RiemannZeta.lean:264:53: unsolved goals
-case calc.step
-p : Nat.Primes
-t : ℝ
-hp_ge2 : 2 ≤ ↑↑p
-hp_pos : 0 < ↑↑p
-⊢ 1 / ↑↑p ^ (3 / 2) < 1
-error: StrongPNT/PNT3_RiemannZeta.lean:254:42: unsolved goals
-p : Nat.Primes
-t : ℝ
-hp_ge2 : 2 ≤ ↑↑p
-hp_pos : 0 < ↑↑p
-h_bound : ‖↑↑p ^ (-(3 / 2 + I * ↑t))‖ < 1
-⊢ 1 - ↑↑p ^ (-(3 / 2 + I * ↑t)) ≠ 0
-warning: StrongPNT/PNT3_RiemannZeta.lean:309:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:315:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:322:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:327:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:334:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:339:8: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:344:8: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:349:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:358:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:362:8: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:367:8: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:373:8: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:388:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:391:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:395:6: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:405:4: unused variable `expansion_error`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT3_RiemannZeta.lean:438:8: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:442:8: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:450:8: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:458:8: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:463:8: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:468:8: declaration uses 'sorry'
-warning: StrongPNT/PNT3_RiemannZeta.lean:474:8: declaration uses 'sorry'
-error: Lean exited with code 1
-✖ [3163/3165] Building StrongPNT.PNT4_ZeroFreeRegion (4.7s)
-trace: .> LEAN_PATH=/home/jovyan/pmt_claude/.lake/packages/Cli/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/batteries/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/Qq/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/aesop/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/importGraph/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/plausible/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/build/lib/lean /home/jovyan/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /home/jovyan/pmt_claude/StrongPNT/PNT4_ZeroFreeRegion.lean -o /home/jovyan/pmt_claude/.lake/build/lib/lean/StrongPNT/PNT4_ZeroFreeRegion.olean -i /home/jovyan/pmt_claude/.lake/build/lib/lean/StrongPNT/PNT4_ZeroFreeRegion.ilean -c /home/jovyan/pmt_claude/.lake/build/ir/StrongPNT/PNT4_ZeroFreeRegion.c --setup /home/jovyan/pmt_claude/.lake/build/ir/StrongPNT/PNT4_ZeroFreeRegion.setup.json --json
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:43:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:99:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:106:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:113:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:120:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:132:31: unused variable `hδ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:132:44: unused variable `hδ'`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:138:31: unused variable `hδ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:138:44: unused variable `hδ'`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:157:21: unused variable `hδ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-error: StrongPNT/PNT4_ZeroFreeRegion.lean:205:26: Application type mismatch: The argument
-  h_inv_pos
-has type
-  0 ≤ (1 + ↑δ + ↑t * I - ρ₁)⁻¹.re
-but is expected to have type
-  0 ≤ (1 + ↑δ + (↑t * I - ρ₁))⁻¹.re
-in the application
-  mul_nonneg hm_pos h_inv_pos
-error: StrongPNT/PNT4_ZeroFreeRegion.lean:219:26: Application type mismatch: The argument
-  h_inv_pos
-has type
-  0 ≤ (1 + ↑δ + ↑(2 * t) * I - ρ₁)⁻¹.re
-but is expected to have type
-  0 ≤ (1 + ↑δ + (↑t * I * 2 - ρ₁))⁻¹.re
-in the application
-  mul_nonneg hm_pos h_inv_pos
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:238:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:264:10: This simp argument is unused:
-  abs_two
-
-Hint: Omit it from the simp argument list.
-  simp ̵[̵a̵b̵s̵_̵t̵w̵o̵]̵
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:280:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:307:12: This simp argument is unused:
-  if_false
-
-Hint: Omit it from the simp argument list.
-  simp [hρ,̵ ̵i̵f̵_̵f̵a̵l̵s̵e̵]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-error: StrongPNT/PNT4_ZeroFreeRegion.lean:330:13: Unknown identifier `h`
-error: StrongPNT/PNT4_ZeroFreeRegion.lean:331:14: Unknown identifier `h`
-error: StrongPNT/PNT4_ZeroFreeRegion.lean:333:4: Tactic `rfl` failed: The left-hand side
-  (↑(m_rho_zeta ρ) / (1 + ↑δ + ↑t * I - ρ)).re + ∑ x ∈ ⋯.toFinset \ {ρ}, (↑(m_rho_zeta x) / (1 + ↑δ + ↑t * I - x)).re
-is not definitionally equal to the right-hand side
-  (↑(m_rho_zeta ρ) / (1 + ↑δ + ↑t * I - ρ)).re +
-    ∑ ρ₁ ∈ insert ρ (⋯.toFinset \ {ρ}) \ {ρ}, (↑(m_rho_zeta ρ₁) / (1 + ↑δ + ↑t * I - ρ₁)).re
-
-δ : ℝ
-hδ : 0 < δ
-hδ' : δ < 1
-σ t : ℝ
-ρ : ℂ
-hρ : ρ = ↑σ + ↑t * I
-hρZ : ρ ∈ ZetaZerosNearPoint t
-hρ_mem : ρ ∈ ⋯.toFinset
-this : ⋯.toFinset = insert ρ (⋯.toFinset \ {ρ})
-⊢ (↑(m_rho_zeta ρ) / (1 + ↑δ + ↑t * I - ρ)).re + ∑ x ∈ ⋯.toFinset \ {ρ}, (↑(m_rho_zeta x) / (1 + ↑δ + ↑t * I - x)).re =
-    (↑(m_rho_zeta ρ) / (1 + ↑δ + ↑t * I - ρ)).re +
-      ∑ ρ₁ ∈ insert ρ (⋯.toFinset \ {ρ}) \ {ρ}, (↑(m_rho_zeta ρ₁) / (1 + ↑δ + ↑t * I - ρ₁)).re
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:337:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:350:23: unused variable `hδ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:350:36: unused variable `hδ'`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:351:26: unused variable `hρZ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:356:23: unused variable `hδ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:356:36: unused variable `hδ'`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:356:50: unused variable `hσ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:364:24: unused variable `hδ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:365:5: unused variable `hρ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:365:26: unused variable `hρZ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:417:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:422:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:427:6: declaration uses 'sorry'
-error: StrongPNT/PNT4_ZeroFreeRegion.lean:443:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
-  ↑n ^ ?m.68 * ↑n ^ ?m.69
-in the target expression
-  (↑(vonMangoldt n) * ↑n ^ (-↑x - ↑y * I)).re = vonMangoldt n * ↑n ^ (-x) * Real.cos (y * Real.log ↑n)
-
-case neg
-n : ℕ
-x y : ℝ
-hn : ¬n = 0
-hn_pos : 0 < n
-hn_ge : 1 ≤ n
-⊢ (↑(vonMangoldt n) * ↑n ^ (-↑x - ↑y * I)).re = vonMangoldt n * ↑n ^ (-x) * Real.cos (y * Real.log ↑n)
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:439:27: This simp argument is unused:
-  if_false
-
-Hint: Omit it from the simp argument list.
-  simp [hn, vonMangoldt,̵ ̵i̵f̵_̵f̵a̵l̵s̵e̵]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:466:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:476:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:481:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:486:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:491:25: unused variable `hn`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-error: StrongPNT/PNT4_ZeroFreeRegion.lean:499:2: Type mismatch
-  h
-has type
-  Summable fun n ↦ vonMangoldt n * ↑n ^ (-x) * Real.cos (0 * Real.log ↑n)
-but is expected to have type
-  Summable fun n ↦ vonMangoldt n * ↑n ^ (-x)
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:498:13: This simp argument is unused:
-  Real.cos_zero
-
-Hint: Omit it from the simp argument list.
-  simp only [R̵e̵a̵l̵.̵c̵o̵s̵_̵z̵e̵r̵o̵,̵ ̵mul_one] at h
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:498:28: This simp argument is unused:
-  mul_one
-
-Hint: Omit it from the simp argument list.
-  simp only [Real.cos_zero,̵ ̵m̵u̵l̵_̵o̵n̵e̵] at h
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:502:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:507:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:512:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:517:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:544:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:549:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:557:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:562:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:568:65: unused variable `hsum`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:573:55: unused variable `hδ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:596:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:601:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:606:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:610:6: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:615:8: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:622:8: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:627:8: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:632:8: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:638:13: unused variable `T`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:642:9: unused variable `T`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:646:8: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:651:8: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:656:8: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:662:8: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:670:8: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:676:8: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:688:8: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:694:40: unused variable `hσ`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:694:63: unused variable `hT`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:700:8: declaration uses 'sorry'
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:707:5: unused variable `h₁`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:707:21: unused variable `h₂`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:707:36: unused variable `h₃`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:707:50: unused variable `hT`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT4_ZeroFreeRegion.lean:713:8: declaration uses 'sorry'
-error: Lean exited with code 1
-✖ [3164/3165] Building StrongPNT.PNT1_ComplexAnalysis (7.0s)
-trace: .> LEAN_PATH=/home/jovyan/pmt_claude/.lake/packages/Cli/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/batteries/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/Qq/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/aesop/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/importGraph/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/plausible/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/build/lib/lean /home/jovyan/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /home/jovyan/pmt_claude/StrongPNT/PNT1_ComplexAnalysis.lean -o /home/jovyan/pmt_claude/.lake/build/lib/lean/StrongPNT/PNT1_ComplexAnalysis.olean -i /home/jovyan/pmt_claude/.lake/build/lib/lean/StrongPNT/PNT1_ComplexAnalysis.ilean -c /home/jovyan/pmt_claude/.lake/build/ir/StrongPNT/PNT1_ComplexAnalysis.c --setup /home/jovyan/pmt_claude/.lake/build/ir/StrongPNT/PNT1_ComplexAnalysis.setup.json --json
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:339:64: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:369:51: unused variable `hr`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:369:77: unused variable `hM`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:390:25: unused variable `n`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:439:34: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-error: StrongPNT/PNT1_ComplexAnalysis.lean:539:10: Invalid projection: Expected a value whose type is a structure
-  hw
-has type
-  Real.le✝ ‖w‖ R
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:543:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:559:27: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:563:30: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:568:28: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-error: StrongPNT/PNT1_ComplexAnalysis.lean:596:4: This extensionality tactic only applies to equalities, not
-  IsCompact {z | ‖z‖ = R} ↔ IsCompact (Metric.sphere 0 R)
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:617:51: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:638:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:649:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:657:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:667:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:674:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:683:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:693:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:702:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:711:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:717:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:725:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:737:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:746:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:757:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:767:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:776:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:788:32: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:792:50: This simp argument is unused:
-  dist_comm
-
-Hint: Omit it from the simp argument list.
-  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_c̵o̵m̵m̵,̵ ̵d̵i̵s̵t̵_̵zero_right]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:811:31: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:823:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:847:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:861:55: unused variable `hB`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:871:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:877:30: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:877:54: unused variable `hB`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:878:5: unused variable `hh`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:893:44: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:895:5: unused variable `hf`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:903:40: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:905:5: unused variable `hf`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:911:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:917:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:924:23: unused variable `R`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:927:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:934:33: unused variable `hb`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:935:8: This simp argument is unused:
-  norm_div
-
-Hint: Omit it from the simp argument list.
-  simp ̵[̵n̵o̵r̵m̵_̵d̵i̵v̵]̵
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:939:5: unused variable `hf0`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:947:27: unused variable `hT`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:949:8: This simp argument is unused:
-  norm_div
-
-Hint: Omit it from the simp argument list.
-  simp [n̵o̵r̵m̵_̵d̵i̵v̵,̵ ̵hz]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:984:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1012:34: unused variable `ha`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1063:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1071:8: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1081:8: declaration uses 'sorry'
-error: StrongPNT/PNT1_ComplexAnalysis.lean:1093:10: Unknown constant `differentiableAt_const.mul`
-error: StrongPNT/PNT1_ComplexAnalysis.lean:1094:4: No goals to be solved
-error: StrongPNT/PNT1_ComplexAnalysis.lean:1096:10: Unknown constant `Complex.differentiableAt_exp.comp`
-error: StrongPNT/PNT1_ComplexAnalysis.lean:1097:4: No goals to be solved
-error: StrongPNT/PNT1_ComplexAnalysis.lean:1101:24: Application type mismatch: The argument
-  h3
-has type
-  DifferentiableAt ℝ (fun s ↦ ↑r' * cexp (I * s)) ↑t
-but is expected to have type
-  DifferentiableAt ℂ (fun t ↦ cexp (I * t)) ↑t
-in the application
-  deriv_const_mul (↑r') h3
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1109:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1117:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1134:23: unused variable `hg`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1139:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1185:12: This simp argument is unused:
-  norm_mul
-
-Hint: Omit it from the simp argument list.
-  simp [sq,̵ ̵n̵o̵r̵m̵_̵m̵u̵l̵]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1197:50: unused variable `hr`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1197:63: unused variable `hrr'`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1197:79: unused variable `hr'R`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1210:29: unused variable `hr`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1210:58: unused variable `hr'R`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1241:37: unused variable `hr`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1241:50: unused variable `hrr'`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1241:66: unused variable `hr'R`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1241:96: unused variable `hz`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1271:34: unused variable `hb`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1272:8: This simp argument is unused:
-  norm_div
-
-Hint: Omit it from the simp argument list.
-  simp [n̵o̵r̵m̵_̵d̵i̵v̵,̵ ̵hb]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1272:18: This simp argument is unused:
-  hb
-
-Hint: Omit it from the simp argument list.
-  simp [norm_div,̵ ̵h̵b̵]
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1276:29: unused variable `hf`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1303:29: unused variable `hf`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1331:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1363:25: unused variable `t`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1369:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1379:28: unused variable `t`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1384:47: unused variable `t`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1389:6: declaration uses 'sorry'
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1430:50: unused variable `hr`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1430:63: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1434:13: This simp argument is unused:
-  show (r + R) / 2 = (r + R) / 2 from rfl
-
-Hint: Omit it from the simp argument list.
-  simp only ̵[̵s̵h̵o̵w̵ ̵(̵r̵ ̵+̵ ̵R̵)̵ ̵/̵ ̵2̵ ̵=̵ ̵(̵r̵ ̵+̵ ̵R̵)̵ ̵/̵ ̵2̵ ̵f̵r̵o̵m̵ ̵r̵f̵l̵]̵
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1445:66: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1450:51: unused variable `hr`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1450:64: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1454:13: This simp argument is unused:
-  show (r + R) / 2 = (r + R) / 2 from rfl
-
-Hint: Omit it from the simp argument list.
-  simp only ̵[̵s̵h̵o̵w̵ ̵(̵r̵ ̵+̵ ̵R̵)̵ ̵/̵ ̵2̵ ̵=̵ ̵(̵r̵ ̵+̵ ̵R̵)̵ ̵/̵ ̵2̵ ̵f̵r̵o̵m̵ ̵r̵f̵l̵]̵
-
-Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1536:41: unused variable `hR`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1536:54: unused variable `hRR0`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1536:71: unused variable `hR01`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-warning: StrongPNT/PNT1_ComplexAnalysis.lean:1537:29: unused variable `hf`
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`
-error: Lean exited with code 1
-Some required targets logged failures:
-- StrongPNT.PNT3_RiemannZeta
-- StrongPNT.PNT4_ZeroFreeRegion
-- StrongPNT.PNT1_ComplexAnalysis
-error: build failed
+✔ [1743/3165] Built Mathlib.Data.Nat.Digits.Lemmas (4.5s)
+✔ [1744/3165] Built Mathlib.Algebra.BigOperators.Module (4.8s)
+✔ [1745/3165] Built Mathlib.SetTheory.Ordinal.Exponential (6.3s)
+✔ [1746/3165] Built Mathlib.RingTheory.Localization.Integer (6.2s)
+✔ [1747/3165] Built Mathlib.RingTheory.UniqueFactorizationDomain.Finite (5.9s)
+✔ [1748/3165] Built Mathlib.Data.Finsupp.SMul (7.2s)
+✔ [1749/3165] Built Mathlib.GroupTheory.MonoidLocalization.Away (6.4s)
+✔ [1750/3165] Built Mathlib.RingTheory.Ideal.BigOperators (6.5s)
+✔ [1751/3165] Built Mathlib.Algebra.Ring.Shrink (6.1s)
+✔ [1752/3165] Built Mathlib.Data.Finsupp.Multiset (7.6s)
+✔ [1753/3165] Built Mathlib.Data.Nat.Factorial.SuperFactorial (6.7s)
+✔ [1754/3165] Built Mathlib.Algebra.Module.Card (6.5s)
+✔ [1755/3165] Built Mathlib.GroupTheory.GroupAction.FixedPoints (7.3s)
+✔ [1756/3165] Built Mathlib.RingTheory.Spectrum.Prime.Defs (7.6s)
+✔ [1757/3165] Built Mathlib.Order.CompactlyGenerated.Basic (8.5s)
+✔ [1758/3165] Built Mathlib.Data.Nat.Choose.Sum (9.1s)
+✔ [1759/3165] Built Mathlib.Data.Finsupp.Order (9.1s)
+✔ [1760/3165] Built Mathlib.Order.WellFoundedSet (9.6s)
+✔ [1761/3165] Built Mathlib.Data.Nat.Nth (8.2s)
+✔ [1762/3165] Built Mathlib.Algebra.Ring.GeomSum (9.7s)
+✔ [1763/3165] Built Mathlib.MeasureTheory.PiSystem (10s)
+✔ [1764/3165] Built Mathlib.GroupTheory.Solvable (9.5s)
+✔ [1765/3165] Built Mathlib.SetTheory.Cardinal.Aleph (12s)
+✔ [1766/3165] Built Mathlib.Data.Multiset.Fintype (11s)
+✔ [1767/3165] Built Mathlib.SetTheory.Ordinal.FixedPoint (6.5s)
+✔ [1768/3165] Built Mathlib.Topology.Constructions.SumProd (13s)
+✔ [1769/3165] Built Mathlib.LinearAlgebra.Finsupp.SumProd (6.0s)
+✔ [1770/3165] Built Mathlib.Order.CompactlyGenerated.Intervals (5.5s)
+✔ [1771/3165] Built Mathlib.Algebra.DirectSum.Basic (13s)
+✔ [1772/3165] Built Mathlib.MeasureTheory.MeasurableSpace.Constructions (13s)
+✔ [1773/3165] Built Mathlib.Data.Finsupp.Antidiagonal (7.2s)
+✔ [1774/3165] Built Mathlib.RingTheory.ChainOfDivisors (14s)
+✔ [1775/3165] Built Mathlib.GroupTheory.GroupAction.FixingSubgroup (6.7s)
+✔ [1776/3165] Built Mathlib.Data.Nat.Prime.Nth (5.4s)
+✔ [1777/3165] Built Mathlib.RingTheory.TwoSidedIdeal.Operations (14s)
+✔ [1778/3165] Built Mathlib.RingTheory.Nilpotent.Basic (6.1s)
+✔ [1779/3165] Built Mathlib.Algebra.Field.GeomSum (6.3s)
+✔ [1780/3165] Built Mathlib.Combinatorics.Matroid.Basic (15s)
+✔ [1781/3165] Built Mathlib.LinearAlgebra.Finsupp.Defs (9.9s)
+✔ [1782/3165] Built Mathlib.Data.Finsupp.ToDFinsupp (9.9s)
+✔ [1783/3165] Built Mathlib.Algebra.Order.Ring.GeomSum (7.3s)
+✔ [1784/3165] Built Mathlib.Topology.FiberBundle.IsHomeomorphicTrivialBundle (3.9s)
+✔ [1785/3165] Built Mathlib.Algebra.Order.Ring.IsNonarchimedean (7.9s)
+✔ [1786/3165] Built Mathlib.Algebra.Algebra.NonUnitalHom (17s)
+✔ [1787/3165] Built Mathlib.Data.Nat.Factorization.Defs (8.6s)
+✔ [1788/3165] Built Mathlib.Topology.Algebra.Monoid.Defs (4.8s)
+✔ [1789/3165] Built Mathlib.Data.DFinsupp.Lex (9.4s)
+✔ [1790/3165] Built Mathlib.RingTheory.UniqueFactorizationDomain.FactorSet (11s)
+✔ [1791/3165] Built Mathlib.Algebra.Algebra.Equiv (19s)
+✔ [1792/3165] Built Mathlib.MeasureTheory.MeasurableSpace.Pi (4.0s)
+✔ [1793/3165] Built Mathlib.MeasureTheory.MeasurableSpace.MeasurablyGenerated (5.5s)
+✔ [1794/3165] Built Mathlib.Data.DFinsupp.Small (2.9s)
+✔ [1795/3165] Built Mathlib.SetTheory.Cardinal.Arithmetic (7.9s)
+✔ [1796/3165] Built Mathlib.Data.Nat.Factorization.Induction (3.4s)
+✔ [1797/3165] Built Mathlib.Topology.Algebra.Group.Defs (3.8s)
+✔ [1798/3165] Built Mathlib.Algebra.Group.Submonoid.Pointwise (12s)
+✔ [1799/3165] Built Mathlib.NumberTheory.Divisors (22s)
+✔ [1800/3165] Built Mathlib.RingTheory.UniqueFactorizationDomain.GCDMonoid (4.1s)
+✔ [1801/3165] Built Mathlib.SetTheory.Cardinal.Continuum (3.7s)
+✔ [1802/3165] Built Mathlib.Data.W.Cardinal (3.9s)
+✔ [1803/3165] Built Mathlib.SetTheory.Cardinal.Finsupp (4.0s)
+✔ [1804/3165] Built Mathlib.Topology.Constructions (11s)
+✔ [1805/3165] Built Mathlib.Data.Nat.Factorization.Basic (6.7s)
+✔ [1806/3165] Built Mathlib.SetTheory.Cardinal.CountableCover (4.2s)
+✔ [1807/3165] Built Mathlib.Data.Finsupp.Lex (5.9s)
+✔ [1808/3165] Built Mathlib.Algebra.Algebra.Prod (5.0s)
+✔ [1809/3165] Built Mathlib.Algebra.MonoidAlgebra.Defs (18s)
+✔ [1810/3165] Built Mathlib.CategoryTheory.Functor.Currying (24s)
+✔ [1811/3165] Built Mathlib.SetTheory.Cardinal.Cofinality (6.2s)
+✔ [1812/3165] Built Mathlib.Algebra.Algebra.Opposite (7.9s)
+✔ [1813/3165] Built Mathlib.Algebra.BigOperators.Fin (26s)
+✔ [1814/3165] Built Mathlib.Algebra.Order.CauSeq.BigOperators (10s)
+✔ [1815/3165] Built Mathlib.Algebra.GroupWithZero.Submonoid.Pointwise (5.3s)
+✔ [1816/3165] Built Mathlib.LinearAlgebra.Finsupp.LSum (10s)
+✔ [1817/3165] Built Mathlib.Topology.Hom.ContinuousEvalConst (3.2s)
+✔ [1818/3165] Built Mathlib.Data.Nat.Factorization.LCM (3.5s)
+✔ [1819/3165] Built Mathlib.Data.Nat.Factorization.PrimePow (3.6s)
+✔ [1820/3165] Built Mathlib.Algebra.Ring.Submonoid.Pointwise (6.6s)
+✔ [1821/3165] Built Mathlib.Data.Nat.Choose.Factorization (4.4s)
+✔ [1822/3165] Built Mathlib.Algebra.Squarefree.Basic (5.9s)
+✔ [1823/3165] Built Mathlib.Order.RelSeries (28s)
+✔ [1824/3165] Built Mathlib.SetTheory.Cardinal.Subfield (5.1s)
+✔ [1825/3165] Built Mathlib.Algebra.MonoidAlgebra.Division (4.0s)
+✔ [1826/3165] Built Mathlib.Algebra.MonoidAlgebra.Lift (5.5s)
+✔ [1827/3165] Built Mathlib.Algebra.BigOperators.Finsupp.Fin (3.9s)
+✔ [1828/3165] Built Mathlib.MeasureTheory.MeasurableSpace.Embedding (16s)
+✔ [1829/3165] Built Mathlib.Data.Fin.Tuple.NatAntidiagonal (3.0s)
+✔ [1830/3165] Built Mathlib.CategoryTheory.Pi.Basic (29s)
+✔ [1831/3165] Built Mathlib.Topology.Algebra.ContinuousMonoidHom (9.3s)
+✔ [1832/3165] Built Mathlib.Algebra.Group.Submonoid.Units (9.2s)
+✔ [1833/3165] Built Mathlib.LinearAlgebra.Span.Basic (22s)
+✔ [1834/3165] Built Mathlib.Topology.Hom.ContinuousEval (3.8s)
+✔ [1835/3165] Built Mathlib.SetTheory.Cardinal.Regular (5.1s)
+✔ [1836/3165] Built Mathlib.Algebra.Ring.Subsemiring.Pointwise (5.1s)
+✔ [1837/3165] Built Mathlib.Data.Fin.Tuple.Reflection (5.7s)
+✔ [1838/3165] Built Mathlib.Algebra.MonoidAlgebra.Opposite (7.4s)
+✔ [1839/3165] Built Mathlib.Data.Nat.Multiplicity (4.7s)
+✔ [1840/3165] Built Mathlib.Algebra.Algebra.Pi (7.1s)
+✔ [1841/3165] Built Mathlib.Topology.ContinuousOn (9.5s)
+✔ [1842/3165] Built Mathlib.CategoryTheory.Groupoid (3.1s)
+✔ [1843/3165] Built Mathlib.MeasureTheory.MeasurableSpace.Prod (3.6s)
+✔ [1844/3165] Built Mathlib.Data.Nat.Squarefree (5.0s)
+✔ [1845/3165] Built Mathlib.LinearAlgebra.Finsupp.Supported (7.5s)
+✔ [1846/3165] Built Mathlib.SetTheory.Cardinal.Pigeonhole (4.0s)
+✔ [1847/3165] Built Mathlib.Algebra.Group.Subgroup.Pointwise (13s)
+✔ [1848/3165] Built Mathlib.Combinatorics.Enumerative.Composition (9.5s)
+✔ [1849/3165] Built Mathlib.RingTheory.Ideal.Span (5.8s)
+✔ [1850/3165] Built Mathlib.Topology.Piecewise (3.8s)
+✔ [1851/3165] Built Mathlib.MeasureTheory.MeasurableSpace.CountablyGenerated (6.9s)
+✔ [1852/3165] Built Mathlib.Topology.Order.LeftRight (3.9s)
+✔ [1853/3165] Built Mathlib.Algebra.MonoidAlgebra.NoZeroDivisors (5.3s)
+✔ [1854/3165] Built Mathlib.CategoryTheory.Discrete.Basic (7.5s)
+✔ [1855/3165] Built Mathlib.Algebra.Algebra.Tower (7.5s)
+✔ [1856/3165] Built Mathlib.Algebra.MonoidAlgebra.Module (8.5s)
+✔ [1857/3165] Built Mathlib.Algebra.MonoidAlgebra.MapDomain (8.5s)
+✔ [1858/3165] Built Mathlib.Topology.Coherent (5.3s)
+✔ [1859/3165] Built Mathlib.Topology.LocallyFinite (6.1s)
+✔ [1860/3165] Built Mathlib.Topology.Clopen (6.3s)
+✔ [1861/3165] Built Mathlib.NumberTheory.Padics.PadicVal.Basic (6.9s)
+✔ [1862/3165] Built Mathlib.Combinatorics.Enumerative.Partition (4.6s)
+✔ [1863/3165] Built Mathlib.Topology.Irreducible (7.3s)
+✔ [1864/3165] Built Mathlib.NumberTheory.SmoothNumbers (7.0s)
+✔ [1865/3165] Built Mathlib.LinearAlgebra.Finsupp.Span (10s)
+✔ [1866/3165] Built Mathlib.CategoryTheory.EpiMono (8.3s)
+✔ [1867/3165] Built Mathlib.CategoryTheory.Endomorphism (8.3s)
+✔ [1868/3165] Built Mathlib.CategoryTheory.PEmpty (4.7s)
+✔ [1869/3165] Built Mathlib.CategoryTheory.Products.Unitor (5.0s)
+✔ [1870/3165] Built Mathlib.Combinatorics.Matroid.IndepAxioms (27s)
+✔ [1871/3165] Built Mathlib.Algebra.Order.Antidiag.Pi (13s)
+✔ [1872/3165] Built Mathlib.CategoryTheory.FinCategory.Basic (6.3s)
+✔ [1873/3165] Built Mathlib.Algebra.GroupWithZero.Subgroup (9.3s)
+✔ [1874/3165] Built Mathlib.Algebra.CharP.Lemmas (12s)
+✔ [1875/3165] Built Mathlib.CategoryTheory.PUnit (7.3s)
+✔ [1876/3165] Built Mathlib.Topology.Algebra.Indicator (5.6s)
+✔ [1877/3165] Built Mathlib.Algebra.MonoidAlgebra.Support (7.2s)
+✔ [1878/3165] Built Mathlib.Topology.Inseparable (12s)
+✔ [1879/3165] Built Mathlib.RingTheory.Ideal.Maximal (9.4s)
+✔ [1880/3165] Built Mathlib.Order.JordanHolder (17s)
+✔ [1881/3165] Built Mathlib.Algebra.Algebra.RestrictScalars (8.7s)
+✔ [1882/3165] Built Mathlib.CategoryTheory.Balanced (6.2s)
+✔ [1883/3165] Built Mathlib.Topology.Order.LocalExtr (14s)
+✔ [1884/3165] Built Mathlib.GroupTheory.Finiteness (13s)
+✔ [1885/3165] Built Mathlib.CategoryTheory.FinCategory.AsType (5.4s)
+✔ [1886/3165] Built Mathlib.Tactic.Algebraize (11s)
+✔ [1887/3165] Built Mathlib.LinearAlgebra.Finsupp.LinearCombination (15s)
+✔ [1888/3165] Built Mathlib.CategoryTheory.Types.Basic (8.5s)
+✔ [1889/3165] Built Mathlib.Topology.Compactness.Compact (18s)
+✔ [1890/3165] Built Mathlib.Topology.Connected.Basic (11s)
+✔ [1891/3165] Built Mathlib.RingTheory.Ideal.Nonunits (6.2s)
+✔ [1892/3165] Built Mathlib.RingTheory.Spectrum.Maximal.Defs (6.3s)
+✔ [1893/3165] Built Mathlib.GroupTheory.QuotientGroup.Basic (17s)
+✔ [1894/3165] Built Mathlib.Topology.UniformSpace.Basic (19s)
+✔ [1895/3165] Built Mathlib.Data.Nat.Choose.Multinomial (8.8s)
+✔ [1896/3165] Built Mathlib.Topology.NhdsKer (7.9s)
+✔ [1897/3165] Built Mathlib.Algebra.Ring.Subring.Pointwise (9.2s)
+✔ [1898/3165] Built Mathlib.Topology.Bases (20s)
+✔ [1899/3165] Built Mathlib.Combinatorics.Matroid.Dual (11s)
+✔ [1900/3165] Built Mathlib.CategoryTheory.IsConnected (9.5s)
+✔ [1901/3165] Built Mathlib.GroupTheory.Divisible (10s)
+✔ [1902/3165] Built Mathlib.RingTheory.Localization.Basic (16s)
+✔ [1903/3165] Built Mathlib.Algebra.CharP.Frobenius (9.9s)
+✔ [1904/3165] Built Mathlib.CategoryTheory.Functor.Hom (4.9s)
+✔ [1905/3165] Built Mathlib.LinearAlgebra.Prod (24s)
+✔ [1906/3165] Built Mathlib.RingTheory.Finiteness.Defs (6.2s)
+✔ [1907/3165] Built Mathlib.Topology.Connected.LocallyConnected (4.5s)
+✔ [1908/3165] Built Mathlib.RingTheory.Spectrum.Maximal.Basic (4.2s)
+✔ [1909/3165] Built Mathlib.Topology.Compactness.LocallyFinite (5.1s)
+✔ [1910/3165] Built Mathlib.Topology.Compactness.CompactlyCoherentSpace (5.3s)
+✔ [1911/3165] Built Mathlib.Topology.UniformSpace.Compact (4.7s)
+✔ [1912/3165] Built Mathlib.GroupTheory.QuotientGroup.Finite (5.2s)
+✔ [1913/3165] Built Mathlib.Topology.Compactness.LocallyCompact (5.0s)
+✔ [1914/3165] Built Mathlib.Algebra.Polynomial.Basic (19s)
+✔ [1915/3165] Built Mathlib.CategoryTheory.Limits.Types.ColimitType (7.7s)
+✔ [1916/3165] Built Mathlib.Topology.UniformSpace.DiscreteUniformity (5.7s)
+✔ [1917/3165] Built Mathlib.Algebra.Module.Submodule.Pointwise (13s)
+✔ [1918/3165] Built Mathlib.CategoryTheory.Category.Cat (8.7s)
+✔ [1919/3165] Built Mathlib.RingTheory.LocalRing.Basic (7.2s)
+✔ [1920/3165] Built Mathlib.Algebra.CharP.Reduced (4.7s)
+✔ [1921/3165] Built Mathlib.LinearAlgebra.BilinearMap (60s)
+✔ [1922/3165] Built Mathlib.CategoryTheory.ConcreteCategory.Basic (9.9s)
+✔ [1923/3165] Built Mathlib.Topology.Compactness.Bases (6.9s)
+✔ [1924/3165] Built Mathlib.Topology.Compactness.NhdsKer (7.4s)
+✔ [1925/3165] Built Mathlib.Topology.Connected.Clopen (9.8s)
+✔ [1926/3165] Built Mathlib.Analysis.Normed.Lp.WithLp (5.9s)
+✔ [1927/3165] Built Mathlib.RingTheory.Ideal.Basic (11s)
+✔ [1928/3165] Built Mathlib.CategoryTheory.IsomorphismClasses (2.9s)
+✔ [1929/3165] Built Mathlib.RingTheory.Finiteness.Prod (6.2s)
+✔ [1930/3165] Built Mathlib.Topology.EMetricSpace.Defs (9.9s)
+✔ [1931/3165] Built Mathlib.Algebra.MonoidAlgebra.Basic (24s)
+✔ [1932/3165] Built Mathlib.Algebra.Polynomial.Monomial (5.3s)
+✔ [1933/3165] Built Mathlib.CategoryTheory.Category.Cat.AsSmall (5.0s)
+✔ [1934/3165] Built Mathlib.CategoryTheory.ConcreteCategory.ReflectsIso (4.8s)
+✔ [1935/3165] Built Mathlib.Topology.AlexandrovDiscrete (4.5s)
+✔ [1936/3165] Built Mathlib.Algebra.Star.StarAlgHom (32s)
+✔ [1937/3165] Built Mathlib.RingTheory.LocalRing.MaximalIdeal.Defs (7.2s)
+✔ [1938/3165] Built Mathlib.Topology.Compactness.SigmaCompact (9.1s)
+✔ [1939/3165] Built Mathlib.GroupTheory.Index (15s)
+✔ [1940/3165] Built Mathlib.Tactic.CategoryTheory.Elementwise (7.9s)
+✔ [1941/3165] Built Mathlib.Algebra.Polynomial.Coeff (10s)
+✔ [1942/3165] Built Mathlib.Algebra.Star.Module (13s)
+✔ [1943/3165] Built Mathlib.Topology.Connected.TotallyDisconnected (7.1s)
+✔ [1944/3165] Built Mathlib.Combinatorics.Matroid.Minor.Restrict (14s)
+✔ [1945/3165] Built Mathlib.Topology.Separation.Basic (12s)
+✔ [1946/3165] Built Mathlib.Tactic.Module (32s)
+✔ [1947/3165] Built Mathlib.Algebra.Module.Submodule.Bilinear (10s)
+✔ [1948/3165] Built Mathlib.Algebra.MonoidAlgebra.Degree (26s)
+✔ [1949/3165] Built Mathlib.CategoryTheory.Elementwise (4.0s)
+✔ [1950/3165] Built Mathlib.RingTheory.Ideal.Quotient.Basic (10s)
+✔ [1951/3165] Built Mathlib.LinearAlgebra.Pi (17s)
+✔ [1952/3165] Built Mathlib.Algebra.Polynomial.Eval.Defs (15s)
+✔ [1953/3165] Built Mathlib.LinearAlgebra.LinearIndependent.Defs (24s)
+✔ [1954/3165] Built Mathlib.Topology.Compactness.Lindelof (8.7s)
+✔ [1955/3165] Built Mathlib.Topology.Separation.CountableSeparatingOn (7.2s)
+✔ [1956/3165] Built Mathlib.LinearAlgebra.BilinearForm.Basic (17s)
+✔ [1957/3165] Built Mathlib.RingTheory.Finiteness.Bilinear (7.7s)
+✔ [1958/3165] Built Mathlib.Topology.DiscreteSubset (9.5s)
+✔ [1959/3165] Built Mathlib.Combinatorics.Matroid.Constructions (10s)
+✔ [1960/3165] Built Mathlib.Topology.Filter (10s)
+✔ [1961/3165] Built Mathlib.NumberTheory.ArithmeticFunction (48s)
+✔ [1962/3165] Built Mathlib.Topology.Separation.Hausdorff (12s)
+✔ [1963/3165] Built Mathlib.LinearAlgebra.Basis.Defs (32s)
+✔ [1964/3165] Built Mathlib.Algebra.Polynomial.Eval.Algebra (10s)
+✔ [1965/3165] Built Mathlib.Algebra.Polynomial.Degree.Definitions (11s)
+✔ [1966/3165] Built Mathlib.Algebra.Polynomial.Eval.Coeff (12s)
+✔ [1967/3165] Built Mathlib.Topology.IndicatorConstPointwise (15s)
+✔ [1968/3165] Built Mathlib.Topology.MetricSpace.Pseudo.Defs (24s)
+✔ [1969/3165] Built Mathlib.Algebra.Module.LocalizedModule.Basic (49s)
+✔ [1970/3165] Built Mathlib.LinearAlgebra.LinearPMap (31s)
+✔ [1971/3165] Built Mathlib.LinearAlgebra.Finsupp.Pi (15s)
+✔ [1972/3165] Built Mathlib.LinearAlgebra.SModEq (16s)
+✔ [1973/3165] Built Mathlib.LinearAlgebra.Basis.Bilinear (9.7s)
+✔ [1974/3165] Built Mathlib.RingTheory.Localization.FractionRing (38s)
+✔ [1975/3165] Built Mathlib.Combinatorics.Matroid.Map (13s)
+✔ [1976/3165] Built Mathlib.Topology.Algebra.InfiniteSum.Defs (11s)
+✔ [1977/3165] Built Mathlib.RingTheory.IntegralClosure.IsIntegral.Defs (11s)
+✔ [1978/3165] Built Mathlib.CategoryTheory.Comma.Basic (53s)
+✔ [1979/3165] Built Mathlib.Algebra.Polynomial.Degree.Monomial (12s)
+✔ [1980/3165] Built Mathlib.LinearAlgebra.Dual.Defs (35s)
+✔ [1981/3165] Built Mathlib.LinearAlgebra.LinearIndependent.Basic (23s)
+✔ [1982/3165] Built Mathlib.Topology.Algebra.Support (16s)
+✔ [1983/3165] Built Mathlib.RingTheory.Finiteness.Basic (26s)
+✔ [1984/3165] Built Mathlib.Algebra.Category.MonCat.Basic (27s)
+✔ [1985/3165] Built Mathlib.RingTheory.IntegralClosure.Algebra.Defs (4.8s)
+✔ [1986/3165] Built Mathlib.Topology.MetricSpace.Defs (15s)
+✔ [1987/3165] Built Mathlib.Algebra.Algebra.NonUnitalSubalgebra (71s)
+✔ [1988/3165] Built Mathlib.RingTheory.Localization.NumDen (10s)
+✔ [1989/3165] Built Mathlib.CategoryTheory.Yoneda (49s)
+✔ [1990/3165] Built Mathlib.Topology.SeparatedMap (22s)
+✔ [1991/3165] Built Mathlib.Topology.ContinuousMap.Basic (22s)
+✔ [1992/3165] Built Mathlib.RingTheory.IntegralClosure.IsIntegralClosure.Defs (10s)
+✔ [1993/3165] Built Mathlib.Topology.Separation.Regular (22s)
+✔ [1994/3165] Built Mathlib.LinearAlgebra.Quotient.Basic (32s)
+✔ [1995/3165] Built Mathlib.LinearAlgebra.Basis.Cardinality (22s)
+✔ [1996/3165] Built Mathlib.Algebra.Polynomial.Degree.Operations (23s)
+✔ [1997/3165] Built Mathlib.RingTheory.Noetherian.Defs (9.3s)
+✔ [1998/3165] Built Mathlib.Topology.Algebra.InfiniteSum.Basic (17s)
+✔ [1999/3165] Built Mathlib.Topology.ContinuousMap.CocompactMap (8.3s)
+✔ [2000/3165] Built Mathlib.Algebra.Category.MonCat.ForgetCorepresentable (9.2s)
+✔ [2001/3165] Built Mathlib.LinearAlgebra.Basis.Basic (15s)
+✔ [2002/3165] Built Mathlib.FieldTheory.RatFunc.Defs (21s)
+✔ [2003/3165] Built Mathlib.Topology.Separation.GDelta (9.2s)
+✔ [2004/3165] Built Mathlib.Topology.UniformSpace.Separation (9.4s)
+✔ [2005/3165] Built Mathlib.LinearAlgebra.Dimension.Basic (16s)
+✔ [2006/3165] Built Mathlib.Algebra.Polynomial.Degree.Support (8.6s)
+✔ [2007/3165] Built Mathlib.Algebra.Polynomial.Degree.SmallDegree (9.0s)
+✔ [2008/3165] Built Mathlib.LinearAlgebra.Dual.Basis (20s)
+✔ [2009/3165] Built Mathlib.Topology.DenseEmbedding (12s)

@@ -88,12 +88,15 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
       · exact hp
       · linarith
     _ > (2 : ℝ) ^ 1 := by
-      sorry -- Need Real.rpow_lt_rpow_left which doesn't exist
+      apply Real.rpow_lt_rpow_left
+      · norm_num
+      · norm_num
+      · exact hs
     _ = 2 := by simp
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1
   have hpower_pos : 0 < (p : ℝ) ^ s.re := Real.rpow_pos_of_pos hp_pos _
-  sorry -- Need to show inv < 1 from h1 : 1 < x
+  exact inv_lt_one h1
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :

@@ -399,3 +399,13 @@
 
 **Status**: 175 sorries remaining (was 176)
 
+## Iteration 42 (2025-09-23T00:52:00Z)
+### Fixed: Power inequality lemmas in `p_s_abs_1` prime decay bound
+- Fixed two sorries in the proof that |p^(-s)| < 1 for primes p and Re(s) > 1
+- First sorry: Proved 2^(s.re) > 2^1 when s.re > 1 using `Real.rpow_lt_rpow_left`
+- Second sorry: Proved 1/x < 1 when x > 1 using `inv_lt_one`
+- These complete the proof that prime powers decay exponentially for Re(s) > 1
+- Location: StrongPNT/PNT3_RiemannZeta.lean:91-99
+
+**Status**: 173 sorries remaining (was 175)
+
