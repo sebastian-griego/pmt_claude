@@ -141,3 +141,28 @@
 ### Stats:
 - Total project sorries: 162 (PNT1: 34, PNT2: 33, PNT3: 33, PNT4: 41, PNT5: 21)
 - Build status: PNT1 has one error in lem_analAtOnOn; PNT3 compiles
+
+## Iteration 9 - 2025-09-23T22:12:00Z
+
+### Focus: PNT3_RiemannZeta.lean & PNT2_LogDerivative.lean
+- Attempted to complete `lem_analAtOnOn` in PNT1 - type mismatch issues persist
+- Modified `zeta_converges_re_gt_one` in PNT3 - added partial proof structure
+- PNT2_LogDerivative was modified by system (added Blaschke product lemmas)
+
+### Progress:
+- Reduced sorries from 162 to 161 (net -1)
+- PNT2 had a system-added proof for `lem_blaschke_pow_diff_nonzero`
+- Explored various lemmas but most require deep complex analysis results
+- Many simple auxiliary lemmas in PNT1 are already proven
+
+### Findings:
+- Remaining sorries are mostly fundamental theorems:
+  - Riemann zeta convergence and properties
+  - Identity theorem for analytic functions
+  - Zero density estimates
+  - Contour integral formulas
+  - Maximum modulus principle applications
+
+### Stats:
+- Total project sorries: 161 (PNT1: 35, PNT2: 32, PNT3: 32, PNT4: 41, PNT5: 21)
+- Build status: PNT1 has type errors in lem_analAtOnOn; other files compile with warnings

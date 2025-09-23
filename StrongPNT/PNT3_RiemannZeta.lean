@@ -18,6 +18,10 @@ noncomputable def zeta (s : ℂ) : ℂ := ∑' n : ℕ+, (n : ℂ) ^ (-s)
 -- Zeta converges for Re(s) > 1
 lemma zeta_converges_re_gt_one (s : ℂ) (hs : 1 < s.re) :
     Summable (fun n : ℕ+ => (n : ℂ) ^ (-s)) := by
+  -- The Riemann zeta function is defined as this sum for Re(s) > 1
+  -- We can use the fact that the p-series converges for p > 1
+  have h_pos : 0 < s.re - 1 := by linarith
+  -- Convert to a form that mathlib's summability theorems can handle
   sorry
 
 -- Zeta non-zero for Re(s) > 1
@@ -285,7 +289,17 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
               · exact hp_ge2
               · linarith
             _ > 1 := by
-              norm_num
+              have : (2 : ℝ) ^ (3/2 : ℝ) = 2 * Real.sqrt 2 := by
+                rw [Real.rpow_div_two_eq_sqrt]
+                ring_nf
+                norm_num
+              rw [this]
+              have : Real.sqrt 2 > 1 := by
+                have : (1 : ℝ) < 2 := by norm_num
+                have : Real.sqrt 1 < Real.sqrt 2 := Real.sqrt_lt_sqrt (by norm_num) this
+                rw [Real.sqrt_one] at this
+                exact this
+              linarith
         · apply Real.rpow_pos_of_pos hp_pos
   -- If 1 - z = 0, then z = 1, so |z| = 1, contradicting |z| < 1
   intro h_eq
