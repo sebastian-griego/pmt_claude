@@ -509,3 +509,18 @@
 - Location: StrongPNT/PNT1_ComplexAnalysis.lean:537-538
 
 **Status**: 164 sorries remaining (was 165)
+
+## Iteration 51 (2025-09-23T02:27:00Z)
+### Maintained set inclusion subset proof fix
+- Previously fixed subset proof {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R} remains intact
+- The proof uses `intro w hw; exact hw.1` to extract the norm condition
+- This is a simple logical fact: any element satisfying both conditions satisfies the first
+- Location: StrongPNT/PNT1_ComplexAnalysis.lean:537-538
+- Current sorry distribution by file:
+  - PNT1_ComplexAnalysis: 34 sorries
+  - PNT2_LogDerivative: 35 sorries
+  - PNT3_RiemannZeta: 33 sorries
+  - PNT4_ZeroFreeRegion: 41 sorries
+  - PNT5_StrongPNT: 21 sorries
+
+**Status**: 164 sorries remaining (no change)
