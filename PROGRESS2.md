@@ -181,4 +181,20 @@
 ### Stats:
 - Total project sorries: 166 (PNT1: 36, PNT2: 32, PNT3: 36, PNT4: 41, PNT5: 21)
 - Build status: PNT3 has multiple errors with missing API functions
+
+## Iteration 11 - 2025-09-23T22:22:00Z
+
+### Focus: PNT1_ComplexAnalysis.lean
+- Attempted to fix `lem_analAtOnOn` (line 528-531)
+- Issue: type mismatch between punctured disk analyticity and full disk analyticity
+
+### Progress:
+- Partially fixed the proof but encountered difficulty with `AnalyticWithinAt.mono`
+- The lemma requires showing analyticity extends from punctured disk to full disk at non-zero points
+- Reverted to sorry due to type system complexities
+
+### Stats:
+- Total project sorries: 164 (PNT1: 35, PNT2: 32, PNT3: 35, PNT4: 41, PNT5: 21)
+- Build status: PNT1 has compilation issues with lem_analAtOnOn
+- Net change: -2 sorries from iteration 10 (some system changes were reverted)
 - Net change: +5 sorries (due to system additions of new lemmas)
