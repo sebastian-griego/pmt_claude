@@ -284,7 +284,8 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
               · exact hp_ge2
               · linarith
             _ > 1 := by
-              sorry
+              rw [show (3/2 : ℝ) = 1.5 by norm_num]
+              norm_num
         · apply Real.rpow_pos_of_pos hp_pos
   -- If 1 - z = 0, then z = 1, so |z| = 1, contradicting |z| < 1
   intro h_eq
