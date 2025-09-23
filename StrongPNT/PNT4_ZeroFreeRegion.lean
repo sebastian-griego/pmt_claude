@@ -338,7 +338,7 @@ lemma lem_Z1split (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}
       | inl eq => rwa [eq]
       | inr hx => exact hx.1
   rw [this, Finset.sum_insert]
-  · sorry  -- Should simplify to identity after insert then diff
+  · rfl
   · simp
 
 /-- Lower bound from split sum -/

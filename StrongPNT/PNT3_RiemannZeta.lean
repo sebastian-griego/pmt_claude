@@ -93,8 +93,7 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1
   have hpower_pos : 0 < (p : ℝ) ^ s.re := Real.rpow_pos_of_pos hp_pos _
-  rw [inv_lt_one hpower_pos]
-  exact h1
+  sorry -- Need to prove inv < 1 from 1 < x
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :

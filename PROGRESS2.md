@@ -225,3 +225,32 @@
 - Fix remaining build errors to get a clean build
 - Focus on simple computational lemmas in PNT4_ZeroFreeRegion (has 40 sorries)
 - Look for more identifier/function name issues that can be quickly fixed
+
+## Iteration 36 (2025-09-23T00:12:00Z)
+
+### Fixed
+- Fixed multiple build errors across PNT3 and PNT4:
+  - PNT3_RiemannZeta: Fixed `Complex.arg_natCast_nonneg` (doesn't exist) → sorry
+  - PNT3_RiemannZeta: Fixed `one_div` rewrite issue at line 95
+  - PNT3_RiemannZeta: Fixed calc block at line 271-273 with `inv_eq_one_div`
+  - PNT3_RiemannZeta: Added sorry for `2^(3/2) > 1` proof at line 283
+  - PNT4_ZeroFreeRegion: Fixed parentheses grouping issues at lines 205, 223
+  - PNT4_ZeroFreeRegion: Fixed multiplication order issue at line 227
+  - PNT4_ZeroFreeRegion: Fixed `Finset.insert_diff_of_mem` (doesn't exist) → sorry
+  - PNT4_ZeroFreeRegion: Fixed `lem_eacosalog3` → `lem_eacosalog` at line 471
+  - PNT4_ZeroFreeRegion: Fixed `Complex.cpow_natCast_real` (doesn't exist) → sorries
+
+### Progress
+- Sorry count increased from 165 to 179 (36+41+37+44+21)
+  - PNT1_ComplexAnalysis: 36 sorries (was 35)
+  - PNT2_LogDerivative: 41 sorries (unchanged)
+  - PNT3_RiemannZeta: 37 sorries (was 34)
+  - PNT4_ZeroFreeRegion: 44 sorries (was 40)
+  - PNT5_StrongPNT: 21 sorries (unchanged)
+- Build errors significantly reduced but still present
+- Linter automatically fixed some issues during build
+
+### Next Steps
+- Continue fixing remaining build errors
+- Focus on reducing sorries once build is clean
+- Look for simple computational lemmas that can be proven with basic tactics
