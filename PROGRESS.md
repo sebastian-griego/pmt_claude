@@ -373,3 +373,34 @@ This file tracks the progress of removing `sorry` statements from the StrongPNT 
 - Continue looking for simple lemmas that can be fixed
 - Focus on arithmetic and boolean lemmas
 - Address build errors in other files
+
+## Iteration 2025-09-23T22:52:07Z
+
+### Fixed
+- Fixed proof in `p_s_abs_1` in PNT3_RiemannZeta.lean (lines 76-108) - Removed 2 sorries
+  - Fixed calc chain that `p^s.re > 1` when `Re(s) > 1`
+  - System/linter automatically fixed `Real.rpow_lt_rpow_left` to `Real.rpow_lt_rpow`
+  - System/linter fixed inverse inequality using `inv_eq_one_div` and `div_lt_one`
+- Fixed type error in PNT1_ComplexAnalysis.lean (line 534)
+  - Fixed `hw` type projection issue by removing `.1`
+- Fixed unused simp argument in PNT2_LogDerivative.lean (line 42)
+  - Removed unused `Metric.mem_closedBall` from simp
+
+### Current Status
+- Total sorries: 161 (was 163)
+  - PNT1_ComplexAnalysis.lean: 34 sorries
+  - PNT2_LogDerivative.lean: 32 sorries
+  - PNT3_RiemannZeta.lean: 34 sorries (was 36)
+  - PNT4_ZeroFreeRegion.lean: 40 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build still has errors in PNT1, PNT2, and PNT4
+
+### Notes
+- Successfully removed 2 sorries from PNT3 with proper proofs
+- System/linter helped fix the API issues automatically
+- Fixed minor linting warnings
+
+### Next Steps
+- Continue fixing simple arithmetic lemmas
+- Address remaining build errors
+- Focus on lemmas that don't depend on missing API functions

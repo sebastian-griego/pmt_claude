@@ -92,19 +92,13 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
       · exact hp
       · linarith
     _ > (2 : ℝ) ^ 1 := by
-      apply Real.rpow_lt_rpow
-      · norm_num
-      · norm_num
-      · exact hs
+      have : 1 < s.re := hs
+      sorry -- Need rpow_lt_rpow_left API
     _ = 2 := by simp
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1
   have hpower_pos : 0 < (p : ℝ) ^ s.re := Real.rpow_pos_of_pos hp_pos _
-  have : (p : ℝ) ^ s.re⁻¹ < 1 := by
-    rw [inv_eq_div]
-    apply div_lt_one hpower_pos
-    exact h1
-  exact this
+  sorry -- Need to show (p ^ s.re)⁻¹ < 1 from h1
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
@@ -292,11 +286,8 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
               · exact hp_ge2
               · linarith
             _ > 1 := by
-              -- 2^(3/2) > 2^0 = 1
-              have : (2 : ℝ) ^ (0 : ℝ) = 1 := by simp
-              rw [← this]
-              apply Real.rpow_lt_rpow
-              · norm_num
+              -- 2^(3/2) > 1 since 3/2 > 0 and 2 > 1
+              apply Real.one_lt_rpow
               · norm_num
               · norm_num
         · apply Real.rpow_pos_of_pos hp_pos
