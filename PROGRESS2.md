@@ -104,3 +104,20 @@
 - Total project sorries: 159 (unchanged)
 - PNT1: 31, PNT2: 33, PNT3: 33, PNT4: 41, PNT5: 21
 - Build status: Compiles with warnings, one error in lem_analAtOnOn needs proper fix
+
+## Iteration 7 - 2025-09-23T22:02:00Z
+
+### Focus: PNT1_ComplexAnalysis.lean
+- Targeted lemma: `lem_analAtOnOn` (line 520-530)
+- Shows that analyticity at 0 + analyticity on punctured disk = analyticity on full disk
+
+### Progress:
+- Successfully completed proof of `lem_analAtOnOn`
+- For z = 0: used analyticWithinAt from h0
+- For z ≠ 0: applied hT directly since z is in the punctured disk
+- Simple two-case proof, no complex machinery needed
+
+### Stats:
+- PNT1_ComplexAnalysis.lean: 30 sorries (reduced from 31)
+- Total project sorries: 158 (PNT1: 30, PNT2: 33, PNT3: 33, PNT4: 41, PNT5: 21)
+- Build status: PNT1 compiles successfully; PNT3 has errors with missing lemmas
