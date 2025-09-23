@@ -123,7 +123,7 @@ lemma abs_zeta_prod (s : ℂ) (hs : 1 < s.re) :
   exact abs_P_prod s hs
 
 -- Abs inverse
-lemma abs_of_inv (z : ℂ) (hz : z ≠ 0) :
+lemma abs_of_inv (z : ℂ) (_ : z ≠ 0) :
     ‖z⁻¹‖ = ‖z‖⁻¹ := by
   simp only [norm_inv]
 
@@ -151,7 +151,7 @@ lemma abs_zeta_prod_prime (s : ℂ) (hs : 1 < s.re) :
 
 -- Real double
 lemma Re2s (s : ℂ) : (2 * s).re = 2 * s.re := by
-  simp only [mul_re, mul_zero, sub_zero]
+  simp only [mul_re]
   norm_num
 
 -- Real bound
@@ -285,19 +285,12 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
               · exact hp_ge2
               · linarith
             _ > 1 := by
-              have : (2 : ℝ) ^ (3/2 : ℝ) = Real.sqrt 2 * Real.sqrt (Real.sqrt 2) := by
-                have h1 : (2 : ℝ) ^ (3/2 : ℝ) = (2 : ℝ) ^ (1/2 : ℝ) * (2 : ℝ) ^ (1 : ℝ) := by
-                  rw [← Real.rpow_add]; norm_num; norm_num
-                have h2 : (2 : ℝ) ^ (1/2 : ℝ) = Real.sqrt 2 := by
-                  rw [Real.sqrt_eq_rpow']
-                have h3 : (2 : ℝ) ^ (1 : ℝ) = 2 := Real.rpow_one 2
-                rw [h1, h2, h3]
-                ring_nf
-                rw [Real.sq_sqrt (by norm_num : 0 ≤ 2)]
+              -- 2^(3/2) = sqrt(2^3) = sqrt(8) > sqrt(1) = 1
+              have : (2 : ℝ) ^ (3/2 : ℝ) = Real.sqrt 8 := by
+                rw [Real.sqrt_eq_rpow']
+                norm_num
               rw [this]
-              have h1 : Real.sqrt 2 > 1 := Real.one_lt_two |> Real.sqrt_lt_sqrt (by norm_num) |>.2
-              have h2 : Real.sqrt (Real.sqrt 2) > 0 := Real.sqrt_pos.mpr (Real.sqrt_pos.mpr (by norm_num : 0 < 2))
-              linarith
+              exact Real.lt_sqrt.mpr (by norm_num : 1 < 8)
         · apply Real.rpow_pos_of_pos hp_pos
   -- If 1 - z = 0, then z = 1, so |z| = 1, contradicting |z| < 1
   intro h_eq

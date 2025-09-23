@@ -344,3 +344,32 @@ This file tracks the progress of removing `sorry` statements from the StrongPNT 
 - Focus on lemmas that don't depend on missing API functions
 - Consider updating imports or finding current equivalents for missing functions
 - Prioritize simple arithmetic/logic lemmas over complex analysis lemmas
+
+## Iteration 2025-09-23T22:45:57Z
+
+### Fixed
+- Fixed unused simp arguments in PNT3_RiemannZeta.lean (line 154)
+  - Removed unused `mul_zero` and `sub_zero` from simp call in `Re2s` lemma
+- Fixed unused variable warning in PNT3_RiemannZeta.lean (line 126)
+  - Changed `hz` to `_` in `abs_of_inv` lemma
+- System automatically fixed a proof in PNT3_RiemannZeta.lean (line 287-293)
+  - Fixed calculation that `2^(3/2) > 1` using `Real.sqrt` approach
+
+### Current Status
+- Total sorries: 163 (unchanged)
+  - PNT1_ComplexAnalysis.lean: 34 sorries
+  - PNT2_LogDerivative.lean: 32 sorries
+  - PNT3_RiemannZeta.lean: 36 sorries
+  - PNT4_ZeroFreeRegion.lean: 40 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build has errors in PNT1, PNT2, and PNT4
+
+### Notes
+- Fixed minor linting issues (unused variables and simp arguments)
+- The system's automatic fix shows that `Real.sqrt_eq_rpow'` works in this codebase
+- Build errors remain in multiple files
+
+### Next Steps
+- Continue looking for simple lemmas that can be fixed
+- Focus on arithmetic and boolean lemmas
+- Address build errors in other files
