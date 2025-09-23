@@ -198,3 +198,19 @@
 - Build status: PNT1 has compilation issues with lem_analAtOnOn
 - Net change: -2 sorries from iteration 10 (some system changes were reverted)
 - Net change: +5 sorries (due to system additions of new lemmas)
+
+## Iteration 12 - 2025-09-23T22:29:00Z
+
+### Focus: PNT3_RiemannZeta.lean
+- Targeted lemma: `prod_positive` (line 343-347)
+- Shows infinite product of positive terms is positive
+
+### Progress:
+- Successfully proved `prod_positive` using `tprod_pos`
+- Each factor (1 + p^(-3/2)) > 1 since p^(-3/2) > 0
+- Simple proof: apply positivity of infinite product of positive terms
+
+### Stats:
+- PNT3_RiemannZeta.lean: 33 sorries (reduced from 34)
+- Total project sorries: 162 (PNT1: 35, PNT2: 32, PNT3: 33, PNT4: 41, PNT5: 21)
+- Build status: PNT3 has other compilation errors but `prod_positive` compiles successfully

@@ -92,14 +92,13 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
       · exact hp
       · linarith
     _ > (2 : ℝ) ^ 1 := by
-      apply Real.rpow_lt_rpow_of_exponent_lt
-      · norm_num
-      · norm_num
+      exact Real.rpow_lt_rpow_of_exponent_lt (by norm_num : 1 < 2) (by linarith : 1 < s.re)
     _ = 2 := by simp
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1
   have hpower_pos : 0 < (p : ℝ) ^ s.re := Real.rpow_pos_of_pos hp_pos _
-  sorry
+  rw [one_div]
+  exact inv_lt_one h1
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
@@ -344,7 +343,11 @@ lemma prod_positive :
     0 < ∏' p : Nat.Primes, (1 + (p : ℝ) ^ (-(3/2 : ℝ))) := by
   -- The product of positive numbers is positive
   -- Each factor is > 1, so the product is > 0
-  sorry
+  apply tprod_pos
+  intro p
+  have hp_pos : 0 < (p : ℝ) := by norm_cast; exact Nat.Prime.pos p.prop
+  have : 0 < (p : ℝ) ^ (-(3/2 : ℝ)) := Real.rpow_pos_of_pos hp_pos _
+  linarith
 
 -- Final lower bound
 lemma final_lower_bound_1 :
