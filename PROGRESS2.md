@@ -254,3 +254,28 @@
 - Continue fixing remaining build errors
 - Focus on reducing sorries once build is clean
 - Look for simple computational lemmas that can be proven with basic tactics
+
+## Iteration 37 (2025-09-23T00:24:00Z)
+
+### Analyzed
+- Reviewed all PNT files for simple lemmas to fix
+- Identified that many proven lemmas already exist:
+  - `lem_log2Olog2` in PNT4_ZeroFreeRegion is fully proven
+  - `lem_postriglogn` in PNT4_ZeroFreeRegion is fully proven
+  - `lem_1deltatrho0` in PNT4_ZeroFreeRegion is proven
+- Attempted to fix `2^s.re > 2^1` when `s.re > 1` in PNT3_RiemannZeta
+  - Could not find correct Mathlib function for this inequality
+
+### Progress
+- Sorry count reduced from 179 to 171 (35+35+37+43+21)
+  - PNT1_ComplexAnalysis: 35 sorries (was 36)
+  - PNT2_LogDerivative: 35 sorries (was 41)
+  - PNT3_RiemannZeta: 37 sorries (unchanged)
+  - PNT4_ZeroFreeRegion: 43 sorries (was 44)
+  - PNT5_StrongPNT: 21 sorries (unchanged)
+- Most remaining sorries are for deep mathematical results requiring complex proofs
+
+### Next Steps
+- Continue looking for simpler computational lemmas
+- Focus on fixing build errors before reducing sorries further
+- Investigate which Mathlib functions are available for real power inequalities
