@@ -307,3 +307,13 @@
 - Build compiles successfully with all current fixes
 
 **Status**: 169 sorries remaining (was 165)
+
+## Iteration 36 (2025-09-23T00:19:05Z)
+### Fixed: Power inequality in prime decay bound
+- Fixed the proof that 2^(s.re) > 2^1 when s.re > 1 in PNT3_RiemannZeta
+- Used `Real.rpow_lt_rpow_of_exponent_lt` which exists in current Mathlib
+- The lemma requires showing 2 > 1 (via norm_num) and s.re > 1 (from hypothesis)
+- This completes the proof of `p_s_abs_1` that |p^(-s)| < 1 for primes
+- Location: StrongPNT/PNT3_RiemannZeta.lean:91-93
+
+**Status**: 171 sorries remaining (was 172)
