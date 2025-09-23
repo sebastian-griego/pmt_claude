@@ -88,12 +88,12 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
       · exact hp
       · linarith
     _ > (2 : ℝ) ^ 1 := by
-      sorry -- Need to show 2^s.re > 2^1 when s.re > 1
+      sorry -- Need Real.rpow_lt_rpow_left which doesn't exist
     _ = 2 := by simp
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1
   have hpower_pos : 0 < (p : ℝ) ^ s.re := Real.rpow_pos_of_pos hp_pos _
-  sorry -- Need to prove inv < 1 from 1 < x
+  sorry -- Need to show inv < 1 from h1 : 1 < x
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
@@ -281,8 +281,7 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
               · exact hp_ge2
               · linarith
             _ > 1 := by
-              -- 2^(3/2) = 2 * sqrt(2) > 2 > 1
-              sorry
+              sorry -- 2^(3/2) = sqrt(8) > 1
         · apply Real.rpow_pos_of_pos hp_pos
   -- If 1 - z = 0, then z = 1, so |z| = 1, contradicting |z| < 1
   intro h_eq

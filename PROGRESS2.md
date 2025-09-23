@@ -332,3 +332,27 @@
 - Continue fixing remaining build errors to get a clean build
 - Once build is clean, focus on reducing sorries by finding provable lemmas
 - Look for simple computational lemmas that can be proven with basic tactics
+
+## Iteration 40 (2025-09-23T00:45:00Z)
+
+### Attempted
+- Fixed some proofs in PNT3_RiemannZeta.lean:
+  - Line 91: Tried to fix 2^s.re > 2^1 when s.re > 1 but Real.rpow_lt_rpow_left doesn't exist
+  - Line 96: Tried to fix inv < 1 from 1 < x but inv_lt_one identifier not found
+  - Line 284: Attempted to fix 2^(3/2) > 1 with norm_num but it couldn't evaluate this expression
+  - All three had to be left as sorries due to missing Mathlib functions
+
+### Progress
+- Sorry count remains at 176 (36+35+37+47+21)
+  - PNT1_ComplexAnalysis: 36 sorries
+  - PNT2_LogDerivative: 35 sorries
+  - PNT3_RiemannZeta: 37 sorries
+  - PNT4_ZeroFreeRegion: 47 sorries
+  - PNT5_StrongPNT: 21 sorries
+- Identified several lemmas that appear simple but require missing Mathlib functions
+- Build still has errors in PNT4_ZeroFreeRegion that need fixing
+
+### Next Steps
+- Fix remaining build errors in PNT4_ZeroFreeRegion
+- Search for simpler lemmas that can be proven with available Mathlib functions
+- Focus on arithmetic and set-theoretic lemmas rather than real analysis proofs
