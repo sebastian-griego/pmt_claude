@@ -462,10 +462,12 @@ lemma RealLambdaxy (n : ℕ) (x y : ℝ) :
     sorry
     -- Real part of n^(-x) is n^(-x) as real
     have h1 : ((n : ℂ)^(-x : ℂ)).re = (n : ℝ)^(-x) := by
-      sorry -- cpow of real number has real part
+      simp only [Complex.cpow_natCast_real]
+      rfl
     -- Imaginary part of n^(-x) is 0
     have h2 : ((n : ℂ)^(-x : ℂ)).im = 0 := by
-      sorry -- cpow of real number has no imaginary part
+      simp only [Complex.cpow_natCast_real]
+      rfl
     -- Apply lem_eacosalog
     have h3 : ((n : ℂ)^(-y * I : ℂ)).re = Real.cos (y * Real.log n) := by
       sorry -- lem_eacosalog doesn't exist

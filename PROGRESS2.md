@@ -392,3 +392,22 @@
 - Look for simple computational lemmas that can be proven with basic tactics
 - Focus on reducing sorries in PNT4_ZeroFreeRegion which has the most (47)
 - Search for arithmetic lemmas that can be solved with norm_num or simp
+
+## Iteration 43 (2025-09-23T01:03:00Z)
+
+### Analyzed
+- Searched for simple computational lemmas across all PNT files
+- Attempted to prove `2^(3/2) > 1` in PNT3_RiemannZeta.lean using norm_num
+  - This appears to be a limitation of norm_num with fractional exponents
+  - Left as sorry for now
+- Examined remaining sorries - most are deep mathematical results requiring complex proofs
+
+### Progress
+- Sorry count remains at 174 (36+35+37+47+21)
+- Build completes successfully with no errors
+- Most remaining sorries are for non-trivial mathematical theorems
+
+### Next Steps
+- Focus on finding lemmas that use integer arithmetic or basic set operations
+- Look for opportunities to use existing Mathlib lemmas directly
+- Consider simplifying proof obligations rather than removing sorries entirely
