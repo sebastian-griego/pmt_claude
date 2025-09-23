@@ -34,3 +34,16 @@
 - Location: StrongPNT/PNT4_ZeroFreeRegion.lean:444-477
 
 **Status**: 169 sorries remaining (was 170)
+
+## Iteration 47 (2025-09-23T01:30:00Z)
+### Fixed: Two power inequality lemmas in PNT3_RiemannZeta
+- Fixed power inequality `2^s.re > 2^1` when `s.re > 1` (line 91)
+  - Used `Real.rpow_lt_rpow_left` with appropriate bounds
+  - Proved 2 > 1 and 1 < s.re using norm_num and hypothesis
+- Fixed simple inequality `2^(3/2) > 1` (line 287)
+  - Replaced sorry with `norm_num` tactic
+  - This is a simple numerical fact that norm_num can verify
+- Both lemmas are used in proving prime decay bounds for the Riemann zeta function
+- Location: PNT3_RiemannZeta.lean:91,287
+
+**Status**: 167 sorries remaining (was 168)
