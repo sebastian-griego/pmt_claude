@@ -85,9 +85,9 @@ lemma lem_Contra_finiteKR {R : ℝ} (hR : 0 < R ∧ R < 1) (f : ℂ → ℂ)
 lemma lem_bolzano_weierstrass (S : Set ℂ) (hS : IsCompact S)
     (Z : Set ℂ) (hZ : Z ⊆ S) (hZinf : Set.Infinite Z) :
     ∃ ω ∈ S, ClusterPt ω (𝓟 Z) := by
-  have hnebot : NeBot (𝓟 Z) := by
-    rw [neBot_iff]
-    exact fun h => hZinf (Set.finite_empty.subset h)
+  have hnebot : Filter.NeBot (𝓟 Z) := by
+    rw [Filter.principal_neBot_iff]
+    exact hZinf.nonempty
   have hPZ : 𝓟 Z ≤ 𝓟 S := Filter.principal_mono.mpr hZ
   exact hS.exists_clusterPt hPZ
 
@@ -270,7 +270,10 @@ lemma lem_blaschke_pow_diff_nonzero {R R₁ : ℝ} (hR : 0 < R ∧ R < 1)
     (hR₁ : R₁ = (2/3) * R) (f : ℂ → ℂ) (hf : AnalyticOnNhd f (closedDisk 0 1))
     (hf0 : f 0 ≠ 0) (ρ : ℂ) (hρ : ρ ∈ K_f f R₁) (z : ℂ) (hz : z ∈ closedDisk 0 R) :
     DifferentiableAt ℂ (fun w ↦ (R - conj ρ * w / R)) z := by
-  sorry
+  apply DifferentiableAt.const_sub
+  apply DifferentiableAt.const_mul
+  apply DifferentiableAt.div_const
+  exact differentiableAt_id
 
 -- Blaschke numerator is differentiable
 lemma lem_bl_num_diff {R R₁ : ℝ} (hR : 0 < R ∧ R < 1) (hR₁ : R₁ < R)
