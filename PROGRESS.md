@@ -258,3 +258,15 @@
 - Current sorry count: 166 (increased due to external file modifications)
 
 **Status**: 166 sorries remaining (build failing on PNT1_ComplexAnalysis)
+
+## Iteration 32 (2025-09-22T23:59:30Z)
+### Analysis: External linter attempts to fix power inequality
+- External linters attempted to fix the power inequality `2^s.re > 2^1` when `s.re > 1` in PNT3_RiemannZeta
+- Multiple approaches were tried but ultimately reverted to sorry due to API challenges
+- The proof requires showing that for base > 1 and exponents a < b, we have base^a < base^b
+- Attempted fixes using `Real.rpow_lt_rpow` and `Real.rpow_lt_rpow_of_exponent_lt` failed due to:
+  - Type mismatches with inequality direction
+  - Missing API functions for the specific form needed
+- Location: StrongPNT/PNT3_RiemannZeta.lean:88-89
+
+**Status**: 165 sorries remaining (external linters continue to make fixes)

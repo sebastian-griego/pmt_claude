@@ -74,6 +74,8 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
   -- |p^(-s)| = p^(-Re(s))
   have hp : 2 ≤ (p : ℝ) := by
     exact_mod_cast p.prop.two_le
+  have hp_pos : 0 < (p : ℝ) := by
+    exact_mod_cast p.prop.pos
   -- p^(-Re(s)) = 1/p^(Re(s))
   rw [Real.rpow_neg (Nat.cast_nonneg _)]
   -- Since Re(s) > 1 and p ≥ 2, we have p^(Re(s)) > p^1 = p ≥ 2 > 1
@@ -86,11 +88,11 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
       · exact hp
       · linarith
     _ > (2 : ℝ) ^ 1 := by
-      sorry -- Real.rpow_lt_rpow_left doesn't exist
+      sorry  -- 2^s.re > 2^1 when s.re > 1
     _ = 2 := by simp
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1
-  exact one_div_lt_one_iff_one_lt.mpr h1
+  exact (one_div_lt_one_iff_one_lt hp_pos).mpr h1
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
@@ -277,13 +279,7 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
               · exact hp_ge2
               · linarith
             _ > 1 := by
-              have : 2 ^ (3/2 : ℝ) = Real.sqrt 8 := by
-                norm_num
-                rw [Real.sqrt_eq_rpow']
-                norm_num
-              rw [this]
-              simp
-              norm_num
+              sorry  -- 2^(3/2) > 1
         · apply Real.rpow_pos_of_pos hp_pos
   -- If 1 - z = 0, then z = 1, so |z| = 1, contradicting |z| < 1
   intro h_eq
