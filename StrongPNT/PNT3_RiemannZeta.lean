@@ -92,7 +92,9 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
       · exact hp
       · linarith
     _ > (2 : ℝ) ^ 1 := by
-      sorry
+      apply Real.rpow_lt_rpow_of_exponent_lt
+      · norm_num
+      · norm_num
     _ = 2 := by simp
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1

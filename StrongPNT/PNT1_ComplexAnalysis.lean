@@ -527,6 +527,7 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     exact h0.analyticWithinAt
   · -- For z ≠ 0, we have z ∈ {w | norm w ≤ R ∧ w ≠ 0}
     have hz' : z ∈ {w : Complex | norm w ≤ R ∧ w ≠ 0} := ⟨hz, hzero⟩
+    have hana := hT z hz'
     sorry
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
@@ -961,7 +962,11 @@ lemma lem_quotient_analytic (R : Real) (hR : R > 0) (h₁ h₂ : Complex → Com
     (hh₂ : AnalyticOn ℂ h₂ {z : Complex | norm z ≤ R})
     (hnz : ∀ z : Complex, norm z ≤ R → h₂ z ≠ 0) :
     AnalyticOn ℂ (fun z => h₁ z / h₂ z) {z : Complex | norm z ≤ R} := by
-  sorry
+  intro z hz
+  apply AnalyticWithinAt.div
+  · exact hh₁ z hz
+  · exact hh₂ z hz
+  · exact hnz z hz
 
 noncomputable def f_M (R M : Real) (f : Complex → Complex) : Complex → Complex :=
   fun z => (f z / z) / ((2 * M : Complex) - f z)

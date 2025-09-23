@@ -2,6 +2,29 @@
 
 This file tracks the progress of removing `sorry` statements from the StrongPNT project.
 
+## Iteration 2025-09-23T22:22:27Z
+
+### Fixed
+- Fixed `(2 : ℝ) ^ (3/2) > (2 : ℝ) ^ 1` proof in PNT3_RiemannZeta.lean (line 95) - Removed 1 sorry
+  - Used `Real.rpow_lt_rpow_of_exponent_lt` to prove the inequality
+
+### Current Status
+- Total sorries: 165 (was 166)
+  - PNT1_ComplexAnalysis.lean: 36 sorries (includes 1 proven `lem_quotient_analytic`)
+  - PNT2_LogDerivative.lean: 32 sorries
+  - PNT3_RiemannZeta.lean: 35 sorries (was 36)
+  - PNT4_ZeroFreeRegion.lean: 41 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build has failures in multiple files due to API changes
+
+### Notes
+- Successfully fixed a simple arithmetic inequality proof
+- Build errors remain in other files due to missing/changed Mathlib APIs
+
+### Next Steps
+- Continue fixing simple arithmetic and comparison lemmas
+- Address build errors to enable further progress
+
 ## Iteration 2025-09-23T22:16:45Z
 
 ### Fixed Build Errors
