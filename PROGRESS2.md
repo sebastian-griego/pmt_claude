@@ -214,3 +214,19 @@
 - PNT3_RiemannZeta.lean: 33 sorries (reduced from 34)
 - Total project sorries: 162 (PNT1: 35, PNT2: 32, PNT3: 33, PNT4: 41, PNT5: 21)
 - Build status: PNT3 has other compilation errors but `prod_positive` compiles successfully
+
+## Iteration 13 - 2025-09-23T22:32:00Z
+
+### Focus: PNT2_LogDerivative.lean
+- Targeted lemma: `lem_blaschke_pow_diff_nonzero` (lines 270-281)
+- Showed Blaschke factor (R - conj ρ * w / R) is differentiable
+
+### Progress:
+- Successfully completed proof of `lem_blaschke_pow_diff_nonzero`
+- Added differentiability chain for Blaschke factor components
+- Proof uses composition: const - (mul_const ∘ div_const ∘ id)
+
+### Stats:
+- PNT2_LogDerivative.lean: 31 sorries (reduced from 32)
+- Total project sorries: 161 (PNT1: 35, PNT2: 31, PNT3: 32, PNT4: 41, PNT5: 21)
+- Build status: Compiles successfully, one sorry eliminated

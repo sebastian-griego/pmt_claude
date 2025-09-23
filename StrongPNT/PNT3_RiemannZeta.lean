@@ -331,6 +331,12 @@ lemma real_prod_bound :
     ∏' p : Nat.Primes, ((1 + (p : ℝ) ^ (-(3/2 : ℝ))))⁻¹ =
     (∏' p : Nat.Primes, (1 + (p : ℝ) ^ (-(3/2 : ℝ))))⁻¹ := by
   -- The infinite product of reciprocals equals the reciprocal of the infinite product
+  -- This requires that the product converges to a non-zero value
+  have h_pos : ∀ p : Nat.Primes, 0 < 1 + (p : ℝ) ^ (-(3/2 : ℝ)) := by
+    intro p
+    have hp_pos : 0 < (p : ℝ) := by norm_cast; exact Nat.Prime.pos p.prop
+    have : 0 < (p : ℝ) ^ (-(3/2 : ℝ)) := Real.rpow_pos_of_pos hp_pos _
+    linarith
   sorry
 
 -- Product convergence

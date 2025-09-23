@@ -277,6 +277,8 @@ lemma lem_blaschke_pow_diff_nonzero {R R₁ : ℝ} (hR : 0 < R ∧ R < 1)
     exact differentiableAt_const
   · -- conj ρ * w / R is differentiable
     apply DifferentiableAt.div_const
+    apply DifferentiableAt.mul_const
+    exact differentiableAt_id
     apply DifferentiableAt.mul
     · -- conj ρ is a constant, hence differentiable
       exact differentiableAt_const
