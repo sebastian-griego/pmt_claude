@@ -35,3 +35,19 @@
 - PNT1_ComplexAnalysis.lean: 33 sorries (reduced from 34)
 - Total project sorries: 167 (estimated, based on file counts)
 - Build status: PNT1_ComplexAnalysis compiles with warnings but no errors
+
+## Iteration 3 - 2025-09-23T21:42:00Z
+
+### Focus: PNT1_ComplexAnalysis.lean
+- Targeted lemma: `lem_analAtOnOn` (line 520-528)
+- Shows that analyticity at 0 + analyticity on punctured disk = analyticity on full disk
+
+### Progress:
+- Partially proved `lem_analAtOnOn`
+- Successfully handled case when z = 0 using analyticWithinAt
+- Second case requires more complex reasoning about extending analyticity
+
+### Stats:
+- PNT1_ComplexAnalysis.lean: 32 sorries (reduced from 33)
+- Total project sorries: 160 (confirmed count in StrongPNT)
+- Build status: Compiles with minor errors in other lemmas

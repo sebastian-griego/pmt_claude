@@ -522,7 +522,10 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     (hT : AnalyticOn ℂ h {z : Complex | norm z ≤ R ∧ z ≠ 0}) :
     AnalyticOn ℂ h {z : Complex | norm z ≤ R} := by
   intro z hz
-  sorry
+  by_cases hzero : z = 0
+  · rw [hzero]
+    exact h0.analyticWithinAt
+  · sorry
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
@@ -700,7 +703,16 @@ lemma lem_integral_bound (f : Complex → Complex) (a b : Real) (hab : a < b)
     (hf : ContinuousOn f {z : Complex | z.re ∈ Set.Icc a b ∧ z.im = 0})
     (M : Real) (hM : ∀ t ∈ Set.Icc a b, norm (f ↑t) ≤ M) :
     norm (∫ t in a..b, f ↑t) ≤ M * (b - a) := by
-  sorry
+  have hM' : ∀ t ∈ Set.uIcc a b, ‖f ↑t‖ ≤ M := by
+    intro t ht
+    rw [Set.uIcc_eq_union, Set.mem_union] at ht
+    cases' ht with h h
+    · exact hM t h
+    · rw [Set.Icc_comm] at h
+      exact hM t (by rw [Set.Icc_comm]; exact h)
+  rw [intervalIntegral.norm_integral_le_of_norm_le_const hab.le hM']
+  ring_nf
+  rw [abs_sub_comm, abs_of_pos (sub_pos.mpr hab)]
 
 lemma lem_contour_integral (f : Complex → Complex) (γ : Real → Complex)
     (a b : Real) (hab : a < b)
