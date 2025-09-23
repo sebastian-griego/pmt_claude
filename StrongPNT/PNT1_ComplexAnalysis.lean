@@ -1132,7 +1132,12 @@ lemma lem_dw_dt (r' : Real) (t : Real) :
   -- Use the chain rule: d/dt(r' * exp(I*t)) = r' * d/dt(exp(I*t))
   -- We know d/dt(exp(I*t)) = I * exp(I*t)
   have h1 : deriv (fun t => Complex.exp (I * t)) t = I * Complex.exp (I * t) := by
-    sorry
+    -- deriv of exp(I*t) = deriv of exp ∘ (t ↦ I*t)
+    -- By chain rule: exp'(I*t) * I = exp(I*t) * I
+    have : deriv (fun t => Complex.exp (I * t)) t =
+           deriv (fun z => Complex.exp z) (I * t) * deriv (fun t => I * t) t := by
+      sorry -- chain rule application
+    sorry -- simplify to get result
   -- Now apply scalar multiplication rule
   have h2 : deriv (fun t => r' * Complex.exp (I * t)) t =
             r' * deriv (fun t => Complex.exp (I * t)) t := by

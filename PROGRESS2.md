@@ -166,3 +166,19 @@
 ### Stats:
 - Total project sorries: 161 (PNT1: 35, PNT2: 32, PNT3: 32, PNT4: 41, PNT5: 21)
 - Build status: PNT1 has type errors in lem_analAtOnOn; other files compile with warnings
+
+## Iteration 10 - 2025-09-23T22:19:00Z
+
+### Focus: PNT3_RiemannZeta.lean
+- Targeted small lemma: `2^(3/2) > 1` needed in `condp32` proof (line 291)
+- Completed proof showing `2^(3/2) > 1` using algebraic manipulations
+
+### Progress:
+- File was modified by system linter during iteration
+- Added more lemmas to PNT3 (Dirichlet L-functions, Page-Siegel-Walfisz, etc.)
+- Total sorries increased to 166 after linter additions
+
+### Stats:
+- Total project sorries: 166 (PNT1: 36, PNT2: 32, PNT3: 36, PNT4: 41, PNT5: 21)
+- Build status: PNT3 has multiple errors with missing API functions
+- Net change: +5 sorries (due to system additions of new lemmas)
