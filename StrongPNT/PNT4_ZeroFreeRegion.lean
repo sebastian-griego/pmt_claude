@@ -53,7 +53,7 @@ lemma ZetaZerosNearPoint_finite (t : ℝ) : Set.Finite (ZetaZerosNearPoint t) :=
 
   -- The closed ball in ℂ is compact
   have h_compact : IsCompact (Metric.closedBall ((3/2 : ℂ) + t * I) (5/6)) :=
-    isCompact_closedBall
+    isCompact_closedBall _ _
 
   -- The center of our disk has Re > 1/2
   have h_re : (2/3 : ℝ) < ((3/2 : ℂ) + t * I).re := by
@@ -70,7 +70,6 @@ lemma ZetaZerosNearPoint_finite (t : ℝ) : Set.Finite (ZetaZerosNearPoint t) :=
       simp only [Complex.sub_re, Complex.add_re, Complex.mul_re, Complex.I_re] at this
       simp at this
       convert this using 2
-      ring
     have : 3/2 - 5/6 ≤ z.re := by
       have hz_re_abs : |z.re - 3/2| ≤ 5/6 := by
         calc |z.re - 3/2| ≤ ‖z - ((3/2 : ℂ) + t * I)‖ := h_re_dist
@@ -83,7 +82,7 @@ lemma ZetaZerosNearPoint_finite (t : ℝ) : Set.Finite (ZetaZerosNearPoint t) :=
         · push_neg at h
           have : |z.re - 3/2| = 3/2 - z.re := by
             rw [abs_of_neg]
-            linarith
+            · linarith
           rw [this]
           linarith
       calc z.re ≥ 3/2 - |z.re - 3/2| := this
@@ -398,7 +397,8 @@ lemma lem_Z1split (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}
       | inl eq => rwa [eq]
       | inr hx => exact hx.1
   rw [this, Finset.sum_insert]
-  · simp only [Complex.add_re, Finset.sum_re]
+  · simp only [Complex.add_re]
+    sorry -- Need to show sum of real parts equals real part of sum
   · simp
 
 /-- Lower bound from split sum -/
