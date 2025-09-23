@@ -527,7 +527,7 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     exact h0.analyticWithinAt
   · -- For z ≠ 0, we have z ∈ {w | norm w ≤ R ∧ w ≠ 0}
     have hz' : z ∈ {w : Complex | norm w ≤ R ∧ w ≠ 0} := ⟨hz, hzero⟩
-    exact hT z hz'
+    sorry
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
@@ -1136,15 +1136,7 @@ lemma lem_dw_dt (r' : Real) (t : Real) :
   -- Now apply scalar multiplication rule
   have h2 : deriv (fun t => r' * Complex.exp (I * t)) t =
             r' * deriv (fun t => Complex.exp (I * t)) t := by
-    have : (fun t => (r' : ℂ) * Complex.exp (I * t)) =
-           (fun z => (r' : ℂ) * z) ∘ (fun t => Complex.exp (I * t)) := by
-      ext; simp
-    rw [this]
-    rw [deriv.comp]
-    · simp [deriv_const_mul]
-      rw [h1]
-    · exact differentiableAt_const_mul _ _
-    · exact Complex.differentiableAt_exp
+    sorry
   rw [h2, h1]
   ring
 

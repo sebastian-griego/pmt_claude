@@ -23,7 +23,8 @@ lemma zeta_converges_re_gt_one (s : ℂ) (hs : 1 < s.re) :
 -- Zeta non-zero for Re(s) > 1
 lemma zeta_ne_zero_re_gt_one (s : ℂ) (hs : 1 < s.re) :
     zeta s ≠ 0 := by
-  sorry
+  apply riemannZeta_ne_zero_of_one_le_re
+  linarith
 
 -- Von Mangoldt function (simplified for now)
 noncomputable def vonMangoldt (n : ℕ) : ℝ :=

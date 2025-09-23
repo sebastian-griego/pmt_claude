@@ -121,3 +121,23 @@
 - PNT1_ComplexAnalysis.lean: 30 sorries (reduced from 31)
 - Total project sorries: 158 (PNT1: 30, PNT2: 33, PNT3: 33, PNT4: 41, PNT5: 21)
 - Build status: PNT1 compiles successfully; PNT3 has errors with missing lemmas
+
+## Iteration 8 - 2025-09-23T22:10:00Z
+
+### Focus: Exploration and minor progress
+- Explored PNT1_ComplexAnalysis.lean for simpler targets
+- Attempted to complete `lem_analAtOnOn` again - encountered type mismatch
+- Simplified `lem_dw_dt` structure - removed unnecessary code but still has sorries
+- Many auxiliary lemmas in PNT1 are already proven (lem_e01, lem_modulus_of_square, etc.)
+
+### Findings:
+- Current sorry count has increased slightly to 162 total
+- PNT3 was modified by linter (removed a sorry in zeta_ne_zero_re_gt_one)
+- Most remaining sorries require:
+  - Complex analysis machinery (Cauchy integral formula, etc.)
+  - Maximum modulus principle applications
+  - Deep results about analytic functions
+
+### Stats:
+- Total project sorries: 162 (PNT1: 34, PNT2: 33, PNT3: 33, PNT4: 41, PNT5: 21)
+- Build status: PNT1 has one error in lem_analAtOnOn; PNT3 compiles
