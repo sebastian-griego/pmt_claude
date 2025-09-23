@@ -150,3 +150,26 @@
 ### Next Steps
 - Continue fixing simple computational lemmas
 - Look for opportunities to reduce sorry count with basic tactics
+
+## Iteration 32 (2025-09-22T23:54:00Z)
+
+### Fixed
+- Fixed build errors in PNT3_RiemannZeta.lean:
+  - Added sorry for Complex.arg_coe_of_pos (doesn't exist)
+  - Added sorry for Real.rpow_lt_rpow_left (doesn't exist)
+  - Fixed inv_lt_one usage (replaced with one_div_lt_one_iff_one_lt)
+  - Fixed calc formatting with proper indentation
+- Fixed build errors in PNT4_ZeroFreeRegion.lean:
+  - Fixed parentheses mismatch in complex expressions
+  - Fixed Finset operations
+  - Fixed simp usage that made no progress
+  - Fixed complex power splitting with explicit proof
+
+### Progress
+- Sorry count increased to 166 (35+35+35+40+21) from 164
+- PNT3_RiemannZeta has 35 sorries (was 33)
+- Build still has errors but progressing further
+
+### Next Steps
+- Continue fixing remaining build errors
+- Look for simple lemmas that can be proven without adding sorries

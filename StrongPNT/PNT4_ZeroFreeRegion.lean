@@ -202,7 +202,10 @@ lemma lem_Re1deltatge0m (hδ : 0 < δ) (hδ' : δ < 1) (t : ℝ) {ρ₁ : ℂ} (
   rw [Complex.mul_re]
   simp only [Complex.ofReal_re, Complex.ofReal_im]
   ring_nf
-  exact mul_nonneg hm_pos h_inv_pos
+  have h_inv_pos' : 0 ≤ (1 + ↑δ + (↑t * I - ρ₁))⁻¹.re := by
+    convert h_inv_pos using 2
+    simp [sub_eq_add_neg]
+  exact mul_nonneg hm_pos h_inv_pos'
 
 /-- Re(m/(1+δ+2it-ρ₁)) ≥ 0 for 2t -/
 lemma lem_Re1delta2tge0 (hδ : 0 < δ) (hδ' : δ < 1) (t : ℝ) {ρ₁ : ℂ}
@@ -216,9 +219,9 @@ lemma lem_Re1delta2tge0 (hδ : 0 < δ) (hδ' : δ < 1) (t : ℝ) {ρ₁ : ℂ}
   rw [Complex.mul_re]
   simp only [Complex.ofReal_re, Complex.ofReal_im]
   ring_nf
-  have h_inv_pos' : 0 ≤ (1 + ↑δ + ↑2 * ↑t * I - ρ₁)⁻¹.re := by
+  have h_inv_pos' : 0 ≤ (1 + ↑δ + (↑2 * ↑t * I - ρ₁))⁻¹.re := by
     convert h_inv_pos using 2
-    simp [mul_comm]
+    simp [mul_comm, sub_eq_add_neg]
   exact mul_nonneg hm_pos h_inv_pos'
 
 /-- Sum of non-negative reals is non-negative -/
