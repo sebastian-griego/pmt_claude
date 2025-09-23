@@ -489,3 +489,13 @@
 - Location: StrongPNT/PNT4_ZeroFreeRegion.lean:561-566
 
 **Status**: 164 sorries remaining (no change)
+
+## Iteration 49 (2025-09-23T01:52:01Z)
+### Fixed: Closure of open ball lemma in PNT1_ComplexAnalysis
+- Fixed the proof that closure of {z | ‖z‖ < R} equals {z | ‖z‖ ≤ R}
+- Used `closure_ball` from Mathlib which requires R ≠ 0 condition
+- The theorem states that in normed spaces, closure of open ball equals closed ball
+- Applied `closure_ball (0 : Complex) (ne_of_gt hR)` where hR : 0 < R
+- Location: StrongPNT/PNT1_ComplexAnalysis.lean:555
+
+**Status**: 165 sorries remaining (increased from 164 due to external modifications)
