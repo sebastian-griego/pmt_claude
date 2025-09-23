@@ -67,3 +67,19 @@
 - PNT1_ComplexAnalysis.lean: 31 sorries (reduced from 32)
 - Total project sorries: 160 (PNT1: 31, PNT2: 34, PNT3: 33, PNT4: 41, PNT5: 21)
 - Build status: Compiles successfully with warnings but no errors
+
+## Iteration 5 - 2025-09-23T21:52:00Z
+
+### Focus: PNT2_LogDerivative.lean
+- Targeted lemma: `lem_log_deriv_analytic` (line 247-248)
+- Logarithmic derivative is analytic where f is analytic and non-zero
+
+### Progress:
+- Successfully proved `lem_log_deriv_analytic` using standard complex analysis
+- Simple proof: unfold definition, then apply analyticity of division
+- Used fact that derivative of analytic function is analytic
+
+### Stats:
+- PNT2_LogDerivative.lean: 33 sorries (reduced from 34)
+- Total project sorries: 159 (PNT1: 31, PNT2: 33, PNT3: 33, PNT4: 41, PNT5: 21)
+- Build status: Compiles successfully with warnings but no errors

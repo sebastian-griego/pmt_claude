@@ -245,7 +245,8 @@ noncomputable def log_deriv (f : ℂ → ℂ) : ℂ → ℂ :=
 lemma lem_log_deriv_analytic {f : ℂ → ℂ} {z : ℂ}
     (hf : AnalyticAt ℂ f z) (hfz : f z ≠ 0) :
     AnalyticAt ℂ (log_deriv f) z := by
-  sorry
+  unfold log_deriv
+  exact (hf.deriv).div hf hfz
 
 -- Logarithmic derivative of B_f
 lemma lem_log_deriv_Bf {R R₁ : ℝ} (hR : 0 < R ∧ R < 1)
