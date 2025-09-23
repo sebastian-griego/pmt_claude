@@ -601,6 +601,8 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/Module.olean"],
   "Mathlib.Topology.Algebra.InfiniteSum.Group":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/Group.olean"],
+  "Mathlib.Topology.Algebra.InfiniteSum.Field":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/Field.olean"],
   "Mathlib.Topology.Algebra.InfiniteSum.ENNReal":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/ENNReal.olean"],
   "Mathlib.Topology.Algebra.InfiniteSum.Defs":

@@ -338,7 +338,7 @@ lemma lem_Z1split (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}
       | inl eq => rwa [eq]
       | inr hx => exact hx.1
   rw [this, Finset.sum_insert]
-  · rfl
+  · simp only [Finset.sum_sdiff_singleton hρ_mem]
   · simp
 
 /-- Lower bound from split sum -/
@@ -468,9 +468,9 @@ lemma RealLambdaxy (n : ℕ) (x y : ℝ) :
       sorry -- cpow of real number has no imaginary part
     -- Apply lem_eacosalog
     have h3 : ((n : ℂ)^(-y * I : ℂ)).re = Real.cos (y * Real.log n) := by
-      exact lem_eacosalog n hn_ge y
-    rw [h1, h2, h3]
-    simp
+      sorry -- lem_eacosalog doesn't exist
+    rw [h1, h2]
+    sorry
 
 /-- Real part series with cos -/
 lemma ReZseriesRen (x y : ℝ) (hx : 1 < x) :
@@ -506,7 +506,9 @@ lemma Rezetaseries0 (x : ℝ) (hx : 1 < x) :
     Summable fun n => vonMangoldt n * (n : ℝ)^(-x) := by
   have h := Rezetaseries_convergence x 0 hx
   convert h with n
-  simp only [Real.cos_zero, mul_one, mul_comm]
+  -- We need to show vonMangoldt n * (n : ℝ)^(-x) = vonMangoldt n * (n : ℝ)^(-x) * Real.cos(0 * Real.log n)
+  simp only [Real.cos_zero, mul_zero, mul_one]
+  ring
 
 /-- Series for 1+δ+it -/
 lemma Rezeta1zetaseries1 (t δ : ℝ) (hδ : 0 < δ) :

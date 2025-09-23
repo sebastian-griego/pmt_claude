@@ -535,7 +535,6 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     apply AnalyticWithinAt.mono h'
     -- Show {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R}
     intro w hw
-    simp only [Set.mem_setOf] at hw ⊢
     exact hw.1
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
