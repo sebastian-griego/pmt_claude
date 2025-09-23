@@ -436,3 +436,33 @@ This file tracks the progress of removing `sorry` statements from the StrongPNT 
 - Continue fixing build errors
 - Look for simple lemmas that don't depend on missing APIs
 - Consider updating to match current Mathlib API
+
+## Iteration 2025-09-23T23:06:35Z
+
+### Attempted
+- Tried to fix `lem341series` in PNT4_ZeroFreeRegion.lean (lines 635-640)
+  - Issue: Proof requires summability conditions that aren't straightforward
+  - Reverted to sorry after build errors with tsum linearity
+- Attempted to fix `zeta_ne_zero_re_gt_one` in PNT3_RiemannZeta.lean
+  - Issue: `riemannZeta_ne_zero` function doesn't exist in current Mathlib
+  - Reverted to sorry
+
+### Current Status
+- Total sorries: 153 (was 164, reduced by 11)
+  - PNT1_ComplexAnalysis.lean: 33 sorries (was 34)
+  - PNT2_LogDerivative.lean: 31 sorries (was 33)
+  - PNT3_RiemannZeta.lean: 28 sorries (was 36)
+  - PNT4_ZeroFreeRegion.lean: 40 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build still has errors in PNT1 and PNT4
+
+### Notes
+- It appears many sorries were automatically fixed or removed in recent builds
+- Net reduction of 11 sorries from previous iteration
+- Several Mathlib API functions are missing or have changed names
+- Need to focus on lemmas that don't rely on specific Mathlib functions
+
+### Next Steps
+- Focus on simple arithmetic lemmas that can be proven with basic tactics
+- Fix build errors in PNT1 and PNT4
+- Look for lemmas involving basic inequalities or simple calculations

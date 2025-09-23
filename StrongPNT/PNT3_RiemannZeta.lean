@@ -172,7 +172,12 @@ lemma zeta_ratio_prod (s : ℂ) (hs : 1 < s.re) :
 lemma prod_of_ratios {P : Type*} [Countable P]
     (a b : P → ℂ) (ha : Multipliable a) (hb : Multipliable b) :
     (∏' p : P, a p) / (∏' p : P, b p) = ∏' p : P, (a p / b p) := by
-  sorry
+  -- First ensure b doesn't produce zero
+  have hb_ne : ∏' p : P, b p ≠ 0 := by
+    apply tprod_ne_zero_of_noZero
+    exact hb
+  -- Apply the division rule for infinite products
+  rw [← Multipliable.tprod_div ha hb]
 
 -- Simplify prod ratio
 lemma simplify_prod_ratio (s : ℂ) (hs : 1 < s.re) :
