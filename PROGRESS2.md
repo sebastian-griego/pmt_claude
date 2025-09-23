@@ -340,3 +340,26 @@
 - Total project sorries: 164 (PNT1: 34, PNT2: 33, PNT3: 36, PNT4: 40, PNT5: 21)
 - Build status: Compiles with linter improvements
 - Net change: No new sorries eliminated in this iteration (code reorganization only)
+
+## Iteration 20 - 2025-09-23T23:11:00Z
+
+### Focus: PNT3_RiemannZeta.lean
+- Attempted to prove `prod_of_ratios` lemma (lines 172-175)
+- Shows that product of ratios equals ratio of products for infinite products
+- Also attempted `abs_p_pow_s` lemma - arg of positive real number is 0
+
+### Progress:
+- Explored multiple API approaches for `prod_of_ratios` proof
+- Tried Multipliable.tprod_div but encountered API issues
+- Unable to find correct Lean 4 API for these specific lemmas
+- Both lemmas remain as sorries due to missing/unclear API functions
+
+### Challenges:
+- Missing or changed API functions in Lean 4 vs Lean 3
+- Complex.arg_natCast and related functions not found
+- Multipliable.tprod_div exists but usage unclear
+
+### Stats:
+- Total project sorries: 143 (PNT1: 26, PNT2: 31, PNT3: 25, PNT4: 40, PNT5: 21)
+- Build status: Compiles with errors in API usage
+- Net change: No sorries eliminated (API exploration only)

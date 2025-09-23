@@ -531,7 +531,7 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     -- hana is analyticWithinAt at the smaller set, we need it at the larger set
     exact AnalyticWithinAt.mono hana (by
       intro w hw
-      exact hw)
+      exact hw.2)
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
