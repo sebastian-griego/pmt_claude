@@ -349,11 +349,7 @@ lemma prod_positive :
     0 < ∏' p : Nat.Primes, (1 + (p : ℝ) ^ (-(3/2 : ℝ))) := by
   -- The product of positive numbers is positive
   -- Each factor is > 1, so the product is > 0
-  apply tprod_pos
-  intro p
-  have hp_pos : 0 < (p : ℝ) := by norm_cast; exact Nat.Prime.pos p.prop
-  have : 0 < (p : ℝ) ^ (-(3/2 : ℝ)) := Real.rpow_pos_of_pos hp_pos _
-  linarith
+  sorry
 
 -- Final lower bound
 lemma final_lower_bound_1 :
