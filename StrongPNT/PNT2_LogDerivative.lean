@@ -39,7 +39,7 @@ notation "D" => openDisk 0
 -- Equivalence between closedDisk and Metric.closedBall
 lemma closedDisk_eq_closedBall (z : ℂ) (r : ℝ) : closedDisk z r = Metric.closedBall z r := by
   ext w
-  simp only [closedDisk, Metric.closedBall, Metric.mem_closedBall, Complex.dist_eq]
+  simp only [closedDisk, Metric.closedBall, Complex.dist_eq]
 
 /-! ## Basic disk lemmas -/
 
@@ -277,8 +277,6 @@ lemma lem_blaschke_pow_diff_nonzero {R R₁ : ℝ} (hR : 0 < R ∧ R < 1)
     exact differentiableAt_const
   · -- conj ρ * w / R is differentiable
     apply DifferentiableAt.div_const
-    apply DifferentiableAt.mul_const
-    exact differentiableAt_id
     apply DifferentiableAt.mul
     · -- conj ρ is a constant, hence differentiable
       exact differentiableAt_const

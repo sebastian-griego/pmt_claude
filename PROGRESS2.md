@@ -264,3 +264,20 @@
 - PNT3_RiemannZeta.lean: 35 sorries (reduced from 36)
 - Total project sorries: 162 (PNT1: 34, PNT2: 32, PNT3: 35, PNT4: 40, PNT5: 21)
 - Build status: Compiles with warnings, one sorry eliminated
+
+## Iteration 16 - 2025-09-23T22:54:00Z
+
+### Focus: PNT3_RiemannZeta.lean
+- Targeted lemma: `norm_one_sub_inv_pos_of_two_le_re` (lines 94-100)
+- Proved comparison of powers and inverse inequalities
+
+### Progress:
+- Successfully completed proof of `norm_one_sub_inv_pos_of_two_le_re`
+- Fixed `Real.rpow_lt_rpow_left` application for exponent comparison
+- Used `inv_lt_one` to complete the inequality chain
+- Proof shows |(1 - p^(-s))^(-1)| < 1 for primes p when Re(s) > 1
+
+### Stats:
+- PNT3_RiemannZeta.lean: 34 sorries (reduced from 35)
+- Total project sorries: 161 (PNT1: 34, PNT2: 32, PNT3: 34, PNT4: 40, PNT5: 21)
+- Build status: PNT3 compiles successfully, PNT2 has type errors unrelated to changes

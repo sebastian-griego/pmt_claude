@@ -92,12 +92,19 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
       · exact hp
       · linarith
     _ > (2 : ℝ) ^ 1 := by
-      sorry -- Real.rpow_lt_rpow_of_exponent_lt API changed
+      apply Real.rpow_lt_rpow
+      · norm_num
+      · norm_num
+      · exact hs
     _ = 2 := by simp
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1
   have hpower_pos : 0 < (p : ℝ) ^ s.re := Real.rpow_pos_of_pos hp_pos _
-  sorry -- inv_lt_one is missing from API
+  have : (p : ℝ) ^ s.re⁻¹ < 1 := by
+    rw [inv_eq_div]
+    apply div_lt_one hpower_pos
+    exact h1
+  exact this
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
@@ -285,12 +292,13 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
               · exact hp_ge2
               · linarith
             _ > 1 := by
-              -- 2^(3/2) = sqrt(2^3) = sqrt(8) > sqrt(1) = 1
-              have : (2 : ℝ) ^ (3/2 : ℝ) = Real.sqrt 8 := by
-                rw [Real.sqrt_eq_rpow']
-                norm_num
-              rw [this]
-              exact Real.lt_sqrt.mpr (by norm_num : 1 < 8)
+              -- 2^(3/2) > 2^0 = 1
+              have : (2 : ℝ) ^ (0 : ℝ) = 1 := by simp
+              rw [← this]
+              apply Real.rpow_lt_rpow
+              · norm_num
+              · norm_num
+              · norm_num
         · apply Real.rpow_pos_of_pos hp_pos
   -- If 1 - z = 0, then z = 1, so |z| = 1, contradicting |z| < 1
   intro h_eq
