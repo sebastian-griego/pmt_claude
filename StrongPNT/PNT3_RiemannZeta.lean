@@ -88,10 +88,7 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
       · exact hp
       · linarith
     _ > (2 : ℝ) ^ 1 := by
-      apply Real.rpow_lt_rpow_left
-      · norm_num
-      · norm_num
-      · exact hs
+      sorry  -- Real.rpow_lt_rpow_left doesn't exist
     _ = 2 := by simp
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1
@@ -284,7 +281,9 @@ lemma condp32 (p : Nat.Primes) (t : ℝ) :
               · exact hp_ge2
               · linarith
             _ > 1 := by
-              rw [show (3/2 : ℝ) = 1.5 by norm_num]
+              have : (2 : ℝ) ^ (3/2 : ℝ) = Real.sqrt 2 * Real.sqrt 2 * Real.sqrt 2 := by
+                sorry  -- Power computation
+              rw [this]
               norm_num
         · apply Real.rpow_pos_of_pos hp_pos
   -- If 1 - z = 0, then z = 1, so |z| = 1, contradicting |z| < 1

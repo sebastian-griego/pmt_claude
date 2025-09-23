@@ -917,3 +917,23 @@
 - Focus on reducing sorries in PNT4_ZeroFreeRegion which has the most (45)
 - Look for simple arithmetic and set-theoretic lemmas
 - Search for opportunities to use existing Mathlib lemmas directly
+
+## Iteration 46 (2025-09-23T01:21:54Z)
+
+### Attempted
+- Tried to fix `Real.rpow_lt_rpow_left` usage in PNT3_RiemannZeta (line 91)
+  - This Mathlib function doesn't exist
+  - Replaced with sorry
+- Tried to fix `2^(3/2) > 1` proof in PNT3_RiemannZeta (line 283-287)
+  - Added intermediate computation with sorry
+  - Could not directly prove with norm_num
+
+### Progress
+- Sorry count increased from 170 to 171 (36+35+34+45+21)
+  - PNT3_RiemannZeta: 34 sorries (was 33 - added 1)
+- Build still completes successfully
+
+### Next Steps
+- Continue searching for simpler lemmas that can be proven with available Mathlib functions
+- Focus on arithmetic lemmas that can be solved with norm_num or simp
+- Look for set-theoretic lemmas that can use existing Mathlib functions
