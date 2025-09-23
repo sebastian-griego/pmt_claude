@@ -63,7 +63,7 @@ lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     -- A natural number cast to ℂ is a positive real number
     have hp_pos : 0 < (p : ℝ) := Nat.cast_pos.mpr p.prop.pos
     -- For positive reals, the argument is 0
-    sorry -- Complex.arg_coe_of_pos doesn't exist
+    exact Complex.arg_natCast_nonneg p.val (Nat.Primes.pos p)
   rw [this]
   simp [Real.exp_zero]
 
@@ -88,11 +88,12 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
       · exact hp
       · linarith
     _ > (2 : ℝ) ^ 1 := by
-      sorry  -- 2^s.re > 2^1 when s.re > 1
+      sorry  -- Need Real.rpow_lt_rpow_left which doesn't exist in current Mathlib
     _ = 2 := by simp
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1
-  exact (one_div_lt_one_iff_one_lt hp_pos).mpr h1
+  rw [one_div]
+  exact (inv_lt_one_iff_one_lt hp_pos).mpr h1
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :
