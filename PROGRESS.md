@@ -317,3 +317,30 @@ This file tracks the progress of removing `sorry` statements from the StrongPNT 
 ### Next Steps
 - Continue removing sorries from PNT1_ComplexAnalysis.lean
 - Focus on simpler lemmas that can be proven with existing tools
+## Iteration 2025-09-23T22:40:25Z
+
+### Attempted
+- Tried to fix `Complex.arg` lemma in PNT3_RiemannZeta.lean (line 70)
+  - Issue: Missing API function `Complex.arg_natCast_of_ne_zero` and similar
+  - Reverted to sorry due to missing Mathlib API
+- Attempted fixes for `inv_lt_one` and `Real.rpow_lt_rpow_of_exponent_lt` issues
+  - Added sorries for missing API functions
+
+### Current Status
+- Total sorries: 163 (was 162)
+  - PNT1_ComplexAnalysis.lean: 34 sorries
+  - PNT2_LogDerivative.lean: 32 sorries
+  - PNT3_RiemannZeta.lean: 36 sorries (was 34, added 2 for API fixes)
+  - PNT4_ZeroFreeRegion.lean: 40 sorries (was 41, 1 removed by system)
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build has errors due to missing Mathlib API functions
+
+### Notes
+- Multiple Mathlib API functions have changed or been removed since this code was written
+- Functions like `Complex.arg_natCast_of_ne_zero`, `inv_lt_one`, `Real.rpow_lt_rpow_of_exponent_lt` are missing
+- Need to either update to current Mathlib API or find workarounds
+
+### Next Steps
+- Focus on lemmas that don't depend on missing API functions
+- Consider updating imports or finding current equivalents for missing functions
+- Prioritize simple arithmetic/logic lemmas over complex analysis lemmas
