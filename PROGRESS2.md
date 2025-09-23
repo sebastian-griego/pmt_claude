@@ -281,3 +281,24 @@
 - PNT3_RiemannZeta.lean: 34 sorries (reduced from 35)
 - Total project sorries: 161 (PNT1: 34, PNT2: 32, PNT3: 34, PNT4: 40, PNT5: 21)
 - Build status: PNT3 compiles successfully, PNT2 has type errors unrelated to changes
+
+## Iteration 17 - 2025-09-23T22:58:00Z
+
+### Focus: PNT3_RiemannZeta.lean
+- Attempted to complete `p_s_abs_1` lemma (lines 75-101)
+- Shows |p^(-s)| < 1 when Re(s) > 1 for prime p
+
+### Progress:
+- Partially completed proof of `p_s_abs_1`
+- Fixed most of the proof structure showing p^(-Re(s)) < 1
+- Encountered missing API functions for Real.rpow comparisons
+- Added two new sorries for missing Real.rpow_lt_rpow_left API
+
+### Challenges:
+- Missing Lean API: Real.rpow_lt_rpow_left for comparing powers with same base
+- Type mismatch when proving (p^s.re)⁻¹ < 1
+
+### Stats:
+- PNT3_RiemannZeta.lean: 36 sorries (increased from 34 due to API limitations)
+- Total project sorries: 163 (PNT1: 34, PNT2: 32, PNT3: 36, PNT4: 40, PNT5: 21)
+- Build status: PNT3 has errors due to missing API functions
