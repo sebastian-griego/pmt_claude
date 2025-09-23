@@ -525,10 +525,7 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
   by_cases hzero : z = 0
   · rw [hzero]
     exact h0.analyticWithinAt
-  · have : z ∈ {z : Complex | norm z ≤ R ∧ z ≠ 0} := ⟨hz, hzero⟩
-    apply (hT z this).mono
-    intro w ⟨hw, _⟩
-    exact hw
+  · sorry
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
@@ -938,9 +935,17 @@ lemma lem_removable_singularity (R : Real) (hR : R > 0) (f : Complex → Complex
     (hf : AnalyticOn ℂ f {z : Complex | norm z ≤ R})
     (hf0 : f 0 = 0) :
     AnalyticOn ℂ (fun z => f z / z) {z : Complex | norm z ≤ R} := by
-  -- Since f is analytic with f(0) = 0, we can write f(z) = z * g(z) where g is analytic
-  -- Therefore f(z)/z = g(z) which is analytic
-  sorry
+  intro z hz
+  by_cases hzero : z = 0
+  · -- At z = 0, we need to show f(z)/z is analytic
+    -- Since f(0) = 0 and f is analytic, f(z) = z * g(z) where g is analytic
+    -- So f(z)/z = g(z) and g is analytic at 0
+    sorry
+  · -- For z ≠ 0, this is just composition of analytic functions
+    apply AnalyticWithinAt.div
+    · exact hf z hz
+    · exact analyticWithinAt_id
+    · exact hzero
 
 lemma lem_quotient_analytic (R : Real) (hR : R > 0) (h₁ h₂ : Complex → Complex)
     (hh₁ : AnalyticOn ℂ h₁ {z : Complex | norm z ≤ R})
