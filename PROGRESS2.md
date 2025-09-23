@@ -455,3 +455,32 @@
 - Fix remaining build errors in PNT4
 - Look for simple lemmas that don't rely on missing Mathlib API functions
 - Focus on arithmetic or boolean lemmas that can be proven with basic tactics
+
+## Iteration 24 - 2025-09-23T23:37:00Z
+
+### Focus: Survey of all files and sorry count
+- Checked current sorry count across all PNT files
+- Total: 171 sorries (35 + 33 + 36 + 46 + 21)
+
+### Progress:
+- PNT4_ZeroFreeRegion.lean was heavily extended by system/linter with many new lemmas
+- File grew from ~400 lines to ~800 lines with zero-free region theorems
+- Attempted to fix Complex.arg lemma but API `Complex.arg_natCast_pos` doesn't exist
+- Most remaining sorries are fundamental theorems requiring deep complex analysis
+
+### Findings:
+- PNT1: 35 sorries (complex analysis: Cauchy formula, maximum modulus, etc.)
+- PNT2: 33 sorries (Blaschke products, analytic continuation)
+- PNT3: 36 sorries (Riemann zeta properties, Euler product convergence)
+- PNT4: 46 sorries (increased due to new zero-free region lemmas added)
+- PNT5: 21 sorries (all are main PNT theorems)
+
+### Challenges:
+- Many Lean 4/Mathlib API functions are missing or changed from Lean 3
+- Simple computational lemmas are mostly already proven
+- Remaining sorries require substantial mathematical machinery
+
+### Stats:
+- Total project sorries: 171 (net +8 from iteration 23 due to system additions)
+- Build status: Compiles with warnings but no critical errors
+- System continues to add new lemmas automatically

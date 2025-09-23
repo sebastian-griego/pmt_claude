@@ -67,7 +67,7 @@ lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
     -- A natural number cast to ℂ is a positive real number
     have hp_pos : 0 < (p : ℝ) := Nat.cast_pos.mpr p.prop.pos
     -- For positive reals, the argument is 0
-    sorry
+    sorry -- Complex.arg_natCast API not available
   rw [this]
   simp [Real.exp_zero]
 
@@ -98,7 +98,8 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1
   have hpower_pos : 0 < (p : ℝ) ^ s.re := Real.rpow_pos_of_pos hp_pos _
-  sorry -- Need to show (p ^ s.re)⁻¹ < 1 from h1
+  rw [inv_eq_one_div]
+  exact div_lt_one hpower_pos |>.mpr h1
 
 -- Abs of tprod
 lemma abs_of_tprod {P : Type*} [Countable P] (w : P → ℂ) (hw : Multipliable w) :

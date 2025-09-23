@@ -548,3 +548,28 @@ This file tracks the progress of removing `sorry` statements from the StrongPNT 
 - Focus on fixing build errors before removing sorries
 - Look for simple lemmas that don't depend on missing API functions
 - Consider updating to match current Mathlib API
+
+
+## Iteration 2025-09-23T23:42:06Z
+
+### Fixed
+- Fixed `p_s_abs_1` in PNT3_RiemannZeta.lean (line 101) - Removed 1 sorry
+  - Proved that `(p : ℝ) ^ s.re)⁻¹ < 1` when `(p : ℝ) ^ s.re > 1`
+  - Used `div_lt_one` to show the inverse is less than 1
+
+### Current Status
+- Total sorries: 170 (was 171)
+  - PNT1_ComplexAnalysis.lean: 35 sorries
+  - PNT2_LogDerivative.lean: 33 sorries
+  - PNT3_RiemannZeta.lean: 35 sorries (was 36)
+  - PNT4_ZeroFreeRegion.lean: 46 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build successful
+
+### Notes
+- Successfully proved a simple arithmetic inequality using standard lemmas
+- The proof shows that if a > 1 then 1/a < 1
+
+### Next Steps
+- Continue fixing simple arithmetic and comparison lemmas
+- Look for more lemmas that can be proven with basic tactics
