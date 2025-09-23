@@ -130,3 +130,32 @@
 - Total project sorries: ~145 (estimate based on partial proof attempt)
 - PNT1: 27, PNT2: 31, PNT3: 24, PNT4: 42+, PNT5: 21
 - Build status: Compiles but with increased sorry count in PNT4
+
+## Iteration 27 - 2025-09-23T23:56:00Z
+
+### Focus: Survey and exploration
+- Attempted to prove `lem_blaschke_pow_diff_nonzero` in PNT2_LogDerivative.lean
+- Explored various simple lemmas across all files
+
+### Progress:
+- Attempted proof of Blaschke factor differentiability
+- Encountered type-checking issues with Lean 4 API
+- Reverted to sorry due to API compatibility problems
+
+### Findings:
+- Many simple computational lemmas are already proven
+- Most remaining sorries require:
+  - Deep complex analysis theorems (identity theorem, maximum modulus)
+  - Convergence proofs for series
+  - Zero density estimates
+  - API functions that may have changed or be unavailable
+
+### Stats:
+- Total project sorries: 165 (PNT1: 35, PNT2: 33, PNT3: 31, PNT4: 45, PNT5: 21)
+- Build status: Compiles with warnings
+- Net change: No sorries eliminated this iteration
+
+### Next Steps:
+- Continue searching for lemmas with simpler proofs
+- Focus on lemmas that don't require missing API functions
+- Target computational lemmas that can be proven with basic tactics
