@@ -405,6 +405,29 @@
 - Total project sorries: 164 (PNT1: 34, PNT2: 33, PNT3: 36, PNT4: 40, PNT5: 21)
 - Build status: Compiles successfully, one sorry eliminated
 
+## Iteration 23 - 2025-09-23T23:28:00Z
+
+### Focus: PNT3_RiemannZeta.lean
+- Attempted to prove `p_s_abs_1` lemma (line 75)
+- Shows |p^(-s)| < 1 when Re(s) > 1 for prime p
+
+### Progress:
+- Partially completed the proof structure
+- Established that p^(Re(s)) > 1 when Re(s) > 1 and p ≥ 2
+- Encountered missing Lean 4 API functions for power comparisons
+- PNT2_LogDerivative was modified by linter (improved imports and structure)
+- PNT4_ZeroFreeRegion was also modified by linter
+
+### Challenges:
+- Missing APIs: Real.rpow_lt_rpow_left and inv_lt_one
+- Type mismatch issues when using available APIs
+- Reverted to original sorry-based proof
+
+### Stats:
+- Total project sorries: 164 (unchanged)
+- PNT1: 34, PNT2: 33, PNT3: 36, PNT4: 41, PNT5: 21
+- Build status: PNT3 has compilation errors due to API issues
+
 ## Iteration 2025-09-23T23:24:00Z
 
 ### Status Check

@@ -607,7 +607,7 @@ lemma Z341series (t δ : ℝ) (hδ : 0 < δ) :
     3 * ∑' n : ℕ, vonMangoldt n * (n : ℝ)^(-(1 + δ)) +
     4 * ∑' n : ℕ, vonMangoldt n * (n : ℝ)^(-(1 + δ)) * Real.cos (t * Real.log n) +
     ∑' n : ℕ, vonMangoldt n * (n : ℝ)^(-(1 + δ)) * Real.cos (2 * t * Real.log n) := by
-  sorry
+  rw [Rezeta1zetaseries0 δ hδ, Rezeta1zetaseries1 t δ hδ, Rezeta1zetaseries2 t δ hδ]
 
 /-- 3+4cos+cos(2t) ≥ 0 -/
 lemma lem_postriglogn (n : ℕ) (t : ℝ) : 0 ≤ 3 + 4 * Real.cos (t * Real.log n) + Real.cos (2 * t * Real.log n) := by
