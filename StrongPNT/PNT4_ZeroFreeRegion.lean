@@ -41,6 +41,62 @@ noncomputable def m_rho_zeta (ρ : ℂ) : ℕ :=
 
 /-- The set of zeros near a point is finite -/
 lemma ZetaZerosNearPoint_finite (t : ℝ) : Set.Finite (ZetaZerosNearPoint t) := by
+  -- We prove that ZetaZerosNearPoint t is a subset of a compact set
+  -- and that zeros are discrete, hence finite
+
+  -- First, the set is a subset of a closed disk
+  have h_subset : ZetaZerosNearPoint t ⊆ Metric.closedBall ((3/2 : ℂ) + t * I) (5/6) := by
+    intro z hz
+    simp only [ZetaZerosNearPoint, Set.mem_setOf] at hz
+    simp only [Metric.mem_closedBall]
+    exact hz.2
+
+  -- The closed ball in ℂ is compact
+  have h_compact : IsCompact (Metric.closedBall ((3/2 : ℂ) + t * I) (5/6)) :=
+    isCompact_closedBall
+
+  -- The center of our disk has Re > 1/2
+  have h_re : (2/3 : ℝ) < ((3/2 : ℂ) + t * I).re := by
+    simp [Complex.add_re, Complex.mul_re, Complex.I_re]
+    norm_num
+
+  -- All points in the disk have Re > 2/3 (since radius is 5/6 < 1)
+  have h_re_bound : ∀ z ∈ ZetaZerosNearPoint t, (2/3 : ℝ) < z.re := by
+    intro z hz
+    have h_in_ball : z ∈ Metric.closedBall ((3/2 : ℂ) + t * I) (5/6) := h_subset hz
+    simp only [Metric.mem_closedBall] at h_in_ball
+    have h_re_dist : |z.re - 3/2| ≤ ‖z - ((3/2 : ℂ) + t * I)‖ := by
+      have := Complex.abs_re_le_norm (z - ((3/2 : ℂ) + t * I))
+      simp only [Complex.sub_re, Complex.add_re, Complex.mul_re, Complex.I_re] at this
+      simp at this
+      convert this using 2
+      ring
+    have : 3/2 - 5/6 ≤ z.re := by
+      have : z.re ≥ 3/2 - |z.re - 3/2| := by
+        by_cases h : z.re ≥ 3/2
+        · have : |z.re - 3/2| = z.re - 3/2 := abs_of_nonneg (by linarith)
+          rw [this]
+          linarith
+        · push_neg at h
+          have : |z.re - 3/2| = 3/2 - z.re := abs_of_neg (by linarith)
+          rw [this]
+          linarith
+      calc z.re ≥ 3/2 - |z.re - 3/2| := this
+      _ ≥ 3/2 - ‖z - ((3/2 : ℂ) + t * I)‖ := by linarith [h_re_dist]
+      _ ≥ 3/2 - 5/6 := by linarith [h_in_ball]
+    calc (2/3 : ℝ) = 3/2 - 5/6 := by norm_num
+    _ ≤ z.re := this
+
+  -- In the region Re(s) > 1/2, riemannZeta is holomorphic and
+  -- its zeros are isolated (discrete)
+  -- This is a standard fact from the theory of the Riemann zeta function
+
+  -- For compact sets with discrete zeros, the set of zeros is finite
+  -- This follows from compactness and the fact that isolated points
+  -- cannot accumulate in a compact set
+
+  -- We need a lemma stating that zeros of riemannZeta in Re > 1/2
+  -- form a discrete set, and discrete subsets of compact sets are finite
   sorry
 
 /-- If Re(z) > 0 then Re(1/z) > 0 -/
