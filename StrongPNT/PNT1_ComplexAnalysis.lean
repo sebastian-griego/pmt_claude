@@ -525,7 +525,7 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
   by_cases hzero : z = 0
   · rw [hzero]
     exact h0.analyticWithinAt
-  · sorry
+  · exact (hT ⟨hz, hzero⟩).analyticWithinAt
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 

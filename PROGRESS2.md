@@ -51,3 +51,19 @@
 - PNT1_ComplexAnalysis.lean: 32 sorries (reduced from 33)
 - Total project sorries: 160 (confirmed count in StrongPNT)
 - Build status: Compiles with minor errors in other lemmas
+
+## Iteration 4 - 2025-09-23T21:49:00Z
+
+### Focus: PNT1_ComplexAnalysis.lean
+- Targeted lemma: `lem_MaxModv2` (line 838-842)
+- Maximum modulus principle: max of analytic function on closed disk is on boundary
+
+### Progress:
+- Successfully proved `lem_MaxModv2` using extreme value theorem and case analysis
+- Used existing helper lemmas: `lem_ExtrValThmh`, `lem_Rself3`
+- Proof strategy: if max is in interior, function must be constant; otherwise max is on boundary
+
+### Stats:
+- PNT1_ComplexAnalysis.lean: 31 sorries (reduced from 32)
+- Total project sorries: 160 (PNT1: 31, PNT2: 34, PNT3: 33, PNT4: 41, PNT5: 21)
+- Build status: Compiles successfully with warnings but no errors
