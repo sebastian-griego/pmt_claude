@@ -47,3 +47,13 @@
 - Location: PNT3_RiemannZeta.lean:91,287
 
 **Status**: 167 sorries remaining (was 168)
+
+## Iteration 51 (2025-09-23T02:06:50Z)
+### Fixed: Set inclusion subset proof in PNT1_ComplexAnalysis
+- Fixed the subset proof {z | norm z ≤ R ∧ z ≠ 0} ⊆ {z | norm z ≤ R} at line 537
+- Simple proof using `intro w hw; exact hw.1`
+- The element satisfying both conditions automatically satisfies the first
+- This is a basic logical fact that any conjunction implies its first component
+- Location: PNT1_ComplexAnalysis.lean:537-538
+
+**Status**: 164 sorries remaining (was 165)
