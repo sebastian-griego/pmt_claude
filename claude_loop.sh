@@ -1,21 +1,27 @@
 #!/usr/bin/env bash
 # universal_claude_loop.sh - works for any project type
-set -euo pipefail
+set -uo pipefail  # removed -e so we can handle claude failures gracefully
+
 # Configuration (can be overridden by .claude_config)
 PROJECT_TYPE="${PROJECT_TYPE:-code}"      # 'code' or 'research'
 SLEEP_SECS="${SLEEP_SECS:-30}"           # default 30s for code
 PROGRESS_TAIL="${PROGRESS_TAIL:-40000}"   # context size
+
 # Load project-specific config if exists
 PROJECT="${1:-$PWD}"
 cd "$PROJECT"
 [ -f .claude_config ] && source .claude_config
+
 # Adjust sleep based on project type
 if [ "$PROJECT_TYPE" = "research" ]; then
     SLEEP_SECS="${SLEEP_SECS:-300}"  # 5 min for research
 fi
+
 command -v claude >/dev/null || { echo "ERROR: 'claude' CLI not found"; exit 1; }
+
 mkdir -p logs
 touch PROGRESS.md
+
 # Base prompt based on project type
 if [ "$PROJECT_TYPE" = "research" ]; then
     BASE_PROMPT='You are managing research experiments.
@@ -32,7 +38,9 @@ Rules:
 - Document progress in PROGRESS.md
 - Keep changes focused and atomic'
 fi
+
 echo "[startup] universal_claude_loop.sh in $PWD (type=$PROJECT_TYPE, sleep=${SLEEP_SECS}s)"
+
 while true; do
     [ -f STOP ] && { echo "STOP detected"; exit 0; }
     
@@ -46,19 +54,31 @@ $PROG_TAIL
 Project specification (CLAUDE.md):
 $CLAUDE_SPEC
 Time: $TS"
+    
     echo "[$TS] calling claude..."
     
-    claude -p "$FULL_PROMPT" \
+    # handle claude with explicit error checking instead of letting -e kill us
+    if claude -p "$FULL_PROMPT" \
         --dangerously-skip-permissions \
         --output-format json \
-        > logs/last_claude.json 2>&1
-    
-    # Git commit after each iteration
-    echo "[$TS] committing to git..."
-    SORRY_COUNT=$(grep -r "sorry" StrongPNT/*.lean 2>/dev/null | wc -l || echo "unknown")
-    git add -A 2>/dev/null || true
-    git commit -m "Auto-commit at $TS - $SORRY_COUNT sorries" 2>/dev/null || true
-    git push origin main 2>/dev/null || true
-    
-    sleep "$SLEEP_SECS"
+        > logs/last_claude.json 2>&1; then
+        
+        # claude worked - do the git stuff
+        echo "[$TS] claude succeeded, committing to git..."
+        SORRY_COUNT=$(grep -r "sorry" StrongPNT/*.lean 2>/dev/null | wc -l || echo "unknown")
+        git add -A 2>/dev/null || true
+        git commit -m "Auto-commit at $TS - $SORRY_COUNT sorries" 2>/dev/null || true
+        git push origin main 2>/dev/null || true
+        
+        sleep "$SLEEP_SECS"
+    else
+        # claude failed - check if it's rate limiting
+        if grep -q "rate limit\|Rate limit\|429\|too many requests" logs/last_claude.json 2>/dev/null; then
+            echo "[$TS] hit rate limit - waiting 5 minutes before retry..."
+            sleep 300  # wait 5min for rate limit reset
+        else
+            echo "[$TS] claude failed for other reason - waiting normal interval"
+            sleep "$SLEEP_SECS"
+        fi
+    fi
 done
