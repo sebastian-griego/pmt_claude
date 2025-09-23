@@ -317,3 +317,14 @@
 - Location: StrongPNT/PNT3_RiemannZeta.lean:91-93
 
 **Status**: 171 sorries remaining (was 172)
+
+## Iteration 37 (2025-09-23T00:22:45Z)
+### Fixed: `lem_Z1split` sum decomposition in PNT4_ZeroFreeRegion
+- Proved that splitting a sum by extracting an element ρ yields the expected identity
+- The proof rewrites the finite set as `insert ρ (set \ {ρ})`
+- Then uses `Finset.sum_insert` to separate ρ from the remaining sum
+- The sorry was replaced with `rfl` since the rewrite directly produces the goal
+- This lemma is used for analyzing sums over zeros of the Riemann zeta function
+- Location: StrongPNT/PNT4_ZeroFreeRegion.lean:341
+
+**Status**: 178 sorries remaining (was 179)
