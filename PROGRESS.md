@@ -355,3 +355,14 @@
 - Location: StrongPNT/PNT3_RiemannZeta.lean:66, StrongPNT/PNT1_ComplexAnalysis.lean:537
 
 **Status**: 174 sorries remaining (increased from 173 due to build fixes)
+
+## Iteration 40 (2025-09-23T00:40:00Z)
+### Fixed: `lem_Z1split` sum decomposition in PNT4_ZeroFreeRegion
+- Proved that splitting a sum by extracting element ρ yields the expected identity
+- The proof uses `Finset.sum_insert` to separate ρ from the remaining sum
+- After applying the rewrite with the insert decomposition, the goal matches exactly
+- Simply used `rfl` to complete the proof since both sides are equal
+- This lemma is used for analyzing sums over zeros of the Riemann zeta function
+- Location: StrongPNT/PNT4_ZeroFreeRegion.lean:341
+
+**Status**: 173 sorries remaining (was 174)
