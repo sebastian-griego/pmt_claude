@@ -25,6 +25,30 @@ This file tracks the progress of removing `sorry` statements from the StrongPNT 
 - Continue fixing simple arithmetic and comparison lemmas
 - Address build errors to enable further progress
 
+## Iteration 2025-09-23T22:28:50Z
+
+### Fixed
+- Fixed proof in `p_s_abs_1` in PNT3_RiemannZeta.lean (lines 76-102) - Removed 1 sorry
+  - Proved that `‖(p : ℂ) ^ (-s)‖ < 1` for primes p when Re(s) > 1
+  - Used the fact that for Re(s) > 1, we have p^(Re(s)) > 1, so (p^(Re(s)))^(-1) < 1
+
+### Current Status
+- Total sorries: 163 (was 164)
+  - PNT1_ComplexAnalysis.lean: 35 sorries
+  - PNT2_LogDerivative.lean: 32 sorries
+  - PNT3_RiemannZeta.lean: 33 sorries (was 34)
+  - PNT4_ZeroFreeRegion.lean: 41 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- PNT3 builds successfully, PNT2 and PNT4 still have build errors
+
+### Notes
+- Successfully proved a lemma about the decay of primes raised to negative complex powers
+- Used `inv_lt_one` to show that the inverse of a value greater than 1 is less than 1
+
+### Next Steps
+- Continue fixing simple lemmas in other files
+- Address remaining build errors in PNT2 and PNT4
+
 ## Iteration 2025-09-23T22:16:45Z
 
 ### Fixed Build Errors
