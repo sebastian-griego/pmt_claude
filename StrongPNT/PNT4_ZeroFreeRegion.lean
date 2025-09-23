@@ -72,18 +72,20 @@ lemma ZetaZerosNearPoint_finite (t : ℝ) : Set.Finite (ZetaZerosNearPoint t) :=
       convert this using 2
       ring
     have : 3/2 - 5/6 ≤ z.re := by
+      have hz_re_abs : |z.re - 3/2| ≤ 5/6 := by
+        calc |z.re - 3/2| ≤ ‖z - ((3/2 : ℂ) + t * I)‖ := h_re_dist
+        _ ≤ 5/6 := h_in_ball
       have : z.re ≥ 3/2 - |z.re - 3/2| := by
         by_cases h : z.re ≥ 3/2
-        · have : |z.re - 3/2| = z.re - 3/2 := abs_of_nonneg (by linarith)
-          rw [this]
-          linarith
+        · calc z.re ≥ 3/2 := h
+          _ = 3/2 - 0 := by ring
+          _ ≥ 3/2 - |z.re - 3/2| := by linarith [abs_nonneg (z.re - 3/2)]
         · push_neg at h
-          have : |z.re - 3/2| = 3/2 - z.re := abs_of_neg (by linarith)
+          have : |z.re - 3/2| = 3/2 - z.re := abs_of_neg (by linarith : z.re - 3/2 < 0)
           rw [this]
           linarith
       calc z.re ≥ 3/2 - |z.re - 3/2| := this
-      _ ≥ 3/2 - ‖z - ((3/2 : ℂ) + t * I)‖ := by linarith [h_re_dist]
-      _ ≥ 3/2 - 5/6 := by linarith [h_in_ball]
+      _ ≥ 3/2 - 5/6 := by linarith [hz_re_abs]
     calc (2/3 : ℝ) = 3/2 - 5/6 := by norm_num
     _ ≤ z.re := this
 
@@ -575,7 +577,7 @@ lemma Rezetaseries2t (x t : ℝ) (hx : 1 < x) :
 
 /-- cos(0) = 1 -/
 lemma lem_cost0 (n : ℕ) (hn : 1 ≤ n) : Real.cos (0 * Real.log n) = 1 := by
-  simp
+  simp [Real.cos_zero]
 
 /-- Series at t=0 -/
 lemma Rezetaseries0 (x : ℝ) (hx : 1 < x) :

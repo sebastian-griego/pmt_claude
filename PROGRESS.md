@@ -404,3 +404,35 @@ This file tracks the progress of removing `sorry` statements from the StrongPNT 
 - Continue fixing simple arithmetic lemmas
 - Address remaining build errors
 - Focus on lemmas that don't depend on missing API functions
+
+## Iteration 2025-09-23T23:00:00Z
+
+### Fixed Build Errors
+- Fixed `isCompact_closedBall` issue in PNT4_ZeroFreeRegion.lean (line 56)
+  - Changed `Metric.isCompact_closedBall` to `isCompact_closedBall`
+- Fixed calc chain in PNT4_ZeroFreeRegion.lean (lines 74-88)
+  - Fixed proof that points in disk have Re > 2/3
+- System added `lem_cost0` proof in PNT4_ZeroFreeRegion.lean (line 577)
+  - Simple lemma showing cos(0) = 1
+- Reverted attempted fix to `lem_blaschke_pow_diff_nonzero` in PNT2_LogDerivative.lean
+  - Added sorry back due to API incompatibility
+
+### Current Status
+- Total sorries: 164 (was 161, increased by 3)
+  - PNT1_ComplexAnalysis.lean: 34 sorries
+  - PNT2_LogDerivative.lean: 33 sorries (increased by 1)
+  - PNT3_RiemannZeta.lean: 36 sorries (increased by 2)
+  - PNT4_ZeroFreeRegion.lean: 40 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build still has errors but progressing on fixes
+
+### Notes
+- System automatically added `lem_cost0` proof showing cos(0) = 1
+- Several Mathlib API functions are missing or changed
+- Had to revert some fixes due to API incompatibilities
+- Net increase in sorries but build errors reduced
+
+### Next Steps
+- Continue fixing build errors
+- Look for simple lemmas that don't depend on missing APIs
+- Consider updating to match current Mathlib API
