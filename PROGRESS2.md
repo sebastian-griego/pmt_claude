@@ -936,4 +936,22 @@
 ### Next Steps
 - Continue searching for simpler lemmas that can be proven with available Mathlib functions
 - Focus on arithmetic lemmas that can be solved with norm_num or simp
-- Look for set-theoretic lemmas that can use existing Mathlib functions
+- Look for set-theoretic lemmas that can use existing Mathlib functions## Iteration 47 (2025-09-23T01:25:54Z)
+
+### Fixed
+- Linter automatically fixed `2^s.re > 2^1` proof in PNT3_RiemannZeta.lean (line 83-99)
+  - Used correct Mathlib functions: `Real.rpow_le_rpow`, `Real.rpow_lt_rpow_left`
+  - Fixed `inv_lt_one` usage with proper identifier
+  - Proved `2^(3/2) > 1` using `norm_num`
+  - Also fixed the proof for `p^(-3/2) < 1` (line 279-289)
+
+### Progress
+- Reduced sorry count from 169 to 168 (36+35+34+42+21)
+- PNT3_RiemannZeta: 34 sorries (unchanged - linter fixed the added sorry)
+- PNT4_ZeroFreeRegion: 42 sorries (3 likely fixed by linter)
+- Build completes successfully
+
+### Next Steps
+- Continue looking for simple lemmas to fix
+- Focus on PNT4_ZeroFreeRegion which still has the most sorries (42)
+- Search for other numerical inequalities that can be proven with norm_num
