@@ -535,7 +535,23 @@ lemma RealLambdaxy (n : ℕ) (x y : ℝ) :
 /-- Real part series with cos -/
 lemma ReZseriesRen (x y : ℝ) (hx : 1 < x) :
     (-logDerivZeta (x + y * I)).re = ∑' n : ℕ, vonMangoldt n * (n : ℝ)^(-x) * Real.cos (y * Real.log n) := by
-  sorry
+  -- First use lem_zeta1zetaseriesxy2 to expand series
+  rw [lem_zeta1zetaseriesxy2 x y hx]
+  -- The real part of a sum equals sum of real parts (assuming convergence)
+  rw [lem_sumRealZ x y hx]
+  -- Apply RealLambdaxy to each term
+  congr 1
+  ext n
+  have : (vonMangoldt n * (n : ℂ)^(-x : ℂ) * (n : ℂ)^(-y * I)).re =
+         (vonMangoldt n * (n : ℂ)^((-x : ℂ) - (y * I : ℂ))).re := by
+    congr 1
+    rw [← Complex.cpow_add]
+    · simp [sub_eq_add_neg]
+    · by_cases hn : n = 0
+      · simp [hn, vonMangoldt]
+      · exact Nat.cast_ne_zero.mpr hn
+  rw [this]
+  exact RealLambdaxy n x y
 
 /-- Series with cosine form -/
 lemma Rezeta1zetaseries (x y : ℝ) (hx : 1 < x) :
