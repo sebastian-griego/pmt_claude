@@ -466,3 +466,32 @@ This file tracks the progress of removing `sorry` statements from the StrongPNT 
 - Focus on simple arithmetic lemmas that can be proven with basic tactics
 - Fix build errors in PNT1 and PNT4
 - Look for lemmas involving basic inequalities or simple calculations
+
+## Iteration 2025-09-23T23:12:00Z
+
+### Fixed
+- Fixed build errors in PNT4_ZeroFreeRegion.lean:
+  - Fixed `isCompact_closedBall` API reference (line 56)
+  - Fixed calc chain in proof with `ring` tactic (line 73)
+  - Fixed type error in PNT1_ComplexAnalysis.lean (line 534)
+- Partial fixes for missing API functions like `Complex.cpow_natCast_real`
+
+### Current Status
+- Total sorries: 164 (unchanged)
+  - PNT1_ComplexAnalysis.lean: 34 sorries
+  - PNT2_LogDerivative.lean: 33 sorries
+  - PNT3_RiemannZeta.lean: 36 sorries
+  - PNT4_ZeroFreeRegion.lean: 40 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build still has errors due to missing Mathlib API functions
+
+### Notes
+- Many Mathlib API functions have changed names or been removed
+- Functions like `Complex.cpow_natCast_real`, `Finset.sum_re` are missing
+- The codebase appears to be written for an older version of Mathlib
+- System/linter has been automatically fixing some proofs
+
+### Next Steps
+- Continue fixing build errors before attempting to remove sorries
+- Focus on simple lemmas that don't depend on missing API functions
+- Consider finding current Mathlib equivalents for missing functions

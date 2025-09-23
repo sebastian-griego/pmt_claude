@@ -53,7 +53,7 @@ lemma ZetaZerosNearPoint_finite (t : ℝ) : Set.Finite (ZetaZerosNearPoint t) :=
 
   -- The closed ball in ℂ is compact
   have h_compact : IsCompact (Metric.closedBall ((3/2 : ℂ) + t * I) (5/6)) :=
-    Metric.isCompact_closedBall
+    isCompact_closedBall
 
   -- The center of our disk has Re > 1/2
   have h_re : (2/3 : ℝ) < ((3/2 : ℂ) + t * I).re := by
@@ -70,7 +70,7 @@ lemma ZetaZerosNearPoint_finite (t : ℝ) : Set.Finite (ZetaZerosNearPoint t) :=
       simp only [Complex.sub_re, Complex.add_re, Complex.mul_re, Complex.I_re] at this
       simp at this
       convert this using 2
-      ring_nf
+      ring
     have : 3/2 - 5/6 ≤ z.re := by
       have hz_re_abs : |z.re - 3/2| ≤ 5/6 := by
         calc |z.re - 3/2| ≤ ‖z - ((3/2 : ℂ) + t * I)‖ := h_re_dist
