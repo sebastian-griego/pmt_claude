@@ -7,7 +7,9 @@
  "name": "StrongPNT.PNT4_ZeroFreeRegion",
  "isModule": false,
  "importArts":
- {"Qq.Typ":
+ {"StrongPNT.PNT1_ComplexAnalysis":
+  ["/home/jovyan/pmt_claude/.lake/build/lib/lean/StrongPNT/PNT1_ComplexAnalysis.olean"],
+  "Qq.Typ":
   ["/home/jovyan/pmt_claude/.lake/packages/Qq/.lake/build/lib/lean/Qq/Typ.olean"],
   "Qq.SortLocalDecls":
   ["/home/jovyan/pmt_claude/.lake/packages/Qq/.lake/build/lib/lean/Qq/SortLocalDecls.olean"],
