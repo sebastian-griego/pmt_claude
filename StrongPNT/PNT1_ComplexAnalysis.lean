@@ -1075,7 +1075,26 @@ theorem cauchy_formula_deriv (R r r' : Real) (f : Complex → Complex)
 -- Differential of w(t)
 lemma lem_dw_dt (r' : Real) (t : Real) :
     deriv (fun t => r' * Complex.exp (I * t)) t = I * r' * Complex.exp (I * t) := by
-  sorry
+  -- Use the chain rule: d/dt(r' * exp(I*t)) = r' * d/dt(exp(I*t))
+  -- We know d/dt(exp(I*t)) = I * exp(I*t)
+  have h1 : deriv (fun t => Complex.exp (I * t)) t = I * Complex.exp (I * t) := by
+    rw [Complex.deriv_exp]
+    simp [mul_comm I t]
+    ring
+  -- Now apply scalar multiplication rule
+  have h2 : deriv (fun t => r' * Complex.exp (I * t)) t =
+            r' * deriv (fun t => Complex.exp (I * t)) t := by
+    have : (fun t => (r' : ℂ) * Complex.exp (I * t)) =
+           (fun z => (r' : ℂ) * z) ∘ (fun t => Complex.exp (I * t)) := by
+      ext; simp
+    rw [this]
+    rw [deriv.comp]
+    · simp [deriv_const_mul]
+      rw [h1]
+    · exact differentiableAt_const_mul _ _
+    · exact Complex.differentiableAt_exp
+  rw [h2, h1]
+  ring
 
 -- Cauchy's Integral Formula parameterized
 lemma lem_CIF_deriv_param (R r r' : Real) (f : Complex → Complex)
