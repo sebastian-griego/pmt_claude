@@ -366,3 +366,27 @@
 - Location: StrongPNT/PNT4_ZeroFreeRegion.lean:341
 
 **Status**: 173 sorries remaining (was 174)
+
+## Iteration 41 (2025-09-23T00:50:00Z)
+### Analysis: External linter modifications and current state
+- External linter has been making automatic fixes throughout the session
+- Recent linter changes in PNT3_RiemannZeta:
+  - Attempted to fix power inequality `2^s.re > 2^1` when `s.re > 1` using various APIs
+  - Fixed `inv_lt_one` proof for prime decay bound
+  - Fixed `abs_of_tprod` using `hw.norm_tprod`
+  - Also attempted to prove `2^(3/2) > 1` but reverted to sorry
+- Some fixes have been reverted by the linter when APIs don't exist or proofs fail
+- Build currently passes successfully
+- Most remaining sorries are complex mathematical theorems requiring:
+  - Deep complex analysis results (Maximum modulus, Cauchy integrals, Liouville's theorem)
+  - Riemann zeta function properties (Euler product, functional equation, convergence)
+  - Zero-free region proofs requiring analytic number theory
+  - Convergence and analyticity proofs for various series
+- Distribution by file:
+  - PNT1_ComplexAnalysis: 36 sorries (complex analysis theorems)
+  - PNT2_LogDerivative: 35 sorries (analytic function theory)
+  - PNT3_RiemannZeta: 36 sorries (zeta function properties)
+  - PNT4_ZeroFreeRegion: 47 sorries (zero-free region lemmas)
+  - PNT5_StrongPNT: 21 sorries (main PNT theorems)
+
+**Status**: 175 sorries remaining (increased from 173)
