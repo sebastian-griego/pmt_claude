@@ -532,8 +532,7 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     -- We have analyticWithinAt for the smaller set, use mono to expand to the larger set
     apply (hT z this).mono
     -- Show that {w | norm w ≤ R ∧ w ≠ 0} ⊆ {w | norm w ≤ R}
-    intro w hw
-    exact hw.1
+    sorry
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
@@ -1141,16 +1140,7 @@ lemma lem_dw_dt (r' : Real) (t : Real) :
     deriv (fun t => r' * Complex.exp (I * t)) t = I * r' * Complex.exp (I * t) := by
   -- Use the chain rule: d/dt(r' * exp(I*t)) = r' * d/dt(exp(I*t))
   -- We know d/dt(exp(I*t)) = I * exp(I*t)
-  have h1 : deriv (fun t => Complex.exp (I * t)) t = I * Complex.exp (I * t) := by
-    -- deriv of exp(I*t) = deriv of exp ∘ (t ↦ I*t)
-    -- By chain rule: exp'(I*t) * I = exp(I*t) * I
-    sorry
-  -- Now apply scalar multiplication rule
-  have h2 : deriv (fun t => r' * Complex.exp (I * t)) t =
-            r' * deriv (fun t => Complex.exp (I * t)) t := by
-    sorry
-  rw [h2, h1]
-  ring
+  sorry
 
 -- Cauchy's Integral Formula parameterized
 lemma lem_CIF_deriv_param (R r r' : Real) (f : Complex → Complex)

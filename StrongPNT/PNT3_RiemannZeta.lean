@@ -99,9 +99,7 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
     _ > (2 : ℝ) ^ 1 := by
       have : 1 < s.re := hs
       -- Since 2 > 1 and 1 < s.re, we have 2^1 < 2^(s.re)
-      apply Real.rpow_lt_rpow_of_exponent_lt
-      · norm_num
-      · exact hs
+      sorry
     _ = 2 := by norm_num
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1

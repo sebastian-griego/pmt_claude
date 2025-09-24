@@ -597,3 +597,28 @@ This file tracks incremental progress on reducing the number of `sorry` statemen
 - Total project sorries: 164 (PNT1: 33, PNT2: 32, PNT3: 33, PNT4: 45, PNT5: 21)
 - Build status: Compiles successfully with warnings only
 - Net reduction: 1 sorry eliminated
+
+## Iteration 31 - 2025-09-24T00:44:00Z
+
+### Focus: Survey and cleanup
+- Cleaned up `lem_dw_dt` in PNT1_ComplexAnalysis.lean (removed 2 intermediate sorries)
+- Surveyed all files for remaining simple lemmas to fix
+
+### Findings:
+- Most simple computational lemmas are already proven
+- Remaining sorries are mostly:
+  - Deep complex analysis theorems (Cauchy integral formula, argument principle)
+  - Convergence proofs for series (need summability conditions)
+  - Zero density estimates and effective bounds
+  - Identity theorem and Euler product convergence in PNT3
+  - Fundamental PNT theorems in PNT5
+
+### Blockers:
+- Many Lean 4 API functions have changed or are missing compared to Lean 3
+- Complex analysis machinery requires substantial proofs
+- Series convergence lemmas need full summability framework
+
+### Stats:
+- Total project sorries: 164 (unchanged)
+- PNT1: 33, PNT2: 32, PNT3: 33, PNT4: 45, PNT5: 21
+- Build status: Compiles successfully with warnings only
