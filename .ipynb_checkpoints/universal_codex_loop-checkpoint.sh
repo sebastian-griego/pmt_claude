@@ -17,7 +17,7 @@ cd "$PROJECT"
 command -v codex >/dev/null || { echo "ERROR: 'codex' CLI not found"; exit 1; }
 
 mkdir -p logs
-touch PROGRESS2.md
+touch PROGRESS3.md
 
 # Base prompt based on project type
 if [ "$PROJECT_TYPE" = "research" ]; then
@@ -32,7 +32,7 @@ else
 Rules:
 - Make one small, testable improvement per iteration
 - Apply changes directly
-- Document progress in PROGRESS2.md
+- Document progress in PROGRESS3.md
 - Keep changes focused and atomic'
 fi
 
@@ -43,12 +43,12 @@ while true; do
   [ -f STOP ] && { echo "STOP detected"; exit 0; }
 
   TS="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-  PROG_TAIL="$(tail -c "$PROGRESS_TAIL" PROGRESS2.md 2>/dev/null || true)"
+  PROG_TAIL="$(tail -c "$PROGRESS_TAIL" PROGRESS3.md 2>/dev/null || true)"
   SPEC="$(cat AGENTS.md 2>/dev/null || echo "No AGENTS.md found")"
 
   FULL_PROMPT="$BASE_PROMPT
 
-Current PROGRESS2.md (tail):
+Current PROGRESS3.md (tail):
 $PROG_TAIL
 
 Project specification (AGENTS.md):
@@ -76,11 +76,11 @@ Act on ONE small improvement now, strictly following AGENTS.md (Lean PNT rules).
   git commit -m "Auto-commit at $TS - $SORRY_COUNT sorries" 2>/dev/null || true
   git push origin main 2>/dev/null || true
 
-  # Every 10 iterations: clear PROGRESS2.md (per your rule)
+  # Every 10 iterations: clear PROGRESS3.md (per your rule)
   i=$((i+1))
   if [ $((i % 10)) -eq 0 ]; then
-    echo "[$TS] clearing PROGRESS2.md (iteration $i)"
-    : > PROGRESS2.md
+    echo "[$TS] clearing PROGRESS3.md (iteration $i)"
+    : > PROGRESS3.md
   fi
 
   sleep "$SLEEP_SECS"

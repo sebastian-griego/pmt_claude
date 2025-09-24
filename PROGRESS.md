@@ -2,6 +2,35 @@
 
 This file tracks the progress of removing `sorry` statements from the StrongPNT project.
 
+## Iteration 2025-09-24T00:25:00Z
+
+### Attempted
+- Attempted to fix subset proof in `lem_analAtOnOn` in PNT1_ComplexAnalysis.lean (line 535-536)
+  - The proof requires showing {w | norm w ≤ R ∧ w ≠ 0} ⊆ {w | norm w ≤ R}
+  - Tried using hw.1 to extract the first component but type issues arose
+  - The automatic linter kept modifying the proof structure
+- Attempted to fix `Real.rpow_lt_rpow_of_exponent_lt` usage in PNT3_RiemannZeta.lean (line 102)
+  - API function expects different argument order than provided
+
+### Current Status
+- Total sorries: 165 (unchanged from last iteration)
+  - PNT1_ComplexAnalysis.lean: 34 sorries
+  - PNT2_LogDerivative.lean: 32 sorries
+  - PNT3_RiemannZeta.lean: 33 sorries (with 1 added back due to API issues)
+  - PNT4_ZeroFreeRegion.lean: 45 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build has errors due to Mathlib API compatibility issues
+
+### Notes
+- The automatic linter/formatter keeps modifying proofs which makes stable fixes difficult
+- Several Mathlib API functions have changed signatures or been renamed
+- Many remaining sorries are for complex theorems requiring substantial proofs
+
+### Next Steps
+- Focus on very simple arithmetic lemmas that use only basic tactics
+- Avoid lemmas requiring specific Mathlib API functions
+- Consider checking current Mathlib documentation for correct API usage
+
 ## Iteration 2025-09-24T00:06:30Z
 
 ### Fixed
