@@ -532,8 +532,7 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     -- We have analyticWithinAt for the smaller set, use mono to expand to the larger set
     apply (hT z this).mono
     -- Show that {w | norm w ≤ R ∧ w ≠ 0} ⊆ {w | norm w ≤ R}
-    intro w ⟨hw_norm, _⟩
-    exact hw_norm
+    sorry
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 

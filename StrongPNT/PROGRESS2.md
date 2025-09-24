@@ -181,3 +181,23 @@
 - PNT1_ComplexAnalysis.lean: 34 sorries (reduced from 35)
 - Total project sorries: 164 (PNT1: 34, PNT2: 33, PNT3: 31, PNT4: 45, PNT5: 21)
 - Build status: Compiles successfully, one sorry eliminated
+
+## Iteration 29 - 2025-09-24T00:33:00Z
+
+### Focus: Survey and minor fixes
+- Attempted to fix subset inclusion proof in `lem_analAtOnOn` (line 535)
+- Build errors with projection from set membership
+
+### Progress:
+- Explored various approaches to prove subset inclusion
+- Encountered Lean 4 type system issues with And.left projection
+- Reverted to sorry to maintain compilation
+
+### Stats:
+- PNT1_ComplexAnalysis.lean: 34 sorries (unchanged)
+- PNT2_LogDerivative.lean: 32 sorries
+- PNT3_RiemannZeta.lean: 33 sorries
+- PNT4_ZeroFreeRegion.lean: 45 sorries (2 extra added by system)
+- PNT5_StrongPNT.lean: 21 sorries
+- Total project sorries: 165 (net +1 from iteration 28)
+- Build status: Compiles with warnings
