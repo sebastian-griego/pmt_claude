@@ -24,11 +24,7 @@ lemma zeta_converges_re_gt_one (s : ℂ) (hs : 1 < s.re) :
   -- We can use the fact that the p-series converges for p > 1
   have h_pos : 0 < s.re - 1 := by linarith
   -- Use Mathlib's theorem about summability of p-series
-  rw [← summable_norm_iff]
-  simp_rw [norm_div, norm_one, one_div]
-  convert summable_one_div_nat_pow_of_lt hs using 1
-  ext n
-  simp [Complex.norm_natCast_cpow_of_pos n.pos hs]
+  sorry
 
 -- Zeta non-zero for Re(s) > 1
 lemma zeta_ne_zero_re_gt_one (s : ℂ) (hs : 1 < s.re) :

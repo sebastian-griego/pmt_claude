@@ -15,8 +15,12 @@ import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
 import Mathlib.Topology.MetricSpace.Basic
 import Mathlib.Analysis.Complex.Liouville
 import Mathlib.Analysis.Complex.Schwarz
+import Mathlib.Analysis.Complex.AbsMax
+import Mathlib.Analysis.Complex.CauchyIntegral
+import Mathlib.Data.Set.Function
+import Mathlib.Analysis.Normed.Module.RCLike.Real
 
-open Complex Real BigOperators Filter
+open Complex Real BigOperators Filter Set
 open scoped ComplexConjugate
 
 lemma lem_2logOlog (t : Real) (ht : t > 1) :
@@ -529,14 +533,15 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
   · rw [h_eq]
     -- Convert AnalyticAt to AnalyticWithinAt
     exact h0.analyticWithinAt
-  · have : z ∈ {w : Complex | norm w ≤ R ∧ w ≠ 0} := by
+  · -- For z ≠ 0, we have analyticity on punctured disk, which extends to full disk
+    have : z ∈ {w : Complex | norm w ≤ R ∧ w ≠ 0} := by
       simp only [Set.mem_setOf]
       exact ⟨hz, h_eq⟩
-    -- We have analyticWithinAt for the smaller set, use mono to expand to the larger set
-    apply (hT z this).mono
-    -- Show that {w | norm w ≤ R ∧ w ≠ 0} ⊆ {w | norm w ≤ R}
+    refine (hT z this).mono ?_
     intro w hw
-    exact hw.1
+    simp only [Set.mem_setOf] at hw ⊢
+    obtain ⟨hw1, _⟩ := hw
+    exact hw1
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
@@ -684,21 +689,72 @@ lemma lem_MaxModulusPrinciple (f : Complex → Complex) (R : Real) (hR : 0 < R)
   obtain ⟨z₀, hz₀_in, hz₀_max⟩ := hnc
   simp only [Set.mem_setOf] at hz₀_in
 
-  -- Since f attains its maximum in the interior and is analytic,
-  -- by the maximum modulus principle, f must be constant
+  -- Use the fact that the closed ball is the closure of the open ball
+  have hclos : {z : Complex | norm z ≤ R} = closure {z : Complex | norm z < R} := by
+    have h1 : {z : Complex | norm z < R} = Metric.ball (0 : Complex) R := by
+      ext z; simp [Metric.ball, dist_zero_right]
+    have h2 : {z : Complex | norm z ≤ R} = Metric.closedBall (0 : Complex) R := by
+      ext z; simp [Metric.closedBall, dist_zero_right]
+    rw [h1, h2]
+    exact (closure_ball 0 (by linarith : R ≠ 0)).symm
+
+  -- The set {z | norm z ≤ R} is compact
+  have hcompact : IsCompact {z : Complex | norm z ≤ R} := by
+    have : {z : Complex | norm z ≤ R} = Metric.closedBall (0 : Complex) R := by
+      ext z; simp [Metric.closedBall, dist_zero_right]
+    rw [this]
+    exact isCompact_closedBall (0 : Complex) R
+
+  -- Apply Mathlib's theorem: if f is analytic on a compact set and |f| attains
+  -- its maximum in the interior, then f is constant
+  have hdiff : DifferentiableOn ℂ f {z : Complex | norm z ≤ R} := by
+    intro z hz
+    -- hf gives AnalyticWithinAt with insert z
+    have h_anal := hf z hz
+    -- Use differentiableWithinAt and then remove the insert
+    exact h_anal.differentiableWithinAt.mono (subset_insert _ _)
+
+  -- We need to show f is constant on the closed ball
   use f z₀
 
+  -- Convert sets to metric balls
+  have h_open : {z : Complex | norm z < R} = Metric.ball (0 : Complex) R := by
+    ext z; simp [Metric.ball, dist_zero_right]
+  have h_closed : {z : Complex | norm z ≤ R} = Metric.closedBall (0 : Complex) R := by
+    ext z; simp [Metric.closedBall, dist_zero_right]
+
+  -- f is continuous on the closed ball
+  have hcont : ContinuousOn f (Metric.closedBall 0 R) := by
+    rw [← h_closed]
+    exact DifferentiableOn.continuousOn hdiff
+
+  -- The closed ball is preconnected
+  have hconn : IsPreconnected (Metric.closedBall (0 : Complex) R) := by
+    exact (convex_closedBall 0 R).isPreconnected
+
+  -- The maximum is attained at an interior point
+  have hz₀_ball : z₀ ∈ Metric.ball 0 R := by
+    rw [← h_open]; exact hz₀_in
+
+  -- Rewrite the maximum condition
+  have hmax : IsMaxOn (norm ∘ f) (Metric.closedBall 0 R) z₀ := by
+    rw [← h_closed]
+    intro w hw
+    exact hz₀_max w hw
+
+  -- Apply the maximum modulus principle from Mathlib
+  have heq : EqOn f (fun _ => f z₀) (Metric.closedBall 0 R) := by
+    have hdiff' : DifferentiableOn ℂ f (Metric.closedBall 0 R) := by
+      convert hdiff
+      exact h_closed.symm
+    exact Complex.eqOn_of_isPreconnected_of_isMaxOn_norm hconn hdiff hcont hz₀_ball hmax
+
+  -- Conclude that f is constant
   intro z hz
-  simp only [Set.mem_setOf] at hz
-
-  -- The maximum modulus principle states that a non-constant holomorphic function
-  -- cannot attain its maximum in the interior of its domain
-  -- Since we have such a point, f must be constant
-
-  -- This is a fundamental theorem in complex analysis
-  -- The proof would require showing that if |f| has a local maximum at an interior point,
-  -- then f is constant in a neighborhood, and by analytic continuation, everywhere
-  sorry
+  have : z ∈ Metric.closedBall 0 R := by
+    rw [← h_closed]
+    exact hz
+  exact heq this
 
 -- Cauchy integral formula
 lemma lem_CauchyIntegral (f : Complex → Complex) (z₀ : Complex) (R : Real)
@@ -733,7 +789,7 @@ lemma lem_Liouville (f : Complex → Complex)
   have hbounded : Bornology.IsBounded (Set.range f) := by
     obtain ⟨M, hM⟩ := hb
     rw [Metric.isBounded_iff_subset_ball]
-    use 0, M + 1
+    use (0 : Complex), (M + 1 : Real)
     intro y hy
     obtain ⟨x, rfl⟩ := hy
     simp only [Metric.mem_ball, Complex.dist_eq]
@@ -785,37 +841,36 @@ lemma lem_Schwarz (f : Complex → Complex)
     intro z hz
     -- Convert to ball formulation for Mathlib's Schwarz lemma
     have hf_diff : DifferentiableOn ℂ f (Metric.closedBall 0 1) := by
-      convert hf.differentiableOn isOpen_univ using 1
-      ext w; simp [Metric.closedBall, dist_zero_right]
+      intro w hw
+      have : ‖w‖ ≤ 1 := by simp [Metric.closedBall, dist_zero_right] at hw; exact hw
+      exact (hf w this).differentiableWithinAt
 
     -- Apply Mathlib's Schwarz lemma for distance bound
     by_cases h : z = 0
     · simp [h, hf0]
     · have hz_ball : z ∈ Metric.ball 0 1 := by
         simp [Metric.ball, dist_zero_right]
-        exact lt_of_le_of_ne hz (Ne.symm h)
+        -- We know ‖z‖ ≤ 1 and z ≠ 0, so we need to show ‖z‖ < 1
+        by_contra hneg
+        push_neg at hneg
+        have : ‖z‖ = 1 := le_antisymm hz hneg
+        sorry  -- This case needs a more careful analysis
       have h_maps : MapsTo f (Metric.ball 0 1) (Metric.ball 0 1) := by
         intro w hw
         simp [Metric.ball, dist_zero_right] at hw ⊢
-        simp [hf0]
-        exact lt_of_le_of_lt (hfbound w (le_of_lt hw)) (by norm_num : (1 : ℝ) < 2)
-      have := dist_le_div_mul_dist_of_mapsTo_ball (hf_diff.mono Metric.ball_subset_closedBall) h_maps hz_ball
-      simp [hf0, dist_zero_right] at this
-      convert this using 1
-      norm_num
+        exact hfbound w (le_of_lt hw)
+      sorry  -- Schwarz lemma application needs proper formulation
 
   · -- Second part: |f'(0)| ≤ 1
     have hf_diff : DifferentiableOn ℂ f (Metric.ball 0 1) := by
-      convert (hf.differentiableOn isOpen_univ).mono Metric.ball_subset_closedBall using 1
-      ext w; simp [Metric.closedBall, Metric.ball, dist_zero_right]
+      intro w hw
+      have : ‖w‖ ≤ 1 := by simp [Metric.ball, dist_zero_right] at hw; exact le_of_lt hw
+      exact (hf w this).differentiableWithinAt
     have h_maps : MapsTo f (Metric.ball 0 1) (Metric.ball 0 1) := by
       intro w hw
       simp [Metric.ball, dist_zero_right] at hw ⊢
-      simp [hf0]
-      exact lt_of_le_of_lt (hfbound w (le_of_lt hw)) (by norm_num : (1 : ℝ) < 2)
-    have := norm_deriv_le_div_of_mapsTo_ball hf_diff h_maps (by norm_num : (0 : ℝ) < 1)
-    simp at this
-    exact this
+      exact hfbound w (le_of_lt hw)
+    sorry  -- Schwarz lemma derivative bound needs proper formulation
 
 -- Phragmen-Lindelöf principle for a strip
 lemma lem_PhragmenLindelof (f : Complex → Complex) (M : Real)
@@ -955,7 +1010,62 @@ lemma lem_MaxModP (R : Real) (hR : R > 0) (h : Complex → Complex)
     (hw : ∃ w ∈ {z : Complex | norm z < R}, ∀ z ∈ {z : Complex | norm z < R},
           norm (h z) ≤ norm (h w)) :
     ∀ z ∈ {z : Complex | norm z ≤ R}, norm (h z) = norm (h (Classical.choose hw)) := by
-  sorry
+  intro z hz
+  -- Extract witness and its properties
+  have hw_spec := Classical.choose_spec hw
+  obtain ⟨hw_in, hw_max⟩ := hw_spec
+
+  -- The maximum of |h| is attained in the interior
+  -- By the maximum modulus principle, h must be constant
+  have h_const : ∃ c : Complex, ∀ z ∈ {z : Complex | norm z ≤ R}, h z = c := by
+    apply lem_MaxModulusPrinciple h R hR hh
+    -- We need to show that there exists an interior point where |h| attains its maximum
+    use Classical.choose hw, hw_in
+    intro z' hz'
+    by_cases hz'_int : norm z' < R
+    · exact hw_max z' hz'_int
+    · -- If z' is on the boundary, use continuity and the fact that the maximum is in the interior
+      have hz'_eq : norm z' = R := le_antisymm (Set.mem_setOf.mp hz') (le_of_not_gt hz'_int)
+      -- Since the maximum is attained in the interior, points on the boundary have |h| ≤ max
+      have h_interior_max : ∀ z ∈ {z : Complex | norm z < R},
+                           norm (h z) ≤ norm (h (Classical.choose hw)) := hw_max
+      -- By continuity, this extends to the closure
+      have h_closure_max : ∀ z ∈ {z : Complex | norm z ≤ R},
+                          norm (h z) ≤ norm (h (Classical.choose hw)) := by
+        intro z'' hz''
+        by_cases hz''_int : norm z'' < R
+        · exact h_interior_max z'' hz''_int
+        · -- On the boundary: use the extreme value theorem
+          have : ∃ v ∈ {z : Complex | norm z ≤ R}, ∀ w ∈ {z : Complex | norm z ≤ R},
+                 norm (h w) ≤ norm (h v) := lem_ExtrValThmh R hR h hh
+          obtain ⟨v, hv_in, hv_max⟩ := this
+          -- v must be the same as our interior maximum point
+          have : norm (h v) = norm (h (Classical.choose hw)) := by
+            apply le_antisymm
+            · exact hv_max (Classical.choose hw) (le_of_lt hw_in)
+            · by_cases hv_int : norm v < R
+              · exact hw_max v hv_int
+              · -- If v is on boundary, it still can't exceed interior max
+                have v_le : norm (h v) ≤ norm (h (Classical.choose hw)) := by
+                  -- The global max is at least the interior max
+                  have : ∀ w ∈ {w : Complex | norm w < R}, norm (h w) ≤ norm (h v) := by
+                    intro w hw'
+                    exact hv_max w (le_of_lt hw')
+                  -- But we know interior max is Classical.choose hw
+                  have : norm (h (Classical.choose hw)) ≤ norm (h v) :=
+                    this (Classical.choose hw) hw_in
+                  exact this
+                -- And interior max can't exceed v (global max)
+                have w_le : norm (h (Classical.choose hw)) ≤ norm (h v) :=
+                  hv_max (Classical.choose hw) (le_of_lt hw_in)
+                exact le_antisymm v_le w_le
+          rw [← this]
+          exact hv_max z'' hz''
+      exact h_closure_max z' hz'
+
+  -- Since h is constant, |h| is constant
+  obtain ⟨c, hc⟩ := h_const
+  rw [hc z hz, hc (Classical.choose hw) (le_of_lt hw_in)]
 
 lemma lem_MaxModR (R : Real) (hR : R > 0) (h : Complex → Complex)
     (hh : AnalyticOn ℂ h {z : Complex | norm z ≤ R})
@@ -1004,7 +1114,7 @@ lemma lem_MaxModv2 (R : Real) (hR : R > 0) (h : Complex → Complex)
       · simp [norm_real, abs_of_pos hR]
       · intro z hz
         have hu_R : ‖h ↑R‖ = ‖h u‖ := by
-          sorry  -- This follows from max modulus principle
+          apply lem_MaxModR R hR h hh hw
         rw [hu_R]
         exact hu_max z hz
 
@@ -1041,7 +1151,12 @@ lemma lem_HardMMP (R : Real) (hR : R > 0) (B : Real) (hB : B ≥ 0) (h : Complex
     (hh : AnalyticOn ℂ h {z : Complex | norm z ≤ R})
     (hbound : ∀ z : Complex, norm z = R → norm (h z) ≤ B) :
     ∀ w : Complex, norm w ≤ R → norm (h w) ≤ B := by
-  sorry
+  -- Use lem_MaxModv4 to find the maximum point and show it's bounded by B
+  obtain ⟨v, hvnorm, hvmax, hvB⟩ := lem_MaxModv4 R hR B hB h hh hbound
+  intro w hw
+  -- Since h(w) ≤ h(v) for all w in the disk, and h(v) ≤ B
+  calc norm (h w) ≤ norm (h v) := hvmax w hw
+    _ ≤ B := hvB
 
 lemma lem_EasyMMP (R : Real) (hR : R > 0) (B : Real) (hB : B ≥ 0) (h : Complex → Complex)
     (hh : AnalyticOn ℂ h {z : Complex | norm z ≤ R})
@@ -1081,17 +1196,39 @@ lemma lem_removable_singularity (R : Real) (hR : R > 0) (f : Complex → Complex
     (hf : AnalyticOn ℂ f {z : Complex | norm z ≤ R})
     (hf0 : f 0 = 0) :
     AnalyticOn ℂ (fun z => f z / z) {z : Complex | norm z ≤ R} := by
-  intro z hz
-  by_cases hzero : z = 0
-  · -- At z = 0, we need to show f(z)/z is analytic
-    -- Since f(0) = 0 and f is analytic, f(z) = z * g(z) where g is analytic
-    -- So f(z)/z = g(z) and g is analytic at 0
-    sorry
-  · -- For z ≠ 0, this is just composition of analytic functions
-    apply AnalyticWithinAt.div
-    · exact hf z hz
-    · exact analyticWithinAt_id
-    · exact hzero
+  -- We'll use the fact that dslope f 0 z = (f z - f 0) / (z - 0) = f z / z
+  have h_dslope : ∀ z ∈ {z : Complex | norm z ≤ R}, (fun z => f z / z) z = dslope f 0 z := by
+    intro z _
+    by_cases hzero : z = 0
+    · simp [hzero, dslope_same, hf0, div_zero]
+      -- At z = 0, dslope f 0 0 = deriv f 0
+      -- We need to show that deriv f 0 = lim_{z→0} f(z)/z
+      -- Since f(0) = 0, this follows from the definition of the derivative
+      have hf_diff : DifferentiableAt ℂ f 0 := by
+        apply DifferentiableOn.differentiableAt
+        · exact AnalyticOn.differentiableOn hf
+        · exact mem_nhds_iff.mpr ⟨{z : Complex | norm z < R}, _, isOpen_ball, by simp [hR]⟩
+          · intro w hw
+            exact le_of_lt hw
+      rw [deriv_zero_of_hasDerivWithinAt]
+      -- The derivative at 0 when f(0) = 0 is the limit of f(z)/z as z → 0
+      apply HasDerivAt.deriv
+      rw [hasDerivAt_iff_hasDerivAtFilter, hasDerivAtFilter_iff_tendsto, hf0, zero_add, sub_zero]
+      exact DifferentiableAt.hasDerivAt hf_diff
+    · simp [dslope_of_ne f hzero, slope, hf0, sub_zero, hzero]
+  -- Now we convert to using dslope
+  convert AnalyticOn.comp (g := dslope f 0) _ analyticOn_id (fun z hz => hz) using 1
+  · ext z; exact h_dslope z (analyticOn_id z hz).2
+  -- dslope f 0 is analytic on the set
+  have h_nbhd : {z : Complex | norm z ≤ R} ∈ 𝓝 0 := by
+    apply mem_nhds_iff.mpr
+    use {z : Complex | norm z < R}
+    constructor
+    · intro z hz; exact le_of_lt hz
+    · exact isOpen_ball
+    · simp [hR]
+  rw [← differentiableOn_iff_analyticOn]
+  exact (differentiableOn_dslope h_nbhd).mpr (AnalyticOn.differentiableOn hf)
 
 lemma lem_quotient_analytic (R : Real) (hR : R > 0) (h₁ h₂ : Complex → Complex)
     (hh₁ : AnalyticOn ℂ h₁ {z : Complex | norm z ≤ R})
@@ -1112,7 +1249,17 @@ lemma lem_g_analytic (R M : Real) (hR : R > 0) (hM : M > 0) (f : Complex → Com
     (hf0 : f 0 = 0) (hfRe : ∀ z : Complex, norm z ≤ R → (f z).re ≤ M) :
     AnalyticOn ℂ (f_M R M f) {z : Complex | norm z ≤ R} := by
   unfold f_M
-  sorry
+  -- f_M = (f z / z) / (2*M - f z)
+  -- First show f z / z is analytic
+  have h1 := lem_removable_singularity R hR f hf hf0
+  -- Then show 2*M - f z is analytic and nonzero
+  have h2 : AnalyticOn ℂ (fun z => (2 * M : Complex) - f z) {z : Complex | norm z ≤ R} := by
+    apply AnalyticOn.sub
+    · exact analyticOn_const
+    · exact hf
+  have h3 := lem_denominator_nonzero R M hR hM f hf hfRe
+  -- Finally, quotient of analytic functions with nonzero denominator is analytic
+  exact lem_quotient_analytic R hR (fun z => f z / z) (fun z => (2 * M : Complex) - f z) h1 h2 h3
 
 lemma lem_absab (a b : Complex) (hb : b ≠ 0) : norm (a / b) = norm a / norm b := by
   simp [norm_div]
@@ -1169,7 +1316,16 @@ lemma lem_g_interior_bound (R M : Real) (hR : R > 0) (hM : M > 0) (f : Complex �
     (hf0 : f 0 = 0) (hfRe : ∀ z : Complex, norm z ≤ R → (f z).re ≤ M)
     (z : Complex) (hz : norm z ≤ R) :
     norm (f_M R M f z) ≤ 1 / R := by
-  sorry -- Uses maximum modulus principle
+  -- Apply maximum modulus principle to f_M
+  -- First, show f_M is analytic on the closed disk
+  have h_analytic := lem_g_analytic R M hR hM f hf hf0 hfRe
+  -- Show the bound holds on the boundary
+  have h_boundary : ∀ w : Complex, norm w = R → norm (f_M R M f w) ≤ 1 / R := by
+    intro w hw
+    exact lem_g_boundary_bound0 R M hR hM f hf hf0 hfRe w hw
+  -- Apply maximum modulus principle
+  have h_pos : 1 / R ≥ 0 := div_nonneg (zero_le_one) (le_of_lt hR)
+  exact lem_HardMMP R hR (1 / R) h_pos (f_M R M f) h_analytic h_boundary z hz
 
 -- g at r lemma
 lemma lem_g_at_r (R M r : Real) (hR : R > 0) (hM : M > 0) (hr : 0 < r) (hrR : r < R)
@@ -1248,14 +1404,38 @@ lemma lem_BCI (R M r : Real) (hR : R > 0) (hM : M > 0) (hr : 0 < r) (hrR : r < R
     (hf0 : f 0 = 0) (hfRe : ∀ z : Complex, norm z ≤ R → (f z).re ≤ M)
     (z : Complex) (hz : norm z ≤ r) :
     norm (f z) ≤ 2 * r / (R - r) * M := by
-  sorry -- Uses maximum modulus principle
+  -- Apply maximum modulus principle to f on the disk of radius r
+  -- First, f is analytic on the smaller disk since r < R
+  have hf_r : AnalyticOn ℂ f {w : Complex | norm w ≤ r} := by
+    apply AnalyticOn.mono hf
+    intro w hw
+    exact le_trans hw (le_of_lt hrR)
+  -- Show the bound holds on the boundary |w| = r
+  have h_boundary : ∀ w : Complex, norm w = r → norm (f w) ≤ 2 * r / (R - r) * M := by
+    intro w hw
+    exact lem_final_bound_on_circle R M r hR hM hr hrR f hf hf0 hfRe w hw
+  -- The bound is non-negative
+  have h_pos : 2 * r / (R - r) * M ≥ 0 := by
+    apply mul_nonneg
+    apply div_nonneg
+    apply mul_nonneg
+    exact le_of_lt zero_lt_two
+    exact le_of_lt hr
+    exact le_of_lt (sub_pos_of_lt hrR)
+    exact le_of_lt hM
+  -- Apply maximum modulus principle
+  exact lem_HardMMP r hr (2 * r / (R - r) * M) h_pos f hf_r h_boundary z hz
 
 -- Borel-Carathéodory I theorem
 theorem thm_BorelCaratheodoryI (R M r : Real) (hR : R > 0) (hM : M > 0) (hr : 0 < r) (hrR : r < R)
     (f : Complex → Complex) (hf : AnalyticOn ℂ f {z : Complex | norm z ≤ R})
     (hf0 : f 0 = 0) (hfRe : ∀ z : Complex, norm z ≤ R → (f z).re ≤ M) :
     (⨆ z : {z : Complex | norm z ≤ r}, norm (f z)) ≤ 2 * r / (R - r) * M := by
-  sorry -- Uses lem_BCI and supremum properties
+  -- The supremum is bounded by the bound from lem_BCI
+  apply iSup_le
+  intro ⟨z, hz⟩
+  simp only [Subtype.coe_mk]
+  exact lem_BCI R M r hR hM hr hrR f hf hf0 hfRe z hz
 
 
 /- Section: Borel-Carathéodory II -/
@@ -1272,15 +1452,17 @@ lemma lem_dw_dt (r' : Real) (t : Real) :
     deriv (fun t => r' * Complex.exp (I * t)) t = I * r' * Complex.exp (I * t) := by
   -- Use the chain rule: d/dt(r' * exp(I*t)) = r' * d/dt(exp(I*t))
   -- We know d/dt(exp(I*t)) = I * exp(I*t)
-  simp only [deriv_const_mul]
-  have : deriv (fun t => Complex.exp (I * t)) t = I * Complex.exp (I * t) := by
-    have : deriv (fun t => Complex.exp (I * t)) t = deriv Complex.exp (I * t) * I := by
-      rw [deriv_comp _ (differentiableAt_id.const_mul _) differentiableAt_exp]
-      simp [deriv_mul_const, deriv_id'']
-    rw [this, deriv_exp]
-    ring
-  rw [this]
-  ring
+  rw [deriv_const_mul]
+  · conv_rhs => rw [mul_comm I, mul_assoc]
+    congr 1
+    -- Calculate deriv (fun t => Complex.exp (I * t)) t = I * Complex.exp (I * t)
+    have : deriv (fun t => Complex.exp (I * ↑t)) (↑t) = I * Complex.exp (I * ↑t) := by
+      rw [deriv_cexp]
+      simp [mul_comm]
+      exact differentiableAt_const.mul differentiableAt_id
+    exact this
+  · apply DifferentiableAt.cexp
+    exact differentiableAt_const.mul differentiableAt_id
 
 -- Cauchy's Integral Formula parameterized
 lemma lem_CIF_deriv_param (R r r' : Real) (f : Complex → Complex)
@@ -1318,7 +1500,8 @@ lemma lem_modulus_of_f_prime (R r r' : Real) (f : Complex → Complex)
     (hr : 0 < r) (hr' : r < r') (hr'R : r' < R) (z : Complex) (hz : norm z ≤ r) :
     norm (deriv f z) ≤ (2 * π)⁻¹ * ∫ t in (0)..(2*π),
       norm (f (r' * Complex.exp (I * t)) * r' * Complex.exp (I * t) / (r' * Complex.exp (I * t) - z)^2) := by
-  sorry
+  rw [lem_modulus_of_f_prime0 R r r' f hf hr hr' hr'R z hz]
+  apply lem_integral_modulus_inequality
 
 -- Integrand modulus product
 lemma lem_modulus_of_integrand_product2 (r' : Real) (f : Complex → Complex) (t : Real) :
@@ -1509,7 +1692,19 @@ lemma lem_bound_on_f_at_r_prime (M R r' : ℝ) (hM : 0 < M) (hR : 0 < R) (hr' : 
     (f : Complex → Complex) (hf : AnalyticOn ℂ f {z : Complex | norm z ≤ R})
     (hf0 : f 0 = 0) (hRe : ∀ z : Complex, norm z ≤ R → (f z).re ≤ M)
     (t : ℝ) : norm (f (r' * Complex.exp (I * t))) ≤ 2 * r' * M / (R - r') := by
-  sorry
+  -- The point r' * exp(I * t) has norm r'
+  have h_norm : norm ((r' : Complex) * Complex.exp (I * t)) = r' := by
+    rw [norm_mul, Complex.norm_exp_ofReal_mul_I]
+    simp only [Complex.norm_eq_abs, Complex.abs_ofReal, abs_of_pos hr', mul_one]
+  -- Since norm(r' * exp(I * t)) = r' ≤ r' < R, we can apply lem_BCI
+  have h_in_disk : norm ((r' : Complex) * Complex.exp (I * t)) ≤ r' := by
+    rw [h_norm]
+  -- Apply lem_BCI with r = r'
+  -- Note: lem_BCI returns 2 * r / (R - r) * M, we need to show it equals 2 * r' * M / (R - r')
+  have h_eq : 2 * r' / (R - r') * M = 2 * r' * M / (R - r') := by
+    ring
+  rw [← h_eq]
+  exact lem_BCI R M r' hR hM hr' hr'R f hf hf0 hRe ((r' : Complex) * Complex.exp (I * t)) h_in_disk
 
 -- Integrand bound
 lemma lem_bound_on_integrand_modulus (M R r r' : ℝ) (hM : 0 < M) (hR : 0 < R)
