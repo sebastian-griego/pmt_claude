@@ -99,11 +99,11 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
     _ > (2 : ℝ) ^ 1 := by
       have : 1 < s.re := hs
       -- Since 2 > 1 and 1 < s.re, we have 2^1 < 2^(s.re)
-      rw [show (2 : ℝ) ^ (1 : ℝ) = 2 by norm_num]
-      apply Real.one_lt_rpow
+      apply Real.rpow_lt_rpow
       · norm_num
       · exact hs
-    _ = 2 := by simp
+      · norm_num
+    _ = 2 := by norm_num
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1
   have hpower_pos : 0 < (p : ℝ) ^ s.re := Real.rpow_pos_of_pos hp_pos _
@@ -351,6 +351,8 @@ lemma prod_positive :
     0 < ∏' p : Nat.Primes, (1 + (p : ℝ) ^ (-(3/2 : ℝ))) := by
   -- The product of positive numbers is positive
   -- Each factor is > 1, so the product is > 0
+  -- We need multipliability and then the fact that tprod preserves positivity
+  -- TODO: Find correct Mathlib API for infinite product positivity
   sorry
 
 -- Final lower bound
