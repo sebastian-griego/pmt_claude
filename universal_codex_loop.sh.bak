@@ -150,12 +150,12 @@ Act on ONE small improvement now, strictly following AGENTS.md (Lean PNT rules).
 
   set +e
   codex exec \
-      --model "${MODEL}" \
-      --sandbox workspace-write \
-      "$FULL_PROMPT" \
-      > "${LOG_FILE}" 2>&1
-    status=$?
-
+    --model "${MODEL}" \
+    --sandbox workspace-write \
+    --ask-for-approval never \
+    "$FULL_PROMPT" \
+    > "${LOG_FILE}" 2>&1
+  status=$?
   set -e
 
   if [ $status -ne 0 ]; then
