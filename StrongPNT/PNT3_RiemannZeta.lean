@@ -23,9 +23,12 @@ lemma zeta_converges_re_gt_one (s : ℂ) (hs : 1 < s.re) :
   -- The Riemann zeta function is defined as this sum for Re(s) > 1
   -- We can use the fact that the p-series converges for p > 1
   have h_pos : 0 < s.re - 1 := by linarith
-  -- Convert to a form that mathlib's summability theorems can handle
-  -- TODO: Find the correct Mathlib function for summability of cpow series
-  sorry
+  -- Use Mathlib's theorem about summability of p-series
+  rw [← summable_norm_iff]
+  simp_rw [norm_div, norm_one, one_div]
+  convert summable_one_div_nat_pow_of_lt hs using 1
+  ext n
+  simp [Complex.norm_natCast_cpow_of_pos n.pos hs]
 
 -- Zeta non-zero for Re(s) > 1
 lemma zeta_ne_zero_re_gt_one (s : ℂ) (hs : 1 < s.re) :

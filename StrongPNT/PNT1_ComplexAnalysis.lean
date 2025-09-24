@@ -12,6 +12,7 @@ import Mathlib.Analysis.Calculus.Deriv.Mul
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
 import Mathlib.Topology.MetricSpace.Basic
+import Mathlib.Analysis.Complex.Liouville
 
 open Complex Real BigOperators Filter
 open scoped ComplexConjugate
@@ -667,7 +668,24 @@ lemma lem_Liouville (f : Complex → Complex)
     (hf : ∀ z : ℂ, AnalyticAt ℂ f z)
     (hb : ∃ M : Real, ∀ z : Complex, norm (f z) ≤ M) :
     ∃ c : Complex, ∀ z : Complex, f z = c := by
-  sorry
+  -- First, we need to establish that f is differentiable
+  have hdiff : Differentiable ℂ f := by
+    intro z
+    exact (hf z).differentiableAt
+  -- Next, we establish that the range is bounded
+  have hbounded : IsBounded (Set.range f) := by
+    obtain ⟨M, hM⟩ := hb
+    use M
+    rw [isBounded_iff_forall_norm_le]
+    intro y hy
+    obtain ⟨x, rfl⟩ := hy
+    exact hM x
+  -- Apply Liouville's theorem from Mathlib
+  have hconst : ∀ z w : ℂ, f z = f w := Differentiable.apply_eq_apply_of_bounded hdiff hbounded
+  -- Choose any point as the constant value
+  use f 0
+  intro z
+  exact hconst z 0
 
 -- Jensen's formula related
 lemma lem_JensenLog (f : Complex → Complex) (R : Real) (hR : 0 < R)

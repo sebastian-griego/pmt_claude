@@ -1,30 +1,21 @@
 #!/usr/bin/env bash
-# universal_claude_loop.sh - works for any project type (minimal, with rate-limit retry)
+# universal_claude_loop.sh - works for any project type
 set -euo pipefail
-
 # Configuration (can be overridden by .claude_config)
 PROJECT_TYPE="${PROJECT_TYPE:-code}"      # 'code' or 'research'
-SLEEP_SECS="${SLEEP_SECS:-30}"           # default 30s for code
-PROGRESS_TAIL="${PROGRESS_TAIL:-40000}"  # context size
-
-# Minimal backoff knobs
-BACKOFF_MIN="${BACKOFF_MIN:-30}"         # seconds
-BACKOFF_MAX="${BACKOFF_MAX:-900}"        # cap (15m)
-
+SLEEP_SECS="${SLEEP_SECS:-400}"           # default 30s for code
+PROGRESS_TAIL="${PROGRESS_TAIL:-40000}"   # context size
 # Load project-specific config if exists
 PROJECT="${1:-$PWD}"
 cd "$PROJECT"
 [ -f .claude_config ] && source .claude_config
-
 # Adjust sleep based on project type
 if [ "$PROJECT_TYPE" = "research" ]; then
-    SLEEP_SECS="${SLEEP_SECS:-300}"  # 5 min for research
+    SLEEP_SECS="${SLEEP_SECS:-450}"  # 5 min for research
 fi
-
 command -v claude >/dev/null || { echo "ERROR: 'claude' CLI not found"; exit 1; }
 mkdir -p logs
-touch PROGRESS.md
-
+touch PROGRESS2.md
 # Base prompt based on project type
 if [ "$PROJECT_TYPE" = "research" ]; then
     BASE_PROMPT='You are managing research experiments.
@@ -41,16 +32,7 @@ Rules:
 - Document progress in PROGRESS.md
 - Keep changes focused and atomic'
 fi
-
 echo "[startup] universal_claude_loop.sh in $PWD (type=$PROJECT_TYPE, sleep=${SLEEP_SECS}s)"
-
-# Helper to detect rate-limit/quota-ish errors
-is_rate_limited() {
-  grep -qiE 'rate limit|429|quota|usage cap|exceeded.*limit|temporar|retry|capacity' "logs/last_claude.json"
-}
-
-backoff="$BACKOFF_MIN"
-
 while true; do
     [ -f STOP ] && { echo "STOP detected"; exit 0; }
     
@@ -66,23 +48,10 @@ $CLAUDE_SPEC
 Time: $TS"
     echo "[$TS] calling claude..."
     
-    set +e
     claude -p "$FULL_PROMPT" \
         --dangerously-skip-permissions \
         --output-format json \
         > logs/last_claude.json 2>&1
-    status=$?
-    set -e
-
-    if [ $status -ne 0 ] && is_rate_limited; then
-        echo "[$TS] Rate limit/quota detected. Backing off ${backoff}s and will retry..."
-        sleep "$backoff"
-        backoff=$(( backoff * 2 ))
-        [ "$backoff" -gt "$BACKOFF_MAX" ] && backoff="$BACKOFF_MAX"
-        continue
-    else
-        backoff="$BACKOFF_MIN"
-    fi
     
     # Git commit after each iteration
     echo "[$TS] committing to git..."
