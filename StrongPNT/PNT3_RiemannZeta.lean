@@ -98,11 +98,11 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
       · linarith
     _ > (2 : ℝ) ^ 1 := by
       have : 1 < s.re := hs
-      rw [gt_iff_lt]
-      apply Real.rpow_lt_rpow
+      -- Since 2 > 1 and 1 < s.re, we have 2^1 < 2^(s.re)
+      rw [show (2 : ℝ) ^ (1 : ℝ) = 2 by norm_num]
+      apply Real.one_lt_rpow
       · norm_num
-      · norm_num
-      · exact this
+      · exact hs
     _ = 2 := by simp
     _ > 1 := by norm_num
   -- So 1/p^(Re(s)) < 1
