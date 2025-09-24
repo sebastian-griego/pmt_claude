@@ -534,8 +534,17 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     rw [h_eq]
     exact h0.analyticWithinAt
   · -- Case: z ≠ 0
-    have : z ∈ {z : Complex | norm z ≤ R ∧ z ≠ 0} := ⟨hz, h_eq⟩
-    exact hT z this
+    have hmem : z ∈ {w : Complex | norm w ≤ R ∧ w ≠ 0} := by
+      simp only [Set.mem_setOf]
+      exact ⟨hz, h_eq⟩
+    have h_analytic := hT z hmem
+    -- Need to show AnalyticWithinAt at insert z {z | norm z ≤ R}
+    apply h_analytic.mono
+    intro w hw
+    simp only [Set.mem_insert_iff, Set.mem_setOf] at hw ⊢
+    obtain rfl | hw := hw
+    · exact ⟨hz, h_eq⟩
+    · exact ⟨hw, fun hw_eq => by subst hw_eq; contradiction⟩
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
