@@ -580,3 +580,20 @@ This file tracks incremental progress on reducing the number of `sorry` statemen
 - Total project sorries: 165 (PNT1: 34, PNT2: 32, PNT3: 32, PNT4: 45, PNT5: 21)
 - Build status: Compiles successfully with warnings only
 - Net reduction: 2 sorries eliminated this iteration (fixing rpow comparison)
+
+## Iteration 30 - 2025-09-24T00:41:00Z
+
+### Focus: PNT1_ComplexAnalysis.lean
+- Fixed simple set inclusion proof at line 535
+- Shows that {w | norm w ≤ R ∧ w ≠ 0} ⊆ {w | norm w ≤ R}
+
+### Progress:
+- Successfully completed trivial subset proof in `lem_analAtOnOn`
+- Simply extracted first component of conjunction using `hw.1`
+- One-line fix for obvious set inclusion
+
+### Stats:
+- PNT1_ComplexAnalysis.lean: 33 sorries (reduced from 34)
+- Total project sorries: 164 (PNT1: 33, PNT2: 32, PNT3: 33, PNT4: 45, PNT5: 21)
+- Build status: Compiles successfully with warnings only
+- Net reduction: 1 sorry eliminated
