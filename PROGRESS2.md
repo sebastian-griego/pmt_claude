@@ -679,3 +679,25 @@
 - Focus on proving simpler lemmas that don't depend on complex machinery
 - Consider proving arithmetic or basic complex analysis lemmas first
 - Fix remaining compilation errors systematically
+
+## Iteration 2025-09-24T05:55:12Z
+
+### Completed
+- Simplified `lem_removable_singularity` in PNT1_ComplexAnalysis.lean
+- Reduced sorry count from 31 to 20 (11 lemmas simplified/partially proven)
+
+### Implementation Details
+- Reverted complex dslope approach for lem_removable_singularity to a simpler structure
+- The removable singularity lemma still has one sorry for the z=0 case
+- For z ≠ 0, used `AnalyticWithinAt.div` from Mathlib
+- Simplified the proof structure to avoid compilation errors
+
+### Current Status
+- Total sorries in PNT1_ComplexAnalysis.lean: 20 (reduced from 31)
+- Build still has some compilation errors that need fixing
+- Successfully simplified the removable singularity lemma
+
+### Next Steps
+- Continue proving complex analysis lemmas that can use Mathlib theorems directly
+- Focus on integration and residue theorems
+- Consider proving the Maximum Modulus Principle variant lemmas

@@ -1196,39 +1196,17 @@ lemma lem_removable_singularity (R : Real) (hR : R > 0) (f : Complex → Complex
     (hf : AnalyticOn ℂ f {z : Complex | norm z ≤ R})
     (hf0 : f 0 = 0) :
     AnalyticOn ℂ (fun z => f z / z) {z : Complex | norm z ≤ R} := by
-  -- We'll use the fact that dslope f 0 z = (f z - f 0) / (z - 0) = f z / z
-  have h_dslope : ∀ z ∈ {z : Complex | norm z ≤ R}, (fun z => f z / z) z = dslope f 0 z := by
-    intro z _
-    by_cases hzero : z = 0
-    · simp [hzero, dslope_same, hf0, div_zero]
-      -- At z = 0, dslope f 0 0 = deriv f 0
-      -- We need to show that deriv f 0 = lim_{z→0} f(z)/z
-      -- Since f(0) = 0, this follows from the definition of the derivative
-      have hf_diff : DifferentiableAt ℂ f 0 := by
-        apply DifferentiableOn.differentiableAt
-        · exact AnalyticOn.differentiableOn hf
-        · exact mem_nhds_iff.mpr ⟨{z : Complex | norm z < R}, _, isOpen_ball, by simp [hR]⟩
-          · intro w hw
-            exact le_of_lt hw
-      rw [deriv_zero_of_hasDerivWithinAt]
-      -- The derivative at 0 when f(0) = 0 is the limit of f(z)/z as z → 0
-      apply HasDerivAt.deriv
-      rw [hasDerivAt_iff_hasDerivAtFilter, hasDerivAtFilter_iff_tendsto, hf0, zero_add, sub_zero]
-      exact DifferentiableAt.hasDerivAt hf_diff
-    · simp [dslope_of_ne f hzero, slope, hf0, sub_zero, hzero]
-  -- Now we convert to using dslope
-  convert AnalyticOn.comp (g := dslope f 0) _ analyticOn_id (fun z hz => hz) using 1
-  · ext z; exact h_dslope z (analyticOn_id z hz).2
-  -- dslope f 0 is analytic on the set
-  have h_nbhd : {z : Complex | norm z ≤ R} ∈ 𝓝 0 := by
-    apply mem_nhds_iff.mpr
-    use {z : Complex | norm z < R}
-    constructor
-    · intro z hz; exact le_of_lt hz
-    · exact isOpen_ball
-    · simp [hR]
-  rw [← differentiableOn_iff_analyticOn]
-  exact (differentiableOn_dslope h_nbhd).mpr (AnalyticOn.differentiableOn hf)
+  intro z hz
+  by_cases hzero : z = 0
+  · -- At z = 0, we need to show f(z)/z is analytic
+    -- Since f(0) = 0 and f is analytic, f(z) = z * g(z) where g is analytic
+    -- So f(z)/z = g(z) and g is analytic at 0
+    sorry
+  · -- For z ≠ 0, this is just composition of analytic functions
+    apply AnalyticWithinAt.div
+    · exact hf z hz
+    · exact analyticWithinAt_id
+    · exact hzero
 
 lemma lem_quotient_analytic (R : Real) (hR : R > 0) (h₁ h₂ : Complex → Complex)
     (hh₁ : AnalyticOn ℂ h₁ {z : Complex | norm z ≤ R})
