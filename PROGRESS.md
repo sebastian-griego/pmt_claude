@@ -81,3 +81,93 @@
 - Target simpler lemmas in PNT1_ComplexAnalysis.lean that don't require complex integration
 - Consider proving auxiliary lemmas that support the main theorems
 - Look for lemmas that can be proven using existing Mathlib results
+
+## Iteration 2025-09-24T06:58:34Z
+
+### Status Check
+- Verified current sorry count remains at 151 across all files
+- PNT1_ComplexAnalysis.lean has compilation errors that need addressing
+- File contains 19 sorries but doesn't build successfully
+
+### Files with sorries
+- PNT1_ComplexAnalysis.lean: 19 sorries
+- PNT2_LogDerivative.lean: 32 sorries
+- PNT3_RiemannZeta.lean: 34 sorries
+- PNT4_ZeroFreeRegion.lean: 45 sorries
+- PNT5_StrongPNT.lean: 21 sorries
+
+### Notes
+- Compilation issues in PNT1_ComplexAnalysis.lean prevent full testing
+- Many complex analysis lemmas require deep integration theory
+- Focus should remain on simpler proofs that don't require advanced machinery
+
+### Next Steps
+- Fix compilation errors in PNT1_ComplexAnalysis.lean
+- Target arithmetic and basic analytic lemmas for proof completion
+- Consider alternative approaches for complex integration-based lemmas
+
+## Iteration 2025-09-24T07:10:37Z
+
+### Completed
+- Partially proved `lem_Schwarz` in PNT1_ComplexAnalysis.lean
+- Handled the boundary case where ‖z‖ = 1 directly using the hypothesis
+- Reduced sorry count from 19 to 18 in PNT1_ComplexAnalysis.lean
+
+### Implementation Details
+- Modified proof structure in `lem_Schwarz` to handle boundary and interior cases separately
+- For boundary points (‖z‖ = 1), directly applied the given bound ‖f z‖ ≤ 1
+- Replaced complex incorrect logic with cleaner case analysis
+- Left interior case as sorry for future work requiring proper Schwarz lemma application
+
+### Current Status
+- Total sorries: 150 (reduced from 151)
+- PNT1_ComplexAnalysis.lean: 18 sorries (still has compilation errors at other lines)
+- Other files unchanged
+
+### Notes
+- File still has compilation errors at lines 545, 756 and others unrelated to this change
+- The Schwarz lemma proof needs proper application of Mathlib's complex analysis tools for interior
+- Made progress on one of the simpler cases within the lemma
+
+### Next Steps
+- Fix remaining compilation errors in PNT1_ComplexAnalysis.lean (priority)
+- Complete the interior case of Schwarz lemma using Mathlib's tools
+- Continue with simpler lemmas that don't require deep complex analysis
+
+## Iteration 2025-09-24T07:17:23Z
+
+### Completed
+- Proved `h_re_bound` lemma in PNT4_ZeroFreeRegion.lean (line 65-86)
+- Reduced sorry count from 150 to 149
+
+### Implementation Details
+- Fixed multiple compilation errors in PNT1_ComplexAnalysis.lean:
+  - Line 545: Fixed cases' with non-inductive type by adding simp
+  - Line 757: Fixed differentiableWithinAt.mono subset argument
+  - Line 808: Fixed use statement for Metric.isBounded_iff_subset_ball
+  - Line 863-867: Fixed DifferentiableOn proof using proper mono argument
+  - Line 895-899: Fixed MapsTo proof for Schwarz lemma
+  - Line 924-931: Fixed uIcc membership proof with proper case analysis
+- Proved geometric bound in PNT4_ZeroFreeRegion.lean:
+  - Showed all points in disk of radius 5/6 around 3/2 + ti have real part > 2/3
+  - Used triangle inequality for complex numbers
+  - Applied distance bounds to derive the result
+
+### Current Status
+- Total sorries remaining: 149
+- Files with sorries:
+  - PNT1_ComplexAnalysis.lean: 18 (still has compilation errors)
+  - PNT2_LogDerivative.lean: 32
+  - PNT3_RiemannZeta.lean: 34
+  - PNT4_ZeroFreeRegion.lean: 44 (reduced from 45)
+  - PNT5_StrongPNT.lean: 21
+
+### Notes
+- PNT1_ComplexAnalysis.lean still has about 25 compilation errors to fix
+- Successfully proved a geometric lemma about complex disk membership
+- Focus on fixing remaining compilation errors before proving more lemmas
+
+### Next Steps
+- Fix remaining compilation errors in PNT1_ComplexAnalysis.lean
+- Look for simpler arithmetic and geometric lemmas to prove
+- Target lemmas that don't require deep theory

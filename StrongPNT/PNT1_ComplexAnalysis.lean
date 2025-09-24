@@ -538,13 +538,11 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
       simp only [Set.mem_setOf]
       exact ⟨hz, h_eq⟩
     have h_analytic := hT z hmem
-    -- Need to show AnalyticWithinAt at insert z {z | norm z ≤ R}
+    -- h_analytic is AnalyticWithinAt at {w | norm w ≤ R ∧ w ≠ 0}
+    -- We need AnalyticWithinAt at {w | norm w ≤ R}
     apply h_analytic.mono
-    intro w hw
-    simp only [Set.mem_insert_iff, Set.mem_setOf] at hw ⊢
-    obtain rfl | hw := hw
-    · exact ⟨hz, h_eq⟩
-    · exact ⟨hw, fun hw_eq => by subst hw_eq; contradiction⟩
+    -- Show {w | norm w ≤ R ∧ w ≠ 0} ⊆ {w | norm w ≤ R}
+    exact fun _ hw => hw.1
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
@@ -753,7 +751,7 @@ lemma lem_MaxModulusPrinciple (f : Complex → Complex) (R : Real) (hR : 0 < R)
     have hdiff_open : DifferentiableOn ℂ f (Metric.ball 0 R) := by
       intro z hz
       rw [← h_open] at hz
-      exact (hf z (le_of_lt hz)).differentiableAt.differentiableWithinAt
+      exact (hf z (le_of_lt hz)).differentiableWithinAt.mono (subset_insert _ _)
     have hmax_open : IsMaxOn (norm ∘ f) (Metric.ball 0 R) z₀ := by
       intro w hw
       rw [← h_open] at hw
@@ -804,8 +802,7 @@ lemma lem_Liouville (f : Complex → Complex)
   have hbounded : Bornology.IsBounded (Set.range f) := by
     obtain ⟨M, hM⟩ := hb
     rw [Metric.isBounded_iff_subset_ball]
-    use 0
-    use M + 1
+    use 0, M + 1
     intro y hy
     obtain ⟨x, rfl⟩ := hy
     simp only [Metric.mem_ball, Complex.dist_eq]
@@ -860,25 +857,29 @@ lemma lem_Schwarz (f : Complex → Complex)
       intro w hw
       have : ‖w‖ ≤ 1 := by simp [Metric.closedBall, dist_zero_right] at hw; exact hw
       have h_an := hf w this
-      exact h_an.differentiableWithinAt
+      have hdiff := h_an.differentiableWithinAt
+      apply hdiff.mono
+      intro x hx
+      simp [Metric.closedBall, dist_zero_right] at hx ⊢
+      exact hx
 
     -- Apply Mathlib's Schwarz lemma for distance bound
     by_cases h : z = 0
     · simp [h, hf0]
-    · have hz_ball : z ∈ Metric.ball 0 1 := by
-        simp [Metric.ball, dist_zero_right]
-        -- We know ‖z‖ ≤ 1 and z ≠ 0, so we need to show ‖z‖ < 1
-        by_contra hneg
-        push_neg at hneg
-        have : ‖z‖ = 1 := le_antisymm hz hneg
-        sorry  -- This case needs a more careful analysis
-      have h_maps : MapsTo f (Metric.ball 0 1) (Metric.ball 0 1) := by
-        intro w hw
-        simp [Metric.ball, dist_zero_right] at hw ⊢
-        have : ‖w‖ ≤ 1 := le_of_lt hw
-        calc ‖f w‖ ≤ ‖w‖ := hfbound w this
-          _ < 1 := hw
-      sorry  -- Schwarz lemma application needs proper formulation
+    · -- For non-zero z with ‖z‖ ≤ 1, we use the function g(w) = f(w)/w
+      -- which is analytic in the unit disk (removing singularity at 0)
+      -- and satisfies |g(w)| ≤ 1 on the boundary
+      by_cases hz_eq : ‖z‖ = 1
+      · -- On the boundary ‖z‖ = 1, we directly use the hypothesis
+        calc ‖f z‖ ≤ 1 := hfbound z hz
+          _ = ‖z‖ := hz_eq.symm
+      · -- Interior case: ‖z‖ < 1
+        have hz_lt : ‖z‖ < 1 := lt_of_le_of_ne hz hz_eq
+        -- For the interior, we can apply continuity and maximum principle
+        -- The bound |f(w)| ≤ |w| holds by applying Schwarz to the function g(w) = f(w)/w
+        -- Since f(0) = 0, g extends analytically to 0 with g(0) = f'(0)
+        -- The bound |g(w)| ≤ 1 for |w| < 1 gives |f(w)| ≤ |w|
+        sorry  -- Schwarz lemma application for interior points
 
   · -- Second part: |f'(0)| ≤ 1
     have hf_diff : DifferentiableOn ℂ f (Metric.ball 0 1) := by
@@ -890,8 +891,7 @@ lemma lem_Schwarz (f : Complex → Complex)
       intro w hw
       simp [Metric.ball, dist_zero_right] at hw ⊢
       have : ‖w‖ ≤ 1 := le_of_lt hw
-      calc ‖f w‖ ≤ ‖w‖ := hfbound w this
-        _ < 1 := hw
+      exact lt_of_le_of_lt (hfbound w this) (by norm_num : (1 : ℝ) < 2)
     sorry  -- Schwarz lemma derivative bound needs proper formulation
 
 -- Phragmen-Lindelöf principle for a strip
@@ -916,14 +916,14 @@ lemma lem_integral_bound (f : Complex → Complex) (a b : Real) (hab : a < b)
   -- Use Mathlib's norm_integral_le_of_norm_le_const
   have h : ∀ x ∈ Set.uIcc a b, ‖f ↑x‖ ≤ M := by
     intro x hx
-    -- uIcc is the interval with min and max as endpoints
+    -- uIcc is the union of [a,b] and [b,a], but since a < b, it's just [a,b]
     rw [Set.mem_uIcc] at hx
-    -- Need to show x ∈ Icc a b
-    have : x ∈ Set.Icc a b := by
-      rw [Set.mem_Icc]
-      exact ⟨min_le_iff.mp hx.1 |>.resolve_right (le_of_lt hab),
-             max_le_iff.mp hx.2 |>.resolve_right (le_of_lt hab)⟩
-    exact hM x this
+    cases' hx with hab' hba
+    · -- Case: a ≤ x ∧ x ≤ b
+      exact hM x ⟨hab'.1, hab'.2⟩
+    · -- Case: b ≤ x ∧ x ≤ a (impossible since a < b)
+      exfalso
+      linarith [hba.1, hba.2, hab]
   convert intervalIntegral.norm_integral_le_of_norm_le_const h using 1
   rw [abs_of_pos (sub_pos.mpr hab)]
 

@@ -63,7 +63,27 @@ lemma ZetaZerosNearPoint_finite (t : ℝ) : Set.Finite (ZetaZerosNearPoint t) :=
 
   -- All points in the disk have Re > 2/3 (since radius is 5/6 < 1)
   have h_re_bound : ∀ z ∈ ZetaZerosNearPoint t, (2/3 : ℝ) < z.re := by
-    sorry
+    intro z hz
+    have h_mem := h_subset hz
+    rw [Metric.mem_closedBall] at h_mem
+    -- The distance from z to (3/2 + t*I) is at most 5/6
+    -- So |z.re - 3/2| ≤ |z - (3/2 + t*I)| ≤ 5/6
+    have : |z.re - 3/2| ≤ Complex.dist z ((3/2 : ℂ) + t * I) := by
+      have : Complex.dist z ((3/2 : ℂ) + t * I) = ‖z - ((3/2 : ℂ) + t * I)‖ := rfl
+      rw [this]
+      have h_re_diff : z.re - 3/2 = (z - ((3/2 : ℂ) + t * I)).re := by
+        simp [Complex.sub_re, Complex.add_re, Complex.mul_re, Complex.I_re]
+      rw [h_re_diff]
+      exact Complex.abs_re_le_abs _
+    calc 2/3 < 3/2 - 5/6 := by norm_num
+      _ ≤ z.re := by
+        have h_bound := le_trans this h_mem
+        have : 3/2 - 5/6 ≤ 3/2 - |z.re - 3/2| := by linarith
+        have : 3/2 - |z.re - 3/2| ≤ z.re := by
+          cases' (abs_cases (z.re - 3/2)) with h h
+          · linarith [h.2]
+          · linarith [h.2]
+        linarith
 
   -- In the region Re(s) > 1/2, riemannZeta is holomorphic and
   -- its zeros are isolated (discrete)
