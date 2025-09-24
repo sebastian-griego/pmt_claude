@@ -1,15 +1,4 @@
-[2025-09-24T03:51:02] OpenAI Codex v0.40.0 (research preview)
---------
-workdir: /home/jovyan/pmt_claude
-model: gpt-5 high
-provider: openai
-approval: never
-sandbox: workspace-write [workdir, /tmp, $TMPDIR]
-reasoning effort: medium
-reasoning summaries: auto
---------
-[2025-09-24T03:51:02] User instructions:
-You are working on this repository.
+error: unexpected argument 'You are working on this repository.
 Rules:
 - Make one small, testable improvement per iteration
 - Apply changes directly
@@ -131,12 +120,11 @@ Never `cd` into `StrongPNT/`
 * [ ] Zero uses of `sorry` in any file
 * [ ] Full lake build succeeds
 
-Time: 2025-09-24T03:51:02Z
+Time: 2025-09-24T03:53:27Z
 
 Act on ONE small improvement now, strictly following AGENTS.md (Lean PNT rules).
-[2025-09-24T03:51:03] stream error: unexpected status 400 Bad Request: {"detail":"Unsupported model"}; retrying 1/5 in 203ms…
-[2025-09-24T03:51:03] stream error: unexpected status 400 Bad Request: {"detail":"Unsupported model"}; retrying 2/5 in 432ms…
-[2025-09-24T03:51:04] stream error: unexpected status 400 Bad Request: {"detail":"Unsupported model"}; retrying 3/5 in 814ms…
-[2025-09-24T03:51:05] stream error: unexpected status 400 Bad Request: {"detail":"Unsupported model"}; retrying 4/5 in 1.547s…
-[2025-09-24T03:51:06] stream error: unexpected status 400 Bad Request: {"detail":"Unsupported model"}; retrying 5/5 in 3.359s…
-[2025-09-24T03:51:10] ERROR: unexpected status 400 Bad Request: {"detail":"Unsupported model"}
+' found
+
+Usage: codex exec [OPTIONS] [PROMPT] [COMMAND]
+
+For more information, try '--help'.

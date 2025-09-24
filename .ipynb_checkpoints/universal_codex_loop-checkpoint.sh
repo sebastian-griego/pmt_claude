@@ -75,7 +75,7 @@ Act on ONE small improvement now, strictly following AGENTS.md (Lean PNT rules).
   # Headless run, repo-scoped edits only
   set +e
   codex exec \
-    --model gpt-5-codex \
+    --model gpt-5 high \
     --sandbox workspace-write \
     "$FULL_PROMPT" \
     > "logs/last_codex.txt" 2>&1
