@@ -98,8 +98,9 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
       · linarith
     _ > (2 : ℝ) ^ 1 := by
       have : 1 < s.re := hs
-      apply Real.rpow_lt_rpow
-      · exact one_lt_two
+      rw [gt_iff_lt]
+      apply Real.rpow_lt_rpow_of_exponent_lt
+      · norm_num
       · exact this
     _ = 2 := by simp
     _ > 1 := by norm_num

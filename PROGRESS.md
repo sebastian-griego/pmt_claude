@@ -2,6 +2,31 @@
 
 This file tracks the progress of removing `sorry` statements from the StrongPNT project.
 
+## Iteration 2025-09-24T00:06:30Z
+
+### Fixed
+- Fixed calc block in `p_s_abs_1` in PNT3_RiemannZeta.lean (line 99-103) - Fixed build error
+  - Fixed comparison `2^s.re > 2^1` using `Real.rpow_lt_rpow_of_exponent_lt` with gt_iff_lt
+  - This was preventing build from succeeding due to type mismatch
+
+### Current Status
+- Total sorries: 165 (unchanged from last iteration)
+  - PNT1_ComplexAnalysis.lean: 35 sorries
+  - PNT2_LogDerivative.lean: 33 sorries
+  - PNT3_RiemannZeta.lean: 31 sorries
+  - PNT4_ZeroFreeRegion.lean: 45 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build successful
+
+### Notes
+- Fixed a calc block that was causing build errors in PNT3
+- The fix involved using the correct comparison direction with rpow_lt_rpow_of_exponent_lt
+- No net reduction in sorries, but fixed a critical build error
+
+### Next Steps
+- Continue fixing simple lemmas that don't depend on missing API functions
+- Focus on arithmetic and boolean lemmas
+
 ## Iteration 2025-09-23T23:49:50Z
 
 ### Fixed
