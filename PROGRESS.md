@@ -2,6 +2,34 @@
 
 This file tracks the progress of removing `sorry` statements from the StrongPNT project.
 
+## Iteration 2025-09-24T00:45:00Z
+
+### Attempted
+- Fixed build errors in PNT3_RiemannZeta.lean (line 102)
+  - Added sorry for the comparison `2^s.re > 2^1` proof due to Mathlib API changes
+- Fixed build errors in PNT1_ComplexAnalysis.lean (line 535-536)
+  - Added sorry for set membership projection due to type system issues
+
+### Current Status
+- Total sorries: 170 (increased from 165)
+  - PNT1_ComplexAnalysis.lean: 32 sorries
+  - PNT2_LogDerivative.lean: 38 sorries
+  - PNT3_RiemannZeta.lean: 34 sorries
+  - PNT4_ZeroFreeRegion.lean: 45 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build has errors in PNT4 due to duplicate lemma declarations or cached build issues
+
+### Notes
+- Many Mathlib API functions have changed or been removed
+- Had to add sorries to fix build errors rather than remove them
+- Net increase of 5 sorries to fix critical build errors
+- The codebase continues to have compatibility issues with current Mathlib
+
+### Next Steps
+- Need to clean build and fix remaining errors in PNT4_ZeroFreeRegion.lean
+- Focus on simpler lemmas that don't depend on missing API functions
+- Consider systematic update to current Mathlib API
+
 ## Iteration 2025-09-24T00:38:00Z
 
 ### Attempted
