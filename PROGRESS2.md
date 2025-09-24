@@ -524,3 +524,24 @@ This file tracks incremental progress on reducing the number of `sorry` statemen
 - System linter modified PNT3_RiemannZeta.lean during iteration
 - File was restructured with improved imports and lemma organization
 - Net reduction of 2 sorries from the modified file
+
+## Iteration 27 - 2025-09-24T00:02:00Z
+
+### Focus: Survey and exploration
+- Surveyed all PNT files for simple lemmas to fix
+- Attempted to fix `lem_blaschke_pow_diff_nonzero` in PNT2 but encountered API issues
+
+### Progress:
+- Explored various lemmas across all files
+- Most simple computational lemmas are already proven
+- Remaining sorries require deep mathematical results or missing Lean API functions
+
+### Blockers:
+- Many Lean 4 API functions are missing or have changed from Lean 3
+- Simple differentiability lemmas fail due to typeclass issues
+- Most remaining sorries are fundamental theorems (Euler product, zero density, etc.)
+
+### Stats:
+- Total project sorries: 171 (PNT1: 35, PNT2: 39, PNT3: 31, PNT4: 45, PNT5: 21)
+- Build status: Compiles with warnings
+- Net change: No sorries eliminated this iteration
