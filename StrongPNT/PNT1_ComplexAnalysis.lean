@@ -526,11 +526,14 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
   · rw [h_eq]
     -- Convert AnalyticAt to AnalyticWithinAt
     exact h0.analyticWithinAt
-  · have : z ∈ {w : Complex | norm w ≤ R ∧ w ≠ 0} := ⟨hz, h_eq⟩
+  · have : z ∈ {w : Complex | norm w ≤ R ∧ w ≠ 0} := by
+      simp only [Set.mem_setOf]
+      exact ⟨hz, h_eq⟩
     -- We have analyticWithinAt for the smaller set, use mono to expand to the larger set
     apply (hT z this).mono
-    -- Show the subset relationship
+    -- Show that {w | norm w ≤ R ∧ w ≠ 0} ⊆ {w | norm w ≤ R}
     intro w hw
+    simp only [Set.mem_setOf] at hw ⊢
     exact hw.1
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}

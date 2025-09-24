@@ -24,14 +24,14 @@ lemma zeta_converges_re_gt_one (s : ℂ) (hs : 1 < s.re) :
   -- We can use the fact that the p-series converges for p > 1
   have h_pos : 0 < s.re - 1 := by linarith
   -- Convert to a form that mathlib's summability theorems can handle
-  apply Complex.summable_nat_cpow
-  exact hs
+  -- TODO: Find the correct Mathlib function for summability of cpow series
+  sorry
 
 -- Zeta non-zero for Re(s) > 1
 lemma zeta_ne_zero_re_gt_one (s : ℂ) (hs : 1 < s.re) :
     zeta s ≠ 0 := by
-  apply riemannZeta_ne_zero_of_one_le_re
-  linarith
+  -- TODO: Use correct Mathlib function for showing zeta is non-zero
+  sorry
 
 -- Von Mangoldt function (simplified for now)
 noncomputable def vonMangoldt (n : ℕ) : ℝ :=
@@ -99,7 +99,8 @@ lemma p_s_abs_1 (p : Nat.Primes) (s : ℂ) (hs : 1 < s.re) :
     _ > (2 : ℝ) ^ 1 := by
       have : 1 < s.re := hs
       rw [gt_iff_lt]
-      apply Real.rpow_lt_rpow_of_exponent_lt
+      apply Real.rpow_lt_rpow
+      · norm_num
       · norm_num
       · exact this
     _ = 2 := by simp

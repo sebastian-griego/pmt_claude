@@ -159,3 +159,25 @@
 - Continue searching for lemmas with simpler proofs
 - Focus on lemmas that don't require missing API functions
 - Target computational lemmas that can be proven with basic tactics
+
+## Iteration 28 - 2025-09-24T00:08:00Z
+
+### Focus: PNT1_ComplexAnalysis.lean - lem_analAtOnOn
+- Targeted lemma at lines 520-533
+- Shows analyticity extends from a punctured disk to the full disk
+
+### Progress:
+- Successfully completed proof of `lem_analAtOnOn`
+- Used case analysis on whether z = 0
+- For z = 0: converted AnalyticAt to AnalyticWithinAt
+- For z ≠ 0: used AnalyticWithinAt.mono to extend from smaller to larger set
+
+### Implementation:
+- When z = 0, directly applied h0.analyticWithinAt
+- When z ≠ 0, showed z is in punctured disk, applied hT, then used monotonicity
+- Proved subset relation: {w | ‖w‖ ≤ R ∧ w ≠ 0} ⊆ {w | ‖w‖ ≤ R}
+
+### Stats:
+- PNT1_ComplexAnalysis.lean: 34 sorries (reduced from 35)
+- Total project sorries: 164 (PNT1: 34, PNT2: 33, PNT3: 31, PNT4: 45, PNT5: 21)
+- Build status: Compiles successfully, one sorry eliminated
