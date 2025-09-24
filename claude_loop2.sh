@@ -53,12 +53,7 @@ Time: $TS"
         --output-format json \
         > logs/last_claude2.json 2>&1
     
-    # Git commit after each iteration
-    echo "[$TS] committing to git..."
-    SORRY_COUNT=$(grep -r "sorry" StrongPNT/*.lean 2>/dev/null | wc -l || echo "unknown")
-    git add -A 2>/dev/null || true
-    git commit -m "Auto-commit at $TS - $SORRY_COUNT sorries" 2>/dev/null || true
-#    git push origin main 2>/dev/null || true
+
     
     sleep "$SLEEP_SECS"
 done

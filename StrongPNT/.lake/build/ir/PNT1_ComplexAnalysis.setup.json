@@ -213,6 +213,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/IsLUB.olean"],
   "Mathlib.Topology.Order.IntermediateValue":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/IntermediateValue.olean"],
+  "Mathlib.Topology.Order.ExtrClosure":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/ExtrClosure.olean"],
   "Mathlib.Topology.Order.DenselyOrdered":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Order/DenselyOrdered.olean"],
   "Mathlib.Topology.Order.Compact":
@@ -277,6 +279,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/Completion.olean"],
   "Mathlib.Topology.MetricSpace.Cauchy":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/Cauchy.olean"],
+  "Mathlib.Topology.MetricSpace.CauSeqFilter":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/CauSeqFilter.olean"],
   "Mathlib.Topology.MetricSpace.Bounded":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/MetricSpace/Bounded.olean"],
   "Mathlib.Topology.MetricSpace.Basic":
@@ -293,6 +297,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Maps/Basic.olean"],
   "Mathlib.Topology.LocallyFinite":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/LocallyFinite.olean"],
+  "Mathlib.Topology.LocallyConstant.Basic":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/LocallyConstant/Basic.olean"],
   "Mathlib.Topology.IsLocalHomeomorph":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/IsLocalHomeomorph.olean"],
   "Mathlib.Topology.Irreducible":
@@ -343,6 +349,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/GDelta/Basic.olean"],
   "Mathlib.Topology.Filter":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Filter.olean"],
+  "Mathlib.Topology.FiberBundle.IsHomeomorphicTrivialBundle":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/FiberBundle/IsHomeomorphicTrivialBundle.olean"],
   "Mathlib.Topology.EMetricSpace.Pi":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/EMetricSpace/Pi.olean"],
   "Mathlib.Topology.EMetricSpace.Lipschitz":
@@ -875,6 +883,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Group.olean"],
   "Mathlib.Tactic.GeneralizeProofs":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/GeneralizeProofs.olean"],
+  "Mathlib.Tactic.Generalize":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/Generalize.olean"],
   "Mathlib.Tactic.GRewrite.Elab":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/GRewrite/Elab.olean"],
   "Mathlib.Tactic.GRewrite.Core":
@@ -1047,6 +1057,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/SetTheory/Cardinal/ENat.olean"],
   "Mathlib.SetTheory.Cardinal.Defs":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/SetTheory/Cardinal/Defs.olean"],
+  "Mathlib.SetTheory.Cardinal.Continuum":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/SetTheory/Cardinal/Continuum.olean"],
   "Mathlib.SetTheory.Cardinal.Cofinality":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/SetTheory/Cardinal/Cofinality.olean"],
   "Mathlib.SetTheory.Cardinal.Basic":
@@ -1373,6 +1385,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/GaloisConnection/Basic.olean"],
   "Mathlib.Order.FixedPoints":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/FixedPoints.olean"],
+  "Mathlib.Order.Fin.Tuple":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Fin/Tuple.olean"],
   "Mathlib.Order.Fin.Basic":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Fin/Basic.olean"],
   "Mathlib.Order.Filter.Ultrafilter.Defs":
@@ -1609,14 +1623,22 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/MeasureSpace.olean"],
   "Mathlib.MeasureTheory.Measure.Map":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/Map.olean"],
+  "Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/Lebesgue/EqHaar.olean"],
+  "Mathlib.MeasureTheory.Measure.Lebesgue.Complex":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/Lebesgue/Complex.olean"],
   "Mathlib.MeasureTheory.Measure.Lebesgue.Basic":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/Lebesgue/Basic.olean"],
   "Mathlib.MeasureTheory.Measure.Haar.OfBasis":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/Haar/OfBasis.olean"],
+  "Mathlib.MeasureTheory.Measure.Haar.InnerProductSpace":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/Haar/InnerProductSpace.olean"],
   "Mathlib.MeasureTheory.Measure.Haar.Basic":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/Haar/Basic.olean"],
   "Mathlib.MeasureTheory.Measure.GiryMonad":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/GiryMonad.olean"],
+  "Mathlib.MeasureTheory.Measure.Doubling":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/Doubling.olean"],
   "Mathlib.MeasureTheory.Measure.Dirac":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Measure/Dirac.olean"],
   "Mathlib.MeasureTheory.Measure.Decomposition.Exhaustion":
@@ -1655,6 +1677,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/MeasurableSpace/Basic.olean"],
   "Mathlib.MeasureTheory.Integral.SetToL1":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/SetToL1.olean"],
+  "Mathlib.MeasureTheory.Integral.Prod":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/Prod.olean"],
   "Mathlib.MeasureTheory.Integral.MeanInequalities":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/MeanInequalities.olean"],
   "Mathlib.MeasureTheory.Integral.Marginal":
@@ -1685,6 +1709,10 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/FinMeasAdditive.olean"],
   "Mathlib.MeasureTheory.Integral.DominatedConvergence":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/DominatedConvergence.olean"],
+  "Mathlib.MeasureTheory.Integral.DivergenceTheorem":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/DivergenceTheorem.olean"],
+  "Mathlib.MeasureTheory.Integral.CircleIntegral":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/CircleIntegral.olean"],
   "Mathlib.MeasureTheory.Integral.Bochner.VitaliCaratheodory":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/Bochner/VitaliCaratheodory.olean"],
   "Mathlib.MeasureTheory.Integral.Bochner.Set":
@@ -1699,6 +1727,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/Bochner/Basic.olean"],
   "Mathlib.MeasureTheory.Group.Prod":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Group/Prod.olean"],
+  "Mathlib.MeasureTheory.Group.Pointwise":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Group/Pointwise.olean"],
   "Mathlib.MeasureTheory.Group.Measure":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Group/Measure.olean"],
   "Mathlib.MeasureTheory.Group.MeasurableEquiv":
@@ -1735,6 +1765,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Function/LpSpace/Basic.olean"],
   "Mathlib.MeasureTheory.Function.LpSeminorm.TriangleInequality":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Function/LpSeminorm/TriangleInequality.olean"],
+  "Mathlib.MeasureTheory.Function.LpSeminorm.Prod":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Function/LpSeminorm/Prod.olean"],
   "Mathlib.MeasureTheory.Function.LpSeminorm.Defs":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Function/LpSeminorm/Defs.olean"],
   "Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp":
@@ -1901,6 +1933,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Prod.olean"],
   "Mathlib.LinearAlgebra.Pi":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Pi.olean"],
+  "Mathlib.LinearAlgebra.Orientation":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Orientation.olean"],
   "Mathlib.LinearAlgebra.Multilinear.Curry":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Multilinear/Curry.olean"],
   "Mathlib.LinearAlgebra.Multilinear.Basis":
@@ -1943,6 +1977,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Matrix/Defs.olean"],
   "Mathlib.LinearAlgebra.Matrix.ConjTranspose":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Matrix/ConjTranspose.olean"],
+  "Mathlib.LinearAlgebra.Matrix.Block":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Matrix/Block.olean"],
   "Mathlib.LinearAlgebra.Matrix.Basis":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Matrix/Basis.olean"],
   "Mathlib.LinearAlgebra.Matrix.Adjugate":
@@ -2031,6 +2067,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/DFinsupp.olean"],
   "Mathlib.LinearAlgebra.Complex.Module":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Complex/Module.olean"],
+  "Mathlib.LinearAlgebra.Complex.FiniteDimensional":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Complex/FiniteDimensional.olean"],
   "Mathlib.LinearAlgebra.BilinearMap":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/BilinearMap.olean"],
   "Mathlib.LinearAlgebra.Basis.VectorSpace":
@@ -2405,6 +2443,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Rat/Cast/Defs.olean"],
   "Mathlib.Data.Rat.Cast.CharZero":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Rat/Cast/CharZero.olean"],
+  "Mathlib.Data.Rat.Cardinal":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Rat/Cardinal.olean"],
   "Mathlib.Data.Rat.BigOperators":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Rat/BigOperators.olean"],
   "Mathlib.Data.Quot":
@@ -2487,6 +2527,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Factorization/Defs.olean"],
   "Mathlib.Data.Nat.Factorization.Basic":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Factorization/Basic.olean"],
+  "Mathlib.Data.Nat.Factorial.Cast":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Factorial/Cast.olean"],
   "Mathlib.Data.Nat.Factorial.Basic":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Factorial/Basic.olean"],
   "Mathlib.Data.Nat.Digits.Lemmas":
@@ -2501,6 +2543,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Choose/Factorization.olean"],
   "Mathlib.Data.Nat.Choose.Central":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Choose/Central.olean"],
+  "Mathlib.Data.Nat.Choose.Cast":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Choose/Cast.olean"],
   "Mathlib.Data.Nat.Choose.Bounds":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Nat/Choose/Bounds.olean"],
   "Mathlib.Data.Nat.Choose.Basic":
@@ -2697,6 +2741,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/Notation.olean"],
   "Mathlib.Data.Int.ModEq":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/ModEq.olean"],
+  "Mathlib.Data.Int.Log":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/Log.olean"],
   "Mathlib.Data.Int.LeastGreatest":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Int/LeastGreatest.olean"],
   "Mathlib.Data.Int.Interval":
@@ -3009,6 +3055,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Combinatorics/Enumerative/InclusionExclusion.olean"],
   "Mathlib.Combinatorics.Enumerative.Composition":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Combinatorics/Enumerative/Composition.olean"],
+  "Mathlib.Analysis.SpecificLimits.RCLike":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecificLimits/RCLike.olean"],
   "Mathlib.Analysis.SpecificLimits.Normed":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecificLimits/Normed.olean"],
   "Mathlib.Analysis.SpecificLimits.Basic":
@@ -3031,22 +3079,38 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Pow/Complex.olean"],
   "Mathlib.Analysis.SpecialFunctions.Pow.Asymptotics":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Pow/Asymptotics.olean"],
+  "Mathlib.Analysis.SpecialFunctions.NonIntegrable":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/NonIntegrable.olean"],
+  "Mathlib.Analysis.SpecialFunctions.Log.Deriv":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Log/Deriv.olean"],
   "Mathlib.Analysis.SpecialFunctions.Log.Basic":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Log/Basic.olean"],
+  "Mathlib.Analysis.SpecialFunctions.Log.Base":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Log/Base.olean"],
+  "Mathlib.Analysis.SpecialFunctions.Exponential":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Exponential.olean"],
+  "Mathlib.Analysis.SpecialFunctions.ExpDeriv":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/ExpDeriv.olean"],
   "Mathlib.Analysis.SpecialFunctions.Exp":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Exp.olean"],
   "Mathlib.Analysis.SpecialFunctions.Complex.Log":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Complex/Log.olean"],
+  "Mathlib.Analysis.SpecialFunctions.Complex.CircleMap":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Complex/CircleMap.olean"],
   "Mathlib.Analysis.SpecialFunctions.Complex.Arg":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Complex/Arg.olean"],
   "Mathlib.Analysis.Seminorm":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Seminorm.olean"],
+  "Mathlib.Analysis.Real.Cardinality":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Real/Cardinality.olean"],
   "Mathlib.Analysis.RCLike.Lemmas":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/RCLike/Lemmas.olean"],
   "Mathlib.Analysis.RCLike.Extend":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/RCLike/Extend.olean"],
   "Mathlib.Analysis.RCLike.Basic":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/RCLike/Basic.olean"],
+  "Mathlib.Analysis.Oscillation":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Oscillation.olean"],
   "Mathlib.Analysis.NormedSpace.RieszLemma":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/NormedSpace/RieszLemma.olean"],
   "Mathlib.Analysis.NormedSpace.Multilinear.Curry":
@@ -3059,6 +3123,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/NormedSpace/HahnBanach/SeparatingDual.olean"],
   "Mathlib.Analysis.NormedSpace.HahnBanach.Extension":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/NormedSpace/HahnBanach/Extension.olean"],
+  "Mathlib.Analysis.NormedSpace.Extr":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/NormedSpace/Extr.olean"],
   "Mathlib.Analysis.Normed.Ring.Units":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Normed/Ring/Units.olean"],
   "Mathlib.Analysis.Normed.Ring.Lemmas":
@@ -3097,6 +3163,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Normed/MulAction.olean"],
   "Mathlib.Analysis.Normed.Module.Span":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Normed/Module/Span.olean"],
+  "Mathlib.Analysis.Normed.Module.Ray":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Normed/Module/Ray.olean"],
   "Mathlib.Analysis.Normed.Module.RCLike.Real":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Normed/Module/RCLike/Real.olean"],
   "Mathlib.Analysis.Normed.Module.RCLike.Extend":
@@ -3163,8 +3231,12 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Normed/Field/Lemmas.olean"],
   "Mathlib.Analysis.Normed.Field.Basic":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Normed/Field/Basic.olean"],
+  "Mathlib.Analysis.Normed.Algebra.Exponential":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Normed/Algebra/Exponential.olean"],
   "Mathlib.Analysis.Normed.Affine.Isometry":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Normed/Affine/Isometry.olean"],
+  "Mathlib.Analysis.Normed.Affine.AddTorsor":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Normed/Affine/AddTorsor.olean"],
   "Mathlib.Analysis.MeanInequalitiesPow":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/MeanInequalitiesPow.olean"],
   "Mathlib.Analysis.MeanInequalities":
@@ -3203,18 +3275,28 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/InnerProductSpace/Orthonormal.olean"],
   "Mathlib.Analysis.InnerProductSpace.Orthogonal":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/InnerProductSpace/Orthogonal.olean"],
+  "Mathlib.Analysis.InnerProductSpace.Orientation":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/InnerProductSpace/Orientation.olean"],
   "Mathlib.Analysis.InnerProductSpace.LinearMap":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/InnerProductSpace/LinearMap.olean"],
+  "Mathlib.Analysis.InnerProductSpace.GramSchmidtOrtho":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/InnerProductSpace/GramSchmidtOrtho.olean"],
   "Mathlib.Analysis.InnerProductSpace.Defs":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/InnerProductSpace/Defs.olean"],
+  "Mathlib.Analysis.InnerProductSpace.Convex":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/InnerProductSpace/Convex.olean"],
   "Mathlib.Analysis.InnerProductSpace.Continuous":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/InnerProductSpace/Continuous.olean"],
   "Mathlib.Analysis.InnerProductSpace.Basic":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/InnerProductSpace/Basic.olean"],
+  "Mathlib.Analysis.Convex.Uniform":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Convex/Uniform.olean"],
   "Mathlib.Analysis.Convex.TotallyBounded":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Convex/TotallyBounded.olean"],
   "Mathlib.Analysis.Convex.Topology":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Convex/Topology.olean"],
+  "Mathlib.Analysis.Convex.StrictConvexSpace":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Convex/StrictConvexSpace.olean"],
   "Mathlib.Analysis.Convex.Strict":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Convex/Strict.olean"],
   "Mathlib.Analysis.Convex.StdSimplex":
@@ -3249,24 +3331,50 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Convex/Basic.olean"],
   "Mathlib.Analysis.Complex.Trigonometric":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/Trigonometric.olean"],
+  "Mathlib.Analysis.Complex.Schwarz":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/Schwarz.olean"],
+  "Mathlib.Analysis.Complex.RemovableSingularity":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/RemovableSingularity.olean"],
+  "Mathlib.Analysis.Complex.RealDeriv":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/RealDeriv.olean"],
+  "Mathlib.Analysis.Complex.ReImTopology":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/ReImTopology.olean"],
   "Mathlib.Analysis.Complex.Order":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/Order.olean"],
   "Mathlib.Analysis.Complex.Norm":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/Norm.olean"],
+  "Mathlib.Analysis.Complex.Liouville":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/Liouville.olean"],
   "Mathlib.Analysis.Complex.Exponential":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/Exponential.olean"],
+  "Mathlib.Analysis.Complex.CauchyIntegral":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/CauchyIntegral.olean"],
+  "Mathlib.Analysis.Complex.Cardinality":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/Cardinality.olean"],
   "Mathlib.Analysis.Complex.Basic":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/Basic.olean"],
   "Mathlib.Analysis.Complex.Asymptotics":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/Asymptotics.olean"],
+  "Mathlib.Analysis.Complex.AbsMax":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Complex/AbsMax.olean"],
   "Mathlib.Analysis.Calculus.TangentCone":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/TangentCone.olean"],
+  "Mathlib.Analysis.Calculus.MeanValue":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/MeanValue.olean"],
+  "Mathlib.Analysis.Calculus.LogDeriv":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/LogDeriv.olean"],
+  "Mathlib.Analysis.Calculus.IteratedDeriv.Lemmas":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/IteratedDeriv/Lemmas.olean"],
+  "Mathlib.Analysis.Calculus.IteratedDeriv.Defs":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/IteratedDeriv/Defs.olean"],
   "Mathlib.Analysis.Calculus.FormalMultilinearSeries":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/FormalMultilinearSeries.olean"],
   "Mathlib.Analysis.Calculus.FDeriv.RestrictScalars":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/FDeriv/RestrictScalars.olean"],
   "Mathlib.Analysis.Calculus.FDeriv.Prod":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/FDeriv/Prod.olean"],
+  "Mathlib.Analysis.Calculus.FDeriv.Pow":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/FDeriv/Pow.olean"],
   "Mathlib.Analysis.Calculus.FDeriv.Mul":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/FDeriv/Mul.olean"],
   "Mathlib.Analysis.Calculus.FDeriv.Measurable":
@@ -3293,24 +3401,80 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/FDeriv/Analytic.olean"],
   "Mathlib.Analysis.Calculus.FDeriv.Add":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/FDeriv/Add.olean"],
+  "Mathlib.Analysis.Calculus.DiffContOnCl":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/DiffContOnCl.olean"],
+  "Mathlib.Analysis.Calculus.Deriv.ZPow":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/ZPow.olean"],
   "Mathlib.Analysis.Calculus.Deriv.Slope":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/Slope.olean"],
+  "Mathlib.Analysis.Calculus.Deriv.Shift":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/Shift.olean"],
+  "Mathlib.Analysis.Calculus.Deriv.Pow":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/Pow.olean"],
   "Mathlib.Analysis.Calculus.Deriv.Mul":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/Mul.olean"],
+  "Mathlib.Analysis.Calculus.Deriv.Linear":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/Linear.olean"],
+  "Mathlib.Analysis.Calculus.Deriv.Inverse":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/Inverse.olean"],
+  "Mathlib.Analysis.Calculus.Deriv.Inv":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/Inv.olean"],
+  "Mathlib.Analysis.Calculus.Deriv.CompMul":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/CompMul.olean"],
   "Mathlib.Analysis.Calculus.Deriv.Comp":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/Comp.olean"],
   "Mathlib.Analysis.Calculus.Deriv.Basic":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/Basic.olean"],
+  "Mathlib.Analysis.Calculus.Deriv.AffineMap":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/AffineMap.olean"],
   "Mathlib.Analysis.Calculus.Deriv.Add":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/Deriv/Add.olean"],
+  "Mathlib.Analysis.Calculus.DSlope":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/DSlope.olean"],
+  "Mathlib.Analysis.Calculus.ContDiff.RCLike":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/ContDiff/RCLike.olean"],
+  "Mathlib.Analysis.Calculus.ContDiff.Operations":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/ContDiff/Operations.olean"],
+  "Mathlib.Analysis.Calculus.ContDiff.FaaDiBruno":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/ContDiff/FaaDiBruno.olean"],
   "Mathlib.Analysis.Calculus.ContDiff.FTaylorSeries":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/ContDiff/FTaylorSeries.olean"],
+  "Mathlib.Analysis.Calculus.ContDiff.Defs":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/ContDiff/Defs.olean"],
+  "Mathlib.Analysis.Calculus.ContDiff.Basic":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/ContDiff/Basic.olean"],
   "Mathlib.Analysis.CStarAlgebra.Basic":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/CStarAlgebra/Basic.olean"],
+  "Mathlib.Analysis.BoxIntegral.Partition.Tagged":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/BoxIntegral/Partition/Tagged.olean"],
+  "Mathlib.Analysis.BoxIntegral.Partition.SubboxInduction":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/BoxIntegral/Partition/SubboxInduction.olean"],
+  "Mathlib.Analysis.BoxIntegral.Partition.Split":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/BoxIntegral/Partition/Split.olean"],
+  "Mathlib.Analysis.BoxIntegral.Partition.Measure":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/BoxIntegral/Partition/Measure.olean"],
+  "Mathlib.Analysis.BoxIntegral.Partition.Filter":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/BoxIntegral/Partition/Filter.olean"],
+  "Mathlib.Analysis.BoxIntegral.Partition.Basic":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/BoxIntegral/Partition/Basic.olean"],
+  "Mathlib.Analysis.BoxIntegral.Partition.Additive":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/BoxIntegral/Partition/Additive.olean"],
+  "Mathlib.Analysis.BoxIntegral.Integrability":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/BoxIntegral/Integrability.olean"],
+  "Mathlib.Analysis.BoxIntegral.DivergenceTheorem":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/BoxIntegral/DivergenceTheorem.olean"],
+  "Mathlib.Analysis.BoxIntegral.Box.SubboxInduction":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/BoxIntegral/Box/SubboxInduction.olean"],
+  "Mathlib.Analysis.BoxIntegral.Box.Basic":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/BoxIntegral/Box/Basic.olean"],
+  "Mathlib.Analysis.BoxIntegral.Basic":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/BoxIntegral/Basic.olean"],
   "Mathlib.Analysis.Asymptotics.Theta":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Asymptotics/Theta.olean"],
   "Mathlib.Analysis.Asymptotics.TVS":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Asymptotics/TVS.olean"],
+  "Mathlib.Analysis.Asymptotics.SpecificAsymptotics":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Asymptotics/SpecificAsymptotics.olean"],
   "Mathlib.Analysis.Asymptotics.Lemmas":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Asymptotics/Lemmas.olean"],
   "Mathlib.Analysis.Asymptotics.Defs":
@@ -3319,10 +3483,14 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Asymptotics/AsymptoticEquivalent.olean"],
   "Mathlib.Analysis.Analytic.Within":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Analytic/Within.olean"],
+  "Mathlib.Analysis.Analytic.Uniqueness":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Analytic/Uniqueness.olean"],
   "Mathlib.Analysis.Analytic.OfScalars":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Analytic/OfScalars.olean"],
   "Mathlib.Analysis.Analytic.Linear":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Analytic/Linear.olean"],
+  "Mathlib.Analysis.Analytic.IsolatedZeros":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Analytic/IsolatedZeros.olean"],
   "Mathlib.Analysis.Analytic.Inverse":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Analytic/Inverse.olean"],
   "Mathlib.Analysis.Analytic.ConvergenceRadius":
@@ -3473,6 +3641,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Action/Pointwise/Set.olean"],
   "Mathlib.Algebra.Ring.Action.Group":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Action/Group.olean"],
+  "Mathlib.Algebra.Ring.Action.ConjAct":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Action/ConjAct.olean"],
   "Mathlib.Algebra.Ring.Action.Basic":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Ring/Action/Basic.olean"],
   "Mathlib.Algebra.Regular.SMul":
@@ -4297,6 +4467,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/DirectSum/Basic.olean"],
   "Mathlib.Algebra.CharZero.Quotient":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/CharZero/Quotient.olean"],
+  "Mathlib.Algebra.CharZero.Infinite":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/CharZero/Infinite.olean"],
   "Mathlib.Algebra.CharZero.Defs":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/CharZero/Defs.olean"],
   "Mathlib.Algebra.CharP.Two":

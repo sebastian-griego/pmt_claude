@@ -9,10 +9,12 @@ import Mathlib.Analysis.Analytic.Basic
 import Mathlib.Analysis.Analytic.Constructions
 import Mathlib.Analysis.Calculus.Deriv.Basic
 import Mathlib.Analysis.Calculus.Deriv.Mul
+import Mathlib.Analysis.Calculus.Deriv.Comp
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
 import Mathlib.Topology.MetricSpace.Basic
 import Mathlib.Analysis.Complex.Liouville
+import Mathlib.Analysis.Complex.Schwarz
 
 open Complex Real BigOperators Filter
 open scoped ComplexConjugate
@@ -643,6 +645,33 @@ lemma lem_BCDerivBound (f : Complex → Complex) (R r : Real)
     (hA : ∀ z ∈ {z : Complex | norm z = R}, (f z).re ≤ A) :
     ∀ z ∈ {z : Complex | norm z ≤ r},
     norm (deriv f z) ≤ 2 * M / (R - r) := by
+  intro z hz
+  -- This follows from Cauchy's estimates for derivatives of analytic functions
+  -- The standard bound is M/(R-r), and the factor of 2 comes from the specific setup
+  have hR_pos : 0 < R := by linarith
+  have hRr_pos : 0 < R - r := by linarith
+
+  -- Extract norm bound from hz
+  simp only [Set.mem_setOf] at hz
+  have hz_bound : norm z ≤ r := hz
+
+  -- Apply Cauchy's integral formula for the derivative
+  -- For a function analytic in |w| ≤ R and |f(w)| ≤ M on |w| = R,
+  -- we have |f'(z)| ≤ M/(R-|z|) when |z| < R
+
+  -- Since norm z ≤ r < R, we can apply the estimate
+  have hz_lt_R : norm z < R := by linarith
+
+  -- The standard Cauchy estimate gives |f'(z)| ≤ M/(R - norm z)
+  -- Since norm z ≤ r, we have R - norm z ≥ R - r > 0
+  have bound1 : R - norm z ≥ R - r := by linarith
+
+  -- Thus |f'(z)| ≤ M/(R - norm z) ≤ M/(R - r)
+  -- The factor of 2 appears when we need to account for both real and imaginary parts
+  -- or when using a specific variant of Cauchy's formula
+
+  -- For now, we'll use the fact that this is a standard result
+  -- The precise proof would require the Cauchy integral formula machinery
   sorry
 
 -- Maximum modulus principle
@@ -651,6 +680,24 @@ lemma lem_MaxModulusPrinciple (f : Complex → Complex) (R : Real) (hR : 0 < R)
     (hnc : ∃ z ∈ {z : Complex | norm z < R},
            ∀ w ∈ {z : Complex | norm z ≤ R}, norm (f z) ≥ norm (f w)) :
     ∃ c : Complex, ∀ z ∈ {z : Complex | norm z ≤ R}, f z = c := by
+  -- Extract the point where the maximum is attained in the interior
+  obtain ⟨z₀, hz₀_in, hz₀_max⟩ := hnc
+  simp only [Set.mem_setOf] at hz₀_in
+
+  -- Since f attains its maximum in the interior and is analytic,
+  -- by the maximum modulus principle, f must be constant
+  use f z₀
+
+  intro z hz
+  simp only [Set.mem_setOf] at hz
+
+  -- The maximum modulus principle states that a non-constant holomorphic function
+  -- cannot attain its maximum in the interior of its domain
+  -- Since we have such a point, f must be constant
+
+  -- This is a fundamental theorem in complex analysis
+  -- The proof would require showing that if |f| has a local maximum at an interior point,
+  -- then f is constant in a neighborhood, and by analytic continuation, everywhere
   sorry
 
 -- Cauchy integral formula
@@ -661,6 +708,16 @@ lemma lem_CauchyIntegral (f : Complex → Complex) (z₀ : Complex) (R : Real)
            ∫ θ in (0)..(2 * Real.pi),
            f (z₀ + R * Complex.exp (I * θ)) /
            (z₀ + R * Complex.exp (I * θ) - z₀) := by
+  -- Simplify the denominator
+  have h_denom : ∀ θ, z₀ + R * Complex.exp (I * θ) - z₀ = R * Complex.exp (I * θ) := by
+    intro θ
+    ring
+
+  -- The integral becomes:
+  -- f z₀ = (1 / (2 * Real.pi * I)) * ∫ θ in (0)..(2 * Real.pi), f(z₀ + R * exp(I*θ)) / (R * exp(I*θ))
+
+  -- This is the standard Cauchy integral formula
+  -- The proof requires contour integration theory
   sorry
 
 -- Liouville's theorem
@@ -673,13 +730,16 @@ lemma lem_Liouville (f : Complex → Complex)
     intro z
     exact (hf z).differentiableAt
   -- Next, we establish that the range is bounded
-  have hbounded : IsBounded (Set.range f) := by
+  have hbounded : Bornology.IsBounded (Set.range f) := by
     obtain ⟨M, hM⟩ := hb
-    use M
-    rw [isBounded_iff_forall_norm_le]
+    rw [Metric.isBounded_iff_subset_ball]
+    use 0, M + 1
     intro y hy
     obtain ⟨x, rfl⟩ := hy
-    exact hM x
+    simp only [Metric.mem_ball, Complex.dist_eq]
+    calc ‖f x - 0‖ = ‖f x‖ := by simp
+      _ ≤ M := hM x
+      _ < M + 1 := by linarith
   -- Apply Liouville's theorem from Mathlib
   have hconst : ∀ z w : ℂ, f z = f w := Differentiable.apply_eq_apply_of_bounded hdiff hbounded
   -- Choose any point as the constant value
@@ -694,6 +754,10 @@ lemma lem_JensenLog (f : Complex → Complex) (R : Real) (hR : 0 < R)
     Real.log (norm (f 0)) = (1 / (2 * Real.pi)) *
       ∫ θ in (0)..(2 * Real.pi),
       Real.log (norm (f (R * Complex.exp (I * θ)))) := by
+  -- Jensen's formula relates the log of |f(0)| to the average of log |f| on the circle
+  -- This requires the theory of harmonic functions and the mean value property
+  -- Since log |f| is harmonic when f is analytic and non-zero,
+  -- the value at the center equals the average on the boundary
   sorry
 
 -- Hadamard three-circles theorem
@@ -704,6 +768,9 @@ lemma lem_HadamardThreeCircles (f : Complex → Complex) (r₁ r₂ r₃ : Real)
       M r = sSup {x : Real | ∃ z : Complex, norm z = r ∧ x = norm (f z)}) :
     Real.log (M r₂) ≤ (Real.log r₃ - Real.log r₂) / (Real.log r₃ - Real.log r₁) * Real.log (M r₁) +
                        (Real.log r₂ - Real.log r₁) / (Real.log r₃ - Real.log r₁) * Real.log (M r₃) := by
+  -- Hadamard's three-circles theorem states that log M(r) is a convex function of log r
+  -- The proof uses the fact that log |f(re^{iθ})| is subharmonic
+  -- and applies the maximum principle to a suitable auxiliary function
   sorry
 
 -- Schwarz lemma
@@ -713,7 +780,42 @@ lemma lem_Schwarz (f : Complex → Complex)
     (hfbound : ∀ z ∈ {z : Complex | norm z ≤ 1}, norm (f z) ≤ 1) :
     (∀ z ∈ {z : Complex | norm z ≤ 1}, norm (f z) ≤ norm z) ∧
     norm (deriv f 0) ≤ 1 := by
-  sorry
+  constructor
+  · -- First part: |f(z)| ≤ |z| for all |z| ≤ 1
+    intro z hz
+    -- Convert to ball formulation for Mathlib's Schwarz lemma
+    have hf_diff : DifferentiableOn ℂ f (Metric.closedBall 0 1) := by
+      convert hf.differentiableOn isOpen_univ using 1
+      ext w; simp [Metric.closedBall, dist_zero_right]
+
+    -- Apply Mathlib's Schwarz lemma for distance bound
+    by_cases h : z = 0
+    · simp [h, hf0]
+    · have hz_ball : z ∈ Metric.ball 0 1 := by
+        simp [Metric.ball, dist_zero_right]
+        exact lt_of_le_of_ne hz (Ne.symm h)
+      have h_maps : MapsTo f (Metric.ball 0 1) (Metric.ball 0 1) := by
+        intro w hw
+        simp [Metric.ball, dist_zero_right] at hw ⊢
+        simp [hf0]
+        exact lt_of_le_of_lt (hfbound w (le_of_lt hw)) (by norm_num : (1 : ℝ) < 2)
+      have := dist_le_div_mul_dist_of_mapsTo_ball (hf_diff.mono Metric.ball_subset_closedBall) h_maps hz_ball
+      simp [hf0, dist_zero_right] at this
+      convert this using 1
+      norm_num
+
+  · -- Second part: |f'(0)| ≤ 1
+    have hf_diff : DifferentiableOn ℂ f (Metric.ball 0 1) := by
+      convert (hf.differentiableOn isOpen_univ).mono Metric.ball_subset_closedBall using 1
+      ext w; simp [Metric.closedBall, Metric.ball, dist_zero_right]
+    have h_maps : MapsTo f (Metric.ball 0 1) (Metric.ball 0 1) := by
+      intro w hw
+      simp [Metric.ball, dist_zero_right] at hw ⊢
+      simp [hf0]
+      exact lt_of_le_of_lt (hfbound w (le_of_lt hw)) (by norm_num : (1 : ℝ) < 2)
+    have := norm_deriv_le_div_of_mapsTo_ball hf_diff h_maps (by norm_num : (0 : ℝ) < 1)
+    simp at this
+    exact this
 
 -- Phragmen-Lindelöf principle for a strip
 lemma lem_PhragmenLindelof (f : Complex → Complex) (M : Real)
@@ -722,6 +824,11 @@ lemma lem_PhragmenLindelof (f : Complex → Complex) (M : Real)
     (hgrowth : ∃ A B : Real, ∀ z, 0 ≤ z.re ∧ z.re ≤ 1 →
                norm (f z) ≤ A * Real.exp (B * norm z.im)) :
     ∀ z, 0 ≤ z.re ∧ z.re ≤ 1 → norm (f z) ≤ M := by
+  -- The Phragmen-Lindelöf principle extends the maximum principle to unbounded domains
+  -- The proof uses an auxiliary function g(z) = f(z) * exp(-ε * exp(πz))
+  -- for suitable ε > 0, which decays rapidly enough to apply the maximum principle
+  -- Then let ε → 0 to get the result for f
+  intro z hz
   sorry
 
 -- Integration lemmas
@@ -729,14 +836,20 @@ lemma lem_integral_bound (f : Complex → Complex) (a b : Real) (hab : a < b)
     (hf : ContinuousOn f {z : Complex | z.re ∈ Set.Icc a b ∧ z.im = 0})
     (M : Real) (hM : ∀ t ∈ Set.Icc a b, norm (f ↑t) ≤ M) :
     norm (∫ t in a..b, f ↑t) ≤ M * (b - a) := by
-  sorry
+  have h_le : a ≤ b := le_of_lt hab
+  have h_bound : ∀ x ∈ Set.uIcc a b, ‖f ↑x‖ ≤ M := by
+    intro x hx
+    exact hM x (Set.uIcc_subset_Icc a b h_le hx)
+  convert MeasureTheory.intervalIntegral.norm_integral_le_of_norm_le_const h_bound using 2
+  rw [abs_of_nonneg (sub_nonneg_of_le h_le)]
 
 lemma lem_contour_integral (f : Complex → Complex) (γ : Real → Complex)
     (a b : Real) (hab : a < b)
     (hγ : ContinuousOn γ (Set.Icc a b))
     (hf : ContinuousOn f (γ '' Set.Icc a b)) :
     ∃ I : Complex, I = ∫ t in a..b, f (γ t) * deriv γ t := by
-  sorry
+  use ∫ t in a..b, f (γ t) * deriv γ t
+  rfl
 
 -- Argument principle
 lemma lem_ArgumentPrinciple (f : Complex → Complex) (R : Real) (hR : 0 < R)
@@ -1159,7 +1272,15 @@ lemma lem_dw_dt (r' : Real) (t : Real) :
     deriv (fun t => r' * Complex.exp (I * t)) t = I * r' * Complex.exp (I * t) := by
   -- Use the chain rule: d/dt(r' * exp(I*t)) = r' * d/dt(exp(I*t))
   -- We know d/dt(exp(I*t)) = I * exp(I*t)
-  sorry
+  simp only [deriv_const_mul]
+  have : deriv (fun t => Complex.exp (I * t)) t = I * Complex.exp (I * t) := by
+    have : deriv (fun t => Complex.exp (I * t)) t = deriv Complex.exp (I * t) * I := by
+      rw [deriv_comp _ (differentiableAt_id.const_mul _) differentiableAt_exp]
+      simp [deriv_mul_const, deriv_id'']
+    rw [this, deriv_exp]
+    ring
+  rw [this]
+  ring
 
 -- Cauchy's Integral Formula parameterized
 lemma lem_CIF_deriv_param (R r r' : Real) (f : Complex → Complex)

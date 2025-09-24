@@ -1,15 +1,11 @@
 #!/usr/bin/env bash
-# universal_codex_loop.sh — StrongPNT (minimal, with rate-limit retry)
+# universal_codex_loop.sh — StrongPNT
 set -euo pipefail
 
 # Configuration (override via .codex_config if present)
 PROJECT_TYPE="${PROJECT_TYPE:-code}"        # 'code' or 'research'
 SLEEP_SECS="${SLEEP_SECS:-45}"              # you used 45s
 PROGRESS_TAIL="${PROGRESS_TAIL:-40000}"     # context size
-
-# Minimal backoff knobs
-BACKOFF_MIN="${BACKOFF_MIN:-30}"            # seconds
-BACKOFF_MAX="${BACKOFF_MAX:-900}"           # cap (15m)
 
 PROJECT="${1:-$PWD}"
 cd "$PROJECT"
@@ -42,14 +38,7 @@ fi
 
 echo "[startup] universal_codex_loop.sh in $PWD (type=$PROJECT_TYPE, sleep=${SLEEP_SECS}s)"
 
-# Helper to detect rate-limit/quota-ish errors
-is_rate_limited() {
-  grep -qiE 'rate limit|429|quota|usage cap|exceeded.*limit|temporar|retry|capacity' "logs/last_codex.txt"
-}
-
 i=0
-backoff="$BACKOFF_MIN"
-
 while true; do
   [ -f STOP ] && { echo "STOP detected"; exit 0; }
 
@@ -72,32 +61,15 @@ Act on ONE small improvement now, strictly following AGENTS.md (Lean PNT rules).
 
   echo "[$TS] calling codex..."
 
-  # Headless run, repo-scoped edits only
-  set +e
+  # Headless run, repo-scoped edits only. Model is the coding variant.
   codex exec \
-    --model gpt-5 high \
+    --model "gpt-5 high" \
     --sandbox workspace-write \
+    --ask-for-approval never \
     "$FULL_PROMPT" \
     > "logs/last_codex.txt" 2>&1
-  status=$?
-  set -e
 
-  if [ $status -ne 0 ] && is_rate_limited; then
-    echo "[$TS] Rate limit/quota detected. Backing off ${backoff}s and will retry..."
-    sleep "$backoff"
-    backoff=$(( backoff * 2 ))
-    [ "$backoff" -gt "$BACKOFF_MAX" ] && backoff="$BACKOFF_MAX"
-    continue
-  else
-    backoff="$BACKOFF_MIN"
-  fi
 
-  # Git commit after each iteration (as in your original)
-  echo "[$TS] committing to git..."
-  SORRY_COUNT=$(grep -r "sorry" StrongPNT/*.lean 2>/dev/null | wc -l || echo "unknown")
-  git add -A 2>/dev/null || true
-  git commit -m "Auto-commit at $TS - $SORRY_COUNT sorries" 2>/dev/null || true
-  git push origin main 2>/dev/null || true
 
   # Every 10 iterations: clear PROGRESS3.md (per your rule)
   i=$((i+1))
