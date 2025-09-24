@@ -521,7 +521,17 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     (h0 : AnalyticAt ℂ h 0)
     (hT : AnalyticOn ℂ h {z : Complex | norm z ≤ R ∧ z ≠ 0}) :
     AnalyticOn ℂ h {z : Complex | norm z ≤ R} := by
-  sorry
+  intro z hz
+  by_cases h_eq : z = 0
+  · rw [h_eq]
+    -- Convert AnalyticAt to AnalyticWithinAt
+    exact h0.analyticWithinAt
+  · have : z ∈ {w : Complex | norm w ≤ R ∧ w ≠ 0} := ⟨hz, h_eq⟩
+    -- We have analyticWithinAt for the smaller set, use mono to expand to the larger set
+    apply (hT z this).mono
+    -- Show the subset relationship
+    intro w hw
+    exact hw.1
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
@@ -1132,14 +1142,11 @@ lemma lem_dw_dt (r' : Real) (t : Real) :
   have h1 : deriv (fun t => Complex.exp (I * t)) t = I * Complex.exp (I * t) := by
     -- deriv of exp(I*t) = deriv of exp ∘ (t ↦ I*t)
     -- By chain rule: exp'(I*t) * I = exp(I*t) * I
-    have : deriv (fun t => Complex.exp (I * t)) t =
-           deriv (fun z => Complex.exp z) (I * t) * deriv (fun t => I * t) t := by
-      sorry -- chain rule application
-    sorry -- simplify to get result
+    sorry
   -- Now apply scalar multiplication rule
   have h2 : deriv (fun t => r' * Complex.exp (I * t)) t =
             r' * deriv (fun t => Complex.exp (I * t)) t := by
-    sorry -- Need differentiability hypothesis for the scalar multiplication rule
+    sorry
   rw [h2, h1]
   ring
 
