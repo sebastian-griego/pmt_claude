@@ -171,3 +171,35 @@
 - Fix remaining compilation errors in PNT1_ComplexAnalysis.lean
 - Look for simpler arithmetic and geometric lemmas to prove
 - Target lemmas that don't require deep theory
+
+## Iteration 2025-09-24T14:45:00Z
+
+### Attempted
+- Fixed multiple compilation errors in PNT1_ComplexAnalysis.lean
+- Addressed issues with AnalyticWithinAt and DifferentiableWithinAt conversions
+- Fixed Set.uIcc case analysis using Set.uIcc_of_lt
+- Corrected bounded set proofs using Metric.isBounded_iff_subset_ball
+
+### Partial Progress
+- Fixed approximately 10 compilation errors in PNT1_ComplexAnalysis.lean
+- Added 1 sorry to work around rfl issue with Classical.choose
+- Several compilation errors remain due to complex type mismatches
+
+### Current Status  
+- Total sorries: 150 (1 added)
+- Files with sorries:
+  - PNT1_ComplexAnalysis.lean: 19 (still has ~15 compilation errors)
+  - PNT2_LogDerivative.lean: 32
+  - PNT3_RiemannZeta.lean: 34
+  - PNT4_ZeroFreeRegion.lean: 44
+  - PNT5_StrongPNT.lean: 21
+
+### Notes
+- Many compilation errors involve complex analysis type conversions
+- Focus should be on simpler lemmas that don't require deep theory
+- Consider proving arithmetic lemmas in other files while PNT1 errors are resolved
+
+### Next Steps
+- Continue fixing remaining compilation errors in PNT1_ComplexAnalysis.lean
+- Target simpler arithmetic lemmas in PNT4_ZeroFreeRegion.lean
+- Look for lemmas that can be proven with basic tactics
