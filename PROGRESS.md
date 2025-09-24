@@ -2,6 +2,34 @@
 
 This file tracks the progress of removing `sorry` statements from the StrongPNT project.
 
+## Iteration 2025-09-24T00:38:00Z
+
+### Attempted
+- Attempted to fix `h_re_bound` proof in PNT4_ZeroFreeRegion.lean (line 66)
+  - The lemma requires proving that all points in a disk of radius 5/6 around 3/2 + it have Re > 2/3
+  - Attempted geometric proof but got stuck on strict vs non-strict inequality
+  - The issue is that the geometry only gives Re ≥ 2/3 (leftmost point in disk) but we need Re > 2/3
+  - Reverted to sorry after encountering `Complex.abs_re_le_abs` not found (should be `Complex.abs_re_le_norm`)
+
+### Current Status
+- Total sorries: 165 (unchanged)
+  - PNT1_ComplexAnalysis.lean: 34 sorries
+  - PNT2_LogDerivative.lean: 32 sorries
+  - PNT3_RiemannZeta.lean: 33 sorries
+  - PNT4_ZeroFreeRegion.lean: 45 sorries
+  - PNT5_StrongPNT.lean: 21 sorries
+- Build has errors in PNT3 and PNT4 due to missing Mathlib API functions
+
+### Notes
+- Many Mathlib API functions have changed or been removed
+- The disk geometry problem needs either a different approach or additional constraints
+- Need to focus on simpler lemmas that don't require missing API functions
+
+### Next Steps
+- Look for simpler arithmetic or boolean lemmas
+- Prioritize lemmas with straightforward proofs using existing Mathlib functions
+- Consider fixing build errors first before attempting more complex proofs
+
 ## Iteration 2025-09-24T00:25:00Z
 
 ### Attempted
