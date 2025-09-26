@@ -438,7 +438,11 @@ lemma ratio_invs (z : ℂ) (hz : ‖z‖ < 1) :
                 simp [hb_inv]
         _   = ((1 - z) * (1 + z))⁻¹ * ((1 - z) * (1 + z)) * (1 + z)⁻¹ := by
                 simp [mul_assoc]
-        _   = (1 : ℂ) * (1 + z)⁻¹ := by simp [h_inv]
+        _   = (1 : ℂ) * (1 + z)⁻¹ := by
+          -- Avoid relying on `simp` to pick up `h_inv` inside a larger term;
+          -- rewrite by multiplying the identity on the right.
+          have := congrArg (fun w => w * (1 + z)⁻¹) h_inv
+          simpa [mul_assoc] using this
         _   = (1 + z)⁻¹ := by simp
 
 -- Zeta ratio identity

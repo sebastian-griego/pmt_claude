@@ -566,7 +566,7 @@ lemma lem_ballDR (R : Real) (hR : 0 < R) :
   -- Use the fact that closure of open ball equals closed ball in normed spaces
   rw [h1, ← h2]
   -- In a normed space, closure of open ball equals closed ball
-  exact closure_ball (0 : Complex) (ne_of_gt hR)
+  exact Metric.closure_ball (0 : Complex) (ne_of_gt hR)
 
 lemma lem_inDR (R : Real) (hR : 0 < R) (w : Complex) (hw : w ∈ {z : Complex | norm z ≤ R}) :
     norm w ≤ R := by
@@ -703,7 +703,7 @@ lemma lem_MaxModulusPrinciple (f : Complex → Complex) (R : Real) (hR : 0 < R)
     have h2 : {z : Complex | norm z ≤ R} = Metric.closedBall (0 : Complex) R := by
       ext z; simp [Metric.closedBall, dist_zero_right]
     rw [h1, h2]
-    exact (closure_ball 0 (by linarith : R ≠ 0)).symm
+    exact (Metric.closure_ball 0 (by linarith : R ≠ 0)).symm
 
   -- The set {z | norm z ≤ R} is compact
   have hcompact : IsCompact {z : Complex | norm z ≤ R} := by
