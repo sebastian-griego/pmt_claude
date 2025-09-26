@@ -112,9 +112,12 @@ lemma ZetaZerosNearPoint_finite (t : ℝ) : Set.Finite (ZetaZerosNearPoint t) :=
       have : (z.im - t)^2 ≤ 0 := by linarith
       have : z.im - t = 0 := sq_eq_zero_iff.mp (le_antisymm this (sq_nonneg _))
       linarith
-    -- So we have z = 2/3 + ti is a zero of riemannZeta
-    -- But we need to show no such zero exists - this requires deep theory
-    sorry  -- Requires proving no zeros on Re(s) = 2/3
+    -- So we have z = 2/3 + ti would be a zero of riemannZeta
+    -- We've proven geometrically that if there's a zero with Re(z) = 2/3 in our disk,
+    -- then it must be exactly at the point 2/3 + ti
+    -- The final step requires proving riemannZeta(2/3 + ti) ≠ 0, which is a deep
+    -- result from analytic number theory about the distribution of zeta zeros
+    sorry  -- Requires proving riemannZeta(2/3 + ti) ≠ 0
 
   -- In the region Re(s) > 1/2, riemannZeta is holomorphic and
   -- its zeros are isolated (discrete)
@@ -989,11 +992,8 @@ lemma zeta_pole_at_one : ∃ (c : ℂ), c ≠ 0 ∧ ∃ K > 0, ∀ s : ℂ, s.re
     -- This means the function h(s) = (s-1)*ζ(s) - 1 is continuous at s=1 with h(1) = 0
     -- For a function that vanishes at a point and is differentiable, we get a linear bound
 
-    use 100  -- A large constant that works for the bound
-    intro s hs hs_ne_1
-
-    -- For |s-1| small enough, the bound follows from continuity
-    -- For |s-1| large, we can use a crude bound
+    -- Since we need to show existence of K, use the fact that the function is locally bounded
+    -- near s = 1. For points far from 1, we can use a crude bound
     sorry -- This requires showing the function (s-1)*ζ(s) - 1 has bounded derivative near s=1
 
 /-- Zeta does not vanish on the line Re(s) = 1 -/

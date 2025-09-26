@@ -13,6 +13,9 @@ open Complex Real Filter Classical
 open scoped BigOperators Topology
 noncomputable section
 
+-- Increase heartbeat budget locally to avoid deterministic timeouts
+set_option maxHeartbeats 800000
+
 namespace PNT3_RiemannZeta
 
 -- For this project, we alias `zeta` to Mathlib's `riemannZeta` to leverage its API.
@@ -292,9 +295,7 @@ lemma mul_conj_eq_norm_sq (z : ℂ) : z * starRingEnd ℂ z = ‖z‖^2 := by
 lemma norm_pow (z : ℂ) (n : ℕ) : ‖z^n‖ = ‖z‖^n := by
   simp
 
-/-- The norm of 1/z equals 1/‖z‖ for nonzero z -/
-lemma norm_inv (z : ℂ) (_ : z ≠ 0) : ‖z⁻¹‖ = ‖z‖⁻¹ := by
-  simp
+-- Note: use Mathlib's `norm_inv` lemma globally; no local redefinition here
 
 /-- Real part of quotient formula -/
 lemma re_div (w z : ℂ) (_ : z ≠ 0) : (w / z).re = (w.re * z.re + w.im * z.im) / ‖z‖^2 := by
@@ -364,27 +365,30 @@ lemma zeta_ratio_prod (s : ℂ) (hs : 1 < s.re) :
   rw [euler_product (2 * s) (Re2sge1 s hs), euler_product s hs]
   simp only [neg_mul]
 
+-- Ratio product general (with explicit type args to help elaboration)
+lemma prod_of_ratios {P : Type*} [Countable P]
+    (a b : P → ℂ) (ha : Multipliable a) (hb : Multipliable b) :
+    (∏' p : P, a p) / (∏' p : P, b p) = ∏' p : P, (a p / b p) := by
+  classical
+  exact (Multipliable.tprod_div (P := P) (a := a) (b := b) ha hb)
+
 -- Simplify prod ratio
 lemma simplify_prod_ratio (s : ℂ) (hs : 1 < s.re) :
     (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-2*s))⁻¹) /
     (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-s))⁻¹) =
     ∏' p : Nat.Primes, ((1 - (p : ℂ) ^ (-2*s))⁻¹ / (1 - (p : ℂ) ^ (-s))⁻¹) := by
-  classical
-  -- Use Multipliable.tprod_div specialized to our two products
-  have hA : Multipliable (fun p : Nat.Primes => (1 - (p : ℂ) ^ (-2*s))⁻¹) := by
-    have h2s : 1 < (2 * s).re := by
+  apply prod_of_ratios
+  -- Need multipliability for (1 - p^(-2*s))⁻¹
+  · have h2s : 1 < (2 * s).re := by
       rw [Re2s]
       linarith
-    -- Convert to the expected exponent form
+    -- Convert to the form expected by the theorem
     have : Multipliable (fun p : Nat.Primes => (1 - (p : ℂ) ^ (-(2 * s)))⁻¹) :=
       (riemannZeta_eulerProduct_hasProd h2s).multipliable
     convert this using 2
     simp only [neg_mul]
-  have hB : Multipliable (fun p : Nat.Primes => (1 - (p : ℂ) ^ (-s))⁻¹) :=
-    (riemannZeta_eulerProduct_hasProd hs).multipliable
-  simpa using (Multipliable.tprod_div (a := fun p : Nat.Primes => (1 - (p : ℂ) ^ (-2*s))⁻¹)
-                                        (b := fun p : Nat.Primes => (1 - (p : ℂ) ^ (-s))⁻¹)
-                                        hA hB)
+  -- Need multipliability for (1 - p^(-s))⁻¹
+  · exact (riemannZeta_eulerProduct_hasProd hs).multipliable
 
 -- Zeta ratios
 lemma zeta_ratios (s : ℂ) (hs : 1 < s.re) :
@@ -411,7 +415,7 @@ lemma ratio_invs (z : ℂ) (hz : ‖z‖ < 1) :
     intro h
     have : z = -1 := by
       -- from 1 + z = 0, deduce z = -1
-      exact eq_neg_of_add_eq_zero_left h
+      exact eq_neg_of_add_eq_zero_right h
     -- But then ‖z‖ = ‖-1‖ = 1, contradicting ‖z‖ < 1
     simpa [this, norm_neg] using hz
   have hprod : (1 - z) * (1 + z) ≠ 0 := mul_ne_zero hz1 hz2
@@ -545,28 +549,10 @@ lemma abs_term_inv_bound (p : Nat.Primes) (t : ℝ) :
     linarith
   exact inv_le_inv₀ pos_denom (norm_pos_iff.mpr h_ne) |>.mpr bound
 
--- Lower bound for product
-lemma lower_bound_product (t : ℝ) :
-    ‖∏' p : Nat.Primes, (1 + (p : ℂ) ^ (-(3/2 + I * t)))⁻¹‖ ≥
-    ∏' p : Nat.Primes, ((1 + (p : ℝ) ^ (-(3/2 : ℝ))))⁻¹ := by
-  -- The proof requires showing each term in the product satisfies the bound
-  -- and using properties of infinite products
-  sorry
-
--- Real product bound
-lemma real_prod_bound :
-    ∏' p : Nat.Primes, ((1 + (p : ℝ) ^ (-(3/2 : ℝ))))⁻¹ =
-    (∏' p : Nat.Primes, (1 + (p : ℝ) ^ (-(3/2 : ℝ))))⁻¹ := by
-  -- The infinite product of reciprocals equals the reciprocal of the infinite product
-  -- This requires that the product converges to a non-zero value
-  have h_pos : ∀ p : Nat.Primes, 0 < 1 + (p : ℝ) ^ (-(3/2 : ℝ)) := by
-    intro p
-    have hp_pos : 0 < (p : ℝ) := by norm_cast; exact Nat.Prime.pos p.prop
-    have : 0 < (p : ℝ) ^ (-(3/2 : ℝ)) := Real.rpow_pos_of_pos hp_pos _
-    linarith
-  -- Use tprod_inv' from Mathlib for products of inverses
-  -- This requires multipliability of the terms
-  sorry -- Product of inverses equals inverse of product requires multipliability condition
+-- (Removed) Two unused placeholder lemmas about lower bounds for an Euler
+-- product and commuting inverse with tprod were removed because they only
+-- contained sorries and were not referenced elsewhere. If a precise,
+-- provable version is needed later, it can be reintroduced with a full proof.
 
 -- Product convergence
 -- Removed unused placeholder lemma asserting existence of an upper bound for the
@@ -637,7 +623,11 @@ lemma prod_positive :
 -- Final lower bound
 lemma final_lower_bound_1 :
     ∃ c > 0, ∀ t : ℝ, ‖zeta (3 + I * t)‖ / ‖zeta (3/2 + I * t)‖ ≥ c := by
-  sorry
+  -- Since zeta is non-zero on Re(s) = 3/2 and bounded below, and zeta on Re(s) = 3 is bounded,
+  -- we can find a uniform lower bound for the ratio
+  -- We use that |ζ(3/2 + it)| ≠ 0 and has polynomial growth
+  -- And |ζ(3 + it)| is bounded below uniformly
+  sorry -- This requires polynomial bounds on zeta growth along vertical lines
 
 -- Zeta does not vanish on Re(s) = 3/2
 theorem zeta_ne_zero_re_3_2 (t : ℝ) :

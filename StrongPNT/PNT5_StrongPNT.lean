@@ -199,9 +199,50 @@ lemma Li_mono {x y : ℝ} (hx : 2 < x) (hxy : x ≤ y) : Li x ≤ Li y := by
 /-- Li eventually exceeds any constant -/
 lemma Li_tendsto_top : Tendsto Li atTop atTop := by
   -- Li(x) → ∞ as x → ∞
-  -- This follows from the asymptotic Li(x) ~ x/log(x)
-  -- For a direct proof, we need integral lower bounds
-  sorry -- Requires asymptotic analysis of the logarithmic integral
+  -- We'll show that for any M > 0, there exists x₀ such that Li(x) > M for all x > x₀
+  rw [tendsto_atTop_atTop]
+  intro M
+  -- Choose x₀ = max(e², 4*M)
+  use max (Real.exp 2) (4 * M)
+  intro x hx
+
+  -- Apply the lower bound Li(x) ≥ x/(2*log(x))
+  have hx_exp : Real.exp 2 ≤ x := le_of_lt (lt_of_le_of_lt (le_max_left _ _) hx)
+  have Li_lower := Li_lower_bound_log x hx_exp
+
+  -- We need to show M < Li(x)
+  calc M < x / (4 * Real.log x) := by
+    -- First, x > 4*M
+    have hxM : 4 * M < x := lt_of_le_of_lt (le_max_right _ _) hx
+    -- So M < x/4
+    have : M < x / 4 := by linarith
+    -- Also x > e² ≥ e, so log(x) > 1
+    have hlogx : 1 < Real.log x := by
+      have : Real.exp 1 < Real.exp 2 := Real.exp_lt_exp.mpr (by norm_num : 1 < 2)
+      have : Real.exp 1 < x := lt_of_lt_of_le this hx_exp
+      rw [← Real.exp_one_lt_iff] at this
+      exact this
+    -- Therefore x/4 < x/(4*log(x))
+    have : x / 4 < x / (4 * Real.log x) := by
+      rw [div_lt_div_iff (by norm_num : 0 < 4) (by linarith : 0 < 4 * Real.log x)]
+      ring_nf
+      linarith
+    linarith
+  _ ≤ x / (2 * Real.log x) := by
+    -- Since log(x) > 1, we have 4*log(x) > 2*log(x), so 1/(4*log(x)) < 1/(2*log(x))
+    have hlogx : 1 < Real.log x := by
+      have : Real.exp 1 < Real.exp 2 := Real.exp_lt_exp.mpr (by norm_num : 1 < 2)
+      have : Real.exp 1 < x := lt_of_lt_of_le this hx_exp
+      rw [← Real.exp_one_lt_iff] at this
+      exact this
+    have h4gt2 : 2 * Real.log x < 4 * Real.log x := by linarith
+    have hpos2 : 0 < 2 * Real.log x := by linarith
+    have hpos4 : 0 < 4 * Real.log x := by linarith
+    have hx_pos : 0 < x := by
+      have : 0 < Real.exp 2 := Real.exp_pos _
+      linarith
+    exact div_le_div_of_nonneg_left h4gt2 hpos4 hpos2
+  _ ≤ Li x := Li_lower
 
 /-- Li derivative formula -/
 lemma Li_deriv {x : ℝ} (hx : 2 < x) : deriv Li x = 1 / Real.log x := by
@@ -241,18 +282,186 @@ lemma Li_strict_mono : StrictMonoOn Li (Set.Ioi 2) := by
     · exact one_pos
     · exact Real.log_pos (by linarith : 1 < x)
 
-/-- Li function is positive for x > 2 -/
-lemma Li_pos {x : ℝ} (hx : 2 < x) : 0 < Li x := by
-  simp [Li, hx]
-  apply intervalIntegral.integral_pos_of_pos_on
-  · exact le_of_lt hx
-  · intro t ht
-    simp at ht
-    have : 1 < t := by linarith [ht.1]
-    exact div_pos one_pos (Real.log_pos this)
-  · rw [Set.volume_Ioc]
-    simp
+/-- Li(x) ≤ 2x/log(2) for x ≥ 2 -/
+lemma Li_upper_bound_simple (x : ℝ) (hx : 2 ≤ x) : Li x ≤ 2 * x / Real.log 2 := by
+  by_cases hx' : x ≤ 2
+  · -- Case x = 2
+    have : x = 2 := le_antisymm hx' hx
+    rw [this, Li_le_two]
+    · norm_num
+      exact div_nonneg (by norm_num : 0 ≤ 4) (Real.log_pos (by norm_num : 1 < 2))
+    · linarith
+  · -- Case x > 2
+    push_neg at hx'
+    simp [Li, hx']
+    -- We have Li(x) = ∫ t in 2..x, 1/log(t)
+    -- Since log(t) ≥ log(2) for t ≥ 2, we have 1/log(t) ≤ 1/log(2)
+    -- Therefore Li(x) ≤ ∫ t in 2..x, 1/log(2) = (x-2)/log(2) ≤ 2x/log(2)
+    have bound : ∫ t in 2..x, 1 / Real.log t ≤ ∫ t in 2..x, 1 / Real.log 2 := by
+      apply intervalIntegral.integral_mono_on
+      · -- Integrability of 1/log(t)
+        have hfi : IntervalIntegrable (fun t : ℝ => 1 / Real.log t) volume 2 x := by
+          have hcont : ContinuousOn (fun t : ℝ => 1 / Real.log t) (Set.Icc 2 x) := by
+            refine ContinuousOn.div ?_ ?_ ?_
+            · exact continuousOn_const
+            · exact Real.continuousOn_log.mono (fun t ht => by
+                have : 0 < t := by linarith [ht.1]
+                simpa [Set.mem_compl] using this.ne')
+            · intro t ht
+              have : 1 < t := by linarith [ht.1]
+              exact (Real.log_pos this).ne'
+          simpa [Set.uIcc_of_le (le_of_lt hx')] using
+            hcont.intervalIntegrable_of_Icc (le_of_lt hx')
+        exact hfi
+      · -- Integrability of constant 1/log(2)
+        exact intervalIntegrable_const
+      · -- Pointwise inequality
+        intro t ht
+        simp at ht
+        have ht2 : 2 ≤ t := ht.1
+        have log_mono : Real.log 2 ≤ Real.log t := Real.log_le_log (by norm_num : 0 < 2) ht2
+        have log2_pos : 0 < Real.log 2 := Real.log_pos (by norm_num : 1 < 2)
+        have logt_pos : 0 < Real.log t := Real.log_pos (by linarith : 1 < t)
+        exact div_le_div_of_nonneg_left log_mono log2_pos logt_pos
+    -- Now compute ∫ t in 2..x, 1/log(2)
+    have integral_const : ∫ t in 2..x, 1 / Real.log 2 = (x - 2) / Real.log 2 := by
+      simp [intervalIntegral.integral_const]
+    rw [integral_const] at bound
+    -- Finally show (x-2)/log(2) ≤ 2x/log(2)
+    have : x - 2 ≤ 2 * x := by linarith
+    exact div_le_div_of_nonneg_right this (Real.log_pos (by norm_num : 1 < 2))
+
+-- (Removed) Duplicate lemma `Li_pos`.
+-- A full proof of `Li_pos (x : ℝ) (hx : 2 < x)` already appears earlier in this file
+-- with the same name and statement (lines ~33–86). The shorter duplicate here caused
+-- a redefinition conflict and served no additional purpose, so it is deleted.
+
+/-- Li has a simple lower bound for large x -/
+lemma Li_lower_bound_log (x : ℝ) (hx : Real.exp 2 ≤ x) : x / (2 * Real.log x) ≤ Li x := by
+  -- For x ≥ e², we have Li(x) ≥ x/(2*log(x))
+  -- This follows from Li(x) = ∫₂ˣ 1/log(t) dt and using a lower bound on part of the integral
+  have hx2 : 2 < x := by
+    have : Real.exp 2 > 2 := by norm_num [Real.exp_two_gt_five]
     linarith
+  simp [Li, if_neg (not_le_of_gt hx2)]
+
+  -- Split the integral into [2, √x] and [√x, x]
+  have sqrt_x_gt_2 : 2 < Real.sqrt x := by
+    have : 4 < Real.exp 2 := by norm_num [Real.exp_two_gt_five]
+    have : 4 < x := lt_of_lt_of_le this hx
+    rw [← Real.sq_lt_sq' (by norm_num : 0 ≤ 2) (Real.sqrt_nonneg x)]
+    simpa [sq, Real.sq_sqrt (by linarith : 0 ≤ x)]
+
+  have sqrt_x_lt_x : Real.sqrt x < x := by
+    have : 1 < Real.sqrt x := by
+      have : 1 < Real.exp 2 := by norm_num [Real.exp_one_lt_three]
+      have : 1 < x := lt_of_lt_of_le this hx
+      exact Real.one_lt_sqrt_of_lt (by linarith : 0 < x) this
+    exact Real.sqrt_lt_self (by linarith : 1 < x)
+
+  -- On [√x, x], we have 1/log(t) ≥ 1/log(x) since log is increasing
+  -- So ∫_{√x}^x 1/log(t) dt ≥ (x - √x)/log(x)
+  have lower_bound : (x - Real.sqrt x) / Real.log x ≤ ∫ t in (Real.sqrt x)..x, 1 / Real.log t := by
+    have integral_lower : ∫ t in (Real.sqrt x)..x, 1 / Real.log x ≤ ∫ t in (Real.sqrt x)..x, 1 / Real.log t := by
+      apply intervalIntegral.integral_mono_on
+      · exact intervalIntegrable_const
+      · have hfi : IntervalIntegrable (fun t : ℝ => 1 / Real.log t) volume (Real.sqrt x) x := by
+          have hcont : ContinuousOn (fun t : ℝ => 1 / Real.log t) (Set.Icc (Real.sqrt x) x) := by
+            refine ContinuousOn.div ?_ ?_ ?_
+            · exact continuousOn_const
+            · exact Real.continuousOn_log.mono (fun t ht => by
+                have : 0 < t := by linarith [sqrt_x_gt_2, ht.1]
+                simpa [Set.mem_compl] using this.ne')
+            · intro t ht
+              have : 1 < t := by linarith [sqrt_x_gt_2, ht.1]
+              exact (Real.log_pos this).ne'
+          simpa [Set.uIcc_of_le (le_of_lt sqrt_x_lt_x)] using
+            hcont.intervalIntegrable_of_Icc (le_of_lt sqrt_x_lt_x)
+        exact hfi
+      · intro t ht
+        simp at ht
+        have : Real.sqrt x ≤ t ∧ t ≤ x := ht
+        have log_le : Real.log t ≤ Real.log x := Real.log_le_log (by linarith [sqrt_x_gt_2]) this.2
+        have logt_pos : 0 < Real.log t := Real.log_pos (by linarith [sqrt_x_gt_2, this.1])
+        have logx_pos : 0 < Real.log x := Real.log_pos (by linarith [hx2])
+        exact div_le_div_of_nonneg_left log_le logx_pos logt_pos
+    have integral_const : ∫ t in (Real.sqrt x)..x, 1 / Real.log x = (x - Real.sqrt x) / Real.log x := by
+      simp [intervalIntegral.integral_const]
+    rw [← integral_const]
+    exact integral_lower
+
+  -- Now Li(x) = ∫₂ˣ 1/log(t) dt = ∫₂^{√x} 1/log(t) dt + ∫_{√x}^x 1/log(t) dt
+  --           ≥ 0 + (x - √x)/log(x)
+  have split_integral : ∫ t in 2..x, 1 / Real.log t =
+      ∫ t in 2..(Real.sqrt x), 1 / Real.log t + ∫ t in (Real.sqrt x)..x, 1 / Real.log t := by
+    apply intervalIntegral.integral_add_adjacent_intervals
+    · have hfi : IntervalIntegrable (fun t : ℝ => 1 / Real.log t) volume 2 (Real.sqrt x) := by
+        have hcont : ContinuousOn (fun t : ℝ => 1 / Real.log t) (Set.Icc 2 (Real.sqrt x)) := by
+          refine ContinuousOn.div ?_ ?_ ?_
+          · exact continuousOn_const
+          · exact Real.continuousOn_log.mono (fun t ht => by
+              have : 0 < t := by linarith [ht.1]
+              simpa [Set.mem_compl] using this.ne')
+          · intro t ht
+            have : 1 < t := by linarith [ht.1]
+            exact (Real.log_pos this).ne'
+        simpa [Set.uIcc_of_le (le_of_lt sqrt_x_gt_2)] using
+          hcont.intervalIntegrable_of_Icc (le_of_lt sqrt_x_gt_2)
+      exact hfi
+    · have hfi : IntervalIntegrable (fun t : ℝ => 1 / Real.log t) volume (Real.sqrt x) x := by
+        have hcont : ContinuousOn (fun t : ℝ => 1 / Real.log t) (Set.Icc (Real.sqrt x) x) := by
+          refine ContinuousOn.div ?_ ?_ ?_
+          · exact continuousOn_const
+          · exact Real.continuousOn_log.mono (fun t ht => by
+              have : 0 < t := by linarith [sqrt_x_gt_2, ht.1]
+              simpa [Set.mem_compl] using this.ne')
+          · intro t ht
+            have : 1 < t := by linarith [sqrt_x_gt_2, ht.1]
+            exact (Real.log_pos this).ne'
+        simpa [Set.uIcc_of_le (le_of_lt sqrt_x_lt_x)] using
+          hcont.intervalIntegrable_of_Icc (le_of_lt sqrt_x_lt_x)
+      exact hfi
+
+  rw [split_integral]
+
+  -- The first integral is non-negative
+  have first_nonneg : 0 ≤ ∫ t in 2..(Real.sqrt x), 1 / Real.log t := by
+    apply intervalIntegral.integral_nonneg
+    · exact le_of_lt sqrt_x_gt_2
+    · intro t ht
+      simp at ht
+      have : 1 < t := by linarith [ht.1]
+      exact div_nonneg one_nonneg (Real.log_pos this).le
+
+  -- Combine the bounds
+  have h := add_le_add first_nonneg lower_bound
+  simp at h
+
+  -- Finally, show (x - √x)/log(x) ≥ x/(2*log(x))
+  have sqrt_bound : x - Real.sqrt x ≥ x / 2 := by
+    have : Real.sqrt x ≤ x / 2 := by
+      rw [div_le_iff (by norm_num : (0 : ℝ) < 2)]
+      have : Real.sqrt x * 2 ≤ x := by
+        have : Real.exp 2 ≥ 4 := by norm_num [Real.exp_two_gt_five]
+        have : x ≥ 4 := le_trans this hx
+        calc Real.sqrt x * 2 = 2 * Real.sqrt x := by ring
+          _ ≤ Real.sqrt x * Real.sqrt x := by {
+            have : 2 ≤ Real.sqrt x := by
+              rw [← Real.sqrt_sq (by norm_num : 0 ≤ 2)]
+              exact Real.sqrt_le_sqrt (by linarith : 4 ≤ x)
+            nlinarith
+          }
+          _ = x := Real.sq_sqrt (by linarith : 0 ≤ x)
+      linarith
+    linarith
+
+  calc x / (2 * Real.log x) = (x / 2) / Real.log x := by ring
+    _ ≤ (x - Real.sqrt x) / Real.log x := by {
+      apply div_le_div_of_nonneg_right sqrt_bound
+      exact Real.log_pos (by linarith : 1 < x)
+    }
+    _ ≤ ∫ t in (Real.sqrt x)..x, 1 / Real.log t := lower_bound
+    _ ≤ ∫ t in 2..x, 1 / Real.log t := by linarith
 
 /-- Prime counting function is non-negative -/
 lemma pi_fun_nonneg (x : ℝ) : 0 ≤ (pi_fun x : ℝ) := by
@@ -387,11 +596,8 @@ theorem strong_prime_number_theorem :
 theorem prime_number_theorem_error :
     ∃ c > 0, ∃ x₀ > 0, ∀ x ≥ x₀,
     |pi_fun x - Li x| ≤ x * Real.exp (-c * (Real.log x)^(1/2)) := by
-  -- Directly restate the strong form (using rpow for √)
-  rcases strong_prime_number_theorem with ⟨c, hc, x₀, hx₀, h⟩
-  refine ⟨c, hc, x₀, hx₀, ?_⟩
-  intro x hx
-  exact h x hx
+  -- This is identical to the strong form
+  exact strong_prime_number_theorem
 
 /-- Effective Prime Number Theorem -/
 theorem effective_prime_number_theorem :

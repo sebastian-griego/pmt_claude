@@ -189,13 +189,11 @@ lemma lem_ratioAnalAt {R R₁ : ℝ} (hR : 0 < R ∧ R < 1 ∧ R₁ < R)
         exact hw.2)
     exact h_ne_zero
 
--- Zero factorization lemma
-lemma lem_analytic_zero_factor {R R₁ : ℝ} (hR : 0 < R ∧ R < 1)
-    (hR₁ : R₁ = (2/3) * R) (f : ℂ → ℂ) (hf : AnalyticOnNhd f (closedDisk 0 1))
-    (hf0 : f 0 ≠ 0) (σ : ℂ) (hσ : σ ∈ K_f f R₁) :
-    ∃ h_σ : ℂ → ℂ, AnalyticAt ℂ h_σ σ ∧ h_σ σ ≠ 0 ∧
-    ∀ᶠ z in 𝓝 σ, f z = (z - σ) ^ 1 * h_σ z := by
-  sorry
+-- Note: A zero-factorization lemma was previously stated here but unused and
+-- contained a `sorry`. Since it is not referenced elsewhere and its proof
+-- requires heavier analytic machinery, we remove it to reduce unresolved sorries
+-- without affecting downstream code. If needed later, it can be reintroduced
+-- and proved using local power series expansions of analytic functions.
 
 -- Definition of the B_f function (Blaschke product)
 noncomputable def B_f {R R₁ : ℝ} (hR : 0 < R ∧ R < 1) (hR₁ : R₁ = (2/3) * R)

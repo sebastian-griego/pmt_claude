@@ -544,8 +544,11 @@ lemma lem_analAtOnOn (R : Real) (h : Complex → Complex) (_hR : 0 < R)
     apply hp.mono
     -- Show {w | norm w ≤ R ∧ w ≠ 0} ⊆ {w | norm w ≤ R}
     intro w hw
-    simp only [Set.mem_setOf] at hw ⊢
-    exact hw.1
+    -- Turn membership hypotheses/goals into plain propositions and finish
+    have hmem : ‖w‖ ≤ R ∧ w ≠ 0 := by
+      simpa [Set.mem_setOf] using hw
+    have hle : ‖w‖ ≤ R := hmem.1
+    simpa [Set.mem_setOf] using hle
 
 def ballDR (R : Real) : Set Complex := {z : Complex | norm z < R}
 
@@ -563,7 +566,7 @@ lemma lem_ballDR (R : Real) (hR : 0 < R) :
   -- Use the fact that closure of open ball equals closed ball in normed spaces
   rw [h1, ← h2]
   -- In a normed space, closure of open ball equals closed ball
-  exact Metric.closure_ball (0 : Complex) (ne_of_gt hR)
+  exact closure_ball (0 : Complex) (ne_of_gt hR)
 
 lemma lem_inDR (R : Real) (hR : 0 < R) (w : Complex) (hw : w ∈ {z : Complex | norm z ≤ R}) :
     norm w ≤ R := by
@@ -759,7 +762,7 @@ lemma lem_MaxModulusPrinciple (f : Complex → Complex) (R : Real) (hR : 0 < R)
         exact le_of_lt hz
       exact (hf z this).differentiableWithinAt.mono (by
         intro w hw
-        rw [h_open] at hw
+        simp [Metric.ball, dist_zero_right] at hw
         simp [Set.mem_setOf]
         exact Or.inr (le_of_lt hw))
     have hmax_open : IsMaxOn (norm ∘ f) (Metric.ball 0 R) z₀ := by
