@@ -1,1 +1,10 @@
-: : : : : : 
+Total sorries: 104
+
+By file:
+PNT1_ComplexAnalysis.lean: 19
+PNT2_LogDerivative.lean: 17
+PNT3_RiemannZeta.lean: 27
+PNT4_ZeroFreeRegion.lean: 22
+PNT5_StrongPNT.lean: 19
+
+Last updated: 2025-09-25T23:20:00Z

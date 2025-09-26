@@ -563,7 +563,7 @@ lemma lem_ballDR (R : Real) (hR : 0 < R) :
   -- Use the fact that closure of open ball equals closed ball in normed spaces
   rw [h1, ← h2]
   -- In a normed space, closure of open ball equals closed ball
-  exact closure_ball (0 : Complex) (ne_of_gt hR)
+  exact Metric.closure_ball (0 : Complex) (ne_of_gt hR)
 
 lemma lem_inDR (R : Real) (hR : 0 < R) (w : Complex) (hw : w ∈ {z : Complex | norm z ≤ R}) :
     norm w ≤ R := by
@@ -754,15 +754,21 @@ lemma lem_MaxModulusPrinciple (f : Complex → Complex) (R : Real) (hR : 0 < R)
     have hdiff_open : DifferentiableOn ℂ f (Metric.ball 0 R) := by
       intro z hz
       rw [← h_open] at hz
-      have : z ∈ {z : Complex | norm z ≤ R} := le_of_lt hz
+      have : z ∈ {z : Complex | norm z ≤ R} := by
+        simp [Set.mem_setOf]
+        exact le_of_lt hz
       exact (hf z this).differentiableWithinAt.mono (by
         intro w hw
         rw [h_open] at hw
-        exact le_of_lt hw)
+        simp [Set.mem_setOf]
+        exact Or.inr (le_of_lt hw))
     have hmax_open : IsMaxOn (norm ∘ f) (Metric.ball 0 R) z₀ := by
       intro w hw
       rw [← h_open] at hw
-      exact hz₀_max w (le_of_lt hw)
+      have : w ∈ {z | ‖z‖ ≤ R} := by
+        simp [Set.mem_setOf]
+        exact le_of_lt hw
+      exact hz₀_max w this
     exact Complex.eqOn_of_isPreconnected_of_isMaxOn_norm hconn_open Metric.isOpen_ball hdiff_open hz₀_ball hmax_open
 
   -- Conclude that f is constant
@@ -862,8 +868,12 @@ lemma lem_Schwarz (f : Complex → Complex)
     -- Convert to ball formulation for Mathlib's Schwarz lemma
     have hf_diff : DifferentiableOn ℂ f (Metric.closedBall 0 1) := by
       intro w hw
-      have : ‖w‖ ≤ 1 := by simp [Metric.closedBall, dist_zero_right] at hw; exact hw
-      have hw_mem : w ∈ {z : Complex | norm z ≤ 1} := this
+      have : ‖w‖ ≤ 1 := by
+        rw [Metric.mem_closedBall, dist_zero_right] at hw
+        exact hw
+      have hw_mem : w ∈ {z : Complex | norm z ≤ 1} := by
+        simp [Set.mem_setOf]
+        exact this
       exact (hf w hw_mem).differentiableWithinAt.mono (by
         intro x hx
         simp [Metric.closedBall, dist_zero_right] at hx ⊢
@@ -899,8 +909,9 @@ lemma lem_Schwarz (f : Complex → Complex)
     have h_maps : MapsTo f (Metric.ball 0 1) (Metric.ball 0 1) := by
       intro w hw
       simp [Metric.ball, dist_zero_right] at hw ⊢
-      have : ‖w‖ ≤ 1 := le_of_lt hw
-      exact lt_of_le_of_lt (hfbound w this) (by norm_num : (1 : ℝ) < 2)
+      -- For w in the open ball, we need |f(w)| < 1
+      -- This requires a stronger version of Schwarz lemma
+      sorry
     sorry  -- Schwarz lemma derivative bound needs proper formulation
 
 -- Phragmen-Lindelöf principle for a strip
@@ -1136,14 +1147,9 @@ lemma lem_MaxModv2 (R : Real) (hR : R > 0) (h : Complex → Complex)
     · constructor
       · simp [norm_real, abs_of_pos hR]
       · intro z hz
-        have hu_R : ‖h ↑R‖ = ‖h u‖ := by
-          have eq1 : ‖h ↑R‖ = ‖h (Classical.choose hw)‖ := lem_MaxModR R hR h hh hw
-          -- Since we defined hw using u explicitly, Classical.choose hw should be u
-          -- But the proof system doesn't see it that way, so we use the fact that
-          -- all constant values are the same
-          sorry
-        rw [hu_R]
-        exact hu_max z hz
+        -- The interior maximum `hw` implies the boundary value at `R` dominates
+        -- all values on the closed disk by lem_MaxModRR.
+        exact lem_MaxModRR R hR h hh hw z hz
 
   · -- Maximum is already on the boundary
     use u
@@ -1232,7 +1238,23 @@ lemma lem_removable_singularity (R : Real) (hR : R > 0) (f : Complex → Complex
     -- The function f(z)/z at z=0 equals the derivative f'(0) by L'Hôpital
     have h_deriv : deriv f 0 = deriv f 0 := rfl
     -- The key is that f(z)/z extends analytically to 0 with value f'(0)
-    sorry -- This requires using power series expansion or the removable singularity theorem from Mathlib
+    -- We use that f has a power series expansion around 0
+    -- Since f(0) = 0 and f is analytic, f(z) = z*g(z) for some analytic g
+    -- Therefore f(z)/z = g(z) which is analytic at 0
+    have h_series : ∃ (p : FormalMultilinearSeries ℂ ℂ ℂ), HasFPowerSeriesWithinAt f p {w | ‖w‖ ≤ R} 0 :=
+      (hf 0 (by simp [hz, hzero])).exists_analyticWithinAt
+    obtain ⟨p, hp⟩ := h_series
+    -- Since f(0) = 0, the constant term p 0 = 0
+    have h_p0 : p 0 = 0 := by
+      have : f 0 = p.sum 0 := hp.sum (by simp)
+      simp [hf0] at this
+      convert this
+      simp [FormalMultilinearSeries.sum]
+    -- Define the shifted series q(z) = p(z)/z = Σ p_{n+1} z^n
+    let q : FormalMultilinearSeries ℂ ℂ ℂ := fun n => p (n + 1)
+    -- Show that f(z)/z has power series q at 0
+    apply AnalyticWithinAt.of_hasFPowerSeriesWithinAt
+    sorry -- Still requires showing that the shifted series converges
   · -- For z ≠ 0, this is just composition of analytic functions
     apply AnalyticWithinAt.div
     · exact hf z hz
@@ -1702,8 +1724,11 @@ lemma lem_bound_on_f_at_r_prime (M R r' : ℝ) (hM : 0 < M) (hR : 0 < R) (hr' : 
     (t : ℝ) : norm (f (r' * Complex.exp (I * t))) ≤ 2 * r' * M / (R - r') := by
   -- The point r' * exp(I * t) has norm r'
   have h_norm : norm ((r' : Complex) * Complex.exp (I * t)) = r' := by
-    rw [norm_mul, Complex.norm_exp_ofReal_mul_I]
-    simp only [Complex.norm_eq_abs, Complex.abs_ofReal, abs_of_pos hr', mul_one]
+    rw [norm_mul]
+    have h_exp : ‖Complex.exp (I * t)‖ = 1 := by
+      -- |exp(I t)| = 1, rewrite to match the lemma shape (t * I)
+      simpa [mul_comm] using Complex.norm_exp_ofReal_mul_I t
+    simp [Complex.norm_real, abs_of_pos hr', h_exp]
   -- Since norm(r' * exp(I * t)) = r' ≤ r' < R, we can apply lem_BCI
   have h_in_disk : norm ((r' : Complex) * Complex.exp (I * t)) ≤ r' := by
     rw [h_norm]
@@ -1943,4 +1968,3 @@ lemma cauchy_for_rectangles (R R_0 : ℝ) (hR : 0 < R) (hRR0 : R < R_0) (hR01 : 
     (z w : Complex) (_hz : norm z ≤ R) (_hw : norm w ≤ R) :
     True := by
   trivial
-

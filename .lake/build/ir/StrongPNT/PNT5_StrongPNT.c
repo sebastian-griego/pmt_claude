@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: StrongPNT.PNT5_StrongPNT
-// Imports: Init Mathlib.NumberTheory.ArithmeticFunction Mathlib.NumberTheory.VonMangoldt Mathlib.Analysis.Complex.Basic Mathlib.Analysis.SpecialFunctions.Complex.Log Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus Mathlib.NumberTheory.PrimeCounting StrongPNT.PNT3_RiemannZeta
+// Imports: Init Mathlib.NumberTheory.ArithmeticFunction Mathlib.NumberTheory.VonMangoldt Mathlib.Analysis.Complex.Basic Mathlib.Analysis.SpecialFunctions.Complex.Log Mathlib.Analysis.SpecialFunctions.Log.Basic Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts Mathlib.NumberTheory.PrimeCounting StrongPNT.PNT3_RiemannZeta
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -37,8 +37,9 @@ lean_object* initialize_Mathlib_NumberTheory_ArithmeticFunction(uint8_t builtin,
 lean_object* initialize_Mathlib_NumberTheory_VonMangoldt(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Analysis_Complex_Basic(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Analysis_SpecialFunctions_Complex_Log(uint8_t builtin, lean_object*);
+lean_object* initialize_Mathlib_Analysis_SpecialFunctions_Log_Basic(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_MeasureTheory_Integral_IntervalIntegral_Basic(uint8_t builtin, lean_object*);
-lean_object* initialize_Mathlib_MeasureTheory_Integral_IntervalIntegral_FundThmCalculus(uint8_t builtin, lean_object*);
+lean_object* initialize_Mathlib_MeasureTheory_Integral_IntervalIntegral_IntegrationByParts(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_NumberTheory_PrimeCounting(uint8_t builtin, lean_object*);
 lean_object* initialize_StrongPNT_PNT3__RiemannZeta(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
@@ -61,10 +62,13 @@ lean_dec_ref(res);
 res = initialize_Mathlib_Analysis_SpecialFunctions_Complex_Log(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
+res = initialize_Mathlib_Analysis_SpecialFunctions_Log_Basic(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
 res = initialize_Mathlib_MeasureTheory_Integral_IntervalIntegral_Basic(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
-res = initialize_Mathlib_MeasureTheory_Integral_IntervalIntegral_FundThmCalculus(builtin, lean_io_mk_world());
+res = initialize_Mathlib_MeasureTheory_Integral_IntervalIntegral_IntegrationByParts(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_Mathlib_NumberTheory_PrimeCounting(builtin, lean_io_mk_world());

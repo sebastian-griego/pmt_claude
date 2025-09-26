@@ -25,7 +25,7 @@ Autoformalization project - implementing Lean proofs from LaTeX blueprint.
 - `StrongPNT/ZetaZeroFree.lean` - zeta zero-free region lemmas as needed
 
 ## Current Focus
-Continue implementing theorems sequentially from the blueprint tex files. Check which file has the least progress and work there.
+Continue implementing theorems sequentially from the blueprint tex files. Check which file has the least progress and work there. Make sure the blueprint framework is fully established.
 
 ## Work Process (EVERY iteration)
 1. Check current file's compilation status with `lake build`
@@ -48,6 +48,9 @@ Continue implementing theorems sequentially from the blueprint tex files. Check 
 - Still stuck after 2 attempts? Mark as BLOCKED in progress file and try a different file
 - NEVER use 'sorry' as a placeholder
 - If an API or theorem does not exist in the current Mathlib version, then prove it yourself. Do not give up.
+
+## Remember
+- The blueprint folder has LaTeX explanations for every single theorem you need!!! You just need to convert that to lean!!!
 
 ## Progress Tracking Format
 Track in progress file using actual theorem names from the blueprint:

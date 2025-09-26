@@ -1,0 +1,593 @@
+⚠ [2534/2642] Replayed StrongPNT.PNT2_LogDerivative
+warning: StrongPNT/PNT2_LogDerivative.lean:107:30: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:108:17: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:108:57: unused variable `hf0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:109:13: unused variable `hρ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:123:34: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:123:47: unused variable `hR₁`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:134:31: unused variable `hS`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:134:55: unused variable `hw`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:170:34: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:172:20: unused variable `hS`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:193:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:201:34: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:201:55: unused variable `hR₁`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:202:17: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:202:57: unused variable `hf0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:235:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:242:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:249:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:269:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:276:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:287:48: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:288:5: unused variable `hR₁`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:288:40: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:289:5: unused variable `hf0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:289:29: unused variable `hρ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:289:57: unused variable `hz`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:311:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: StrongPNT/PNT2_LogDerivative.lean:322:8: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: StrongPNT/PNT2_LogDerivative.lean:300:34: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:300:55: unused variable `hR₁`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:301:17: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:301:57: unused variable `hf0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:303:13: unused variable `hz`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:344:47: unused variable `hz`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:352:29: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:352:50: unused variable `hR₁`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:353:17: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:353:57: unused variable `hf0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:354:47: unused variable `hz`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:361:33: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:361:54: unused variable `hR₁`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:362:17: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:362:57: unused variable `hf0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:363:59: unused variable `hz`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:391:14: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: StrongPNT/PNT2_LogDerivative.lean:395:14: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: StrongPNT/PNT2_LogDerivative.lean:418:35: unused variable `hR₁`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:487:31: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:487:52: unused variable `hR₁`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:488:17: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:502:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:512:2: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: StrongPNT/PNT2_LogDerivative.lean:521:2: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: StrongPNT/PNT2_LogDerivative.lean:519:43: unused variable `h`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:525:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:537:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:562:53: unused variable `hn`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:571:31: unused variable `ρ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:582:48: unused variable `ρ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:593:40: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:593:61: unused variable `hR₁`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:594:17: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:594:57: unused variable `hf0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:605:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:612:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:619:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:628:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:637:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:645:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:653:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:661:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:690:4: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: StrongPNT/PNT2_LogDerivative.lean:700:6: declaration uses 'sorry'
+warning: StrongPNT/PNT2_LogDerivative.lean:713:34: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:713:55: unused variable `hR₁`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:714:17: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:716:6: unused variable `ρ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT2_LogDerivative.lean:727:6: declaration uses 'sorry'
+⚠ [3161/3169] Replayed StrongPNT.PNT3_RiemannZeta
+warning: StrongPNT/PNT3_RiemannZeta.lean:54:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:66:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:141:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:283:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:290:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:447:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:453:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:468:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:473:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:494:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:507:8: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:512:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:521:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:525:8: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:530:8: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:536:8: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:551:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:554:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:558:6: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:568:4: unused variable `expansion_error`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT3_RiemannZeta.lean:602:8: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:606:8: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:614:8: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:622:8: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:627:8: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:632:8: declaration uses 'sorry'
+warning: StrongPNT/PNT3_RiemannZeta.lean:638:8: declaration uses 'sorry'
+⚠ [3166/3169] Replayed StrongPNT.PNT5_StrongPNT
+warning: StrongPNT/PNT5_StrongPNT.lean:117:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:127:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:132:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:148:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:156:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:162:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:168:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:173:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:178:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:188:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:193:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:199:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:205:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:211:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:217:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:223:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:233:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:243:8: declaration uses 'sorry'
+warning: StrongPNT/PNT5_StrongPNT.lean:250:8: declaration uses 'sorry'
+✖ [3167/3169] Building StrongPNT.PNT1_ComplexAnalysis (16s)
+trace: .> LEAN_PATH=/home/jovyan/pmt_claude/.lake/packages/Cli/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/batteries/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/Qq/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/aesop/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/proofwidgets/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/importGraph/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/plausible/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean:/home/jovyan/pmt_claude/.lake/build/lib/lean /home/jovyan/.elan/toolchains/leanprover--lean4---v4.24.0-rc1/bin/lean /home/jovyan/pmt_claude/StrongPNT/PNT1_ComplexAnalysis.lean -o /home/jovyan/pmt_claude/.lake/build/lib/lean/StrongPNT/PNT1_ComplexAnalysis.olean -i /home/jovyan/pmt_claude/.lake/build/lib/lean/StrongPNT/PNT1_ComplexAnalysis.ilean -c /home/jovyan/pmt_claude/.lake/build/ir/StrongPNT/PNT1_ComplexAnalysis.c --setup /home/jovyan/pmt_claude/.lake/build/ir/StrongPNT/PNT1_ComplexAnalysis.setup.json --json
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:346:64: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:376:51: unused variable `hr`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:376:77: unused variable `hM`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:397:25: unused variable `n`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:446:34: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: StrongPNT/PNT1_ComplexAnalysis.lean:548:10: Invalid projection: Expected a value whose type is a structure
+  hw
+has type
+  Real.le✝ ‖w‖ R
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:568:27: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:572:30: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:577:28: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:599:52: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:628:51: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:649:6: declaration uses 'sorry'
+error: StrongPNT/PNT1_ComplexAnalysis.lean:757:47: Type mismatch
+  le_of_lt ?m.417
+has type
+  ?m.415 ≤ ?m.416
+but is expected to have type
+  z ∈ {z | ‖z‖ ≤ R}
+error: StrongPNT/PNT1_ComplexAnalysis.lean:765:22: Application type mismatch: The argument
+  le_of_lt ?m.448
+has type
+  ?m.446 ≤ ?m.447
+but is expected to have type
+  w ∈ {z | ‖z‖ ≤ R}
+in the application
+  hz₀_max w (le_of_lt ?m.448)
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:780:6: declaration uses 'sorry'
+error: StrongPNT/PNT1_ComplexAnalysis.lean:812:11: Type mismatch
+  M + 1
+has type
+  ℝ
+of sort `outParam Type` but is expected to have type
+  range f ⊆ Metric.ball ?m.58 0
+of sort `Prop`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:827:6: declaration uses 'sorry'
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:840:6: declaration uses 'sorry'
+error: StrongPNT/PNT1_ComplexAnalysis.lean:870:8: Type mismatch
+  hx
+has type
+  ‖x‖ ≤ 1
+but is expected to have type
+  x = w ∨ ‖x‖ ≤ 1
+error: StrongPNT/PNT1_ComplexAnalysis.lean:898:8: Type mismatch
+  le_of_lt hx
+has type
+  ‖x‖ ≤ 1
+but is expected to have type
+  x ∈ insert w {z | ‖z‖ ≤ 1}
+error: StrongPNT/PNT1_ComplexAnalysis.lean:903:44: Application type mismatch: The argument
+  ?m.346
+has type
+  1 < 2
+but is expected to have type
+  1 < 1
+in the application
+  lt_of_le_of_lt (hfbound w this) ?m.346
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:907:6: declaration uses 'sorry'
+error: StrongPNT/PNT1_ComplexAnalysis.lean:931:61: Application type mismatch: The argument
+  h
+has type
+  ∀ x ∈ uIcc a b, ‖f ↑x‖ ≤ M
+but is expected to have type
+  ∀ x ∈ uIoc ?m.74 ?m.75, ‖?m.77 x‖ ≤ ?m.76
+in the application
+  intervalIntegral.norm_integral_le_of_norm_le_const h
+error: StrongPNT/PNT1_ComplexAnalysis.lean:940:2: No goals to be solved
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:943:6: declaration uses 'sorry'
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:955:6: declaration uses 'sorry'
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:964:6: declaration uses 'sorry'
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:975:6: declaration uses 'sorry'
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:985:6: declaration uses 'sorry'
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:994:6: declaration uses 'sorry'
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1006:32: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1010:50: This simp argument is unused:
+  dist_comm
+
+Hint: Omit it from the simp argument list.
+  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_c̵o̵m̵m̵,̵ ̵d̵i̵s̵t̵_̵zero_right]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1029:31: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: StrongPNT/PNT1_ComplexAnalysis.lean:1076:73: Type mismatch
+  le_of_lt ?m.243
+has type
+  ?m.241 ≤ ?m.242
+but is expected to have type
+  Classical.choose hw ∈ {z | ‖z‖ ≤ R}
+error: StrongPNT/PNT1_ComplexAnalysis.lean:1079:16: Type mismatch
+  hw_max v hv_int
+has type
+  ‖h v‖ ≤ ‖h (Classical.choose hw)‖
+but is expected to have type
+  ‖h (Classical.choose hw)‖ ≤ ‖h v‖
+error: StrongPNT/PNT1_ComplexAnalysis.lean:1081:75: Type mismatch
+  le_of_lt ?m.274
+has type
+  ?m.272 ≤ ?m.273
+but is expected to have type
+  Classical.choose hw ∈ {z | ‖z‖ ≤ R}
+error: StrongPNT/PNT1_ComplexAnalysis.lean:1091:40: Application type mismatch: The argument
+  le_of_lt ?m.294
+has type
+  ?m.292 ≤ ?m.293
+but is expected to have type
+  Classical.choose hw ∈ {z | ‖z‖ ≤ R}
+in the application
+  hc (Classical.choose hw) (le_of_lt ?m.294)
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1110:6: declaration uses 'sorry'
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1166:55: unused variable `hB`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1187:30: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1187:54: unused variable `hB`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1188:5: unused variable `hh`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1203:44: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1205:5: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1213:40: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1215:5: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1221:6: declaration uses 'sorry'
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1242:40: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1253:23: unused variable `R`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1273:33: unused variable `hb`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1274:8: This simp argument is unused:
+  norm_div
+
+Hint: Omit it from the simp argument list.
+  simp ̵[̵n̵o̵r̵m̵_̵d̵i̵v̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1278:5: unused variable `hf0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1286:27: unused variable `hT`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1288:8: This simp argument is unused:
+  norm_div
+
+Hint: Omit it from the simp argument list.
+  simp [n̵o̵r̵m̵_̵d̵i̵v̵,̵ ̵hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1360:34: unused variable `ha`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: StrongPNT/PNT1_ComplexAnalysis.lean:1444:2: Tactic `apply` failed: could not unify the conclusion of `@iSup_le`
+  @iSup ?α ?ι CompleteLattice.toCompleteSemilatticeSup.toSupSet ?f ≤ ?a
+with the goal
+  ⨆ z, ‖f ↑z‖ ≤ 2 * r / (R - r) * M
+
+Note: The full type of `@iSup_le` is
+  ∀ {α : Type ?u.91918} {ι : Sort ?u.91917} [inst : CompleteLattice α] {f : ι → α} {a : α},
+    (∀ (i : ι), f i ≤ a) → iSup f ≤ a
+
+R M r : ℝ
+hR : R > 0
+hM : M > 0
+hr : 0 < r
+hrR : r < R
+f : ℂ → ℂ
+hf : AnalyticOn ℂ f {z | ‖z‖ ≤ R}
+hf0 : f 0 = 0
+hfRe : ∀ (z : ℂ), ‖z‖ ≤ R → (f z).re ≤ M
+⊢ ⨆ z, ‖f ↑z‖ ≤ 2 * r / (R - r) * M
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1453:8: declaration uses 'sorry'
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1463:31: `differentiableAt_id'` has been deprecated: Use `differentiableAt_fun_id` instead
+error: StrongPNT/PNT1_ComplexAnalysis.lean:1463:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  deriv (fun y ↦ ↑r' * y) ?m.42
+in the target expression
+  deriv (fun t ↦ ↑r' * cexp (I * t)) ↑t = I * ↑r' * cexp (I * ↑t)
+
+r' t : ℝ
+⊢ deriv (fun t ↦ ↑r' * cexp (I * t)) ↑t = I * ↑r' * cexp (I * ↑t)
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1476:6: declaration uses 'sorry'
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1484:6: declaration uses 'sorry'
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1501:23: unused variable `hg`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: StrongPNT/PNT1_ComplexAnalysis.lean:1512:2: (deterministic) timeout at `isDefEq`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1553:12: This simp argument is unused:
+  norm_mul
+
+Hint: Omit it from the simp argument list.
+  simp [sq,̵ ̵n̵o̵r̵m̵_̵m̵u̵l̵]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1565:50: unused variable `hr`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1565:63: unused variable `hrr'`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1565:79: unused variable `hr'R`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1578:29: unused variable `hr`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1578:58: unused variable `hr'R`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1609:37: unused variable `hr`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1609:50: unused variable `hrr'`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1609:66: unused variable `hr'R`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1609:96: unused variable `hz`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1639:34: unused variable `hb`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1644:29: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1671:29: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: StrongPNT/PNT1_ComplexAnalysis.lean:1705:18: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ‖cexp (↑?x * I)‖
+in the target expression
+  ‖↑r'‖ * ‖cexp (I * ↑t)‖ = r'
+
+M R r' : ℝ
+hM : 0 < M
+hR : 0 < R
+hr' : 0 < r'
+hr'R : r' < R
+f : ℂ → ℂ
+hf : AnalyticOn ℂ f {z | ‖z‖ ≤ R}
+hf0 : f 0 = 0
+hRe : ∀ (z : ℂ), ‖z‖ ≤ R → (f z).re ≤ M
+t : ℝ
+⊢ ‖↑r'‖ * ‖cexp (I * ↑t)‖ = r'
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1743:25: unused variable `t`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: StrongPNT/PNT1_ComplexAnalysis.lean:1765:86: Unknown identifier `t`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1772:28: unused variable `t`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1777:47: unused variable `t`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1835:50: unused variable `hr`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1835:63: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1839:13: This simp argument is unused:
+  show (r + R) / 2 = (r + R) / 2 from rfl
+
+Hint: Omit it from the simp argument list.
+  simp only ̵[̵s̵h̵o̵w̵ ̵(̵r̵ ̵+̵ ̵R̵)̵ ̵/̵ ̵2̵ ̵=̵ ̵(̵r̵ ̵+̵ ̵R̵)̵ ̵/̵ ̵2̵ ̵f̵r̵o̵m̵ ̵r̵f̵l̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1850:66: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1855:51: unused variable `hr`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1855:64: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1859:13: This simp argument is unused:
+  show (r + R) / 2 = (r + R) / 2 from rfl
+
+Hint: Omit it from the simp argument list.
+  simp only ̵[̵s̵h̵o̵w̵ ̵(̵r̵ ̵+̵ ̵R̵)̵ ̵/̵ ̵2̵ ̵=̵ ̵(̵r̵ ̵+̵ ̵R̵)̵ ̵/̵ ̵2̵ ̵f̵r̵o̵m̵ ̵r̵f̵l̵]̵
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1941:41: unused variable `hR`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1941:54: unused variable `hRR0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1941:71: unused variable `hR01`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: StrongPNT/PNT1_ComplexAnalysis.lean:1942:29: unused variable `hf`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- StrongPNT.PNT1_ComplexAnalysis
+error: build failed

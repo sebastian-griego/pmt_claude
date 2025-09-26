@@ -15,7 +15,7 @@ if [ "$PROJECT_TYPE" = "research" ]; then
 fi
 command -v claude >/dev/null || { echo "ERROR: 'claude' CLI not found"; exit 1; }
 mkdir -p logs
-touch PROGRESS2.md
+touch PROGRESS.md
 # Base prompt based on project type
 if [ "$PROJECT_TYPE" = "research" ]; then
     BASE_PROMPT='You are managing research experiments.

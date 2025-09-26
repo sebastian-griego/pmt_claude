@@ -13,6 +13,8 @@ Autoformalization project — implementing Lean proofs from LaTeX blueprint.
 7. **NEVER create `.lean` files in root directory**
 8. **NEVER USE EMOJIS**
 
+
+
 ## File Structure (focus only these)
 - `StrongPNT/PNT1_ComplexAnalysis.lean`  ← implements `blueprint/PNT1_ComplexAnalysis.tex`
 - `StrongPNT/PNT2_LogDerivative.lean`    ← implements `blueprint/PNT2_LogDerivative.tex`
@@ -21,6 +23,11 @@ Autoformalization project — implementing Lean proofs from LaTeX blueprint.
 - `StrongPNT/PNT5_StrongPNT.lean`        ← implements `blueprint/PNT5_Strong.tex`
 - `StrongPNT/Z0.lean`                    ← supporting defs
 - `StrongPNT/ZetaZeroFree.lean`          ← zeta zero-free region lemmas
+
+## Imports
+- Import Mathlib in the first
+- Import the previous file into each successive file
+- Import Z0 and ZetaZeroFree when necessary
 
 ## Current Focus
 Continue implementing theorems sequentially from the blueprint `.tex` files. Check which file has the least progress and work there.
@@ -45,6 +52,9 @@ Continue implementing theorems sequentially from the blueprint `.tex` files. Che
 - Use `exact?` tactic if relevant
 - Still stuck after 2 attempts? Mark **BLOCKED** in progress and try a different file
 - If a needed API/theorem is missing in current Mathlib, **prove it yourself** (don’t give up)
+
+## Remember
+- The blueprint folder has LaTeX explanations for every single theorem you need!!! You just need to convert that to lean!!!
 
 ## Verification Required (after EVERY theorem)
 ```bash
