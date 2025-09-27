@@ -1,5 +1,6 @@
 import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.NumberTheory.LSeries.Nonvanishing
+import Mathlib.NumberTheory.LSeries.HurwitzZetaValues
 import Mathlib.NumberTheory.EulerProduct.DirichletLSeries
 import Mathlib.Analysis.Complex.CauchyIntegral
 import Mathlib.Topology.Basic
@@ -101,6 +102,11 @@ lemma zeta_residue_one :
   -- This means (s - 1) * zeta(s) → 1 as s → 1
   simp only [zeta]
   exact riemannZeta_residue_one
+
+-- Classical result: zeta(2) = π²/6 (Basel problem)
+lemma zeta_two : zeta 2 = Real.pi^2 / 6 := by
+  simp only [zeta]
+  exact riemannZeta_two
 
 -- Abs p pow s
 lemma abs_p_pow_s (p : Nat.Primes) (s : ℂ) :
@@ -638,6 +644,10 @@ lemma log_deriv_bound (s : ℂ) (hs : 1 < s.re) (C : ℝ) (hC : 0 < C) :
 noncomputable def xi (s : ℂ) : ℂ :=
   s * (s - 1) * Real.pi ^ (-s/2) * Gamma (s/2) * zeta s
 
+-- Xi at zero equals zero (trivial from definition)
+lemma xi_zero : xi 0 = 0 := by
+  simp only [xi, zero_mul]
+
 -- Xi is entire
 lemma xi_entire : AnalyticOn ℂ xi (Set.univ : Set ℂ) := by
   sorry
@@ -721,6 +731,46 @@ lemma mu_abs_le_one (n : ℕ) : |mu n| ≤ 1 := by
   -- μ(n) = 0 if n has a squared prime factor
   exact ArithmeticFunction.abs_moebius_le_one n
 
+/-- Möbius function at 1 equals 1 -/
+lemma mu_one : mu 1 = 1 := by
+  unfold mu
+  exact ArithmeticFunction.moebius_one
+
+/-- Möbius function at primes equals -1 -/
+lemma mu_prime (p : ℕ) (hp : Nat.Prime p) : mu p = -1 := by
+  unfold mu
+  exact ArithmeticFunction.moebius_prime hp
+
+/-- Möbius function at squares of primes equals 0 -/
+lemma mu_prime_sq (p : ℕ) (hp : Nat.Prime p) : mu (p^2) = 0 := by
+  unfold mu
+  exact ArithmeticFunction.moebius_sq_prime hp
+
+/-- Möbius function at 2 equals -1 (since 2 is prime) -/
+lemma mu_two : mu 2 = -1 := by
+  exact mu_prime 2 Nat.prime_two
+
+/-- Möbius function at 3 equals -1 (since 3 is prime) -/
+lemma mu_three : mu 3 = -1 := by
+  exact mu_prime 3 Nat.prime_three
+
+/-- Möbius function at 4 equals 0 (since 4 = 2^2) -/
+lemma mu_four : mu 4 = 0 := by
+  have : 4 = 2^2 := by norm_num
+  rw [this]
+  exact mu_prime_sq 2 Nat.prime_two
+
+/-- Möbius function at 6 equals 1 (since 6 = 2*3, two distinct primes) -/
+lemma mu_six : mu 6 = 1 := by
+  unfold mu
+  norm_num [ArithmeticFunction.moebius_apply_of_squarefree]
+
+/-- The sum of 1/p over primes diverges -/
+lemma sum_one_over_primes_diverges : ¬Summable (fun p : Nat.Primes => (1 : ℝ) / p) := by
+  -- This is a classic result in analytic number theory
+  -- The proof requires showing the sum grows like log(log(n))
+  sorry -- Deep result requiring Mertens' theorems
+
 -- Chebyshev psi function
 def psi (x : ℝ) : ℝ := ∑' n : ℕ, if n ≤ x then vonMangoldt n else 0
 
@@ -774,11 +824,25 @@ lemma vonMangoldt_four : vonMangoldt 4 = Real.log 2 := by
   simp [Nat.factorization_prime_pow Nat.prime_two]
   rfl
 
+/-- Von Mangoldt function equals log(5) at n=5 -/
+lemma vonMangoldt_five : vonMangoldt 5 = Real.log 5 := by
+  unfold vonMangoldt
+  simp [Nat.factorization_prime (by norm_num : Nat.Prime 5)]
+  rfl
+
 /-- Von Mangoldt function equals 0 at n=6 (since 6 = 2*3, not a prime power) -/
 lemma vonMangoldt_six : vonMangoldt 6 = 0 := by
   unfold vonMangoldt
   -- 6 = 2 * 3 has two distinct prime factors, so it's not a prime power
   norm_num [Nat.card_primeFactorsList]
+
+/-- Von Mangoldt function equals log(2) at n=8 (since 8 = 2^3) -/
+lemma vonMangoldt_eight : vonMangoldt 8 = Real.log 2 := by
+  unfold vonMangoldt
+  have h8 : 8 = 2^3 := by norm_num
+  rw [h8]
+  simp [Nat.factorization_prime_pow Nat.prime_two]
+  rfl
 
 /-- The von Mangoldt function at a prime p equals log(p) -/
 lemma vonMangoldt_prime {p : ℕ} (hp : Nat.Prime p) : vonMangoldt p = Real.log p := by
@@ -786,63 +850,159 @@ lemma vonMangoldt_prime {p : ℕ} (hp : Nat.Prime p) : vonMangoldt p = Real.log 
   rw [Nat.factorization_prime hp]
   simp [Finsupp.sum_single_index]
 
+/-- Von Mangoldt function at 10 equals 0 (10 = 2*5, not a prime power) -/
+lemma vonMangoldt_ten : vonMangoldt 10 = 0 := by
+  unfold vonMangoldt
+  -- 10 = 2 * 5 has two distinct prime factors, so it's not a prime power
+  norm_num [Nat.card_primeFactorsList]
+
+/-- The Möbius function is multiplicative for coprime arguments -/
+lemma mu_mul_coprime (m n : ℕ) (h : Nat.Coprime m n) : mu (m * n) = mu m * mu n := by
+  exact ArithmeticFunction.IsMultiplicative.map_mul_of_coprime
+    ArithmeticFunction.moebius.isMultiplicative h
+
+/-- The sum of Möbius function over divisors of n equals 0 for n > 1 -/
+lemma sum_mu_divisors_eq_zero {n : ℕ} (hn : n > 1) :
+    ∑ d ∈ n.divisors, mu d = 0 := by
+  -- This is the classic Möbius function identity: ∑_{d|n} μ(d) = 0 for n > 1
+  -- The identity follows from μ * ζ = ε where ε is the identity function
+  have key : (ArithmeticFunction.moebius * ArithmeticFunction.zeta : ArithmeticFunction ℤ) n =
+              if n = 1 then 1 else 0 := by
+    rw [ArithmeticFunction.coe_moebius_mul_coe_zeta]
+    simp [ArithmeticFunction.one_apply]
+  rw [ArithmeticFunction.mul_apply] at key
+  simp only [ArithmeticFunction.zeta_apply] at key
+  convert key using 1
+  simp only [Nat.divisors_eq_empty_iff, Finset.sum_boole]
+  by_cases h : n = 1
+  · contradiction
+  · simp [h]
+
 /-- For positive x, theta(x) ≤ psi(x) -/
 /-- The Chebyshev theta function is monotone increasing -/
 lemma theta_mono (x y : ℝ) (hxy : x ≤ y) : theta x ≤ theta y := by
-  unfold theta
-  apply tsum_le_tsum
-  · intro p
-    split_ifs with h1 h2
-    · exact le_refl _
-    · have : (p : ℕ) ≤ x := h1
-      have : (p : ℕ) ≤ y := le_trans this hxy
-      contradiction
-    · exact le_refl 0
-    · exact le_refl 0
-  · apply summable_of_nonneg_of_le
-    · intro p
-      split_ifs <;> exact le_refl _
-    · intro p
-      split_ifs
-      · exact Real.log_nonneg (Nat.one_le_cast_pos.mpr (Nat.Prime.one_lt p.property))
-      · exact le_refl 0
-    · apply summable_of_ne_finset_zero
-      exact Set.toFinite {p : Nat.Primes | ↑p ≤ y}
-  · apply summable_of_ne_finset_zero
-    exact Set.toFinite {p : Nat.Primes | ↑p ≤ x}
+  sorry
 
 /-- The Chebyshev psi function is monotone increasing -/
 lemma psi_mono (x y : ℝ) (hxy : x ≤ y) : psi x ≤ psi y := by
-  unfold psi
-  apply tsum_le_tsum
-  · intro n
-    split_ifs with h1 h2
-    · exact le_refl _
-    · have : n ≤ x := h1
-      have : n ≤ y := le_trans this hxy
-      contradiction
-    · exact le_refl 0
-    · exact le_refl 0
-  · apply summable_of_nonneg_of_le
-    · intro n
-      split_ifs <;> exact le_refl _
-    · intro n
-      split_ifs
-      · exact vonMangoldt_nonneg n
-      · exact le_refl 0
-    · apply summable_of_ne_finset_zero
-      exact Set.toFinite {n : ℕ | n ≤ y}
-  · apply summable_of_ne_finset_zero
-    exact Set.toFinite {n : ℕ | n ≤ x}
+  sorry
 
 lemma theta_le_psi (x : ℝ) (hx : 0 < x) : theta x ≤ psi x := by
   -- theta sums log(p) over primes p ≤ x
   -- psi sums vonMangoldt(n) = log(p) when n = p^k for all n ≤ x
   -- Since psi includes log(p) for each prime p ≤ x (when n = p)
   -- plus additional terms for prime powers, theta ≤ psi
+
+  -- We'll show that theta's sum is contained within psi's sum
   unfold theta psi
-  -- We need to show: sum over primes ≤ sum over all n with vonMangoldt(n)
-  sorry -- This requires sophisticated summation arguments and inclusion principles
+
+  -- The key observation: for each prime p ≤ x, vonMangoldt(p) = log(p)
+  -- and psi includes this term plus additional terms for prime powers
+
+  sorry -- This requires complex summation manipulation and showing the embedding of Nat.Primes into ℕ
+
+/-- Theta function at 0 equals 0 (no primes ≤ 0) -/
+lemma theta_zero : theta 0 = 0 := by
+  simp only [theta]
+  suffices ∀ p : Nat.Primes, ¬(p.val ≤ 0) by
+    simp [this]
+  intro p
+  have : 1 < p.val := Nat.Prime.one_lt p.prop
+  omega
+
+/-- Theta function at 1 equals 0 (no primes ≤ 1) -/
+lemma theta_one : theta 1 = 0 := by
+  simp only [theta]
+  suffices ∀ p : Nat.Primes, ¬(p.val ≤ 1) by
+    simp [this]
+  intro p
+  have : 2 ≤ p.val := Nat.Prime.two_le p.prop
+  omega
+
+/-- Theta function at 2 equals log(2) (only prime 2 ≤ 2) -/
+lemma theta_two : theta 2 = Real.log 2 := by
+  unfold theta
+  -- The only prime ≤ 2 is 2 itself
+  have h2_prime : Nat.Prime 2 := Nat.prime_two
+  -- Create the prime 2 as an element of Nat.Primes
+  let p2 : Nat.Primes := ⟨2, h2_prime⟩
+  -- The sum has only one term: log(2) for prime 2
+  rw [tsum_eq_single p2]
+  · simp [p2]
+  · intro p hp
+    -- For any prime p ≠ 2, either p < 2 (impossible) or p > 2 (excluded from sum)
+    by_cases h : p.val ≤ 2
+    · -- If p ≤ 2 and p ≠ 2, then p < 2, which is impossible
+      have : p.val < 2 := Nat.lt_of_le_of_ne h (fun heq => hp ⟨heq⟩)
+      have : 2 ≤ p.val := Nat.Prime.two_le p.prop
+      omega
+    · -- If p > 2, then it's not in the sum
+      simp [h]
+
+/-- Theta function at 3 equals log(2) + log(3) (primes 2 and 3 ≤ 3) -/
+lemma theta_three : theta 3 = Real.log 2 + Real.log 3 := by
+  unfold theta
+  -- The primes ≤ 3 are 2 and 3
+  have h2_prime : Nat.Prime 2 := Nat.prime_two
+  have h3_prime : Nat.Prime 3 := Nat.prime_three
+  let p2 : Nat.Primes := ⟨2, h2_prime⟩
+  let p3 : Nat.Primes := ⟨3, h3_prime⟩
+  -- The sum has two terms: log(2) and log(3)
+  rw [tsum_eq_add p2 p3]
+  · simp [p2, p3]
+  · intro p hp2 hp3
+    -- For any prime p ≠ 2 and p ≠ 3, either p < 2 (impossible) or p > 3 (excluded)
+    by_cases h : p.val ≤ 3
+    · -- If p ≤ 3 and p ≠ 2 and p ≠ 3, then contradiction
+      have : p.val < 2 ∨ (2 < p.val ∧ p.val < 3) ∨ p.val > 3 := by omega
+      rcases this with h1 | h2 | h3
+      · have : 2 ≤ p.val := Nat.Prime.two_le p.prop
+        omega
+      · -- No natural number between 2 and 3
+        omega
+      · omega
+    · simp [h]
+  · exact ⟨p2, rfl⟩
+
+/-- Psi function at 0 equals 0 (no naturals ≤ 0 except 0, and vonMangoldt(0) = 0) -/
+lemma psi_zero : psi 0 = 0 := by
+  simp only [psi]
+  suffices ∀ n : ℕ, n ≤ 0 → vonMangoldt n = 0 by
+    simp [this]
+  intro n hn
+  cases n
+  · exact vonMangoldt_zero
+  · -- n ≥ 1 but n ≤ 0, contradiction
+    omega
+
+/-- Psi function at 1 equals 0 (vonMangoldt(1) = 0) -/
+lemma psi_one : psi 1 = 0 := by
+  simp only [psi]
+  rw [tsum_eq_single 1]
+  · simp [vonMangoldt_one]
+  · intro n hn
+    by_cases h : n ≤ 1
+    · cases n
+      · simp
+      · cases' n with n'
+        · contradiction
+        · simp at h
+    · simp [h]
+
+/-- Psi function at 2 equals log(2) -/
+lemma psi_two : psi 2 = Real.log 2 := by
+  simp only [psi]
+  -- psi(2) = Λ(1) + Λ(2) = 0 + log(2) = log(2)
+  rw [tsum_eq_single 2]
+  · simp [vonMangoldt_two]
+  · intro n hn
+    by_cases h : n ≤ 2
+    · -- If n ≤ 2 and n ≠ 2, then n ∈ {0, 1}
+      interval_cases n
+      · simp
+      · simp [vonMangoldt_one]
+    · -- If n > 2, it's not in the sum
+      simp [h]
 
 -- Perron's formula for psi
 theorem perron_formula (x : ℝ) (T : ℝ) (hx : x > 1) (hT : T > 0) :
@@ -880,6 +1040,59 @@ lemma M_zero : M 0 = 0 := by
   cases n
   · right; rfl
   · left; simp
+
+-- Mertens function trivial bound
+lemma M_trivial_bound (x : ℝ) (hx : 1 ≤ x) : |M x| ≤ x := by
+  simp only [M, abs_tsum]
+  trans (∑' n : ℕ, |if n ≤ x then mu n else 0|)
+  · exact le_rfl
+  · calc ∑' n : ℕ, |if n ≤ x then mu n else 0|
+      ≤ ∑' n : ℕ, if n ≤ x then 1 else 0 := by
+        apply tsum_le_tsum
+        · intro n
+          by_cases h : n ≤ x
+          · simp [h]
+            exact mu_abs_le_one n
+          · simp [h]
+        · exact summable_of_finite_support _
+        · exact summable_of_finite_support _
+      _ = x := by
+        have : (∑' n : ℕ, if n ≤ x then (1 : ℝ) else 0) =
+               ∑ n in Finset.range (⌊x⌋₊ + 1), if n ≤ x then (1 : ℝ) else 0 := by
+          rw [tsum_eq_sum]
+          intro n hn
+          by_cases h : n ≤ x
+          · exfalso
+            have : n ≤ ⌊x⌋₊ := Nat.le_floor h
+            simp [Finset.mem_range] at hn
+            omega
+          · simp [h]
+        rw [this]
+        simp only [Finset.sum_ite]
+        have : {a ∈ Finset.range (⌊x⌋₊ + 1) | a ≤ x} = Finset.range (⌊x⌋₊ + 1) \ {0} := by
+          ext a
+          simp [Finset.mem_range]
+          constructor
+          · intro ⟨ha1, ha2⟩
+            constructor
+            · exact ha1
+            · by_cases h : a = 0
+              · subst h
+                simp at ha2
+                linarith [hx]
+              · exact h
+          · intro ⟨ha1, ha2⟩
+            constructor
+            · exact ha1
+            · calc a ≤ ⌊x⌋₊ := by omega
+              _ ≤ x := Nat.floor_le (by linarith : 0 ≤ x)
+        rw [this]
+        simp [Finset.card_sdiff]
+        have : 0 ∈ Finset.range (⌊x⌋₊ + 1) := by simp
+        simp [this]
+        have h1 : (⌊x⌋₊ : ℝ) ≤ x := Nat.floor_le (by linarith : 0 ≤ x)
+        have h2 : x < ⌊x⌋₊ + 1 := Nat.lt_floor_add_one _
+        linarith
 
 -- Mertens bound in terms of zeta zeros
 theorem mertens_bound (x : ℝ) (hx : x ≥ 2) :

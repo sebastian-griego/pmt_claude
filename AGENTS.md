@@ -13,7 +13,7 @@ Autoformalization project — implementing Lean proofs from LaTeX blueprint.
 7. **NEVER create `.lean` files in root directory**
 8. **NEVER USE EMOJIS**
 
-
+ALL THE PROOFS ARE WRITTEN UP IN THE BLUEPRINT FOLDER IN THE .tex FILES. YOU JUST NEED TO CONVERT IT TO LEAN!!!!!
 
 ## File Structure (focus only these)
 - `StrongPNT/PNT1_ComplexAnalysis.lean`  ← implements `blueprint/PNT1_ComplexAnalysis.tex`

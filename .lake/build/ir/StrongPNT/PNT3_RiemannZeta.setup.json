@@ -1171,6 +1171,8 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Valuation/ValuationSubring.olean"],
   "Mathlib.RingTheory.Valuation.ValuationRing":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Valuation/ValuationRing.olean"],
+  "Mathlib.RingTheory.Valuation.PrimeMultiplicity":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Valuation/PrimeMultiplicity.olean"],
   "Mathlib.RingTheory.Valuation.Integers":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Valuation/Integers.olean"],
   "Mathlib.RingTheory.Valuation.ExtendToLocalization":
@@ -1251,6 +1253,16 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/RingHom/Finite.olean"],
   "Mathlib.RingTheory.PrincipalIdealDomain":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/PrincipalIdealDomain.olean"],
+  "Mathlib.RingTheory.PowerSeries.WellKnown":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/PowerSeries/WellKnown.olean"],
+  "Mathlib.RingTheory.PowerSeries.Order":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/PowerSeries/Order.olean"],
+  "Mathlib.RingTheory.PowerSeries.NoZeroDivisors":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/PowerSeries/NoZeroDivisors.olean"],
+  "Mathlib.RingTheory.PowerSeries.Inverse":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/PowerSeries/Inverse.olean"],
+  "Mathlib.RingTheory.PowerSeries.Basic":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/PowerSeries/Basic.olean"],
   "Mathlib.RingTheory.PowerBasis":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/PowerBasis.olean"],
   "Mathlib.RingTheory.PolynomialAlgebra":
@@ -1333,6 +1345,16 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Nilpotent/Defs.olean"],
   "Mathlib.RingTheory.Nilpotent.Basic":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Nilpotent/Basic.olean"],
+  "Mathlib.RingTheory.MvPowerSeries.Order":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/MvPowerSeries/Order.olean"],
+  "Mathlib.RingTheory.MvPowerSeries.NoZeroDivisors":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/MvPowerSeries/NoZeroDivisors.olean"],
+  "Mathlib.RingTheory.MvPowerSeries.LexOrder":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/MvPowerSeries/LexOrder.olean"],
+  "Mathlib.RingTheory.MvPowerSeries.Inverse":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/MvPowerSeries/Inverse.olean"],
+  "Mathlib.RingTheory.MvPowerSeries.Basic":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/MvPowerSeries/Basic.olean"],
   "Mathlib.RingTheory.MvPolynomial.Tower":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/MvPolynomial/Tower.olean"],
   "Mathlib.RingTheory.MvPolynomial.Symmetric.Defs":
@@ -1419,6 +1441,8 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/IntegralClosure/Algebra/Basic.olean"],
   "Mathlib.RingTheory.Ideal.Span":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Ideal/Span.olean"],
+  "Mathlib.RingTheory.Ideal.Quotient.PowTransition":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Ideal/Quotient/PowTransition.olean"],
   "Mathlib.RingTheory.Ideal.Quotient.Operations":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Ideal/Quotient/Operations.olean"],
   "Mathlib.RingTheory.Ideal.Quotient.Noetherian":
@@ -1491,6 +1515,8 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/EuclideanDomain.olean"],
   "Mathlib.RingTheory.EssentialFiniteness":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/EssentialFiniteness.olean"],
+  "Mathlib.RingTheory.DiscreteValuationRing.Basic":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/DiscreteValuationRing/Basic.olean"],
   "Mathlib.RingTheory.Derivation.Basic":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Derivation/Basic.olean"],
   "Mathlib.RingTheory.DedekindDomain.IntegralClosure":
@@ -1553,6 +1579,8 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Adjoin/Dimension.olean"],
   "Mathlib.RingTheory.Adjoin.Basic":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/Adjoin/Basic.olean"],
+  "Mathlib.RingTheory.AdicCompletion.Basic":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/AdicCompletion/Basic.olean"],
   "Mathlib.Probability.UniformOn":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Probability/UniformOn.olean"],
   "Mathlib.Probability.ConditionalProbability":
@@ -1743,6 +1771,8 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Hom/Basic.olean"],
   "Mathlib.Order.Heyting.Basic":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Heyting/Basic.olean"],
+  "Mathlib.Order.GameAdd":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/GameAdd.olean"],
   "Mathlib.Order.GaloisConnection.Defs":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/GaloisConnection/Defs.olean"],
   "Mathlib.Order.GaloisConnection.Basic":
@@ -1927,6 +1957,8 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Antisymmetrization.olean"],
   "Mathlib.Order.Antichain":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Order/Antichain.olean"],
+  "Mathlib.NumberTheory.ZetaValues":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/ZetaValues.olean"],
   "Mathlib.NumberTheory.VonMangoldt":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/VonMangoldt.olean"],
   "Mathlib.NumberTheory.SumPrimeReciprocals":
@@ -1959,6 +1991,8 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/LSeries/Nonvanishing.olean"],
   "Mathlib.NumberTheory.LSeries.MellinEqDirichlet":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/LSeries/MellinEqDirichlet.olean"],
+  "Mathlib.NumberTheory.LSeries.HurwitzZetaValues":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/LSeries/HurwitzZetaValues.olean"],
   "Mathlib.NumberTheory.LSeries.HurwitzZetaOdd":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/LSeries/HurwitzZetaOdd.olean"],
   "Mathlib.NumberTheory.LSeries.HurwitzZetaEven":
@@ -2007,6 +2041,10 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.olean"],
   "Mathlib.NumberTheory.Cyclotomic.Basic":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/Cyclotomic/Basic.olean"],
+  "Mathlib.NumberTheory.BernoulliPolynomials":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/BernoulliPolynomials.olean"],
+  "Mathlib.NumberTheory.Bernoulli":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/Bernoulli.olean"],
   "Mathlib.NumberTheory.ArithmeticFunction":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/ArithmeticFunction.olean"],
   "Mathlib.MeasureTheory.Topology":
@@ -3509,6 +3547,10 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/BigOperators.olean"],
   "Mathlib.Data.Fintype.Basic":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Fintype/Basic.olean"],
+  "Mathlib.Data.Finsupp.WellFounded":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finsupp/WellFounded.olean"],
+  "Mathlib.Data.Finsupp.Weight":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finsupp/Weight.olean"],
   "Mathlib.Data.Finsupp.ToDFinsupp":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Finsupp/ToDFinsupp.olean"],
   "Mathlib.Data.Finsupp.Single":
@@ -3679,6 +3721,8 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/ENNReal/Basic.olean"],
   "Mathlib.Data.ENNReal.Action":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/ENNReal/Action.olean"],
+  "Mathlib.Data.DFinsupp.WellFounded":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/DFinsupp/WellFounded.olean"],
   "Mathlib.Data.DFinsupp.Submonoid":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/DFinsupp/Submonoid.olean"],
   "Mathlib.Data.DFinsupp.Small":
@@ -5137,6 +5181,8 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Antidiag/Prod.olean"],
   "Mathlib.Algebra.Order.Antidiag.Pi":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Antidiag/Pi.olean"],
+  "Mathlib.Algebra.Order.Antidiag.Finsupp":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Antidiag/Finsupp.olean"],
   "Mathlib.Algebra.Order.AddGroupWithTop":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/AddGroupWithTop.olean"],
   "Mathlib.Algebra.Order.AbsoluteValue.Basic":
