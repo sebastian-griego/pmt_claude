@@ -1297,3 +1297,13 @@ lemma effective_c_approx : 0.1036 < effective_c ∧ effective_c < 0.1038 := by
         · norm_num
         · norm_num
       _ < 0.1038 := by norm_num
+
+-- Zero-free region inequality
+lemma zero_free_region_inequality (s t : ℂ) :
+    1 < s.re → |t.im| > 10 →
+    1 / |s - 1| > c_zero_free / Real.log |t.im| := by
+  intro hs ht
+  -- This lemma asserts the zero-free region bound
+  -- For s with Re(s) > 1 and |Im(t)| > 10, we have
+  -- the inequality 1/|s-1| > c/(log |Im(t)|)
+  sorry
