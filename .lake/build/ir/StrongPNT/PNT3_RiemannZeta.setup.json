@@ -4097,6 +4097,8 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/PolarCoord.olean"],
   "Mathlib.Analysis.SpecialFunctions.NonIntegrable":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/NonIntegrable.olean"],
+  "Mathlib.Analysis.SpecialFunctions.Log.Summable":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Log/Summable.olean"],
   "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Log/NegMulLog.olean"],
   "Mathlib.Analysis.SpecialFunctions.Log.Deriv":

@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: StrongPNT.PNT3_RiemannZeta
-// Imports: Init Mathlib.NumberTheory.LSeries.RiemannZeta Mathlib.NumberTheory.LSeries.Nonvanishing Mathlib.Analysis.Complex.CauchyIntegral Mathlib.Topology.Basic Mathlib.Analysis.Calculus.Deriv.Basic Mathlib.NumberTheory.ArithmeticFunction Mathlib.Analysis.SpecialFunctions.Pow.Real Mathlib.Topology.Algebra.InfiniteSum.Field Mathlib.Analysis.PSeriesComplex
+// Imports: Init Mathlib.NumberTheory.LSeries.RiemannZeta Mathlib.NumberTheory.LSeries.Nonvanishing Mathlib.NumberTheory.EulerProduct.DirichletLSeries Mathlib.Analysis.Complex.CauchyIntegral Mathlib.Topology.Basic Mathlib.Analysis.Calculus.Deriv.Basic Mathlib.NumberTheory.ArithmeticFunction Mathlib.Analysis.SpecialFunctions.Pow.Real Mathlib.Topology.Algebra.InfiniteSum.Field Mathlib.Analysis.PSeriesComplex Mathlib.Analysis.SpecialFunctions.Log.Summable Mathlib.NumberTheory.SumPrimeReciprocals
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -26,6 +26,7 @@ return x_2;
 lean_object* initialize_Init(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_NumberTheory_LSeries_RiemannZeta(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_NumberTheory_LSeries_Nonvanishing(uint8_t builtin, lean_object*);
+lean_object* initialize_Mathlib_NumberTheory_EulerProduct_DirichletLSeries(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Analysis_Complex_CauchyIntegral(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Topology_Basic(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Analysis_Calculus_Deriv_Basic(uint8_t builtin, lean_object*);
@@ -33,6 +34,8 @@ lean_object* initialize_Mathlib_NumberTheory_ArithmeticFunction(uint8_t builtin,
 lean_object* initialize_Mathlib_Analysis_SpecialFunctions_Pow_Real(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Topology_Algebra_InfiniteSum_Field(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Analysis_PSeriesComplex(uint8_t builtin, lean_object*);
+lean_object* initialize_Mathlib_Analysis_SpecialFunctions_Log_Summable(uint8_t builtin, lean_object*);
+lean_object* initialize_Mathlib_NumberTheory_SumPrimeReciprocals(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
 LEAN_EXPORT lean_object* initialize_StrongPNT_PNT3__RiemannZeta(uint8_t builtin, lean_object* w) {
 lean_object * res;
@@ -45,6 +48,9 @@ res = initialize_Mathlib_NumberTheory_LSeries_RiemannZeta(builtin, lean_io_mk_wo
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_Mathlib_NumberTheory_LSeries_Nonvanishing(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_Mathlib_NumberTheory_EulerProduct_DirichletLSeries(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_Mathlib_Analysis_Complex_CauchyIntegral(builtin, lean_io_mk_world());
@@ -66,6 +72,12 @@ res = initialize_Mathlib_Topology_Algebra_InfiniteSum_Field(builtin, lean_io_mk_
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_Mathlib_Analysis_PSeriesComplex(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_Mathlib_Analysis_SpecialFunctions_Log_Summable(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_Mathlib_NumberTheory_SumPrimeReciprocals(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 return lean_io_result_mk_ok(lean_box(0));

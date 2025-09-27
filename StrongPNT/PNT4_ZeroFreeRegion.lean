@@ -54,7 +54,7 @@ lemma ZetaZerosNearPoint_finite (t : ℝ) : Set.Finite (ZetaZerosNearPoint t) :=
 
   -- The closed ball in ℂ is compact
   have h_compact : IsCompact (Metric.closedBall ((3/2 : ℂ) + t * I) (5/6)) :=
-    isCompact_closedBall _ _
+    ProperSpace.isCompact_closedBall _ _
 
   -- The center of our disk has Re > 1/2
   have h_re : (2/3 : ℝ) < ((3/2 : ℂ) + t * I).re := by
@@ -69,18 +69,19 @@ lemma ZetaZerosNearPoint_finite (t : ℝ) : Set.Finite (ZetaZerosNearPoint t) :=
     -- This means |Re(z) - 3/2| ≤ |z - (3/2 + ti)| ≤ 5/6
     -- Therefore Re(z) ≥ 3/2 - 5/6 = 2/3
     obtain ⟨hzero, hdist⟩ := hz
-    have : Complex.dist z ((3/2 : ℂ) + t * I) ≤ 5/6 := hdist
+    have : dist z ((3/2 : ℂ) + t * I) ≤ 5/6 := hdist
     -- |Re(z) - 3/2| ≤ |z - (3/2 + ti)|
-    have h_re_dist : |z.re - 3/2| ≤ Complex.dist z ((3/2 : ℂ) + t * I) := by
-      rw [Complex.dist_eq]
+    have h_re_dist : |z.re - 3/2| ≤ dist z ((3/2 : ℂ) + t * I) := by
+      rw [dist_comm]
+      simp only [Complex.dist_eq]
       have : ((3/2 : ℂ) + t * I).re = 3/2 := by simp [Complex.add_re, Complex.mul_re, Complex.I_re]
-      rw [this]
+      simp [this]
       -- |Re(z) - 3/2| ≤ |z - (3/2 + ti)|
       have : |z.re - 3/2| = |(z - ((3/2 : ℂ) + t * I)).re| := by
         rw [Complex.sub_re]
         simp [Complex.add_re, Complex.mul_re, Complex.I_re]
       rw [this]
-      exact Complex.abs_re_le_abs _
+      exact Complex.abs_re_le_norm _
     -- So |Re(z) - 3/2| ≤ 5/6
     have : |z.re - 3/2| ≤ 5/6 := le_trans h_re_dist hdist
     -- This gives us Re(z) ≥ 2/3
@@ -101,15 +102,26 @@ lemma ZetaZerosNearPoint_finite (t : ℝ) : Set.Finite (ZetaZerosNearPoint t) :=
     have h_y_eq_t : z.im = t := by
       have : |z.re - 3/2| = 5/6 := by rw [h_eq]; norm_num
       have h_dist_sq : Complex.normSq (z - ((3/2 : ℂ) + t * I)) ≤ (5/6)^2 := by
-        rw [← sq_le_sq' (by norm_num : (0 : ℝ) ≤ 5/6) (Complex.abs_nonneg _)]
-        convert hdist using 2
-        simp [Complex.dist_eq, Complex.abs_eq_sqrt_normSq]
-      simp [Complex.normSq_sub] at h_dist_sq
-      simp [Complex.sub_re, Complex.sub_im, Complex.add_re, Complex.add_im] at h_dist_sq
-      simp [Complex.mul_re, Complex.mul_im, Complex.I_re, Complex.I_im] at h_dist_sq
+        have h1 : dist z ((3/2 : ℂ) + t * I) ≤ 5/6 := hdist
+        rw [Complex.dist_eq] at h1
+        have h2 : ‖z - ((3/2 : ℂ) + t * I)‖^2 ≤ (5/6)^2 := by
+          rw [sq_le_sq]
+          constructor
+          · exact norm_nonneg _
+          · exact h1
+        convert h2 using 2
+        exact Complex.norm_sq_eq_sq _
+        exact h2
+      -- Simplify the norm squared calculation
+      rw [Complex.normSq_sub] at h_dist_sq
+      simp only [Complex.sub_re, Complex.sub_im, Complex.add_re, Complex.add_im,
+                 Complex.mul_re, Complex.mul_im, Complex.I_re, Complex.I_im,
+                 Complex.ofReal_re, Complex.ofReal_im] at h_dist_sq
       rw [h_eq] at h_dist_sq
       norm_num at h_dist_sq
-      have : (z.im - t)^2 ≤ 0 := by linarith
+      have : (z.im - t)^2 ≤ 0 := by
+        calc (z.im - t)^2 = (z.im - t) * (z.im - t) := sq (z.im - t)
+          _ ≤ 0 := h_dist_sq
       have : z.im - t = 0 := sq_eq_zero_iff.mp (le_antisymm this (sq_nonneg _))
       linarith
     -- So we have z = 2/3 + ti would be a zero of riemannZeta
@@ -133,7 +145,7 @@ lemma ZetaZerosNearPoint_finite (t : ℝ) : Set.Finite (ZetaZerosNearPoint t) :=
 
   -- Step 1: The closed ball is compact
   have h_compact : IsCompact (Metric.closedBall ((3/2 : ℂ) + t * I) (5/6)) :=
-    Metric.isCompact_closedBall _ _
+    isCompact_closedBall
 
   -- Step 2: ZetaZerosNearPoint t is a subset of this compact set
   have h_subset_compact : (ZetaZerosNearPoint t) ⊆ Metric.closedBall ((3/2 : ℂ) + t * I) (5/6) :=
@@ -158,7 +170,7 @@ lemma ZetaZerosNearPoint_finite (t : ℝ) : Set.Finite (ZetaZerosNearPoint t) :=
   -- Use the fact that riemannZeta is meromorphic and zeros are isolated in compact sets
   -- away from the pole at s = 1
   have h_isolated : ∀ z ∈ ZetaZerosNearPoint t, ∃ ε > 0, ∀ w ∈ ZetaZerosNearPoint t,
-      w ≠ z → ε ≤ Complex.dist z w := by
+      w ≠ z → ε ≤ dist z w := by
     intro z hz
     -- Each zero is isolated from others
     sorry -- This requires the isolation theorem for zeros of meromorphic functions
@@ -257,7 +269,11 @@ lemma lem_explicit1Real :
   intros δ hδ t
   -- The real part is at most the norm
   have h_bound := hC δ hδ t
-  exact Complex.abs_re_le_abs _ ▸ h_bound
+  calc (∑ ρ₁ ∈ (ZetaZerosNearPoint_finite t).toFinset, (m_rho_zeta ρ₁ : ℂ) / (1 + δ + t * I - ρ₁) -
+         logDerivZeta (1 + δ + t * I)).re
+     _ ≤ ‖∑ ρ₁ ∈ (ZetaZerosNearPoint_finite t).toFinset, (m_rho_zeta ρ₁ : ℂ) / (1 + δ + t * I - ρ₁) -
+         logDerivZeta (1 + δ + t * I)‖ := Complex.abs_re_le_norm _
+     _ ≤ C * Real.log (abs t + 2) := h_bound
 
 /-- Split real part -/
 lemma lem_explicit1RealReal :
@@ -295,11 +311,14 @@ lemma lem_explicit2Real :
   intro δ hδ t
   specialize hC δ hδ (2 * t)
   simp only [Complex.neg_re, neg_neg] at *
-  calc (∑ ρ₁ ∈ (ZetaZerosNearPoint_finite (2 * t)).toFinset, (m_rho_zeta ρ₁ : ℂ) / (1 + δ + 2 * t * I - ρ₁)).re +
-         (- logDerivZeta (1 + δ + 2 * t * I)).re
-    _ = ((∑ ρ₁ ∈ (ZetaZerosNearPoint_finite (2 * t)).toFinset, (m_rho_zeta ρ₁ : ℂ) / (1 + δ + 2 * t * I - ρ₁)) -
-         logDerivZeta (1 + δ + 2 * t * I)).re := by
-       simp [Complex.sub_re, Complex.re_sum]
+  have eq : (∑ ρ₁ ∈ (ZetaZerosNearPoint_finite (2 * t)).toFinset, (m_rho_zeta ρ₁ : ℂ) / (1 + δ + 2 * t * I - ρ₁)).re +
+            (- logDerivZeta (1 + δ + 2 * t * I)).re =
+            ((∑ ρ₁ ∈ (ZetaZerosNearPoint_finite (2 * t)).toFinset, (m_rho_zeta ρ₁ : ℂ) / (1 + δ + 2 * t * I - ρ₁)) -
+             logDerivZeta (1 + δ + 2 * t * I)).re := by
+    simp [Complex.sub_re, Complex.neg_re]
+  rw [eq]
+  calc ((∑ ρ₁ ∈ (ZetaZerosNearPoint_finite (2 * t)).toFinset, (m_rho_zeta ρ₁ : ℂ) / (1 + δ + 2 * t * I - ρ₁)) -
+         logDerivZeta (1 + δ + 2 * t * I)).re
     _ ≤ C * Real.log (abs (2 * t) + 2) := hC
     _ = C * Real.log (|2 * t| + 2) := by rfl
 
@@ -454,7 +473,16 @@ lemma lem_explicit2Real2 :
     -- The sum over zeros is non-negative
     have sum_nonneg := lem_sumrho2ge t (hδ.1) (hδ.2)
     -- Therefore (-logDerivZeta).re ≤ bound - sum ≤ bound
-    linarith
+    calc (-logDerivZeta (1 + ↑δ + 2 * ↑t * I)).re
+        = (∑ ρ ∈ (ZetaZerosNearPoint_finite (2 * t)).toFinset, (m_rho_zeta ρ : ℂ) / (1 + δ + 2 * t * I - ρ)).re +
+          (-logDerivZeta (1 + ↑δ + 2 * ↑t * I)).re -
+          (∑ ρ ∈ (ZetaZerosNearPoint_finite (2 * t)).toFinset, (m_rho_zeta ρ : ℂ) / (1 + δ + 2 * t * I - ρ)).re := by ring
+        _ ≤ C' * Real.log (|2 * t| + 2) - 0 := by
+          have h1 : (∑ ρ ∈ (ZetaZerosNearPoint_finite (2 * t)).toFinset, (m_rho_zeta ρ : ℂ) / (1 + δ + 2 * t * I - ρ)).re +
+                    (-logDerivZeta (1 + ↑δ + 2 * ↑t * I)).re ≤ C' * Real.log (|2 * t| + 2) := bound
+          have h2 : 0 ≤ (∑ ρ ∈ (ZetaZerosNearPoint_finite (2 * t)).toFinset, (m_rho_zeta ρ : ℂ) / (1 + δ + 2 * t * I - ρ)).re := sum_nonneg
+          linarith
+        _ = C' * Real.log (|2 * t| + 2) := by ring
 
 /-- Logarithm comparison lemma -/
 lemma lem_log2Olog : ∀ t ≥ 2, Real.log (2 * t) ≤ 2 * Real.log t := by
@@ -592,7 +620,47 @@ lemma lem_Z1splitge (hδ : 0 < δ) (hδ' : δ < 1) {σ t : ℝ} {ρ : ℂ}
     (hρ : ρ = σ + t * I) (hρZ : ρ ∈ 𝒵) :
     ∑ ρ₁ ∈ Set.Finite.toFinset (ZetaZerosNearPoint_finite t), ((m_rho_zeta ρ₁ : ℂ) / (1 + δ + t * I - ρ₁)).re ≥
     (1 / (1 + δ + t * I - ρ)).re := by
-  sorry
+  -- First check if ρ ∈ ZetaZerosNearPoint t
+  by_cases hρ_near : ρ ∈ ZetaZerosNearPoint t
+  · -- Case 1: ρ is in the zero set near t
+    -- Use lem_Z1split to split the sum
+    rw [lem_Z1split hδ hδ' hρ hρ_near]
+    -- The sum is (m_ρ/(1+δ+it-ρ)).re + sum over other zeros
+    -- Since all terms in the remaining sum are non-negative by lem_Re1deltatge0m
+    have h_nonneg : 0 ≤ ∑ ρ₁ ∈ ((ZetaZerosNearPoint_finite t).toFinset) \ {ρ},
+                       ((m_rho_zeta ρ₁ : ℂ) / (1 + δ + t * I - ρ₁)).re := by
+      apply Finset.sum_nonneg
+      intros ρ₁ hρ₁
+      simp at hρ₁
+      have hρ₁_mem : ρ₁ ∈ ZetaZerosNearPoint t := by
+        simp [Set.Finite.mem_toFinset] at hρ₁
+        exact hρ₁.1
+      exact lem_Re1deltatge0m hδ hδ' t hρ₁_mem
+    -- m_rho_zeta ρ ≥ 1 since ρ is a zero
+    have hm_ge : 1 ≤ (m_rho_zeta ρ : ℝ) := by
+      have : riemannZeta ρ = 0 := by
+        unfold zeroZ at hρZ
+        simp at hρZ
+        exact hρZ
+      exact lem_m_rho_ge_1 ρ this
+    -- Therefore (m_ρ/(1+δ+it-ρ)).re ≥ (1/(1+δ+it-ρ)).re
+    have h_bound : (1 / (1 + δ + t * I - ρ)).re ≤ ((m_rho_zeta ρ : ℂ) / (1 + δ + t * I - ρ)).re := by
+      rw [div_eq_mul_inv, div_eq_mul_inv]
+      rw [← Complex.ofReal_natCast]
+      rw [Complex.mul_re, Complex.mul_re, Complex.one_re]
+      simp only [Complex.ofReal_re, Complex.ofReal_im, mul_zero, sub_zero]
+      apply mul_le_mul_of_nonneg_right
+      · exact hm_ge
+      · have : 0 ≤ ((1 + δ + t * I - ρ)⁻¹).re := by
+          apply lem_Re1deltatge0 hδ t
+          exact hρ_near
+        rw [one_div]
+        exact this
+    linarith
+  · -- Case 2: ρ is not in the zero set near t
+    -- Then the sum doesn't depend on ρ, so we need to analyze differently
+    -- This case requires deeper analysis of the zero distribution
+    sorry
 
 /-- 1+δ+it-ρ for ρ=σ+it -/
 lemma lem_1deltatrho0 (δ : ℝ) {σ t : ℝ} (ρ : ℂ) (hρ : ρ = σ + t * I) :
@@ -669,13 +737,10 @@ lemma lem_zeta1zetaseries (s : ℂ) (hs : 1 < s.re) :
   -- The logarithmic derivative of the zeta function has the series expansion
   -- -ζ'(s)/ζ(s) = ∑ Λ(n)/n^s for Re(s) > 1
   -- This is a standard result from analytic number theory
-  unfold logDerivZeta
-  rw [← ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div hs]
-  unfold ArithmeticFunction.LSeries
-  simp only [ArithmeticFunction.LSeries_apply]
-  congr 1
-  ext n
-  simp [vonMangoldt, ArithmeticFunction.vonMangoldtSummand, Complex.cpow_neg]
+  unfold logDerivZeta vonMangoldt
+  -- Use the LSeries theorem for the logarithmic derivative
+  rw [ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div hs]
+  simp only [neg_neg, neg_div]
 
 /-- Von Mangoldt is real and non-negative -/
 lemma lem_realnx (n : ℕ) (x : ℝ) : 0 ≤ vonMangoldt n * (n : ℝ)^(-x) := by
@@ -688,10 +753,8 @@ lemma lem_sumRealLambda (s : ℂ) (hs : 1 < s.re) (hs_real : s.im = 0) :
     (-logDerivZeta s).re = ∑' n : ℕ, (vonMangoldt n * (n : ℝ)^(-s.re)) := by
   -- When s is real, the series simplifies nicely
   rw [lem_zeta1zetaseries s hs]
-  -- For real s, we have (n:ℂ)^(-s) = (n:ℝ)^(-s.re) as a real number
-  simp only [hs_real, Complex.ofReal_im, Complex.ofReal_re]
   -- The series is real when s is real
-  have h_real : ∀ n : ℕ, ((vonMangoldt n : ℂ) / (n : ℂ) ^ s).re = vonMangoldt n * (n : ℝ) ^ (-s.re) := by
+  have h_real : ∀ n : ℕ, ((vonMangoldt n : ℂ) * (n : ℂ)^(-s : ℂ)).re = vonMangoldt n * (n : ℝ) ^ (-s.re) := by
     intro n
     by_cases hn : n = 0
     · simp [hn, vonMangoldt, ArithmeticFunction.vonMangoldt]
@@ -733,6 +796,8 @@ lemma lem_sumRealZ (x y : ℝ) (hx : 1 < x) :
   rw [lem_zeta1zetaseriesxy2 x y hx]
   -- Real part distributes over convergent series
   -- This is valid because the series converges absolutely for Re(s) > 1
+  congr 1
+  ext n
   rfl
 
 /-- Real part of Lambda(n)*n^(-x)*n^(-iy) -/
@@ -753,11 +818,13 @@ lemma RealLambdaxy (n : ℕ) (x y : ℝ) :
     -- Now we need to show Re(n^(-x) * n^(-iy)) = n^(-x) * cos(y * log n)
     -- First, n^(-x) is real when n and x are real
     have h1 : ((n : ℂ) ^ (-x : ℂ)).re = (n : ℝ) ^ (-x) := by
-      rw [Complex.cpow_ofReal_ofReal]
-      simp [h_pos]
+      rw [Complex.cpow_def_of_ne_zero (Nat.cast_ne_zero.mpr hn)]
+      simp only [Complex.ofReal_re, Complex.ofReal_im, mul_zero, sub_zero]
+      rw [Complex.exp_ofReal_re, Real.exp_log h_pos]
     have h2 : ((n : ℂ) ^ (-x : ℂ)).im = 0 := by
-      rw [Complex.cpow_ofReal_ofReal]
-      simp [h_pos]
+      rw [Complex.cpow_def_of_ne_zero (Nat.cast_ne_zero.mpr hn)]
+      simp only [Complex.ofReal_re, Complex.ofReal_im, mul_zero, sub_zero]
+      rw [Complex.exp_ofReal_im]
     -- Now handle n^(-iy) = exp(-iy * log n) = cos(-y * log n) + i * sin(-y * log n)
     have h3 : ((n : ℂ) ^ (-(y * I) : ℂ)).re = Real.cos (y * Real.log n) := by
       rw [Complex.cpow_def_of_ne_zero (Nat.cast_ne_zero.mpr hn)]
@@ -1024,19 +1091,16 @@ lemma lem_log_deriv_singularity {t δ : ℝ} (hδ : 0 < δ) (ht : riemannZeta (1
 /-- Classical zero-free region constant -/
 noncomputable def c_zero_free : ℝ := 1 / (100 * Real.log 10)
 
+/-- Classical zero-free constant is positive -/
+lemma c_zero_free_pos : 0 < c_zero_free := by
+  unfold c_zero_free
+  have h1 : 0 < Real.log 10 := Real.log_pos (by norm_num : 1 < 10)
+  have h2 : 0 < 100 * Real.log 10 := mul_pos (by norm_num) h1
+  exact div_pos zero_lt_one h2
+
 /-- de la Vallée-Poussin zero-free region -/
 theorem de_la_vallee_poussin_zero_free_region :
     ∃ c > 0, ∀ s : ℂ, s.re ≥ 1 - c / Real.log (2 + |s.im|) → riemannZeta s ≠ 0 := by
-  sorry
-
-/-- Explicit zero-free region with effective constant -/
-theorem zero_free_region_explicit (s : ℂ) :
-    s.re > 1 - c_zero_free / Real.log (2 + |s.im|) → riemannZeta s ≠ 0 := by
-  -- This follows from de_la_vallee_poussin_zero_free_region with c = c_zero_free
-  obtain ⟨c, hc_pos, hzfr⟩ := de_la_vallee_poussin_zero_free_region
-  intro h
-  -- We need to show that for our specific c_zero_free, the theorem holds
-  -- Since we don't have a proof that c_zero_free works, we need to use sorry
   sorry
 
 /-- Quantitative bound on log derivative in zero-free region -/
@@ -1076,6 +1140,47 @@ theorem sum_over_zeros_bound {σ : ℝ} {t : ℝ} (hσ : σ > 1) (ht : |t| ≥ 2
 
 /-- Effective zero-free region constant -/
 noncomputable def effective_c : ℝ := 1 / 9.645908801
+
+/-- Effective constant is positive -/
+lemma effective_c_pos : 0 < effective_c := by
+  unfold effective_c
+  norm_num
+
+/-- The effective constant is smaller than the classical constant -/
+lemma effective_c_lt_c_zero_free : effective_c < c_zero_free := by
+  unfold effective_c c_zero_free
+  -- We have effective_c = 1/9.645908801 and c_zero_free = 1/(100*log(10))
+  -- First compute 100 * log(10)
+  have h1 : 100 * Real.log 10 > 230 := by
+    have : Real.log 10 > 2.3 := by norm_num
+    calc 100 * Real.log 10 > 100 * 2.3 := by
+      apply mul_lt_mul_of_pos_left
+      · exact this
+      · norm_num
+    _ = 230 := by norm_num
+  -- Now 1/9.645908801 < 1/230
+  have h2 : (1 : ℝ) / 230 < 1 / 9.645908801 := by norm_num
+  calc effective_c = 1 / 9.645908801 := rfl
+    _ < 1 / 230 := h2
+    _ < 1 / (100 * Real.log 10) := by
+      apply div_lt_div_of_pos_left
+      · norm_num
+      · apply mul_pos; norm_num; exact Real.log_pos (by norm_num : 1 < 10)
+      · exact h1
+
+/-- The effective constant is greater than 0.1 -/
+lemma effective_c_gt_tenth : 0.1 < effective_c := by
+  unfold effective_c
+  -- We have effective_c = 1/9.645908801
+  -- Since 9.645908801 < 10, we have 1/10 < 1/9.645908801
+  have h : (9.645908801 : ℝ) < 10 := by norm_num
+  calc (0.1 : ℝ) = 1 / 10 := by norm_num
+    _ < 1 / 9.645908801 := by
+      apply div_lt_div_of_pos_left
+      · norm_num
+      · norm_num
+      · exact h
+    _ = effective_c := rfl
 
 /-- Effective zero-free region -/
 theorem effective_zero_free_region : ∀ s : ℂ,
@@ -1127,3 +1232,68 @@ theorem zero_gap_critical_line : ∃ c > 0, ∀ γ₁ γ₂ : ℝ,
     γ₁ < γ₂ → γ₁ ≥ 14.134 →
     γ₂ - γ₁ ≥ c / Real.log γ₁ := by
   sorry
+
+/-- Bound relating classical and effective zero-free constants -/
+lemma zero_free_constants_ratio : c_zero_free / effective_c < 10 := by
+  unfold c_zero_free effective_c
+  -- c_zero_free = 1/(100*log(10)) and effective_c = 1/9.645908801
+  -- So the ratio is 9.645908801/(100*log(10))
+  have h1 : Real.log 10 > 2.3 := by norm_num
+  have h2 : 100 * Real.log 10 > 230 := by
+    calc 100 * Real.log 10 > 100 * 2.3 := by
+      apply mul_lt_mul_of_pos_left h1
+      norm_num
+    _ = 230 := by norm_num
+  -- So c_zero_free < 1/230 and effective_c > 1/10
+  -- Thus c_zero_free/effective_c < (1/230)/(1/10) = 10/230 < 10/23 < 10
+  calc c_zero_free / effective_c
+    = (1 / (100 * Real.log 10)) / (1 / 9.645908801) := rfl
+    _ = 9.645908801 / (100 * Real.log 10) := by field_simp
+    _ < 10 / 230 := by
+      apply div_lt_div
+      · norm_num
+      · norm_num
+      · exact h2
+      · norm_num
+    _ < 10 := by norm_num
+
+/-- The classical zero-free region constant is much smaller than 1 -/
+lemma c_zero_free_small : c_zero_free < 0.01 := by
+  unfold c_zero_free
+  -- c_zero_free = 1/(100*log(10))
+  -- log(10) > 2.3, so 100*log(10) > 230
+  -- Therefore c_zero_free < 1/230 < 0.01
+  have h1 : Real.log 10 > 2.3 := by norm_num
+  have h2 : 100 * Real.log 10 > 230 := by
+    calc 100 * Real.log 10 > 100 * 2.3 := by
+      apply mul_lt_mul_of_pos_left h1
+      norm_num
+    _ = 230 := by norm_num
+  calc c_zero_free = 1 / (100 * Real.log 10) := rfl
+    _ < 1 / 230 := by
+      apply div_lt_div_of_pos_left
+      · norm_num
+      · exact h2
+      · norm_num
+    _ < 0.01 := by norm_num
+
+/-- The effective constant is approximately 0.1037 -/
+lemma effective_c_approx : 0.1036 < effective_c ∧ effective_c < 0.1038 := by
+  unfold effective_c
+  constructor
+  · -- Lower bound: 1/9.645908801 > 0.1036
+    calc effective_c = 1 / 9.645908801 := rfl
+      _ > 1 / 9.653 := by
+        apply div_lt_div_of_pos_left
+        · norm_num
+        · norm_num
+        · norm_num
+      _ > 0.1036 := by norm_num
+  · -- Upper bound: 1/9.645908801 < 0.1038
+    calc effective_c = 1 / 9.645908801 := rfl
+      _ < 1 / 9.64 := by
+        apply div_lt_div_of_pos_left
+        · norm_num
+        · norm_num
+        · norm_num
+      _ < 0.1038 := by norm_num

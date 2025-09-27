@@ -7,7 +7,9 @@
  "name": "StrongPNT.PNT4_ZeroFreeRegion",
  "isModule": false,
  "importArts":
- {"Qq.Typ":
+ {"StrongPNT.PNT3_RiemannZeta":
+  ["/home/jovyan/pmt_claude/.lake/build/lib/lean/StrongPNT/PNT3_RiemannZeta.olean"],
+  "Qq.Typ":
   ["/home/jovyan/pmt_claude/.lake/packages/Qq/.lake/build/lib/lean/Qq/Typ.olean"],
   "Qq.SortLocalDecls":
   ["/home/jovyan/pmt_claude/.lake/packages/Qq/.lake/build/lib/lean/Qq/SortLocalDecls.olean"],
@@ -625,6 +627,8 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/Module.olean"],
   "Mathlib.Topology.Algebra.InfiniteSum.Group":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/Group.olean"],
+  "Mathlib.Topology.Algebra.InfiniteSum.Field":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/Field.olean"],
   "Mathlib.Topology.Algebra.InfiniteSum.ENNReal":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Topology/Algebra/InfiniteSum/ENNReal.olean"],
   "Mathlib.Topology.Algebra.InfiniteSum.Defs":
@@ -4095,6 +4099,8 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/PolarCoord.olean"],
   "Mathlib.Analysis.SpecialFunctions.NonIntegrable":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/NonIntegrable.olean"],
+  "Mathlib.Analysis.SpecialFunctions.Log.Summable":
+  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Log/Summable.olean"],
   "Mathlib.Analysis.SpecialFunctions.Log.NegMulLog":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Log/NegMulLog.olean"],
   "Mathlib.Analysis.SpecialFunctions.Log.Deriv":
