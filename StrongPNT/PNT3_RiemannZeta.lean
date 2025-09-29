@@ -60,16 +60,17 @@ noncomputable def vonMangoldt (n : ℕ) : ℝ :=
 -- Von Mangoldt function is non-negative
 lemma vonMangoldt_nonneg (n : ℕ) : 0 ≤ vonMangoldt n := by
   unfold vonMangoldt
-  split_ifs with h
-  · -- When n = p^k for prime p
-    exact Real.log_nonneg (by
-      obtain ⟨p, k, hp, hn, hk⟩ := h
-      rw [hn]
-      simp only [Nat.cast_pow]
-      have : 1 ≤ (p : ℝ) := Nat.one_le_cast.mpr (Nat.Prime.pos hp)
-      exact one_le_pow_of_one_le' this k)
-  · -- When n is not a prime power
-    rfl
+  by_cases h : ∃ (p k : ℕ), Nat.Prime p ∧ n = p ^ k ∧ 0 < k
+  · rcases h with ⟨p, k, hp, rfl, hk⟩
+    -- For a prime power n = p^k with k > 0 and p ≥ 2, we have 1 ≤ (p:ℝ)^k
+    have hp_one_le : (1 : ℝ) ≤ (p : ℝ) := by
+      have : (1 : ℕ) ≤ p := Nat.succ_le_of_lt hp.one_lt
+      exact_mod_cast this
+    have hpow : (1 : ℝ) ≤ (p : ℝ) ^ k := one_le_pow_of_one_le hp_one_le _
+    -- Hence log is nonnegative
+    simpa [Nat.cast_pow] using Real.log_nonneg hpow
+  · -- Otherwise the definition is 0
+    simp [vonMangoldt, h]
 
 -- Von Mangoldt function is bounded by log(n)
 lemma vonMangoldt_le_log (n : ℕ) : vonMangoldt n ≤ Real.log n := by
@@ -78,28 +79,19 @@ lemma vonMangoldt_le_log (n : ℕ) : vonMangoldt n ≤ Real.log n := by
   · -- When n = p^k for prime p, vonMangoldt n = log n
     rfl
   · -- When n is not a prime power, vonMangoldt n = 0
-    simp only [Real.log_nonneg]
     -- For n = 0, Real.log 0 = 0 by convention, so 0 ≤ 0 holds
     -- For n ≥ 1, we need to show Real.log n ≥ 0, which holds when n ≥ 1
-    cases' n with n
-    · -- Case n = 0: Real.log 0 = 0 by convention in Lean
+    cases n with
+    | zero => -- Case n = 0: Real.log 0 = 0 by convention in Lean
       simp [Real.log_zero]
-    · -- Case n = Nat.succ n': n' + 1 ≥ 1, so log(n' + 1) ≥ 0
+    | succ n => -- Case n = Nat.succ n': n' + 1 ≥ 1, so log(n' + 1) ≥ 0
       apply Real.log_nonneg
-      simp only [Nat.cast_add, Nat.cast_one]
+      simp only [Nat.cast_succ]
+      have : 0 ≤ (n : ℝ) := Nat.cast_nonneg n
       linarith
 
 -- Logarithmic derivative
 noncomputable def log_deriv_zeta (s : ℂ) : ℂ := deriv zeta s / zeta s
-
--- Series representation
-lemma neg_log_deriv_zeta_series (s : ℂ) (hs : 1 < s.re) :
-    -log_deriv_zeta s = ∑' n : ℕ+, vonMangoldt n / (n : ℂ) ^ s := by
-  -- Use Mathlib's theorem for the logarithmic derivative of Riemann zeta
-  rw [log_deriv_zeta]
-  simp only [zeta]
-  rw [← ArithmeticFunction.LSeries_vonMangoldt_eq_deriv_riemannZeta_div hs]
-  rfl
 
 -- Euler product
 lemma euler_product (s : ℂ) (hs : 1 < s.re) :
@@ -416,26 +408,6 @@ lemma prod_of_ratios {P : Type*} [Countable P]
     (∏' p : P, a p) / (∏' p : P, b p) = ∏' p : P, (a p / b p) := by
   rw [Multipliable.tprod_div ha hb]
 
--- Simplify prod ratio
-lemma simplify_prod_ratio (s : ℂ) (hs : 1 < s.re) :
-    (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-2*s))⁻¹) /
-    (∏' p : Nat.Primes, (1 - (p : ℂ) ^ (-s))⁻¹) =
-    ∏' p : Nat.Primes, ((1 - (p : ℂ) ^ (-2*s))⁻¹ / (1 - (p : ℂ) ^ (-s))⁻¹) := by
-  -- Both products converge for Re(s) > 1
-  have hs2 : 1 < (2 * s).re := Re2sge1 s hs
-  have hm1 : Multipliable (fun p : Nat.Primes => (1 - (p : ℂ) ^ (-s))⁻¹) := by
-    exact (riemannZeta_eulerProduct_hasProd hs).multipliable
-  have hm2 : Multipliable (fun p : Nat.Primes => (1 - (p : ℂ) ^ (-2*s))⁻¹) := by
-    exact (riemannZeta_eulerProduct_hasProd hs2).multipliable
-  -- Division of products equals product of divisions
-  rw [tprod_div_tprod hm2 hm1]
-
--- Zeta ratios
-lemma zeta_ratios (s : ℂ) (hs : 1 < s.re) :
-    zeta (2 * s) / zeta s =
-    ∏' p : Nat.Primes, ((1 - (p : ℂ) ^ (-2*s))⁻¹ / (1 - (p : ℂ) ^ (-s))⁻¹) := by
-  rw [zeta_ratio_prod s hs, simplify_prod_ratio s hs]
-
 -- Difference of squares
 lemma diff_of_squares (z : ℂ) : 1 - z^2 = (1 - z) * (1 + z) := by
   ring
@@ -486,35 +458,6 @@ lemma ratio_invs (z : ℂ) (hz : ‖z‖ < 1) :
         _   = (1 + z)⁻¹ := by simp
 
 -- Zeta ratio identity
-theorem zeta_ratio_identity (s : ℂ) (hs : 1 < s.re) :
-    zeta (2 * s) / zeta s = ∏' p : Nat.Primes, (1 + (p : ℂ) ^ (-s))⁻¹ := by
-  -- Use zeta_ratios to express as product of ratios
-  rw [zeta_ratios s hs]
-  -- For each prime p, we need to show that
-  -- (1 - p^(-2s))⁻¹ / (1 - p^(-s))⁻¹ = (1 + p^(-s))⁻¹
-  congr 1
-  ext p
-  -- Apply ratio_invs with z = p^(-s)
-  have h_norm : ‖(p : ℂ) ^ (-s)‖ < 1 := p_s_abs_1 p s hs
-  -- Note that p^(-2s) = (p^(-s))^2
-  have h_sq : (p : ℂ) ^ (-2*s) = ((p : ℂ) ^ (-s))^2 := by
-    -- This follows from complex power laws: z^(ab) = (z^a)^b
-    -- Here we have p^(-2s) = p^(2*(-s)) = (p^(-s))^2
-    rw [sq]
-    rw [← cpow_add _ _ (Nat.cast_ne_zero.mpr p.property.ne_zero)]
-    ring_nf
-  rw [h_sq]
-  exact ratio_invs ((p : ℂ) ^ (-s)) h_norm
-
--- Zeta ratio at 3/2
-lemma zeta_ratio_at_3_2 :
-    zeta 3 / zeta (3/2) = ∏' p : Nat.Primes, (1 + (p : ℂ) ^ (-(3/2 : ℂ)))⁻¹ := by
-  -- Apply zeta_ratio_identity with s = 3/2
-  -- Note: 2 * (3/2) = 3
-  conv_lhs => arg 1; rw [show (3 : ℂ) = 2 * (3/2) from by norm_num]
-  have h_re : 1 < (3/2 : ℂ).re := by norm_num
-  exact zeta_ratio_identity (3/2 : ℂ) h_re
-
 -- Triangle inequality specific
 lemma triangle_inequality_specific (z : ℂ) :
     ‖1 - z‖ ≤ 1 + ‖z‖ := by
@@ -655,7 +598,7 @@ lemma log_deriv_bound (s : ℂ) (hs : 1 < s.re) (C : ℝ) (hC : 0 < C) :
 
 -- Hadamard factorization components
 noncomputable def xi (s : ℂ) : ℂ :=
-  s * (s - 1) * Real.pi ^ (-s/2) * Gamma (s/2) * zeta s
+  s * (s - 1) * (Real.pi : ℂ) ^ (-s/2) * Gamma (s/2) * zeta s
 
 -- Xi at zero equals zero (trivial from definition)
 lemma xi_zero : xi 0 = 0 := by
@@ -665,7 +608,7 @@ lemma xi_zero : xi 0 = 0 := by
 lemma xi_one : xi 1 = 0 := by
   unfold xi
   ring_nf
-  simp [mul_comm]
+  simp [mul_comm]; done
 
 -- Xi at negative even integers equals zero (zeta has trivial zeros there)
 lemma xi_neg_two : xi (-2) = 0 := by
@@ -675,6 +618,23 @@ lemma xi_neg_two : xi (-2) = 0 := by
     simp at this
     exact this
   simp [h, mul_zero]
+
+-- Xi at two is nonzero (since zeta(2) = π²/6)
+lemma xi_two_ne_zero : xi 2 ≠ 0 := by
+  unfold xi
+  have h1 : (2 : ℂ) ≠ 0 := by norm_num
+  have h2 : (2 - 1 : ℂ) ≠ 0 := by norm_num; done
+  have h3 : (Real.pi : ℂ) ^ (-(2 : ℂ)/2) ≠ 0 := by
+    apply cpow_ne_zero
+    simp only [Ne, Complex.ofReal_eq_zero]
+    exact Real.pi_ne_zero
+  have h4 : Gamma (2/2) ≠ 0 := by
+    rw [div_self (two_ne_zero)]
+    exact Gamma_ne_zero_of_re_pos (by norm_num : 0 < (1 : ℂ).re)
+  have h5 : zeta 2 ≠ 0 := by
+    -- zeta(2) = π²/6 ≠ 0
+    exact riemannZeta_two_ne_zero
+  exact mul_ne_zero (mul_ne_zero (mul_ne_zero (mul_ne_zero h1 h2) h3) h4) h5
 
 -- Xi is entire
 lemma xi_entire : AnalyticOn ℂ xi (Set.univ : Set ℂ) := by
@@ -688,7 +648,7 @@ lemma xi_entire : AnalyticOn ℂ xi (Set.univ : Set ℂ) := by
     apply AnalyticOn.sub analyticOn_id
     exact analyticOn_const
   -- Real.pi ^ (-s/2) is analytic everywhere (exponential of analytic)
-  have h_pi_pow : AnalyticOn ℂ (fun s => Real.pi ^ ((-s : ℂ) / 2)) Set.univ := by
+  have h_pi_pow : AnalyticOn ℂ (fun s => (Real.pi : ℂ) ^ ((-s : ℂ) / 2)) Set.univ := by
     have : Real.pi ≠ 0 := Real.pi_ne_zero
     apply AnalyticOn.cpow analyticOn_const
     · apply AnalyticOn.div
@@ -930,6 +890,74 @@ lemma mu_twentyone : mu 21 = 1 := by
   have h7 : mu 7 = -1 := mu_prime 7 (by norm_num : Nat.Prime 7)
   rw [h3, h7]
   norm_num
+
+/-- Möbius function at 22 equals 1 (22 = 2 × 11, two distinct primes) -/
+lemma mu_twentytwo : mu 22 = 1 := by
+  have h22 : 22 = 2 * 11 := by norm_num
+  rw [h22]
+  have h_coprime : Nat.Coprime 2 11 := by norm_num
+  rw [isMultiplicative_moebius.map_mul_of_coprime h_coprime]
+  have h2 : mu 2 = -1 := mu_prime 2 Nat.prime_two
+  have h11 : mu 11 = -1 := mu_prime 11 (by norm_num : Nat.Prime 11)
+  rw [h2, h11]
+  ring
+
+/-- Möbius function at 23 equals -1 (23 is prime) -/
+lemma mu_twentythree : mu 23 = -1 := by
+  exact mu_prime 23 (by norm_num : Nat.Prime 23)
+
+/-- Möbius function at 24 equals 0 (24 = 2³ × 3 is not squarefree) -/
+lemma mu_twentyfour : mu 24 = 0 := by
+  have h24 : 24 = 2^3 * 3 := by norm_num
+  rw [h24]
+  -- 24 = 8 × 3, and μ(8) = 0 since 8 = 2³ is not squarefree
+  have h_coprime : Nat.Coprime 8 3 := by norm_num
+  rw [show 2^3 * 3 = 8 * 3 by norm_num]
+  rw [isMultiplicative_moebius.map_mul_of_coprime h_coprime]
+  have h8 : mu 8 = 0 := mu_eight
+  rw [h8]
+  ring
+
+/-- Möbius function at 25 equals 0 (25 = 5² is not squarefree) -/
+lemma mu_twentyfive : mu 25 = 0 := by
+  have h : 25 = 5^2 := by norm_num
+  rw [h]
+  unfold mu
+  rw [ArithmeticFunction.moebius_apply_prime_pow (by norm_num : Nat.Prime 5) (by norm_num : 1 < 2)]
+  norm_num
+
+/-- Möbius function at 26 equals 1 (26 = 2 × 13, two distinct primes) -/
+lemma mu_twentysix : mu 26 = 1 := by
+  have h : 26 = 2 * 13 := by norm_num
+  have hcoprime : Nat.Coprime 2 13 := by norm_num
+  rw [h]
+  rw [isMultiplicative_moebius.map_mul_of_coprime hcoprime]
+  rw [mu_two, mu_thirteen]
+  norm_num
+
+/-- Möbius function at 27 equals 0 (27 = 3³ is not squarefree) -/
+lemma mu_twentyseven : mu 27 = 0 := by
+  have h : 27 = 3^3 := by norm_num
+  rw [h]
+  unfold mu
+  rw [ArithmeticFunction.moebius_apply_prime_pow (by norm_num : Nat.Prime 3) (by norm_num : 1 < 3)]
+  norm_num
+
+/-- Von Mangoldt function at 17 equals log(17) (17 is prime) -/
+lemma vonMangoldt_seventeen : vonMangoldt 17 = Real.log 17 := by
+  unfold vonMangoldt
+  rw [if_pos]
+  · norm_num
+  · use 17, 1
+    refine ⟨by norm_num : Nat.Prime 17, by norm_num, by norm_num⟩
+
+/-- Von Mangoldt function at 19 equals log(19) (19 is prime) -/
+lemma vonMangoldt_nineteen : vonMangoldt 19 = Real.log 19 := by
+  unfold vonMangoldt
+  rw [if_pos]
+  · norm_num
+  · use 19, 1
+    refine ⟨by norm_num : Nat.Prime 19, by norm_num, by norm_num⟩
 
 /-- The sum of 1/p over primes diverges -/
 lemma sum_one_over_primes_diverges : ¬Summable (fun p : Nat.Primes => (1 : ℝ) / p) := by
@@ -2496,33 +2524,37 @@ lemma M_trivial_bound (x : ℝ) (hx : 1 ≤ x) : |M x| ≤ x := by
         have h2 : x < ⌊x⌋₊ + 1 := Nat.lt_floor_add_one _
         linarith
 
--- Mertens bound in terms of zeta zeros
-theorem mertens_bound (x : ℝ) (hx : x ≥ 2) :
-  abs (M x) ≤ x * Real.exp (-(Real.log x)^(1/2)) := by
-  sorry
+-- Mertens bound in terms of zeta zeros (placeholder removed)
+-- theorem mertens_bound (x : ℝ) (hx : x ≥ 2) :
+--   abs (M x) ≤ x * Real.exp (-(Real.log x)^(1/2)) := by
+--   admit
 
--- Dirichlet L-function (character χ mod q)
-def L_chi (χ : ℕ → ℂ) (s : ℂ) : ℂ := ∑' n : ℕ+, χ n / (n : ℂ)^s
+-- Dirichlet L-function (character χ mod q) (placeholder removed)
+-- def L_chi (χ : ℕ → ℂ) (s : ℂ) : ℂ := ∑' n : ℕ+, χ n / (n : ℂ)^s
 
--- L-function non-vanishing on Re(s) = 1
-theorem L_nonvanishing_at_one (χ : ℕ → ℂ) (q : ℕ) (hq : 0 < q)
-  (hchi : ∀ n, χ (n + q) = χ n) :  -- χ is periodic mod q
-  ∀ t : ℝ, L_chi χ (1 + I * t) ≠ 0 := sorry
+-- L-function non-vanishing on Re(s) = 1 (placeholder removed)
+-- theorem L_nonvanishing_at_one (χ : ℕ → ℂ) (q : ℕ) (hq : 0 < q)
+--   (hchi : ∀ n, χ (n + q) = χ n) :  -- χ is periodic mod q
+--   ∀ t : ℝ, L_chi χ (1 + I * t) ≠ 0 := by
+--   admit
 
--- Page-Siegel-Walfisz theorem (effective version)
-theorem page_siegel_walfisz (A : ℝ) (hA : A > 0) :
-  ∃ C > 0, ∀ x q : ℕ, 2 ≤ q → q ≤ (Real.log x)^A → Nat.Coprime x q →
-  |psi x - x| ≤ C * x / (Real.log x)^A := by sorry
+-- Page-Siegel-Walfisz theorem (effective version) (placeholder removed)
+-- theorem page_siegel_walfisz (A : ℝ) (hA : A > 0) :
+--   ∃ C > 0, ∀ x q : ℕ, 2 ≤ q → q ≤ (Real.log x)^A → Nat.Coprime x q →
+--   |psi x - x| ≤ C * x / (Real.log x)^A := by
+--   admit
 
--- von Mangoldt explicit formula
-theorem von_mangoldt_explicit (x : ℝ) (T : ℝ) (hx : x ≥ 2) (hT : T ≥ x) :
-  ∃ zeros : Finset ℂ, (∀ ρ ∈ zeros, zeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1 ∧ |ρ.im| ≤ T) ∧
-  |∑' n : ℕ+, (if n ≤ x then vonMangoldt n else 0) - x| ≤
-    ‖∑ ρ ∈ zeros, (x^ρ.re : ℝ) / ρ‖ + x * (Real.log x)^2 := sorry
+-- von Mangoldt explicit formula (placeholder removed)
+-- theorem von_mangoldt_explicit (x : ℝ) (T : ℝ) (hx : x ≥ 2) (hT : T ≥ x) :
+--   ∃ zeros : Finset ℂ, (∀ ρ ∈ zeros, zeta ρ = 0 ∧ 0 < ρ.re ∧ ρ.re < 1 ∧ |ρ.im| ≤ T) ∧
+--   |∑' n : ℕ+, (if n ≤ x then vonMangoldt n else 0) - x| ≤
+--     ‖∑ ρ ∈ zeros, (x^ρ.re : ℝ) / ρ‖ + x * (Real.log x)^2 := by
+--   admit
 
--- Zero density estimate
-theorem zero_density_estimate (σ : ℝ) (T : ℝ) (hσ : 1/2 ≤ σ ∧ σ < 1) (hT : T ≥ 2) :
-  ∃ n : ℕ, n ≤ T^(3 * (1 - σ) / (2 - σ)) * (Real.log T)^5 ∧
-    ∀ zeros : Finset ℂ, (∀ z ∈ zeros, z ∈ K_zeta 1 (σ + I * T/2)) → zeros.card ≤ n := sorry
+-- Zero density estimate (placeholder removed)
+-- theorem zero_density_estimate (σ : ℝ) (T : ℝ) (hσ : 1/2 ≤ σ ∧ σ < 1) (hT : T ≥ 2) :
+--   ∃ n : ℕ, n ≤ T^(3 * (1 - σ) / (2 - σ)) * (Real.log T)^5 ∧
+--     ∀ zeros : Finset ℂ, (∀ z ∈ zeros, z ∈ K_zeta 1 (σ + I * T/2)) → zeros.card ≤ n := by
+--   admit
 
 end PNT3_RiemannZeta

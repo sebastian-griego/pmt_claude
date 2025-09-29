@@ -11,7 +11,9 @@ import Mathlib.NumberTheory.ArithmeticFunction
 import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.NumberTheory.LSeries.Dirichlet
 import Mathlib.Topology.Basic
-import Mathlib.MeasureTheory.Integral.IntervalIntegral
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts
 -- import StrongPNT.ZetaZeroFree -- Module doesn't exist yet
 
 set_option maxHeartbeats 400000
@@ -32,6 +34,9 @@ local notation (name := mellintransform2) "𝓜" => mellin
 -- Alias for differentiability on complex domains
 abbrev HolomorphicOn (f : ℂ → ℂ) (s : Set ℂ) : Prop := DifferentiableOn ℂ f s
 
+-- Simple scalar identity used by vertical-integral normalizations
+-- (removed) a small scalar identity that is not needed elsewhere
+
 -- Basic placeholder definitions to eliminate sorries. These can be refined later.
 noncomputable def Smooth1 (f : ℝ → ℝ) (ε : ℝ) : ℝ → ℝ :=
   -- A simple bounded smoothing surrogate: clamp values into [0, 1].
@@ -43,6 +48,41 @@ noncomputable def VerticalIntegral' (f : ℂ → ℂ) (σ : ℝ) : ℂ :=
 
 noncomputable def VerticalIntegral (f : ℂ → ℂ) (σ : ℝ) : ℂ :=
   (1 / (2 * π)) * ∫ (t : ℝ), f (σ + t * I)
+
+-- The two vertical integral normalizations agree:
+-- (1/(2πi))·(i∫_ℝ ·) = (1/(2π))·∫_ℝ ·
+lemma VerticalIntegral'_eq_VerticalIntegral (f : ℂ → ℂ) (σ : ℝ) :
+    VerticalIntegral' f σ = VerticalIntegral f σ := by
+  dsimp [VerticalIntegral', VerticalIntegral]
+  -- Compute the scalar: (1/(2πi)) * i = 1/(2π)
+  have hscal : ((1 : ℂ) / (2 * π * I)) * I = (1 : ℂ) / (2 * π) := by
+    -- Work multiplicatively using commutativity of ℂ
+    have hI0 : (I : ℂ) ≠ 0 := I_ne_zero
+    calc
+      ((1 : ℂ) / (2 * π * I)) * I
+          = (1 : ℂ) * (2 * π * I)⁻¹ * I := by
+            simp [div_eq_mul_inv, mul_comm, mul_left_comm, mul_assoc]
+      _   = (1 : ℂ) * ((2 * π)⁻¹ * (I)⁻¹) * I := by
+            -- (ab)⁻¹ = b⁻¹ * a⁻¹ in a commutative group
+            simp [mul_inv_rev, mul_comm, mul_left_comm, mul_assoc]
+      _   = (1 : ℂ) * (2 * π)⁻¹ * ((I)⁻¹ * I) := by
+            simp [mul_comm, mul_left_comm, mul_assoc]
+      _   = (1 : ℂ) * (2 * π)⁻¹ * 1 := by
+            simp [hI0]
+      _   = (1 : ℂ) / (2 * π) := by
+            simp [div_eq_mul_inv, mul_comm, mul_left_comm, mul_assoc]
+  -- Reassociate to factor the scalar in front of the integral
+  have hassoc :
+      ((1 : ℂ) / (2 * π * I)) * (I * ∫ (t : ℝ), f (σ + t * I)) =
+        (((1 : ℂ) / (2 * π * I)) * I) * ∫ (t : ℝ), f (σ + t * I) := by
+    simp [mul_comm, mul_left_comm, mul_assoc]
+  -- Combine with the scalar identity
+  -- Auxiliary simp lemmas for rewriting powers of I on scalars
+  have I_mul_I_mul (a : ℂ) : I * (I * a) = -a := by
+    have : I * I = (-1 : ℂ) := by simpa using (I_mul_I : (I : ℂ) * I = -1)
+    simpa [this, mul_assoc, neg_one_mul]
+  have neg_I_mul_I (a : ℂ) : -(I * (I * a)) = a := by simpa [I_mul_I_mul]
+  simpa [hassoc, hscal, neg_I_mul_I]
 
 -- Finite vertical line integral from `s` to `e` at real part `σ`.
 @[inline] noncomputable def VIntegral (f : ℂ → ℂ) (σ s e : ℝ) : ℂ :=
@@ -63,7 +103,6 @@ lemma riemannZeta_conj (s : ℂ) : riemannZeta (starRingEnd ℂ s) = starRingEnd
       exact h
     rw [zeta_eq_tsum_one_div_nat_add_one_cpow h_conj]
     simp only [starRingEnd_apply, star_div, star_one]
-    congr 1
     ext n
     simp only [star_cpow_natCast_of_pos (Nat.succ_pos n)]
   · -- For Re(s) ≤ 1, use analytic continuation
@@ -345,7 +384,11 @@ lemma SmoothedChebyshevDirichlet_aux_integrable {SmoothingF : ℝ → ℝ}
       _≤ c / ε * 1 / (σ^2 + t^2) := by
         convert hc ε (σ + t * I) εpos using 1
         simp only [mul_one]
-        -- Need to show 1 + ‖σ + t * I‖ = 1 / sqrt(σ^2 + t^2)
+        -- Need to show (1 + ‖σ + t * I‖)⁻¹ ≤ 1 / (σ^2 + t^2)
+        -- We have ‖σ + t * I‖ = sqrt(σ^2 + t^2)
+        -- This would require sqrt(σ^2 + t^2) * (σ^2 + t^2)⁻¹ ≥ 1 which simplifies to
+        -- 1/sqrt(σ^2 + t^2) ≥ 1 which is false when σ^2 + t^2 > 1.
+        -- The comparison seems incorrect or needs a different bound.
         sorry
       _ ≤ _ := by
         gcongr; nlinarith
@@ -406,7 +449,37 @@ lemma SmoothedChebyshevDirichlet_aux_tsum_integral {SmoothingF : ℝ → ℝ}
     by_cases i_eq_zero : i = 0
     · simpa [i_eq_zero] using aestronglyMeasurable_const
     · apply Continuous.aestronglyMeasurable
-      sorry -- continuity of the integrand
+      -- The integrand is continuous since it's a product of continuous functions
+      apply Continuous.mul
+      · apply Continuous.mul
+        · -- von Mangoldt(i) / (i : ℂ) ^ (σ + t * I) is continuous in t
+          simp only [ArithmeticFunction.vonMangoldt]
+          apply continuous_const.div
+          -- (i : ℂ) ^ (σ + t * I) is continuous in t
+          have hi : (i : ℂ) ≠ 0 := by
+            exact Nat.cast_ne_zero.mpr i_eq_zero
+          refine continuous_iff_continuousAt.mpr fun t => ?_
+          exact continuousAt_const_cpow _ _ (Or.inl hi)
+          -- (i : ℂ) ^ (σ + t * I) ≠ 0
+          intro t
+          -- Use that a nonzero base has nonzero complex power; here we prove by
+          -- showing its norm is positive.
+          apply ne_of_apply_ne norm
+          rw [Complex.norm_cpow_eq_rpow_re_of_pos]
+          · exact Real.rpow_pos_of_pos (Nat.cast_pos.mpr (Nat.zero_lt_of_ne_zero i_eq_zero)) _
+          · exact Nat.cast_pos.mpr (Nat.zero_lt_of_ne_zero i_eq_zero)
+          exact hi
+        · -- The Mellin transform term is continuous
+          -- Use that the Mellin transform is differentiable hence continuous
+          have mellin_diff := Smooth1MellinDifferentiable diffSmoothingF suppSmoothingF
+            ⟨ε, εpos, ε_lt_one⟩ SmoothingFpos mass_one
+          apply continuous_iff_continuousAt.mpr
+          intro t
+          exact (mellin_diff (by simp [σ_gt])).continuousAt
+      · -- X ^ (σ + t * I) is continuous in t
+        have hX : (X : ℂ) ≠ 0 := by simp [x_neq_zero]
+        refine continuous_iff_continuousAt.mpr fun t => ?_
+        exact continuousAt_const_cpow _ _ (Or.inl hX)
   · rw [← lt_top_iff_ne_top]
     simp_rw [enorm_mul, enorm_eq_nnnorm, nnnorm_div, ← norm_toNNReal, Complex.norm_cpow_eq_rpow_re_of_pos X_pos, norm_toNNReal, abs_two]
     simp only [nnnorm_real, add_re, re_ofNat, mul_re, ofReal_re, I_re, mul_zero, ofReal_im, I_im,
@@ -513,7 +586,13 @@ $$\psi_{\epsilon}(X) = \sum_{n=1}^\infty \Lambda(n)\widetilde{1_{\epsilon}}(n/X)
   · have ht (t : ℝ) : -(σ + t * I) = (-1) * (σ + t * I) := by simp
     have hn (n : ℂ) : (n / X) ^ (-1 : ℂ) = X / n := by simp [cpow_neg_one]
     have (n : ℕ) : (log ((n : ℂ) / (X : ℂ)) * -1).im = 0 := by
-      simp [Complex.log_im, arg_eq_zero_iff, div_nonneg (Nat.cast_nonneg _) (by linarith : 0 ≤ X)]
+      simp only [mul_im, log_im, neg_re, neg_im, one_re, one_im, zero_mul, add_zero]
+      have : ((n : ℂ) / X).arg = 0 := by
+        rw [Complex.arg_eq_zero_iff]
+        right
+        refine div_pos ?_ (by linarith : (0 : ℝ) < X)
+        exact Nat.cast_nonneg n
+      simp [this]
     have h (n : ℕ) (t : ℝ) : ((n : ℂ) / X) ^ ((-1 : ℂ) * (σ + t * I)) =
         ((n / X) ^ (-1 : ℂ)) ^ (σ + ↑t * I) := by
       rw [cpow_mul] <;> {rw [this n]; simp [Real.pi_pos, Real.pi_nonneg]}
@@ -528,7 +607,12 @@ $$\psi_{\epsilon}(X) = \sum_{n=1}^\infty \Lambda(n)\widetilde{1_{\epsilon}}(n/X)
     rw [(by rw [div_mul]; simp : 1 / (2 * π) = 1 / (2 * π * I) * I), mul_assoc]
     -- Apply Mellin inversion
     have hinv := MellinInversion (f := fun x ↦ (Smooth1 SmoothingF ε x : ℂ)) (σ := σ) (x := n / X)
-      sorry sorry sorry (div_pos (by exact_mod_cast n_pos) (by linarith : 0 < X))
+      -- hf_diff: differentiability of the smoothed function
+      sorry
+      -- hf_decay: decay condition for Mellin transform
+      sorry
+      -- hx_pos: positivity of n/X
+      (div_pos (by exact_mod_cast n_pos) (by linarith : 0 < X))
     convert hinv
     sorry
 /-%%
@@ -703,7 +787,13 @@ theorem SmoothedChebyshevClose_aux {Smooth1 : (ℝ → ℝ) → ℝ → ℝ → 
   have : ∑ x ∈ Finset.range ⌊X + 1⌋₊, Λ x =
       (∑ x ∈ Finset.range n₀, Λ x) +
       ∑ x ∈ Finset.range (⌊X + 1⌋₊ - n₀), Λ (x + ↑n₀) := by
-    sorry -- sum splitting
+    have h : ⌊X + 1⌋₊ = n₀ + (⌊X + 1⌋₊ - n₀) := by omega
+    nth_rewrite 1 [h]
+    rw [Finset.sum_range_add]
+    congr 2
+    apply Finset.sum_congr rfl
+    intros
+    rfl
   rw [this]
   clear this
 
@@ -1032,11 +1122,15 @@ theorem SmoothedChebyshevClose {SmoothingF : ℝ → ℝ}
   have X_bound_1 : 1 ≤ X * ε * c₁ := by
     rw[c₁_eq, ← div_le_iff₀]
     have : 1 / Real.log 2 < 2 := by
-      nth_rewrite 2 [← one_div_one_div 2]
-      rw[one_div_lt_one_div]
-      exact lt_of_le_of_lt (by norm_num) (Real.log_two_gt_d9)
-      exact Real.log_pos (by norm_num)
-      norm_num
+      have h1 : Real.log 2 > 0.69 := Real.log_two_gt_d9
+      have h2 : 1 / 0.69 < 2 := by norm_num
+      calc 1 / Real.log 2 < 1 / 0.69 := by {
+        rw [one_div_lt_one_div]
+        exact h1
+        norm_num
+        exact Real.log_pos (by norm_num : (2 : ℝ) > 1)
+      }
+      _ < 2 := h2
     apply le_of_lt
     exact gt_trans X_bound this
     exact Real.log_pos (by norm_num)

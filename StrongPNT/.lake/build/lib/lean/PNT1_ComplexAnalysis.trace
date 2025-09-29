@@ -1,7 +1,7 @@
 {"synthetic": false,
  "outputs":
- {"o": ["14003349965005478726"],
-  "i": "14520880785505900751",
+ {"o": ["5891709668274336865"],
+  "i": "15815691503495268715",
   "c": "8869675991811153350"},
  "log":
  [{"message":
@@ -11,181 +11,208 @@
    "PNT1_ComplexAnalysis.lean:346:64: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:378:51: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:376:51: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:378:77: unused variable `hM`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:376:77: unused variable `hM`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:399:25: unused variable `n`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:397:25: unused variable `n`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:448:34: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:446:34: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:573:27: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:549:27: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:579:30: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:553:30: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:584:28: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:558:28: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:608:52: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:580:52: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:637:51: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:658:6: declaration uses 'sorry'",
+   "PNT1_ComplexAnalysis.lean:609:51: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:819:6: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:706:6: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:823:6: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:870:6: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:883:6: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:896:6: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:951:6: declaration uses 'sorry'",
+   "PNT1_ComplexAnalysis.lean:707:14: This simp argument is unused:\n  Set.mem_setOf\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1016:6: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`",
+   "PNT1_ComplexAnalysis.lean:712:14: This simp argument is unused:\n  Set.mem_setOf\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1019:18: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:718:14: This simp argument is unused:\n  Set.mem_setOf\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1020:5: unused variable `hγ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:864:5: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1021:5: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:1026:6: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:1038:6: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:1047:6: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:1058:6: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:1068:6: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:1077:6: declaration uses 'sorry'",
+   "PNT1_ComplexAnalysis.lean:883:18: unused variable `hab`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1089:32: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:884:5: unused variable `hγ`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1112:31: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:1124:6: declaration uses 'sorry'",
+   "PNT1_ComplexAnalysis.lean:885:5: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1263:55: unused variable `hB`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:918:32: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1284:30: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:922:50: This simp argument is unused:\n  dist_comm\n\nHint: Omit it from the simp argument list.\n  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_c̵o̵m̵m̵,̵ ̵d̵i̵s̵t̵_̵zero_right]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1284:54: unused variable `hB`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:941:31: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message": "PNT1_ComplexAnalysis.lean:953:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1285:5: unused variable `hh`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:998:52: This simp argument is unused:\n  Set.mem_setOf\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1300:44: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1070:55: unused variable `hB`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1302:5: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1091:30: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1310:40: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1091:54: unused variable `hB`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1312:5: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:1318:6: declaration uses 'sorry'",
+   "PNT1_ComplexAnalysis.lean:1092:5: unused variable `hh`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1339:40: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1107:44: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1350:23: unused variable `R`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1109:5: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1370:33: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1117:40: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1371:8: This simp argument is unused:\n  norm_div\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵n̵o̵r̵m̵_̵d̵i̵v̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "PNT1_ComplexAnalysis.lean:1119:5: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message": "PNT1_ComplexAnalysis.lean:1125:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1375:5: unused variable `hf0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1140:40: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1383:27: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1151:23: unused variable `R`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1385:8: This simp argument is unused:\n  norm_div\n\nHint: Omit it from the simp argument list.\n  simp [n̵o̵r̵m̵_̵d̵i̵v̵,̵ ̵hz]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "PNT1_ComplexAnalysis.lean:1171:33: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1457:34: unused variable `ha`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:1556:8: declaration uses 'sorry'",
+   "PNT1_ComplexAnalysis.lean:1172:8: This simp argument is unused:\n  norm_div\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵n̵o̵r̵m̵_̵d̵i̵v̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1575:2: try 'simp' instead of 'simpa'\n\nNote: This linter can be disabled with `set_option linter.unnecessarySimpa false`",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:1578:6: declaration uses 'sorry'",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:1586:6: declaration uses 'sorry'",
+   "PNT1_ComplexAnalysis.lean:1176:5: unused variable `hf0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1603:23: unused variable `hg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
-   "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:1608:6: declaration uses 'sorry'",
+   "PNT1_ComplexAnalysis.lean:1184:27: unused variable `hT`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1688:12: This simp argument is unused:\n  norm_mul\n\nHint: Omit it from the simp argument list.\n  simp [sq,̵ ̵n̵o̵r̵m̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "PNT1_ComplexAnalysis.lean:1186:8: This simp argument is unused:\n  norm_div\n\nHint: Omit it from the simp argument list.\n  simp [n̵o̵r̵m̵_̵d̵i̵v̵,̵ ̵hz]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1700:50: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1258:34: unused variable `ha`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message": "PNT1_ComplexAnalysis.lean:1337:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message": "PNT1_ComplexAnalysis.lean:1347:8: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message": "PNT1_ComplexAnalysis.lean:1354:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message": "PNT1_ComplexAnalysis.lean:1363:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message": "PNT1_ComplexAnalysis.lean:1371:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1700:63: unused variable `hrr'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1388:23: unused variable `hg`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message": "PNT1_ComplexAnalysis.lean:1393:6: declaration uses 'sorry'",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1700:79: unused variable `hr'R`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1441:12: This simp argument is unused:\n  norm_mul\n\nHint: Omit it from the simp argument list.\n  simp [sq,̵ ̵n̵o̵r̵m̵_̵m̵u̵l̵]\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1713:29: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1453:50: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1713:58: unused variable `hr'R`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1453:63: unused variable `hrr'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1744:37: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1453:79: unused variable `hr'R`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1744:50: unused variable `hrr'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1466:29: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1744:66: unused variable `hr'R`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1466:58: unused variable `hr'R`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1744:96: unused variable `hz`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1497:37: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
   {"message":
-   "PNT1_ComplexAnalysis.lean:1774:34: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "PNT1_ComplexAnalysis.lean:1497:50: unused variable `hrr'`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:1793:6: declaration uses 'sorry'",
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1497:66: unused variable `hr'R`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"},
-  {"message": "PNT1_ComplexAnalysis.lean:1890:6: declaration uses 'sorry'",
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1497:96: unused variable `hz`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1527:34: unused variable `hb`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1532:29: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1559:29: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1634:25: unused variable `t`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message": "PNT1_ComplexAnalysis.lean:1640:6: declaration uses 'sorry'",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1725:50: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1725:63: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1729:13: This simp argument is unused:\n  show (r + R) / 2 = (r + R) / 2 from rfl\n\nHint: Omit it from the simp argument list.\n  simp only ̵[̵s̵h̵o̵w̵ ̵(̵r̵ ̵+̵ ̵R̵)̵ ̵/̵ ̵2̵ ̵=̵ ̵(̵r̵ ̵+̵ ̵R̵)̵ ̵/̵ ̵2̵ ̵f̵r̵o̵m̵ ̵r̵f̵l̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1740:66: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1745:51: unused variable `hr`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1745:64: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1749:13: This simp argument is unused:\n  show (r + R) / 2 = (r + R) / 2 from rfl\n\nHint: Omit it from the simp argument list.\n  simp only ̵[̵s̵h̵o̵w̵ ̵(̵r̵ ̵+̵ ̵R̵)̵ ̵/̵ ̵2̵ ̵=̵ ̵(̵r̵ ̵+̵ ̵R̵)̵ ̵/̵ ̵2̵ ̵f̵r̵o̵m̵ ̵r̵f̵l̵]̵\n\nNote: This linter can be disabled with `set_option linter.unusedSimpArgs false`",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1831:41: unused variable `hR`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1831:54: unused variable `hRR0`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1831:71: unused variable `hR01`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
+   "level": "warning"},
+  {"message":
+   "PNT1_ComplexAnalysis.lean:1832:29: unused variable `hf`\n\nNote: This linter can be disabled with `set_option linter.unusedVariables false`",
    "level": "warning"}],
  "inputs":
  [["PNT1_ComplexAnalysis:deps",
@@ -281,7 +308,7 @@
   ["Lean 4.24.0, commit 919e297292280cdb27598edd4e03437be5850221",
    "16820442660988836695"],
   ["/home/jovyan/pmt_claude/StrongPNT/PNT1_ComplexAnalysis.lean",
-   "14118981762919966025"],
+   "10532794698796898898"],
   ["options", "1723"],
   ["Module.leanArgs: #[]", "1723"]],
- "depHash": "305024248447123998"}
+ "depHash": "14668521949250547701"}

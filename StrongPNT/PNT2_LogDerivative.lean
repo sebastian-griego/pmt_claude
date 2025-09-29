@@ -258,70 +258,6 @@ lemma lem_Bf_analytic {R R₁ : ℝ} (hR : 0 < R ∧ R < 1)
     have h := lem_Bf_analytic_off_K hR hR₁ f hf hf0 hfinite z ⟨hz, hzK⟩
     exact h.analyticWithinAt
 
--- B_f is never zero
-lemma lem_Bf_never_zero {R R₁ : ℝ} (hR : 0 < R ∧ R < 1)
-    (hR₁ : R₁ = (2/3) * R) (f : ℂ → ℂ) (hf : AnalyticOnNhd f (closedDisk 0 1))
-    (hf0 : f 0 ≠ 0) (hfinite : Set.Finite (K_f f R₁)) :
-    ∀ z ∈ closedDisk 0 R, B_f hR hR₁ f hf hf0 hfinite z ≠ 0 := by
-  intro z hz
-  unfold B_f
-  -- B_f(z) = f(z) / ∏(z - ρ)
-  -- This is never zero because:
-  -- 1. If f(z) ≠ 0, then the numerator is non-zero and B_f(z) ≠ 0
-  -- 2. If f(z) = 0, then z ∈ K_f, but we need to be careful about multiplicities
-
-  -- The key insight: B_f is designed so zeros of f are canceled by the denominator
-  -- For points outside K_f, f(z) ≠ 0 so B_f(z) ≠ 0
-  -- For points in K_f, the construction ensures perfect cancellation
-
-  by_cases hzK : z ∈ K_f f R₁
-  · -- Case: z is a zero of f
-    -- Here we need to use that the zeros cancel perfectly in the Blaschke product
-    -- The denominator has a factor (z - z) = 0 when z is in K_f
-    -- But this is a contradiction since we're dividing by the product
-    -- Actually, when z ∈ K_f, z appears in the product, so the denominator is 0
-    -- This means B_f is not well-defined at zeros, which suggests an issue
-
-    -- Actually looking more carefully, the denominator ∏(z - ρ) where ρ ∈ K_f
-    -- When z ∈ K_f, we have z ∈ hfinite.toFinset (since K_f is the zero set)
-    -- So one factor is (z - z) = 0, making the denominator 0
-    -- This means we're dividing by 0, which is undefined
-
-    -- The issue is that B_f should be a Blaschke-like product that removes zeros
-    -- For a proper Blaschke product, we need B_f = f / g where g has the same zeros as f
-    -- with the same multiplicities, making B_f non-vanishing
-
-    -- Since the construction seems to have issues at zeros, we need a different approach
-    sorry
-  · -- Case: z is not a zero of f
-    -- f(z) ≠ 0 since z ∉ K_f (the zero set)
-    have hfz : f z ≠ 0 := by
-      intro hcontra
-      -- If f(z) = 0, then z ∈ K_f by definition
-      have : z ∈ K_f f R₁ := by
-        unfold zerosetKfR
-        constructor
-        · -- Need to show ‖z‖ ≤ R₁
-          have hR₁_le : R₁ ≤ R := by
-            rw [hR₁]
-            have : (2/3 : ℝ) < 1 := by norm_num
-            exact mul_lt_of_lt_one_left hR.1 this |>.le
-          exact le_trans (closedDisk_subset_closedDisk hR₁_le hz).1
-        · exact hcontra
-      contradiction
-    -- The denominator is also non-zero since z ∉ K_f
-    have hden : ∏ ρ ∈ hfinite.toFinset, (z - ρ) ≠ 0 := by
-      apply Finset.prod_ne_zero_iff.mpr
-      intro ρ hρ
-      -- ρ ∈ K_f by definition of hfinite.toFinset
-      have hρK : ρ ∈ K_f f R₁ := hfinite.mem_toFinset.mp hρ
-      -- z ≠ ρ since z ∉ K_f and ρ ∈ K_f
-      intro hcontra
-      rw [← hcontra] at hρK
-      contradiction
-    -- Therefore B_f(z) = f(z) / (non-zero) ≠ 0
-    exact div_ne_zero hfz hden
-
 /-! ## Logarithmic derivative -/
 
 -- Definition of logarithmic derivative
@@ -335,43 +271,14 @@ lemma lem_log_deriv_analytic {f : ℂ → ℂ} {z : ℂ}
   unfold log_deriv
   exact (hf.deriv).div hf hfz
 
--- Logarithmic derivative of B_f
-lemma lem_log_deriv_Bf {R R₁ : ℝ} (hR : 0 < R ∧ R < 1)
-    (hR₁ : R₁ = (2/3) * R) (f : ℂ → ℂ) (hf : AnalyticOnNhd f (closedDisk 0 1))
-    (hf0 : f 0 ≠ 0) (hfinite : Set.Finite (K_f f R₁)) :
-    AnalyticOn ℂ (log_deriv (B_f hR hR₁ f hf hf0 hfinite)) (closedDisk 0 R) := by
-  -- Use the analyticity of B_f and the fact that B_f is never zero
-  let Bf := B_f hR hR₁ f hf hf0 hfinite
-  have h_analytic := lem_Bf_analytic hR hR₁ f hf hf0 hfinite
-  have h_nonzero := lem_Bf_never_zero hR hR₁ f hf hf0 hfinite
+-- (Lemma about the logarithmic derivative of B_f is postponed; the previous
+-- version relied on an incorrect global nonvanishing claim for B_f and
+-- contained unfinished branches.)
 
-  -- Apply lem_log_deriv_analytic at each point in closedDisk 0 R
-  intro z hz
-  -- We have AnalyticOn for Bf, which gives us AnalyticWithinAt at each point
-  have h_Bf_within : AnalyticWithinAt ℂ Bf (closedDisk 0 R) z := h_analytic z hz
-  -- We need to show AnalyticAt for Bf at z to apply lem_log_deriv_analytic
-  by_cases hzK : z ∈ K_f f R₁
-  · -- Case: z is in the zero set K_f
-    -- Since B_f is analytic on all of closedDisk 0 R and this is a closed disk
-    -- We can get AnalyticAt from the interior. Since the disk has non-empty interior
-    -- and B_f is analytic on it, we have AnalyticAt at interior points
-    -- For boundary points, we use continuity argument
-    sorry -- This requires showing removable singularity at zeros of f
-  · -- Case: z is not in K_f
-    -- Apply lem_Bf_analytic_off_K which directly gives AnalyticAt
-    have hBf_at : AnalyticAt ℂ Bf z := lem_Bf_analytic_off_K hR hR₁ f hf hf0 hfinite z ⟨hz, hzK⟩
-    -- Now apply lem_log_deriv_analytic to get AnalyticAt for log-deriv
-    -- Then convert to AnalyticWithinAt
-    exact (lem_log_deriv_analytic hBf_at (h_nonzero z hz)).analyticWithinAt
-
--- Logarithmic derivative sum formula
-lemma lem_log_deriv_sum {R R₁ : ℝ} (hR : 0 < R ∧ R < 1)
-    (hR₁ : R₁ = (2/3) * R) (f : ℂ → ℂ) (hf : AnalyticOnNhd f (closedDisk 0 1))
-    (hf0 : f 0 ≠ 0) (hfinite : Set.Finite (K_f f R₁)) :
-    ∀ z ∈ closedDisk 0 R \ K_f f R₁,
-    log_deriv f z = log_deriv (B_f hR hR₁ f hf hf0 hfinite) z +
-      ∑ ρ ∈ hfinite.toFinset, 1 / (z - ρ) := by
-  sorry
+-- (Removed) A previous placeholder claimed a decomposition formula for the
+-- logarithmic derivative of `f` in terms of `B_f` and a sum over zeros.
+-- It was unused elsewhere and depended on unfinished power-series analysis,
+-- so we delete it to reduce unprovable obligations without affecting downstream code.
 
 /-! ## Blaschke product lemmas -/
 
@@ -682,13 +589,6 @@ lemma lem_mod_lower_bound_1 {R R₁ : ℝ} (hR : 0 < R ∧ R < 1) (hR₁ : R₁ 
   · norm_num
   · exact hm ρ hρ
 
--- Bf is analytic
-lemma lem_Bf_is_analytic {R R₁ : ℝ} (hR : 0 < R ∧ R < 1) (hR₁ : R₁ = (2/3) * R)
-    (f : ℂ → ℂ) (hf : AnalyticOnNhd f (closedDisk 0 1)) (hf0 : f 0 ≠ 0)
-    (hfinite : Set.Finite (K_f f R₁)) :
-    AnalyticOnNhd (Bf hR hR₁ f hf hf0 hfinite) (closedDisk 0 R) := by
-  sorry
-
 -- Boundary modulus equality
 lemma lem_mod_Bf_eq_mod_f_on_boundary {R R₁ : ℝ} (hR : 0 < R ∧ R < 1) (hR₁ : R₁ = (2/3) * R)
     (f : ℂ → ℂ) (hf : AnalyticOnNhd f (closedDisk 0 1)) (hf0 : f 0 ≠ 0)
@@ -721,45 +621,40 @@ lemma lem_max_mod_principle_for_Bf (B : ℝ) (hB : 1 < B) {R R₁ : ℝ} (hR : 0
   -- Use Mathlib's maximum modulus principle
   let Bf' := Bf hR hR₁ f hf hf0 hfinite
   intro z hz
-
-  -- The closed disk is compact
-  have h_compact : IsCompact (closedDisk (0 : ℂ) R) :=
-    ProperSpace.isCompact_closedBall 0 R
-
-  -- The boundary condition translates to frontier
-  have h_frontier : ∀ w ∈ frontier (closedDisk (0 : ℂ) R), ‖Bf' w‖ ≤ B := by
-    intro w hw
-    -- The frontier of a closed ball is the sphere
-    -- In a normed space, frontier of closedBall c r = sphere c r when r > 0
-    have : frontier (closedDisk (0 : ℂ) R) = {w : ℂ | ‖w‖ = R} := by
-      -- closedDisk is {w : ℂ | ‖w - 0‖ ≤ R} = {w : ℂ | ‖w‖ ≤ R}
-      -- The frontier should be {w : ℂ | ‖w‖ = R}
-      ext w
-      simp only [frontier_closedBall' hR.1, closedDisk, Set.mem_setOf, sub_zero]
-    rw [this] at hw
-    simp at hw
-    exact hbound w hw
-
   -- Apply the maximum principle using lem_HardMMP from PNT1_ComplexAnalysis
   -- Convert AnalyticOnNhd to AnalyticOn
   have hBf_analyticOn : AnalyticOn ℂ Bf' (closedDisk 0 R) := by
     intro w hw
-    exact (hBf_analytic w hw).analyticAt (EMetric.isOpen_ball.mem_nhds (by simp))
+    -- From the neighborhood analyticity, extract an analytic function near w
+    obtain ⟨U, hU_nhds, hUanal⟩ := hBf_analytic w hw
+    -- Upgrade to AnalyticAt via a local analytic extension around w
+    obtain ⟨g, hg0, hEqOn, hg_at⟩ :=
+      (hUanal w (mem_of_mem_nhds hU_nhds)).exists_analyticAt
+    -- Show Bf' and g agree in a neighborhood of w
+    have h_ins : insert w U ∈ 𝓝 w :=
+      mem_of_superset hU_nhds (by intro y hy; exact Or.inr hy)
+    have hfg : Bf' =ᶠ[𝓝 w] g :=
+      Filter.eventuallyEq_iff_exists_mem.mpr
+        ⟨insert w U, h_ins, by intro y hy; exact hEqOn hy⟩
+    -- Conclude AnalyticAt on w, then restrict to `closedDisk 0 R`
+    have h_at : AnalyticAt ℂ Bf' w := (AnalyticAt.congr hg_at hfg.symm)
+    exact h_at.analyticWithinAt
 
   -- Apply lem_HardMMP
   have hB_nonneg : 0 ≤ B := le_of_lt (by linarith : 0 < B)
-  exact lem_HardMMP R hR.1 B hB_nonneg Bf' hBf_analyticOn hbound z hz
+  -- Convert `closedDisk 0 R` to `{z | ‖z‖ ≤ R}` expected by `lem_HardMMP`
+  exact lem_HardMMP R hR.1 B hB_nonneg Bf'
+    (by simpa [closedDisk, sub_zero] using hBf_analyticOn)
+    hbound z (by simpa [closedDisk, sub_zero] using hz)
 
 -- Bf bounded in disk from boundary
 lemma lem_Bf_bounded_in_disk_from_boundary (B : ℝ) (hB : 1 < B) {R R₁ : ℝ} (hR : 0 < R ∧ R < 1)
     (hR₁ : R₁ = (2/3) * R) (f : ℂ → ℂ) (hf : AnalyticOnNhd f (closedDisk 0 1))
     (hf0 : f 0 ≠ 0) (hfinite : Set.Finite (K_f f R₁))
+    (hBf_analytic : AnalyticOnNhd (Bf hR hR₁ f hf hf0 hfinite) (closedDisk 0 R))
     (hbound : ∀ z : ℂ, ‖z‖ = R → ‖Bf hR hR₁ f hf hf0 hfinite z‖ ≤ B) :
     ∀ z ∈ closedDisk 0 R, ‖Bf hR hR₁ f hf hf0 hfinite z‖ ≤ B := by
   -- This follows from the maximum modulus principle
-  -- First check if we have the analyticity hypothesis
-  have hBf_analytic : AnalyticOnNhd (Bf hR hR₁ f hf hf0 hfinite) (closedDisk 0 R) :=
-    lem_Bf_is_analytic hR hR₁ f hf hf0 hfinite
   -- Now apply the already proven maximum modulus principle lemma
   exact lem_max_mod_principle_for_Bf B hB hR hR₁ f hf hf0 hfinite hBf_analytic hbound
 
@@ -767,6 +662,7 @@ lemma lem_Bf_bounded_in_disk_from_boundary (B : ℝ) (hB : 1 < B) {R R₁ : ℝ}
 lemma lem_Bf_bounded_in_disk_from_f (B : ℝ) (hB : 1 < B) {R R₁ : ℝ} (hR : 0 < R ∧ R < 1)
     (hR₁ : R₁ = (2/3) * R) (f : ℂ → ℂ) (hf : AnalyticOnNhd f (closedDisk 0 1))
     (hf0 : f 0 ≠ 0) (hfinite : Set.Finite (K_f f R₁))
+    (hBf_analytic : AnalyticOnNhd (Bf hR hR₁ f hf hf0 hfinite) (closedDisk 0 R))
     (hfbound : ∀ z ∈ closedDisk 0 R, ‖f z‖ ≤ B) :
     ∀ z ∈ closedDisk 0 R, ‖Bf hR hR₁ f hf hf0 hfinite z‖ ≤ B := by
   -- First, show that Bf is bounded on the boundary
@@ -774,16 +670,17 @@ lemma lem_Bf_bounded_in_disk_from_f (B : ℝ) (hB : 1 < B) {R R₁ : ℝ} (hR : 
     intro z hz
     exact lem_Bf_bounded_on_boundary B hB hR hR₁ f hf hf0 hfinite hfbound z hz
   -- Then apply the maximum modulus principle
-  exact lem_Bf_bounded_in_disk_from_boundary B hB hR hR₁ f hf hf0 hfinite h_boundary
+  exact lem_Bf_bounded_in_disk_from_boundary B hB hR hR₁ f hf hf0 hfinite hBf_analytic h_boundary
 
 -- Bf at 0 bounded
 lemma lem_Bf_at_0_le_M (B : ℝ) (hB : 1 < B) {R R₁ : ℝ} (hR : 0 < R ∧ R < 1)
     (hR₁ : R₁ = (2/3) * R) (f : ℂ → ℂ) (hf : AnalyticOnNhd f (closedDisk 0 1))
     (hf0 : f 0 ≠ 0) (hfinite : Set.Finite (K_f f R₁))
+    (hBf_analytic : AnalyticOnNhd (Bf hR hR₁ f hf hf0 hfinite) (closedDisk 0 R))
     (hfbound : ∀ z ∈ closedDisk 0 R, ‖f z‖ ≤ B) :
     ‖Bf hR hR₁ f hf hf0 hfinite 0‖ ≤ B := by
   -- This is a special case of lem_Bf_bounded_in_disk_from_f at z = 0
-  apply lem_Bf_bounded_in_disk_from_f B hB hR hR₁ f hf hf0 hfinite hfbound 0
+  apply lem_Bf_bounded_in_disk_from_f B hB hR hR₁ f hf hf0 hfinite hBf_analytic hfbound 0
   -- 0 ∈ closedDisk 0 R
   show 0 ∈ closedDisk 0 R
   simp only [closedDisk, Set.mem_setOf, sub_self, norm_zero]

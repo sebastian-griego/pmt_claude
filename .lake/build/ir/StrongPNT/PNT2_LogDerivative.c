@@ -1,6 +1,6 @@
 // Lean compiler output
 // Module: StrongPNT.PNT2_LogDerivative
-// Imports: Init Mathlib.Analysis.Complex.Basic Mathlib.Analysis.Analytic.Basic Mathlib.Analysis.Analytic.Composition Mathlib.Analysis.Analytic.CPolynomial Mathlib.Analysis.Calculus.Deriv.Basic Mathlib.Topology.MetricSpace.Basic Mathlib.Topology.MetricSpace.ProperSpace Mathlib.Topology.CompactOpen Mathlib.Analysis.SpecialFunctions.Log.Basic Mathlib.Analysis.SpecialFunctions.Exp Mathlib.Analysis.Complex.ExponentialBounds Mathlib.Topology.Instances.Complex Mathlib.Analysis.Normed.Module.RCLike.Real
+// Imports: Init Mathlib.Analysis.Complex.Basic Mathlib.Analysis.Analytic.Basic Mathlib.Analysis.Analytic.Composition Mathlib.Analysis.Analytic.CPolynomial Mathlib.Analysis.Calculus.Deriv.Basic Mathlib.Topology.MetricSpace.Basic Mathlib.Topology.MetricSpace.ProperSpace Mathlib.Topology.CompactOpen Mathlib.Analysis.SpecialFunctions.Log.Basic Mathlib.Analysis.SpecialFunctions.Exp Mathlib.Analysis.Complex.ExponentialBounds Mathlib.Topology.Instances.Complex Mathlib.Analysis.Normed.Module.RCLike.Real StrongPNT.PNT1_ComplexAnalysis
 #include <lean/lean.h>
 #if defined(__clang__)
 #pragma clang diagnostic ignored "-Wunused-parameter"
@@ -765,6 +765,7 @@ lean_object* initialize_Mathlib_Analysis_SpecialFunctions_Exp(uint8_t builtin, l
 lean_object* initialize_Mathlib_Analysis_Complex_ExponentialBounds(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Topology_Instances_Complex(uint8_t builtin, lean_object*);
 lean_object* initialize_Mathlib_Analysis_Normed_Module_RCLike_Real(uint8_t builtin, lean_object*);
+lean_object* initialize_StrongPNT_PNT1__ComplexAnalysis(uint8_t builtin, lean_object*);
 static bool _G_initialized = false;
 LEAN_EXPORT lean_object* initialize_StrongPNT_PNT2__LogDerivative(uint8_t builtin, lean_object* w) {
 lean_object * res;
@@ -810,6 +811,9 @@ res = initialize_Mathlib_Topology_Instances_Complex(builtin, lean_io_mk_world())
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 res = initialize_Mathlib_Analysis_Normed_Module_RCLike_Real(builtin, lean_io_mk_world());
+if (lean_io_result_is_error(res)) return res;
+lean_dec_ref(res);
+res = initialize_StrongPNT_PNT1__ComplexAnalysis(builtin, lean_io_mk_world());
 if (lean_io_result_is_error(res)) return res;
 lean_dec_ref(res);
 l_PNT2__LogDerivative_termD___closed__0 = _init_l_PNT2__LogDerivative_termD___closed__0();

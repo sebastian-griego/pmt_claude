@@ -4189,6 +4189,8 @@
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Complex/Circle.olean"],
   "Mathlib.Analysis.SpecialFunctions.Complex.Arg":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Complex/Arg.olean"],
+  "Mathlib.Analysis.SpecialFunctions.Complex.Analytic":
+  ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Complex/Analytic.olean"],
   "Mathlib.Analysis.SpecialFunctions.Bernstein":
   ["/home/jovyan/pmt_claude/StrongPNT/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/SpecialFunctions/Bernstein.olean"],
   "Mathlib.Analysis.Seminorm":

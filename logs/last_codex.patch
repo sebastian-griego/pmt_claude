@@ -1,91 +1,90 @@
-@@ -789,3 +789,3 @@
-       have h_in : ∀ᶠ n in Filter.atTop, seq n ∈ Metric.closedBall 0 R := by
--        refine eventually_of_forall (fun n => ?_)
-+        refine Filter.eventually_of_forall (fun n => ?_)
-         simp [Metric.closedBall, dist_zero_right, le_of_lt (hseq_in n)]
-[2025-09-27T18:18:11] apply_patch(auto_approved=true) exited 0 in 6ms:
+@@ -914,3 +914,3 @@
+   ext z
+-  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_comm, dist_zero_right]
++  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_zero_right]
+ 
+[2025-09-28T05:24:26] apply_patch(auto_approved=true) exited 0 in 6ms:
 Success. Updated the following files:
 M StrongPNT/PNT1_ComplexAnalysis.lean
-[2025-09-27T18:18:11] turn diff:
+[2025-09-28T05:24:26] turn diff:
 diff --git a/StrongPNT/PNT1_ComplexAnalysis.lean b/StrongPNT/PNT1_ComplexAnalysis.lean
-index d6f106051a734eb33b278a3953fd133745beda43..a0792773e314a0451d4695a649a67a9f08627319
+index 020a491d717977ac0cc8b6d2da6f2436f7c189a4..5e1bc3dc76b943e8ecc20c050cf86bfa7212be1e
 --- a/StrongPNT/PNT1_ComplexAnalysis.lean
 +++ b/StrongPNT/PNT1_ComplexAnalysis.lean
-@@ -787,7 +787,7 @@
-     have hseq_within : Filter.Tendsto seq Filter.atTop (nhdsWithin z (Metric.closedBall 0 R)) := by
-       -- eventually, all terms are in the closed ball (in fact, for all n)
-       have h_in : ∀ᶠ n in Filter.atTop, seq n ∈ Metric.closedBall 0 R := by
--        refine eventually_of_forall (fun n => ?_)
-+        refine Filter.eventually_of_forall (fun n => ?_)
-         simp [Metric.closedBall, dist_zero_right, le_of_lt (hseq_in n)]
-       -- combine with convergence to z
-       simpa [nhdsWithin] using
+@@ -912,7 +912,7 @@
+     IsCompact {z : Complex | norm z ≤ R} := by
+   convert isCompact_closedBall (0 : ℂ) R
+   ext z
+-  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_comm, dist_zero_right]
++  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_zero_right]
+ 
+ lemma lem_ExtrValThm (K : Set Complex) (hK : IsCompact K) (g : Complex → Complex)
+     (hg : ContinuousOn g K) (hne : K.Nonempty) :
 
-[2025-09-27T18:18:11] tokens used: 30,575
-[2025-09-27T18:18:11] turn diff:
+[2025-09-28T05:24:26] tokens used: 57,979
+[2025-09-28T05:24:26] turn diff:
 diff --git a/StrongPNT/PNT1_ComplexAnalysis.lean b/StrongPNT/PNT1_ComplexAnalysis.lean
-index d6f106051a734eb33b278a3953fd133745beda43..a0792773e314a0451d4695a649a67a9f08627319
+index 020a491d717977ac0cc8b6d2da6f2436f7c189a4..5e1bc3dc76b943e8ecc20c050cf86bfa7212be1e
 --- a/StrongPNT/PNT1_ComplexAnalysis.lean
 +++ b/StrongPNT/PNT1_ComplexAnalysis.lean
-@@ -787,7 +787,7 @@
-     have hseq_within : Filter.Tendsto seq Filter.atTop (nhdsWithin z (Metric.closedBall 0 R)) := by
-       -- eventually, all terms are in the closed ball (in fact, for all n)
-       have h_in : ∀ᶠ n in Filter.atTop, seq n ∈ Metric.closedBall 0 R := by
--        refine eventually_of_forall (fun n => ?_)
-+        refine Filter.eventually_of_forall (fun n => ?_)
-         simp [Metric.closedBall, dist_zero_right, le_of_lt (hseq_in n)]
-       -- combine with convergence to z
-       simpa [nhdsWithin] using
+@@ -912,7 +912,7 @@
+     IsCompact {z : Complex | norm z ≤ R} := by
+   convert isCompact_closedBall (0 : ℂ) R
+   ext z
+-  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_comm, dist_zero_right]
++  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_zero_right]
+ 
+ lemma lem_ExtrValThm (K : Set Complex) (hK : IsCompact K) (g : Complex → Complex)
+     (hg : ContinuousOn g K) (hne : K.Nonempty) :
 
-[2025-09-27T18:18:11] tokens used: 30,575
-[2025-09-27T18:18:13] exec bash -lc 'date -u +"[%Y-%m-%dT%H:%M:%SZ] PNT1_ComplexAnalysis: replaced eventually_of_forall with Filter.eventually_of_forall in boundary convergence proof to fix unknown-identifier error." >> PROGRESS3.md && tail -n 3 PROGRESS3.md' in /home/jovyan/pmt_claude
-[2025-09-27T18:18:13] bash -lc 'date -u +"[%Y-%m-%dT%H:%M:%SZ] PNT1_ComplexAnalysis: replaced eventually_of_forall with Filter.eventually_of_forall in boundary convergence proof to fix unknown-identifier error." >> PROGRESS3.md && tail -n 3 PROGRESS3.md' succeeded in 7ms:
-[2025-09-27T17:24:55+00:00] PNT1_ComplexAnalysis: replaced nonexistent Complex.norm_ofReal with Complex.norm_real in lem_MaxModR boundary membership proof to fix unknown-constant error at StrongPNT/PNT1_ComplexAnalysis.lean:1009.
-[2025-09-27T17:28:45Z] PNT1_ComplexAnalysis: fixed interior-approximation proof — replaced ad-hoc limit with `tendsto_one_div_add_atTop_nhds_zero_nat` and switched to `eventually_of_forall` for eventual membership; reduces earlier filter/limit errors around lines ~761–797.
-[2025-09-27T18:18:13Z] PNT1_ComplexAnalysis: replaced eventually_of_forall with Filter.eventually_of_forall in boundary convergence proof to fix unknown-identifier error.
-[2025-09-27T18:18:13] tokens used: 31,622
-[2025-09-27T18:18:13] turn diff:
+[2025-09-28T05:24:28] tokens used: 57,979
+[2025-09-28T05:24:29] exec bash -lc "printf \"[%s] PNT1_ComplexAnalysis: removed unused simp arg dist_comm in lem_DRcompact to silence linter warning at ~915; minimal cleanup, no logic change.\\n\" \""'$(date -u +%FT%TZ)" >> PROGRESS3.md && tail -n 3 PROGRESS3.md' in /home/jovyan/pmt_claude
+[2025-09-28T05:24:29] bash -lc "printf \"[%s] PNT1_ComplexAnalysis: removed unused simp arg dist_comm in lem_DRcompact to silence linter warning at ~915; minimal cleanup, no logic change.\\n\" \""'$(date -u +%FT%TZ)" >> PROGRESS3.md && tail -n 3 PROGRESS3.md' succeeded in 7ms:
+[2025-09-28T03:52:43Z] PNT2_LogDerivative: removed lem_Bf_is_analytic with pending proof and refactored lem_Bf_bounded_in_disk_from_boundary/_from_f/_at_0_le_M to take analyticity as a hypothesis; reduced sorry count by 1 in this file.
+[2025-09-28T03:57:40Z] PNT5_StrongPNT: Reworked VerticalIntegral'_eq_VerticalIntegral to factor the scalar ((1/(2πi))·i) via associativity with a dedicated scalar identity; removed fragile neg_I_mul_I lemma. Build still fails later in PNT5 due to unrelated conjugation/Mellin issues.
+[2025-09-28T05:24:29Z] PNT1_ComplexAnalysis: removed unused simp arg dist_comm in lem_DRcompact to silence linter warning at ~915; minimal cleanup, no logic change.
+[2025-09-28T05:24:29] tokens used: 58,293
+[2025-09-28T05:24:29] turn diff:
 diff --git a/StrongPNT/PNT1_ComplexAnalysis.lean b/StrongPNT/PNT1_ComplexAnalysis.lean
-index d6f106051a734eb33b278a3953fd133745beda43..a0792773e314a0451d4695a649a67a9f08627319
+index 020a491d717977ac0cc8b6d2da6f2436f7c189a4..5e1bc3dc76b943e8ecc20c050cf86bfa7212be1e
 --- a/StrongPNT/PNT1_ComplexAnalysis.lean
 +++ b/StrongPNT/PNT1_ComplexAnalysis.lean
-@@ -787,7 +787,7 @@
-     have hseq_within : Filter.Tendsto seq Filter.atTop (nhdsWithin z (Metric.closedBall 0 R)) := by
-       -- eventually, all terms are in the closed ball (in fact, for all n)
-       have h_in : ∀ᶠ n in Filter.atTop, seq n ∈ Metric.closedBall 0 R := by
--        refine eventually_of_forall (fun n => ?_)
-+        refine Filter.eventually_of_forall (fun n => ?_)
-         simp [Metric.closedBall, dist_zero_right, le_of_lt (hseq_in n)]
-       -- combine with convergence to z
-       simpa [nhdsWithin] using
+@@ -912,7 +912,7 @@
+     IsCompact {z : Complex | norm z ≤ R} := by
+   convert isCompact_closedBall (0 : ℂ) R
+   ext z
+-  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_comm, dist_zero_right]
++  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_zero_right]
+ 
+ lemma lem_ExtrValThm (K : Set Complex) (hK : IsCompact K) (g : Complex → Complex)
+     (hg : ContinuousOn g K) (hne : K.Nonempty) :
 
-[2025-09-27T18:18:14] tokens used: 31,622
-[2025-09-27T18:18:14] codex
+[2025-09-28T05:24:29] tokens used: 58,293
+[2025-09-28T05:24:29] codex
 
 *** Begin Patch
 *** Update File: StrongPNT/PNT1_ComplexAnalysis.lean
 @@
--      have h_in : ∀ᶠ n in Filter.atTop, seq n ∈ Metric.closedBall 0 R := by
--        refine eventually_of_forall (fun n => ?_)
-+      have h_in : ∀ᶠ n in Filter.atTop, seq n ∈ Metric.closedBall 0 R := by
-+        refine Filter.eventually_of_forall (fun n => ?_)
-         simp [Metric.closedBall, dist_zero_right, le_of_lt (hseq_in n)]
+   convert isCompact_closedBall (0 : ℂ) R
+   ext z
+-  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_comm, dist_zero_right]
++  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_zero_right]
 *** End Patch
-[2025-09-27T18:18:16] tokens used: 32,148
-[2025-09-27T18:18:16] turn diff:
+[2025-09-28T05:24:30] tokens used: 58,808
+[2025-09-28T05:24:30] turn diff:
 diff --git a/StrongPNT/PNT1_ComplexAnalysis.lean b/StrongPNT/PNT1_ComplexAnalysis.lean
-index d6f106051a734eb33b278a3953fd133745beda43..a0792773e314a0451d4695a649a67a9f08627319
+index 020a491d717977ac0cc8b6d2da6f2436f7c189a4..5e1bc3dc76b943e8ecc20c050cf86bfa7212be1e
 --- a/StrongPNT/PNT1_ComplexAnalysis.lean
 +++ b/StrongPNT/PNT1_ComplexAnalysis.lean
-@@ -787,7 +787,7 @@
-     have hseq_within : Filter.Tendsto seq Filter.atTop (nhdsWithin z (Metric.closedBall 0 R)) := by
-       -- eventually, all terms are in the closed ball (in fact, for all n)
-       have h_in : ∀ᶠ n in Filter.atTop, seq n ∈ Metric.closedBall 0 R := by
--        refine eventually_of_forall (fun n => ?_)
-+        refine Filter.eventually_of_forall (fun n => ?_)
-         simp [Metric.closedBall, dist_zero_right, le_of_lt (hseq_in n)]
-       -- combine with convergence to z
-       simpa [nhdsWithin] using
+@@ -912,7 +912,7 @@
+     IsCompact {z : Complex | norm z ≤ R} := by
+   convert isCompact_closedBall (0 : ℂ) R
+   ext z
+-  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_comm, dist_zero_right]
++  simp only [Metric.closedBall, Set.mem_setOf_eq, dist_zero_right]
+ 
+ lemma lem_ExtrValThm (K : Set Complex) (hK : IsCompact K) (g : Complex → Complex)
+     (hg : ContinuousOn g K) (hne : K.Nonempty) :
 
 error: the following required arguments were not provided:
   <TASK_ID>
@@ -93,4 +92,4 @@ error: the following required arguments were not provided:
 Usage: codex apply <TASK_ID>
 
 For more information, try '--help'.
-[2025-09-27T17:51:42Z] codex apply failed; attempting git apply
+[2025-09-28T04:47:04Z] codex apply failed; attempting git apply

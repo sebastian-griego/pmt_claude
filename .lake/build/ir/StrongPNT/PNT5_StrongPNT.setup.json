@@ -1929,8 +1929,6 @@
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/IntervalIntegral/FundThmCalculus.olean"],
   "Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.olean"],
-  "Mathlib.MeasureTheory.Integral.IntervalIntegral":
-  ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/IntervalIntegral.olean"],
   "Mathlib.MeasureTheory.Integral.IntegralEqImproper":
   ["/home/jovyan/pmt_claude/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/Integral/IntegralEqImproper.olean"],
   "Mathlib.MeasureTheory.Integral.IntegrableOn":
