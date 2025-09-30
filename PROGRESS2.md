@@ -137,3 +137,9 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 [2025-09-30 23:56] BLOCKED — lem_removable_singularity (StrongPNT/PNT1_ComplexAnalysis.lean:1091)
 - Reason: As stated, (fun z => f z / z) is not analytic at 0 in Lean because 0/0 = 0 by definition; the removable singularity extension requires redefining the value at 0 to deriv f 0. Adjusting the statement or definition is needed to proceed.
 - Action taken: Verified scaffold module builds cleanly; deferred heavy theorem pending spec correction. Sorries remain in PNT1–PNT5.
+[Scaffold] PNT0_Scaffold refactor — DONE
+- File: StrongPNT/PNT0_Scaffold.lean (65 lines)
+- Changes: Added scaffold import to PNT1–PNT5; no behavior change
+- Build: lake build OK; no sorries in PNT0
+- Blueprint coverage: unchanged (scaffold only)
+- Blocking: sorries remain in PNT1/PNT2/PNT4 (to tackle sequentially)
