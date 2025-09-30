@@ -60,3 +60,15 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 ---
 - [Scaffold] StrongPNT.PNT0_Scaffold: verified clean compile; no sorries.\n  Lines: 68 (StrongPNT/PNT0_Scaffold.lean)\n  Blueprint coverage: N/A (scaffold only).\n  Notes: Imports minimal; namespace intact; helper lemmas (log/abs) available for downstream files.
 - [Scaffold] StrongPNT.PNT0_Scaffold: verified clean build; no sorries. Lines: 68. Blueprint: N/A (scaffold). Next: start clearing earliest sorry in PNT1_ComplexAnalysis if requested. Timestamp: 2025-09-30T23:24:23Z
+[PNT0_Scaffold] Refactor verification complete
+- File: StrongPNT/PNT0_Scaffold.lean (68 lines)
+- Status: clean build, zero sorries
+- Imports: minimal (Real.Basic, Log.Basic)
+- Content: namespace StrongPNT, SmoothingKernel alias, log/abs simp lemmas
+- Blueprint: N/A (scaffolding module)
+- Timestamp: 2025-09-30T23:05:00Z
+- PNT0_Scaffold: clean refactor; compiled successfully
+  - Lines: 68 (StrongPNT/PNT0_Scaffold.lean)
+  - Blueprint coverage: unchanged (scaffold only)
+  - Blockers: Multiple sorries remain across PNT1–PNT5; scaffold kept minimal to support downstream work.
+  - Timestamp: 2025-09-30T23:26:02Z
