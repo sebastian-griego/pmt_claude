@@ -26,3 +26,4 @@ Blueprint coverage: N/A (scaffold only; no theorem coverage change)
 Blocking issues: Many sorries present in core modules (PNT1–PNT5). Frontier kept to scaffolding per task. Next step would be to start resolving earliest sorry in PNT1_ComplexAnalysis.
 Timestamp: 2025-09-30T22:41:24Z
 ---
+- [Scaffold] StrongPNT.PNT0_Scaffold: added simp lemma log_abs_neg; linter clean. Build OK. Lines: 42. Blueprint coverage: N/A (scaffold only). Notes: Default target remains Scaffold; many sorries in PNT1–PNT5 remain out of scope for this task.

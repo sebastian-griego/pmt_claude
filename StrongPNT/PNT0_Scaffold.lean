@@ -35,7 +35,7 @@ abbrev SmoothingKernel := ℝ → ℝ
 
 /-- Logging an absolute value is invariant under negation inside the absolute. -/
 @[simp] theorem log_abs_neg (x : ℝ) : Real.log (|(-x)|) = Real.log (|x|) := by
-  simpa [abs_neg]
+  simp [abs_neg]
 
 -- Additional small utilities can be added here as needed.
 
