@@ -113,3 +113,4 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
   Blueprint coverage: N/A (scaffold only)
   Blockers: many sorries remain in PNT1–PNT5; will address next by picking smallest dependency.
 
+[Scaffold] PNT0_Scaffold.lean — status: clean, builds.\nLines: 61\nBlueprint coverage: N/A (scaffold module)\nBlocking: Many sorries remain in PNT1–PNT5; not touched in this refactor.\n
