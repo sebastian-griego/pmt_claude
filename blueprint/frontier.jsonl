@@ -1,0 +1,2 @@
+{"goal":"Refactor: ensure PNT scaffolding modules compile cleanly","file":"StrongPNT/PNT0_Scaffold.lean","neighbors":[],"priority":0.5,"notes":"Prep: imports, namespaces, no sorrys"}
+{"goal":"Lemma: partial summation for ψ(x)","file":"StrongPNT/PNT1_PartialSummation.lean","neighbors":["Mathlib.Analysis.Asymptotics"],"priority":0.8,"notes":"State and prove a clean version for later big‑O bounds"}

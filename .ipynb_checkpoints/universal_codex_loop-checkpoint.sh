@@ -1,101 +1,99 @@
 #!/usr/bin/env bash
-# universal_codex_loop.sh — unattended Codex loop (workspace-write, no approvals)
-
 set -euo pipefail
 
-# ---- Config (override via env or ./.codex_config) ----
-PROJECT="${1:-$PWD}"                    # repo path (arg or current dir)
-MODEL="${MODEL:-gpt-5}"                 # safe default; try gpt-5-codex later
-REASONING="${REASONING:-high}"          # low|medium|high (if your build supports it)
-SLEEP_SECS="${SLEEP_SECS:-45}"          # cadence between iterations
-PROGRESS_TAIL="${PROGRESS_TAIL:-40000}" # bytes of PROGRESS3.md to include
-BACKOFF_SECS="${BACKOFF_SECS:-120}"     # pause on non-transient errors
-MAX_BACKOFF="${MAX_BACKOFF:-1800}"      # cap for exponential backoff
+# ---------------- Config ----------------
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")"/.. && pwd)"
+FRONTIER="${REPO_ROOT}/blueprint/frontier.jsonl"
+PROMPT_PREAMBLE="${REPO_ROOT}/prompts/task_preamble.txt"
 
-cd "$PROJECT"
-[ -f .codex_config ] && source .codex_config
+LOG_DIR="${REPO_ROOT}/logs"
+BUILD_LOG="${LOG_DIR}/lean_build.log"
+CODEX_LOG="${LOG_DIR}/codex_run.log"
 
-command -v codex >/dev/null || { echo "ERROR: 'codex' CLI not found"; exit 1; }
-mkdir -p logs
-: > logs/last_codex.txt
-touch PROGRESS3.md
+CODEX_BIN="${CODEX_BIN:-codex}"     # path to Codex CLI
 
-BASE_PROMPT='You are working on this repository.
-Rules:
-- Make one small, testable improvement per iteration
-- Prefer unified diffs; if you generate a patch, end the message after the diff
-- If you ran a command, summarize what changed
-- Append a short log entry to PROGRESS3.md
-'
+mkdir -p "${LOG_DIR}"
 
-echo "[startup] $(date -u +%FT%TZ) project=$PWD model=$MODEL sleep=${SLEEP_SECS}s"
+# ------------- Helpers (no jq) -------------
+first_line() { head -n 1 "${FRONTIER}" 2>/dev/null || true; }
 
-i=0
-current_sleep="$SLEEP_SECS"
+extract_json_str() {
+  local key="$1"
+  local line="$2"
+  echo "${line}" | sed -n "s/.*\"${key}\"[[:space:]]*:[[:space:]]*\"\\([^\"]*\\)\".*/\\1/p"
+}
 
-while true; do
-  [ -f STOP ] && { echo "[stop] STOP detected"; exit 0; }
-
-  TS="$(date -u +%FT%TZ)"
-  TAIL_TXT="$(tail -c "$PROGRESS_TAIL" PROGRESS3.md 2>/dev/null || true)"
-  AGENTS="$(cat AGENTS.md 2>/dev/null || echo "No AGENTS.md found")"
-
-  FULL_PROMPT="$BASE_PROMPT
-
-Current PROGRESS3.md (tail):
-$TAIL_TXT
-
-Project spec (AGENTS.md):
-$AGENTS
-
-Time: $TS
-
-Act on ONE improvement now. If you output a patch, stop after the diff.
-"
-
-  echo "[$TS] calling codex (sleep next: ${current_sleep}s)..."
-
-  tmp="$(mktemp)"
-  set +e
-  codex \
-    -m "$MODEL" \
-    ${REASONING:+-c model_reasoning_effort='"'"$REASONING"'"'} \
-    exec --skip-git-repo-check -C "$PROJECT" \
-    "$FULL_PROMPT" >"$tmp" 2>&1
-  status=$?
-  set -e
-
-  mv "$tmp" "logs/last_codex.txt"
-
-  # If Codex produced a patch (unified diff), apply it now.
-  if grep -qE '^(\+\+\+|\-\-\-|\@\@|\*\*\* Begin Patch|\*\*\* Update File)' logs/last_codex.txt; then
-    # Try official helper first
-    if codex apply >>"logs/last_codex.txt" 2>&1; then
-      echo "[$TS] applied codex patch"
-    else
-      echo "[$TS] codex apply failed; attempting git apply" | tee -a logs/last_codex.txt
-      # Extract diff into a temp file and try git apply
-      awk '/^\-\-\- |^\+\+\+ |^\@\@|^\*\*\* Begin Patch|^\*\*\* Update File/ {p=1} p{print}' logs/last_codex.txt > logs/last_codex.patch || true
-      git apply --whitespace=nowarn logs/last_codex.patch >>"logs/last_codex.txt" 2>&1 || true
-    fi
-  fi
-
-  if [ $status -ne 0 ]; then
-    # Backoff on known transient signals
-    if grep -qiE '(rate.?limit|429|temporar(y|ily) unavailable|timeout|ECONN|ETIMEDOUT|retry)' logs/last_codex.txt; then
-      next=$(( current_sleep * 2 ))
-      [ $next -gt $MAX_BACKOFF ] && next="$MAX_BACKOFF"
-      current_sleep="$next"
-      echo "[$TS] transient error: backoff to ${current_sleep}s"
-    else
-      current_sleep="$BACKOFF_SECS"
-      echo "[$TS] non-transient error: pausing ${current_sleep}s"
-    fi
+gather_context() {
+  local file="$1"
+  echo "----- TARGET FILE -----"
+  echo "${file:-"(none specified)"}"
+  if [[ -n "${file}" && -f "${REPO_ROOT}/${file}" ]]; then
+    echo "----- HEAD (first 80 lines) -----"
+    sed -n '1,80p' "${REPO_ROOT}/${file}"
+    echo "----- NEARBY CODE (last 200 of first 300) -----"
+    sed -n '1,300p' "${REPO_ROOT}/${file}" | tail -n 200
   else
-    current_sleep="$SLEEP_SECS"
+    echo "File does not exist yet; create it if appropriate."
   fi
+}
 
+build_once() {
+  echo "==> lake build"
+  (cd "${REPO_ROOT}" && lake build) &> "${BUILD_LOG}" || true
+  if grep -q "error:" "${BUILD_LOG}"; then
+    echo "FAIL"
+  else
+    echo "OK"
+  fi
+}
 
+# --------------- Main ---------------------
+ITER="${1:-1}"
 
-  sleep "$current_sleep"
+for ((i=1;i<=ITER;i++)); do
+  echo "============= CODEX iteration ${i} ============="
+  STATUS="$(build_once)"
+  ERR_SNIP="$(sed -n '1,200p' "${BUILD_LOG}" 2>/dev/null || true)"
+
+  LINE="$(first_line)"
+  GOAL="$(extract_json_str goal "${LINE}")"
+  FILE_TARGET="$(extract_json_str file "${LINE}")"
+  NOTES="$(extract_json_str notes "${LINE}")"
+
+  CONTEXT="$(gather_context "${FILE_TARGET}")"
+
+  # Compose a single prompt for codex exec
+  PROMPT="$(mktemp)"
+  {
+    cat "${PROMPT_PREAMBLE}"
+    echo
+    echo "== BUILD STATUS =="
+    echo "${STATUS}"
+    if [[ "${STATUS}" == "FAIL" ]]; then
+      echo
+      echo "== BUILD ERROR (first 200 lines) =="
+      echo "${ERR_SNIP}"
+    fi
+    echo
+    echo "== FRONTIER GOAL =="
+    echo "${GOAL:-"(unspecified)"}"
+    echo
+    echo "== FRONTIER FILE =="
+    echo "${FILE_TARGET:-"(unspecified)"}"
+    [[ -n "${NOTES}" ]] && { echo; echo "== NOTES =="; echo "${NOTES}"; }
+    echo
+    echo "== CONTEXT =="
+    echo "${CONTEXT}"
+    echo
+    echo "Please proceed autonomously: make edits, run shell, and build until success; then implement the frontier task."
+  } > "${PROMPT}"
+
+  # Run Codex non-interactively.
+  # Official docs: `codex exec "..."` runs without the TUI.
+  # Default approval mode is `auto` which allows edits/commands inside the current workspace w/o prompts.
+  # Keep the working dir at repo root so Codex has full access to this project.
+  (cd "${REPO_ROOT}" && "${CODEX_BIN}" exec "$(cat "${PROMPT}")") | tee -a "${CODEX_LOG}"
+
+  # Rebuild after the agent’s run to capture final logs
+  build_once >/dev/null
 done

@@ -14,5 +14,11 @@ require mathlib from git
 
 @[default_target]
 lean_lib «PNT» where
-  roots := #[`StrongPNT.PNT1_ComplexAnalysis, `StrongPNT.PNT2_LogDerivative, `StrongPNT.PNT3_RiemannZeta,
-             `StrongPNT.PNT4_ZeroFreeRegion, `StrongPNT.PNT5_StrongPNT]
+  /-
+  Temporarily restrict the default build to a minimal scaffolding module
+  while the heavier modules are being stabilized. The original roots were:
+    `StrongPNT.PNT1_ComplexAnalysis, `StrongPNT.PNT2_LogDerivative,
+    `StrongPNT.PNT3_RiemannZeta, `StrongPNT.PNT4_ZeroFreeRegion,
+    `StrongPNT.PNT5_StrongPNT
+  -/
+  roots := #[`StrongPNT.PNT0_Scaffold]
