@@ -133,3 +133,4 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 - Imports: minimal (Real.Basic, Log.Basic)
 - Content: namespace StrongPNT, SmoothingKernel alias, log/abs helper lemmas (all simp-tagged or proven)
 - Notes: Scaffold ready for downstream imports; frontier goal satisfied.
+- 2025-09-30: PNT0_Scaffold refactor — StrongPNT.PNT0_Scaffold compiles cleanly as default target.\n  • Status: Done (no changes needed; zero sorries).\n  • Lines (Lean): 65 in StrongPNT/PNT0_Scaffold.lean\n  • Blueprint coverage: 0% (scaffold only; no blueprint theorems).\n  • Notes: Verified lake build (default target Scaffold) succeeds; grep shows sorries in deeper modules not part of default target. No action taken there per frontier scope.\n
