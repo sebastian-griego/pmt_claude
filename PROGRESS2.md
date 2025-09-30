@@ -134,3 +134,6 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 - Content: namespace StrongPNT, SmoothingKernel alias, log/abs helper lemmas (all simp-tagged or proven)
 - Notes: Scaffold ready for downstream imports; frontier goal satisfied.
 - 2025-09-30: PNT0_Scaffold refactor — StrongPNT.PNT0_Scaffold compiles cleanly as default target.\n  • Status: Done (no changes needed; zero sorries).\n  • Lines (Lean): 65 in StrongPNT/PNT0_Scaffold.lean\n  • Blueprint coverage: 0% (scaffold only; no blueprint theorems).\n  • Notes: Verified lake build (default target Scaffold) succeeds; grep shows sorries in deeper modules not part of default target. No action taken there per frontier scope.\n
+[2025-09-30 23:56] BLOCKED — lem_removable_singularity (StrongPNT/PNT1_ComplexAnalysis.lean:1091)
+- Reason: As stated, (fun z => f z / z) is not analytic at 0 in Lean because 0/0 = 0 by definition; the removable singularity extension requires redefining the value at 0 to deriv f 0. Adjusting the statement or definition is needed to proceed.
+- Action taken: Verified scaffold module builds cleanly; deferred heavy theorem pending spec correction. Sorries remain in PNT1–PNT5.
