@@ -31,3 +31,4 @@ Timestamp: 2025-09-30T22:41:24Z
   Lines in file `StrongPNT/PNT0_Scaffold.lean`: 46
   Blueprint coverage: unchanged (scaffold-only module)
   Notes: Project still contains sorries in later files; not modified in this pass.
+- [Scaffold] StrongPNT.PNT0_Scaffold: revalidated clean compile; no sorries. Lines: 46. Blueprint: N/A. Notes: No changes required; module ready for downstream imports.
