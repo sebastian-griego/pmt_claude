@@ -13,3 +13,5 @@
 - [Scaffold] StrongPNT.PNT0_Scaffold: tweaked lemma proof to 'simp'; linter clean. Build OK. Lines: 28.
 - [Scaffold] StrongPNT.PNT0_Scaffold: verified clean compile; no sorries. Lines: 28. Blueprint: N/A. Notes: Minimal imports, namespace, simp lemma log_one_real, SmoothingKernel alias.
 - [Scaffold] StrongPNT.PNT0_Scaffold: rechecked build OK; no sorries. Lines: 28. Blueprint: N/A. Notes: Imports minimal; namespace intact; ready for downstream use.
+- [Scaffold] StrongPNT.PNT0_Scaffold: revalidated build OK; no sorries. Lines: 28. Blueprint: N/A. Notes: No changes needed; scaffold ready for downstream imports.
+- [Scaffold] StrongPNT.PNT0_Scaffold: verified clean compile (no sorries). Lines: 28. Blueprint: N/A. Notes: Imports minimal; namespace intact; ready for downstream use.
