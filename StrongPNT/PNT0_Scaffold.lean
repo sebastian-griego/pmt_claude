@@ -46,7 +46,9 @@ abbrev SmoothingKernel := ℝ → ℝ
 /-- For nonzero reals, `log |x * y| = log |x| + log |y|`. -/
 theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
     Real.log (|x * y|) = Real.log (|x|) + Real.log (|y|) := by
-  simp [abs_mul, Real.log_mul (abs_pos.mpr hx).ne' (abs_pos.mpr hy).ne']
+  have hx' : |x| ≠ 0 := abs_ne_zero.mpr hx
+  have hy' : |y| ≠ 0 := abs_ne_zero.mpr hy
+  simp [abs_mul, Real.log_mul hx' hy']
 
 /-- `log |x⁻¹| = - log |x|` holds without any nonzero hypothesis. -/
 @[simp] theorem log_abs_inv (x : ℝ) :
@@ -56,6 +58,8 @@ theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
 /-- For nonzero reals, `log |x / y| = log |x| - log |y|`. -/
 theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
     Real.log (|x / y|) = Real.log (|x|) - Real.log (|y|) := by
-  simp [abs_div, Real.log_div (abs_pos.mpr hx).ne' (abs_pos.mpr hy).ne']
+  have hx' : |x| ≠ 0 := abs_ne_zero.mpr hx
+  have hy' : |y| ≠ 0 := abs_ne_zero.mpr hy
+  simp [abs_div, Real.log_div hx' hy']
 
 end StrongPNT
