@@ -1,0 +1,27 @@
+*** Begin Patch
+*** Add File: .gitignore
++# Lean / Lake build artifacts
++.lake/
++*.olean
++*.ilean
++*.c
++*.o
++*.h
++*.trace
++*.hash
++
++# Logs & agent outputs
++logs/
++*.log
++
++# Jupyter cruft
++.ipynb_checkpoints/
++*.ipynb
++
++# Editors/OS
++.DS_Store
++.idea/
++.vscode/
++Thumbs.db
++*.swp
+*** End Patch
