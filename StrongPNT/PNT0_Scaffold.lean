@@ -21,7 +21,7 @@ abbrev SmoothingKernel := ℝ → ℝ
 
 /-- A very small helper lemma used throughout: `log 1 = 0`. -/
 @[simp] theorem log_one_real : Real.log (1 : ℝ) = 0 := by
-  simp [Real.log_one]
+  simp
 
 -- Additional small utilities can be added here as needed.
 
