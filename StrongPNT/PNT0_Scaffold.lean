@@ -31,6 +31,12 @@ abbrev SmoothingKernel := ℝ → ℝ
 @[simp] theorem log_abs_one : Real.log (|1| : ℝ) = 0 := by
   simp
 
+/-! Additional harmless simplifications used pervasively in later files. -/
+
+/-- Logging an absolute value is invariant under negation inside the absolute. -/
+@[simp] theorem log_abs_neg (x : ℝ) : Real.log (|(-x)|) = Real.log (|x|) := by
+  simpa [abs_neg]
+
 -- Additional small utilities can be added here as needed.
 
 end StrongPNT
