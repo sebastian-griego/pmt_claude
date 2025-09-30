@@ -97,3 +97,8 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 - Build: lake build OK (project contains sorries in later modules; frontier limited to scaffold).
 - Timestamp: 2025-09-30T23:37:59Z
 ---
+2025-09-30T23:45Z [PNT0_Scaffold] Re-verify clean scaffold compile
+- File: StrongPNT/PNT0_Scaffold.lean (68 lines)
+- Status: build OK; zero sorries in file
+- Imports: minimal (Real.Basic, Log.Basic)
+- Notes: Frontier goal satisfied; downstream files still contain sorries not built by default.
