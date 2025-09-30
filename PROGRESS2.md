@@ -90,3 +90,10 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
   - Blueprint coverage: no change
   - Notes: Verified build; many sorries remain in later modules but out of current scope.
   - Date: 2025-09-30T23:35:46Z
+[PNT0_Scaffold] Verified clean compile; no sorries.
+- File: StrongPNT/PNT0_Scaffold.lean (68 lines)
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Imports minimal; namespace intact; helper log/abs lemmas ready for downstream use.
+- Build: lake build OK (project contains sorries in later modules; frontier limited to scaffold).
+- Timestamp: 2025-09-30T23:37:59Z
+---
