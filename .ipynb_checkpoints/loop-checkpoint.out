@@ -1,4 +1,0 @@
-bash: line 1: ./universal_codex_loop.sh: Permission denied
--bash: ./universal_codex_loop.sh: Permission denied
-[startup] 2025-09-26T01:22:12Z project=/home/jovyan/pmt_claude model=gpt-5 sleep=45s
-[2025-09-26T01:22:12Z] calling codex (sleep next: 45s)...
