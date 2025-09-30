@@ -120,3 +120,16 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 - Notes: kept imports minimal; added small log/abs lemmas; build clean.
 - Blocking: repository contains many sorries in PNT2–PNT5; unchanged in this pass.
 
+[2025-09-30 23:49] PNT0_Scaffold refactor — status: COMPLETE
+- File: StrongPNT/PNT0_Scaffold.lean (65 lines)
+- Changes: fixed `log_abs_mul_of_ne_zero` and `log_abs_div_of_ne_zero` to use `|x| ≠ 0`/`|y| ≠ 0` with `Real.log_mul`/`Real.log_div` reliably; avoided fragile simp side-effects.
+- Build: `lake build` OK; no sorries in scaffold.
+- Blueprint coverage: no change (scaffold-only prep).
+- Notes: Many sorries remain in PNT1–PNT5 by design (not imported yet). Next steps will target the earliest file with sorries per blueprint once scaffold is stable.
+
+[2025-09-30 23:52] PNT0_Scaffold — verification complete
+- File: StrongPNT/PNT0_Scaffold.lean (65 lines)
+- Status: build clean; zero sorries
+- Imports: minimal (Real.Basic, Log.Basic)
+- Content: namespace StrongPNT, SmoothingKernel alias, log/abs helper lemmas (all simp-tagged or proven)
+- Notes: Scaffold ready for downstream imports; frontier goal satisfied.
