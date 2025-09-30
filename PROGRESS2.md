@@ -15,3 +15,8 @@
 - [Scaffold] StrongPNT.PNT0_Scaffold: rechecked build OK; no sorries. Lines: 28. Blueprint: N/A. Notes: Imports minimal; namespace intact; ready for downstream use.
 - [Scaffold] StrongPNT.PNT0_Scaffold: revalidated build OK; no sorries. Lines: 28. Blueprint: N/A. Notes: No changes needed; scaffold ready for downstream imports.
 - [Scaffold] StrongPNT.PNT0_Scaffold: verified clean compile (no sorries). Lines: 28. Blueprint: N/A. Notes: Imports minimal; namespace intact; ready for downstream use.
+PNT0_Scaffold — scaffolding refactor: COMPLETE
+Lines (StrongPNT/PNT0_Scaffold.lean): 36
+Blueprint coverage: N/A (scaffold only)
+Blocking: other modules contain sorries; none added here.
+---

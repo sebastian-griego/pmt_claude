@@ -23,6 +23,14 @@ abbrev SmoothingKernel := ℝ → ℝ
 @[simp] theorem log_one_real : Real.log (1 : ℝ) = 0 := by
   simp
 
+/-- Simplification for absolute values inside a logarithm, when the argument is positive. -/
+@[simp] theorem log_abs_of_pos {x : ℝ} (hx : 0 < x) : Real.log (|x|) = Real.log x := by
+  simp [abs_of_pos hx]
+
+/-- A tiny convenience lemma: `log |1| = 0`. -/
+@[simp] theorem log_abs_one : Real.log (|1| : ℝ) = 0 := by
+  simp
+
 -- Additional small utilities can be added here as needed.
 
 end StrongPNT
