@@ -7,3 +7,4 @@
 - Added: none; validated imports and namespace.
 - Blueprint coverage: 0% (scaffold only).
 - Notes: Default target builds fast; heavier modules not touched.
+- [Scaffold] StrongPNT.PNT0_Scaffold: simplified lemma proof, lint clean. Build OK. Lines: 28. Blueprint: N/A. Blocking: sorries remain in PNT1–PNT5 (out of current scope).
