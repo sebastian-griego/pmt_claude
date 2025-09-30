@@ -1,0 +1,26 @@
+# Lean / Lake build artifacts
+.lake/
+*.olean
+*.ilean
+*.c
+*.o
+*.h
+*.trace
+*.hash
+
+# Logs & agent outputs
+logs/
+*.log
+loop.out
+.lean-progress.log
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+Thumbs.db
+*.swp
