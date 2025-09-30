@@ -72,3 +72,10 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
   - Blueprint coverage: unchanged (scaffold only)
   - Blockers: Multiple sorries remain across PNT1–PNT5; scaffold kept minimal to support downstream work.
   - Timestamp: 2025-09-30T23:26:02Z
+- [Scaffold] StrongPNT.PNT0_Scaffold: verified clean compile; no sorries.\n  Lines: 68 (StrongPNT/PNT0_Scaffold.lean)\n  Blueprint coverage: N/A (scaffold module)\n  Notes: Default target builds only this module; downstream PNT1–PNT5 still contain sorries and are excluded from default target.
+[PNT0_Scaffold] Scaffold verified clean
+- Status: Compiles; no sorries in this file
+- Lines: 68
+- Blueprint coverage: N/A (scaffold helpers)
+- Notes: Added as stable import layer for downstream files; global project still has sorries elsewhere. Next: pick least‑progress file per blueprint when ready.
+---
