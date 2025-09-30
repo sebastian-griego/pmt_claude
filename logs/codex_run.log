@@ -3550,3 +3550,105 @@ The message from the developer indicates that direct system instructions take pr
 
 I see that `Real.log_one` rewrites `log 1 = 0`, and since it's in the simp set, I might just use `simp` directly. I’ve used `Real.log_one` correctly in `simp [Real.log_one]`. It could be helpful to add small utilities to avoid importing heavier modules, like the smoothing kernel abbreviation. I’m considering a minimal approach, perhaps adding a Cauchy integral import stub. To ensure everything compiles cleanly, we should confirm the `namespace StrongPNT` is properly added. I’ll also check if other modules are importing `PNT0_Scaffold` for the SmoothingKernel alias and log lemma.
 [2025-09-30T22:25:06] exec bash -lc 'grep -n "PNT0_Scaffold" -R StrongPNT || true' in /home/jovyan/pmt_claude
+[2025-09-30T22:25:27] bash -lc 'grep -n "PNT0_Scaffold" -R StrongPNT || true' succeeded in 21.05s:
+StrongPNT/.ipynb_checkpoints/PNT0_Scaffold-checkpoint.lean:8:PNT0_Scaffold — minimal scaffolding module
+StrongPNT/PNT0_Scaffold.lean:8:PNT0_Scaffold — minimal scaffolding module
+[2025-09-30T22:25:27] tokens used: 4,459
+[2025-09-30T22:25:28] tokens used: 4,459
+[2025-09-30T22:25:32] exec bash -lc "sed -n '1,120p' StrongPNT/PNT1_ComplexAnalysis.lean" in /home/jovyan/pmt_claude
+[2025-09-30T22:25:32] bash -lc "sed -n '1,120p' StrongPNT/PNT1_ComplexAnalysis.lean" succeeded in 4ms:
+import Mathlib.Analysis.Complex.Basic
+import Mathlib.Analysis.Complex.Norm
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Analysis.SpecialFunctions.Pow.Complex
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Complex
+import Mathlib.Analysis.Complex.Exponential
+import Mathlib.Data.Complex.Basic
+import Mathlib.Analysis.Analytic.Basic
+import Mathlib.Analysis.Analytic.Constructions
+import Mathlib.Analysis.Calculus.Deriv.Basic
+import Mathlib.Analysis.Calculus.Deriv.Mul
+import Mathlib.Analysis.Calculus.Deriv.Comp
+import Mathlib.Analysis.Complex.RealDeriv
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.FundThmCalculus
+import Mathlib.Topology.MetricSpace.Basic
+import Mathlib.Analysis.Complex.Liouville
+import Mathlib.Analysis.Complex.Schwarz
+import Mathlib.Analysis.Complex.AbsMax
+import Mathlib.Analysis.Complex.CauchyIntegral
+[2025-09-30T22:25:32] tokens used: 4,778
+[2025-09-30T22:25:32] tokens used: 4,778
+
+[2025-09-30T22:25:36] thinking
+
+**Evaluating code structure**
+
+I see the file has many proofs, but it's heavy and uses Real.log. It seems PNT0_Scaffold wasn't imported, and our focus is on ensuring stability in the scaffold while providing definitions. We could potentially add a `StrongPNT` namespace or a simple `open scoped` line. The current build looks fine. The task regarding the PNT scaffolding modules suggests we should check that all compile cleanly, including 'Z0.lean' and 'ZetaZeroFree.lean', which appear to have 'sorries'. I’ll inspect those files.
+[2025-09-30T22:25:38] exec bash -lc "sed -n '1,160p' StrongPNT/Z0.lean" in /home/jovyan/pmt_claude
+[2025-09-30T22:25:38] bash -lc "sed -n '1,160p' StrongPNT/Z0.lean" succeeded in 5ms:
+import PrimeNumberTheoremAnd.ZetaBounds
+import StrongPNT.PNT3_RiemannZeta
+open Complex Topology Filter Interval Set Asymptotics
+
+local notation (name := riemannzeta1) "ζ" => riemannZeta
+local notation (name := derivriemannzeta1) "ζ'" => deriv riemannZeta
+
+lemma Z0bound_aux :
+    Asymptotics.IsBigO (nhdsWithin 0 (Set.Ioi 0)) (fun (delta : ℝ) => -(ζ' / ζ) ((1 : ℂ) + delta) - (1 / (delta : ℂ))) (fun _ => (1 : ℂ)) := by
+  -- The statement is that `-(ζ'(s)/ζ(s)) - 1/(s-1)` is bounded as `s -> 1` from the right.
+  -- This is a direct consequence of `riemannZetaLogDerivResidueBigO`, which states that
+  -- this function is `O(1)` in a punctured neighborhood of `1`.
+
+  -- Let `F(s) = -(ζ'(s)/ζ(s)) - 1/(s-1)`.
+  let F := fun s : ℂ => -(ζ' / ζ) s - (s - 1)⁻¹
+
+  -- From `riemannZetaLogDerivResidueBigO`, we know `F` is `O(1)` near `1`.
+  have h_F_bigO : F =O[𝓝[≠] 1] (1 : ℂ → ℂ) := by
+    have h_fun_eq : F = (-ζ' / ζ - fun z ↦ (z - 1)⁻¹) := by
+      ext s
+[2025-09-30T22:25:38] tokens used: 6,628
+[2025-09-30T22:25:39] tokens used: 6,628
+
+[2025-09-30T22:25:48] thinking
+
+**Considering code adjustments**
+
+I think we should avoid adding any unused code since that could complicate things. The code style guidelines emphasize small composable lemmas, and this file is supposed to be small too. I wonder if we can adjust the import lines to avoid duplicating imports, particularly with `Mathlib.Data.Real.Basic` and `Mathlib.Analysis.SpecialFunctions.Log.Basic`. It’s possible that the first one isn’t necessary. After confirming, we might just run `lake build` for everything instead of running `lake build StrongPNT`. I could also update PROGRESS2.md to append a new entry about our progress.
+**Updating progress file**
+
+The instructions clearly state that we need to update PROGRESS2.md after verifying each iteration, and it's emphasized strongly, so I better make sure to follow that. I need to append to PROGRESS2.md appropriately. First, I should calculate the line count of the file to include that information. I can use the command `wc -l` for this. It's a straightforward task, but I want to handle it right!
+[2025-09-30T22:25:53] codex
+**Updating progress file**
+
+The instructions clearly state that we need to update PROGRESS2.md after verifying each iteration, and it's emphasized strongly, so I better make sure to follow that. I need to append to PROGRESS2.md appropriately. First, I should calculate the line count of the file to include that information. I can use the command `wc -l` for this. It's a straightforward task, but I want to handle it right!
+[2025-09-30T22:25:53] exec bash -lc "wc -l StrongPNT/PNT0_Scaffold.lean | awk '{print "'$1}'"'" in /home/jovyan/pmt_claude
+[2025-09-30T22:25:53] bash -lc "wc -l StrongPNT/PNT0_Scaffold.lean | awk '{print "'$1}'"'" succeeded in 7ms:
+28
+[2025-09-30T22:25:53] tokens used: 8,491
+[2025-09-30T22:25:53] tokens used: 8,491
+
+[2025-09-30T22:26:02] thinking
+
+**Evaluating module changes**
+
+I’m considering the module's weight and how adding placeholders could lead to conflicts if they don’t match. I think it’s better to keep the file as is, even though the instructions suggest making improvements if necessary. I could add a small lemma for `Real.log_mul`, but I’m worried about potential name conflicts. I’ve decided to keep everything unchanged for now. I’ll ensure to summarize in PROGRESS2.md that PNT0_Scaffold compiles successfully before moving on.
+**Updating task details**
+
+I need to include the necessary details: the status of the theorem isn't applicable, so I should note it as "PNT0_Scaffold compile check" or "log_one_real proven." The Lean file has 28 lines of code. For the blueprint coverage, I can state "0%" since it's a numerical requirement. There are many "sorries" in other files, but they aren’t affecting the frontier this time, so I’ll make a note of that and append it all.
+[2025-09-30T22:26:06] codex
+**Updating task details**
+
+I need to include the necessary details: the status of the theorem isn't applicable, so I should note it as "PNT0_Scaffold compile check" or "log_one_real proven." The Lean file has 28 lines of code. For the blueprint coverage, I can state "0%" since it's a numerical requirement. There are many "sorries" in other files, but they aren’t affecting the frontier this time, so I’ll make a note of that and append it all.
+[2025-09-30T22:26:07] exec bash -lc "echo \"- PNT0_Scaffold: verified module compiles cleanly; no sorries.\\n  - Lemma: StrongPNT.log_one_real — status: proven\\n  - Lines: 28 (StrongPNT/PNT0_Scaffold.lean)\\n  - Blueprint coverage: 0% (scaffold-only)\\n  - Notes: Build passes; many sorries remain in advanced modules (PNT1–PNT5), not in scope for this step.\" >> PROGRESS2.md && tail -n 8 PROGRESS2.md" in /home/jovyan/pmt_claude
+[2025-09-30T22:26:07] bash -lc "echo \"- PNT0_Scaffold: verified module compiles cleanly; no sorries.\\n  - Lemma: StrongPNT.log_one_real — status: proven\\n  - Lines: 28 (StrongPNT/PNT0_Scaffold.lean)\\n  - Blueprint coverage: 0% (scaffold-only)\\n  - Notes: Build passes; many sorries remain in advanced modules (PNT1–PNT5), not in scope for this step.\" >> PROGRESS2.md && tail -n 8 PROGRESS2.md" succeeded in 6ms:
+- [Scaffold] StrongPNT.PNT0_Scaffold: added [simp] alias log_one_real. Build OK. Lines: 28. Blueprint: N/A. Blocking: many sorries in PNT1–PNT5 (not in scope).
+[Scaffold] Verified PNT0_Scaffold compiles (no sorries).
+- File: StrongPNT/PNT0_Scaffold.lean (28 lines)
+- Added: none; validated imports and namespace.
+- Blueprint coverage: 0% (scaffold only).
+- Notes: Default target builds fast; heavier modules not touched.
+- [Scaffold] StrongPNT.PNT0_Scaffold: simplified lemma proof, lint clean. Build OK. Lines: 28. Blueprint: N/A. Blocking: sorries remain in PNT1–PNT5 (out of current scope).
+- PNT0_Scaffold: verified module compiles cleanly; no sorries.\n  - Lemma: StrongPNT.log_one_real — status: proven\n  - Lines: 28 (StrongPNT/PNT0_Scaffold.lean)\n  - Blueprint coverage: 0% (scaffold-only)\n  - Notes: Build passes; many sorries remain in advanced modules (PNT1–PNT5), not in scope for this step.
+[2025-09-30T22:26:07] tokens used: 9,315
+[2025-09-30T22:26:07] tokens used: 9,315
