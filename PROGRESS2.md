@@ -59,3 +59,4 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 - Notes: Other StrongPNT files contain sorries but are out of scope for this step.
 ---
 - [Scaffold] StrongPNT.PNT0_Scaffold: verified clean compile; no sorries.\n  Lines: 68 (StrongPNT/PNT0_Scaffold.lean)\n  Blueprint coverage: N/A (scaffold only).\n  Notes: Imports minimal; namespace intact; helper lemmas (log/abs) available for downstream files.
+- [Scaffold] StrongPNT.PNT0_Scaffold: verified clean build; no sorries. Lines: 68. Blueprint: N/A (scaffold). Next: start clearing earliest sorry in PNT1_ComplexAnalysis if requested. Timestamp: 2025-09-30T23:24:23Z
