@@ -14,10 +14,10 @@ require mathlib from git
 
 @[default_target]
 lean_lib «Scaffold» where
-  -- Minimal target to keep CI/dev builds fast & green
+  -- fast target to keep CI/dev builds green
   roots := #[`StrongPNT.PNT0_Scaffold]
 
--- Full library (not default); build explicitly with: lake build PNT
+-- Full library (build explicitly with: `lake build PNT`)
 lean_lib «PNT» where
   roots := #[
     `StrongPNT.PNT1_ComplexAnalysis,
