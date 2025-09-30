@@ -108,3 +108,8 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 - Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
 - Notes: Ran lake build and grep; many sorries remain in PNT1–PNT5, but frontier limited to scaffolding. No changes needed.
 ---
+- [Scaffold] StrongPNT/PNT0_Scaffold.lean: simplified and deduped log_abs_inv; lake build OK; no sorries in this file.
+  Lines: 61
+  Blueprint coverage: N/A (scaffold only)
+  Blockers: many sorries remain in PNT1–PNT5; will address next by picking smallest dependency.
+
