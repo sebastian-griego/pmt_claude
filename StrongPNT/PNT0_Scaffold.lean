@@ -46,32 +46,18 @@ abbrev SmoothingKernel := ℝ → ℝ
 /-- For nonzero reals, `log |x * y| = log |x| + log |y|`. -/
 theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
     Real.log (|x * y|) = Real.log (|x|) + Real.log (|y|) := by
-  have hxne : |x| ≠ 0 := ne_of_gt (abs_pos.mpr hx)
-  have hyne : |y| ≠ 0 := ne_of_gt (abs_pos.mpr hy)
-  simpa [abs_mul] using (Real.log_mul hxne hyne)
+  simp [abs_mul, Real.log_mul (abs_pos.mpr hx).ne' (abs_pos.mpr hy).ne']
 
 /-- For nonzero reals, `log |x⁻¹| = - log |x|`. -/
-@[simp] theorem log_abs_inv {x : ℝ} (hx : x ≠ 0) :
+@[simp] theorem log_abs_inv {x : ℝ} (_hx : x ≠ 0) :
     Real.log (|x⁻¹|) = - Real.log (|x|) := by
-  have hy : x⁻¹ ≠ 0 := inv_ne_zero hx
-  have hsum := log_abs_mul_of_ne_zero (x := x) (y := x⁻¹) hx hy
-  have h0 : 0 = Real.log (|x|) + Real.log (|x⁻¹|) := by
-    simpa using (by simpa using hsum)
-  have h0' : Real.log (|x⁻¹|) + Real.log (|x|) = 0 := by
-    simpa [add_comm] using h0
-  exact eq_neg_of_add_eq_zero_left h0'
+  -- Use `abs_inv` and the basic identity `Real.log_inv`.
+  -- `Real.log_abs` simplifies `log |t|` to `log t` for any real `t`.
+  simp [abs_inv, Real.log_inv]
 
 /-- For nonzero reals, `log |x / y| = log |x| - log |y|`. -/
 theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
     Real.log (|x / y|) = Real.log (|x|) - Real.log (|y|) := by
-  have hxne : |x| ≠ 0 := ne_of_gt (abs_pos.mpr hx)
-  have hyinvne : |y⁻¹| ≠ 0 := ne_of_gt (abs_pos.mpr (inv_ne_zero hy))
-  have := Real.log_mul hxne hyinvne
-  -- rewrite and simplify
-  have : Real.log (|x * y⁻¹|) = Real.log (|x|) + Real.log (|y⁻¹|) := by
-    simpa [abs_mul] using this
-  have : Real.log (|x * y⁻¹|) = Real.log (|x|) - Real.log (|y|) := by
-    simpa [log_abs_inv hy, sub_eq_add_neg] using this
-  simpa [div_eq_mul_inv] using this
+  simp [abs_div, Real.log_div (abs_pos.mpr hx).ne' (abs_pos.mpr hy).ne']
 
 end StrongPNT

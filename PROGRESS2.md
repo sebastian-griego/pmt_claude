@@ -40,3 +40,5 @@ Timestamp: 2025-09-30T22:41:24Z
   Lines: 77 (StrongPNT/PNT0_Scaffold.lean)
   Blueprint coverage: N/A (scaffold-only).
   Notes: Default target 'Scaffold' compiles quickly; heavy modules unchanged.
+PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_inv. Lines: 73. Blueprint coverage: N/A (scaffold). No blockers.
+- [Scaffold] StrongPNT/PNT0_Scaffold.lean: clean compile, no sorries.\n  Lines: 63\n  Blueprint coverage: N/A (scaffold file).\n  Notes: Imports minimal; namespace and basic log/abs lemmas ready for downstream use.
