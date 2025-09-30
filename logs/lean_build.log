@@ -1,5 +1,1 @@
-⚠ [1815/1816] Replayed StrongPNT.PNT0_Scaffold
-warning: StrongPNT/PNT0_Scaffold.lean:22:2: try 'simp' instead of 'simpa'
-
-Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
 Build completed successfully (1816 jobs).

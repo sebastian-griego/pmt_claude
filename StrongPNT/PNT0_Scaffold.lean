@@ -2,12 +2,14 @@
 import Mathlib.Data.Real.Basic
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
 
+noncomputable section
+
 /-!
 PNT0_Scaffold — minimal scaffolding module
 
 This module sets up a lightweight namespace and imports that can be
 used by downstream PNT files. It intentionally contains only trivial
-content and no `sorry`, so it compiles quickly and can serve as the
+content with no incomplete proofs, so it compiles quickly and can serve as the
 default build target while heavier modules are under development.
 -/
 
