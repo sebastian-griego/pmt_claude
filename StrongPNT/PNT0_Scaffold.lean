@@ -41,22 +41,37 @@ abbrev SmoothingKernel := ℝ → ℝ
 @[simp] theorem log_abs_neg (x : ℝ) : Real.log (|(-x)|) = Real.log (|x|) := by
   simp [abs_neg]
 
-/-! Small algebraic log/abs helpers used across files. -/
-
-/-- Log of an absolute value of a reciprocal. -/
-@[simp] theorem log_abs_inv (x : ℝ) : Real.log (|x⁻¹|) = - Real.log (|x|) := by
-  simpa only [Real.log_abs] using (Real.log_inv x)
-
-/-- Log of `|x*y|` splits as a sum when both factors are nonzero. -/
-@[simp] theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
-    Real.log (|x * y|) = Real.log (|x|) + Real.log (|y|) := by
-  simpa only [Real.log_abs] using (Real.log_mul (x := x) (y := y) hx hy)
-
-/-- Log of `|x/y|` splits as a difference when both terms are nonzero. -/
-@[simp] theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
-    Real.log (|x / y|) = Real.log (|x|) - Real.log (|y|) := by
-  simpa only [Real.log_abs] using (Real.log_div (x := x) (y := y) hx hy)
-
 -- Additional small utilities can be added here as needed.
+
+/-- For nonzero reals, `log |x * y| = log |x| + log |y|`. -/
+theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
+    Real.log (|x * y|) = Real.log (|x|) + Real.log (|y|) := by
+  have hxne : |x| ≠ 0 := ne_of_gt (abs_pos.mpr hx)
+  have hyne : |y| ≠ 0 := ne_of_gt (abs_pos.mpr hy)
+  simpa [abs_mul] using (Real.log_mul hxne hyne)
+
+/-- For nonzero reals, `log |x⁻¹| = - log |x|`. -/
+@[simp] theorem log_abs_inv {x : ℝ} (hx : x ≠ 0) :
+    Real.log (|x⁻¹|) = - Real.log (|x|) := by
+  have hy : x⁻¹ ≠ 0 := inv_ne_zero hx
+  have hsum := log_abs_mul_of_ne_zero (x := x) (y := x⁻¹) hx hy
+  have h0 : 0 = Real.log (|x|) + Real.log (|x⁻¹|) := by
+    simpa using (by simpa using hsum)
+  have h0' : Real.log (|x⁻¹|) + Real.log (|x|) = 0 := by
+    simpa [add_comm] using h0
+  exact eq_neg_of_add_eq_zero_left h0'
+
+/-- For nonzero reals, `log |x / y| = log |x| - log |y|`. -/
+theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
+    Real.log (|x / y|) = Real.log (|x|) - Real.log (|y|) := by
+  have hxne : |x| ≠ 0 := ne_of_gt (abs_pos.mpr hx)
+  have hyinvne : |y⁻¹| ≠ 0 := ne_of_gt (abs_pos.mpr (inv_ne_zero hy))
+  have := Real.log_mul hxne hyinvne
+  -- rewrite and simplify
+  have : Real.log (|x * y⁻¹|) = Real.log (|x|) + Real.log (|y⁻¹|) := by
+    simpa [abs_mul] using this
+  have : Real.log (|x * y⁻¹|) = Real.log (|x|) - Real.log (|y|) := by
+    simpa [log_abs_inv hy, sub_eq_add_neg] using this
+  simpa [div_eq_mul_inv] using this
 
 end StrongPNT

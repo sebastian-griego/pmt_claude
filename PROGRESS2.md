@@ -36,3 +36,7 @@ Timestamp: 2025-09-30T22:41:24Z
   Lines: 62 (file).
   Blueprint coverage: N/A (scaffolding only).
   Blocking: Many sorries in later PNT files, untouched this iteration.
+- [Scaffold] StrongPNT.PNT0_Scaffold: added small log-abs lemmas (mul/inv/div); build OK; no sorries in scaffold.
+  Lines: 77 (StrongPNT/PNT0_Scaffold.lean)
+  Blueprint coverage: N/A (scaffold-only).
+  Notes: Default target 'Scaffold' compiles quickly; heavy modules unchanged.
