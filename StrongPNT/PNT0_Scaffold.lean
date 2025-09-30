@@ -20,7 +20,7 @@ This is used as a stand‑in to keep dependent signatures consistent. -/
 abbrev SmoothingKernel := ℝ → ℝ
 
 /-- A very small helper lemma used throughout: `log 1 = 0`. -/
-theorem log_one_real : Real.log (1 : ℝ) = 0 := by
+@[simp] theorem log_one_real : Real.log (1 : ℝ) = 0 := by
   simp [Real.log_one]
 
 -- Additional small utilities can be added here as needed.
