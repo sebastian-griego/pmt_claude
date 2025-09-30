@@ -27,6 +27,10 @@ abbrev SmoothingKernel := ℝ → ℝ
 @[simp] theorem log_abs_of_pos {x : ℝ} (hx : 0 < x) : Real.log (|x|) = Real.log x := by
   simp [abs_of_pos hx]
 
+/-- As a convenience, the same simplification under a nonnegativity hypothesis. -/
+@[simp] theorem log_abs_of_nonneg {x : ℝ} (hx : 0 ≤ x) : Real.log (|x|) = Real.log x := by
+  simp [abs_of_nonneg hx]
+
 /-- A tiny convenience lemma: `log |1| = 0`. -/
 @[simp] theorem log_abs_one : Real.log (|1| : ℝ) = 0 := by
   simp

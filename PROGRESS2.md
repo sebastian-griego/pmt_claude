@@ -27,3 +27,7 @@ Blocking issues: Many sorries present in core modules (PNT1–PNT5). Frontier ke
 Timestamp: 2025-09-30T22:41:24Z
 ---
 - [Scaffold] StrongPNT.PNT0_Scaffold: added simp lemma log_abs_neg; linter clean. Build OK. Lines: 42. Blueprint coverage: N/A (scaffold only). Notes: Default target remains Scaffold; many sorries in PNT1–PNT5 remain out of scope for this task.
+- 2025-09-30: PNT0_Scaffold refactor — ADDED `[simp] log_abs_of_nonneg` and tidied lemmas; lints clean; `lake build` OK.
+  Lines in file `StrongPNT/PNT0_Scaffold.lean`: 46
+  Blueprint coverage: unchanged (scaffold-only module)
+  Notes: Project still contains sorries in later files; not modified in this pass.
