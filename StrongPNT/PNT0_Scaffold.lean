@@ -41,6 +41,22 @@ abbrev SmoothingKernel := ℝ → ℝ
 @[simp] theorem log_abs_neg (x : ℝ) : Real.log (|(-x)|) = Real.log (|x|) := by
   simp [abs_neg]
 
+/-! Small algebraic log/abs helpers used across files. -/
+
+/-- Log of an absolute value of a reciprocal. -/
+@[simp] theorem log_abs_inv (x : ℝ) : Real.log (|x⁻¹|) = - Real.log (|x|) := by
+  simpa only [Real.log_abs] using (Real.log_inv x)
+
+/-- Log of `|x*y|` splits as a sum when both factors are nonzero. -/
+@[simp] theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
+    Real.log (|x * y|) = Real.log (|x|) + Real.log (|y|) := by
+  simpa only [Real.log_abs] using (Real.log_mul (x := x) (y := y) hx hy)
+
+/-- Log of `|x/y|` splits as a difference when both terms are nonzero. -/
+@[simp] theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
+    Real.log (|x / y|) = Real.log (|x|) - Real.log (|y|) := by
+  simpa only [Real.log_abs] using (Real.log_div (x := x) (y := y) hx hy)
+
 -- Additional small utilities can be added here as needed.
 
 end StrongPNT

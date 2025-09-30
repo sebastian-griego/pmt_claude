@@ -32,3 +32,7 @@ Timestamp: 2025-09-30T22:41:24Z
   Blueprint coverage: unchanged (scaffold-only module)
   Notes: Project still contains sorries in later files; not modified in this pass.
 - [Scaffold] StrongPNT.PNT0_Scaffold: revalidated clean compile; no sorries. Lines: 46. Blueprint: N/A. Notes: No changes required; module ready for downstream imports.
+- [Refactor] PNT0_Scaffold: added simp lemmas (log_abs_inv, log_abs_mul_of_ne_zero, log_abs_div_of_ne_zero); build OK; no sorries in file.
+  Lines: 62 (file).
+  Blueprint coverage: N/A (scaffolding only).
+  Blocking: Many sorries in later PNT files, untouched this iteration.
