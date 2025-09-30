@@ -1,0 +1,25 @@
+name: CI
+on:
+  push: { branches: [ main ] }
+  pull_request: {}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install elan (Lean toolchain)
+        uses: leanprover/elan-action@v1
+      - name: Show tool versions
+        run: |
+          lake --version
+          lean --version
+      - name: Pre-fetch mathlib cache
+        run: |
+          lake exe cache get || true
+      - name: Build fast (Scaffold)
+        run: lake build
+      - name: Build full (PNT) — non-blocking
+        run: |
+          set +e
+          lake build PNT
+          echo "(full build exit code was $?)"
