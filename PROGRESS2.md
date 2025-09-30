@@ -42,3 +42,20 @@ Timestamp: 2025-09-30T22:41:24Z
   Notes: Default target 'Scaffold' compiles quickly; heavy modules unchanged.
 PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_inv. Lines: 73. Blueprint coverage: N/A (scaffold). No blockers.
 - [Scaffold] StrongPNT/PNT0_Scaffold.lean: clean compile, no sorries.\n  Lines: 63\n  Blueprint coverage: N/A (scaffold file).\n  Notes: Imports minimal; namespace and basic log/abs lemmas ready for downstream use.
+[PNT0_Scaffold] Refactor/verify scaffold compiles cleanly
+- File: StrongPNT/PNT0_Scaffold.lean
+- Status: Completed (build OK, no sorries)
+- Change: added  (no hypothesis version), kept imports minimal
+- Lean lines: 68
+- Blueprint coverage: N/A (scaffolding module)
+- Notes: Other StrongPNT files contain sorries but are out of scope for this step.
+---
+[PNT0_Scaffold] Refactor/verify scaffold compiles cleanly
+- File: StrongPNT/PNT0_Scaffold.lean
+- Status: Completed (build OK, no sorries)
+- Change: added lemma `log_abs_inv'` (no hypothesis version), kept imports minimal
+- Lean lines: 68
+- Blueprint coverage: N/A (scaffolding module)
+- Notes: Other StrongPNT files contain sorries but are out of scope for this step.
+---
+- [Scaffold] StrongPNT.PNT0_Scaffold: verified clean compile; no sorries.\n  Lines: 68 (StrongPNT/PNT0_Scaffold.lean)\n  Blueprint coverage: N/A (scaffold only).\n  Notes: Imports minimal; namespace intact; helper lemmas (log/abs) available for downstream files.

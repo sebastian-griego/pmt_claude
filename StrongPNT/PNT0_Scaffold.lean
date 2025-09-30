@@ -55,6 +55,11 @@ theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
   -- `Real.log_abs` simplifies `log |t|` to `log t` for any real `t`.
   simp [abs_inv, Real.log_inv]
 
+/-- A version of `log_abs_inv` without a nonzero hypothesis. -/
+@[simp] theorem log_abs_inv' (x : ℝ) :
+    Real.log (|x⁻¹|) = - Real.log (|x|) := by
+  simp [abs_inv, Real.log_inv]
+
 /-- For nonzero reals, `log |x / y| = log |x| - log |y|`. -/
 theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
     Real.log (|x / y|) = Real.log (|x|) - Real.log (|y|) := by
