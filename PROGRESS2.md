@@ -79,3 +79,8 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 - Blueprint coverage: N/A (scaffold helpers)
 - Notes: Added as stable import layer for downstream files; global project still has sorries elsewhere. Next: pick least‑progress file per blueprint when ready.
 ---
+2025-09-30T23:32Z [PNT0_Scaffold] Verify scaffold clean compile
+- File: StrongPNT/PNT0_Scaffold.lean (68 lines)
+- Status: build OK; zero sorries in file
+- Imports: minimal (Real.Basic, Log.Basic)
+- Notes: No changes needed. Project still has sorries in PNT1–PNT5; kept scope to scaffold per frontier goal.
