@@ -1438,3 +1438,13 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - Notes: Minimal scaffold ready for downstream imports; project still contains sorries in PNT1–PNT5 which are out of scope for this step.
 - Timestamp: 2025-10-01T08:47:21Z
 
+[2025-10-01] PNT0_Scaffold — scaffold verified clean\n- File: StrongPNT/PNT0_Scaffold.lean (112 lines)\n- Status: CLEAN (build OK; zero sorries in file)\n- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic\n- Contents: SmoothingKernel alias; [simp] lemmas for Real.log with |·| (mul/div/inv/pow); nat specializations\n- Blueprint coverage: N/A (scaffold module)\n- Notes: Project still contains sorries in PNT1–PNT5; out of scope for this scaffold task.\n---
+
+[2025-10-01T09:00:00Z] PNT0_Scaffold — refactoring task complete
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Status: VERIFIED CLEAN (lake build successful; zero sorries)
+- Imports: Minimal and idiomatic (Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic)
+- Structure: Clean namespace StrongPNT; well-documented with module docstring
+- Action: No changes required; file already meets all refactoring requirements
+- Frontier goal achieved: PNT scaffolding module compiles cleanly with minimal imports, proper namespace, and no sorries
+---
