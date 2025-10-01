@@ -693,3 +693,15 @@ Blocking: Many sorries remain in PNT1–PNT5; not addressed in this scaffold ref
 ---
 - PNT0_Scaffold: scaffolding compiles cleanly; 0 sorries in file; line count: 81. Blueprint coverage unchanged (scaffold-only).
 [2025-10-01 02:59Z] PNT0_Scaffold — verified clean\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Status: CLEAN (build OK; zero sorries in file)\n- Build: lake build → success\n- Blueprint coverage: N/A (scaffolding)\n- Blockers: Many sorries remain in PNT1–PNT5; next to tackle per blueprint is PNT1_ComplexAnalysis.lean:1104.\n---
+Date: 2025-10-01T03:30:27Z
+File: StrongPNT/PNT0_Scaffold.lean
+Task: Scaffold validation (imports/namespaces/no sorries)
+Status: Completed — compiles cleanly
+Lean LOC: 81
+Blueprint coverage: N/A (scaffold)
+Notes:
+- Verified minimal Mathlib imports and noncomputable section.
+- All lemmas trivial and marked simp where helpful.
+- No sorries in this file; default target builds green.
+- Project still contains sorries in PNT1–PNT5 (out of scope here).
+---
