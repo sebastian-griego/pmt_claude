@@ -299,3 +299,10 @@ Notes: kept imports minimal; added/verified basic log-abs lemmas; lake build cle
   Lines: 80 in StrongPNT/PNT0_Scaffold.lean
   Blueprint %: unchanged (scaffold-only)
   Notes: added simp lemma log_abs_nat; kept imports minimal; build clean.
+[PNT0_Scaffold] Verified clean compile; no sorries.
+- File: StrongPNT/PNT0_Scaffold.lean (80 lines)
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Imports minimal; namespace intact; helper log/abs lemmas available. Other modules contain sorries but are not built in this pass.
+- Build: lake build OK
+- Timestamp: 2025-10-01T01:13:35Z
+---
