@@ -351,3 +351,9 @@ Timestamp: 2025-10-01T01:17:13Z
 
 [2025-10-01] PNT0_Scaffold — verified clean compile; no sorries.\n- File: StrongPNT/PNT0_Scaffold.lean (80 lines)\n- Build: lake build OK\n- Blueprint coverage: N/A (scaffold)\n- Notes: Imports minimal; namespace intact; helper lemmas compile; no changes needed.
 [2025-10-01T01:39Z] PNT0_Scaffold — verified clean compile; no sorries in file (80 lines). Build OK.
+[2025-10-01T01:42Z] PNT0_Scaffold — verified clean compile; no sorries in file (81 lines).
+- File: StrongPNT/PNT0_Scaffold.lean
+- Status: lake build OK (1816 jobs); zero sorries
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Content: namespace StrongPNT, SmoothingKernel alias, 9 complete log/abs helper lemmas
+- Notes: Module ready for downstream imports; all proofs complete and idiomatic.
