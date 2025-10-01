@@ -1619,3 +1619,34 @@ Lean LOC (file): 112
 Blueprint coverage: n/a (scaffold only)
 Blocking issues: none for this module; many sorries remain in downstream PNT files
 - [PNT0_Scaffold] Scaffold module compiles cleanly; no sorries. (112 lines). Blueprint coverage unchanged. 2025-10-01T09:50:56+00:00
+[PNT0_Scaffold] Status: clean compile, no sorries
+- File: StrongPNT/PNT0_Scaffold.lean
+- Lean lines: 112
+- Blueprint coverage: N/A (scaffold)
+- Notes: minimal imports; namespace StrongPNT; helper log/abs lemmas.
+- Build: lake build OK
+- Timestamp: 2025-10-01T10:19:30Z
+
+- [Scaffold] PNT0_Scaffold.lean — clean compile, no sorries in file.
+  Lines: 112
+  Blueprint coverage: N/A (scaffold only)
+  Notes: Verified lake build succeeds; other modules still contain sorries pending future passes.
+[2025-10-01] Verified PNT0_Scaffold clean compile; no sorries. File: StrongPNT/PNT0_Scaffold.lean (current). Imports minimal; ready for downstream.
+[2025-10-01] PNT0_Scaffold refactor — OK
+- File: StrongPNT/PNT0_Scaffold.lean
+- Status: compiles cleanly, no sorries
+- Lemmas: basic log/abs identities (log_abs_*), smoothing kernel alias
+- Lines: 119
+- Blueprint coverage: N/A (scaffolding module)
+- Notes: adjusted proofs to align with nonzero-argument signatures for Real.log_mul/div/pow in Mathlib; verified with lake build.
+- 2025-10-01: Refactor StrongPNT/PNT0_Scaffold.lean — removed linter warnings, ensured clean build.
+  * Status: Completed (no sorries)
+  * Lines: 113
+  * Blueprint coverage: N/A (scaffold module)
+  * Notes: Simplified  and  using mathlib  lemmas; no functional changes.
+
+- 2025-10-01: Refactor StrongPNT/PNT0_Scaffold.lean — removed linter warnings, ensured clean build.
+  * Status: Completed (no sorries)
+  * Lines: 113
+  * Blueprint coverage: N/A (scaffold module)
+  * Notes: Simplified log_abs_inv and log_abs_pow using mathlib simp lemmas; no functional changes.

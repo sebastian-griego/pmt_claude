@@ -72,7 +72,7 @@ theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
 /-- `log |x⁻¹| = - log |x|` holds without any nonzero hypothesis. -/
 @[simp] theorem log_abs_inv (x : ℝ) :
     Real.log (|x⁻¹|) = - Real.log (|x|) := by
-  simp [abs_inv, Real.log_inv]
+  simp [abs_inv]
 
 /-- For nonzero reals, `log |x / y| = log |x| - log |y|`. -/
 theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
@@ -84,7 +84,8 @@ theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
 /-- A convenient power rule inside a log–absolute: `log |x^n| = n * log |x|`. -/
 @[simp] theorem log_abs_pow (x : ℝ) (n : ℕ) :
     Real.log (|x ^ n|) = (n : ℝ) * Real.log (|x|) := by
-  rw [abs_pow, Real.log_pow]
+  -- Use the power rule for `Real.log` on `|x|`.
+  simp [abs_pow]
 
 /-- A very common specialization of `log_abs_pow` to squares. -/
 @[simp] theorem log_abs_pow_two (x : ℝ) :
