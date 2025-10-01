@@ -446,3 +446,11 @@ Notes: Built project successfully; many sorries remain in heavy modules, unchang
 - Lines: 80
 - Blueprint coverage: N/A (scaffold only)
 - Notes: Provides Real log/abs conveniences; imports minimal.
+- PNT0_Scaffold: refactor of  to use . Status: DONE.
+  Lines: 80
+  Blueprint coverage: unchanged (scaffold only)
+  Blocking: many  remain in PNT1–PNT5; deep complex-analytic results required.
+- PNT0_Scaffold: refactor of `log_abs_pow` to use `Real.log_pow (abs_nonneg x)`. Status: DONE.
+  Lines: 80
+  Blueprint coverage: unchanged (scaffold only)
+  Blocking: many `sorry` remain in PNT1–PNT5; deep complex-analytic results required.
