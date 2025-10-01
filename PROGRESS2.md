@@ -330,3 +330,4 @@ Timestamp: 2025-10-01T01:17:13Z
 - Notes: Kept minimal, added simp conveniences earlier; global project still has many sorries (PNT1–PNT5), which block advancing new theorems per policy. Frontier limited to scaffold refactor this pass.
 - Timestamp: 2025-10-01T01:24:51Z
 - [PNT0_Scaffold] Refactor scaffolding: compiles cleanly with no sorries\n  - File: StrongPNT/PNT0_Scaffold.lean\n  - Lines: 80\n  - Blueprint coverage: n/a for scaffolding (0% change)\n  - Notes: Verified lake build succeeds; many sorries remain in heavy modules (PNT1–PNT5), not addressed here.
+[2025-10-01T01:32:07Z] PNT0_Scaffold — scaffolding verification\n- File: StrongPNT/PNT0_Scaffold.lean (80 lines)\n- Status: Clean compile; no sorries in scaffolding module\n- Build: lake build OK\n- Notes: Numerous sorries remain in PNT1–PNT5; frontier scope limited to scaffold integrity for this step.
