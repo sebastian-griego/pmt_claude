@@ -1238,3 +1238,8 @@ Blocking: Many sorries in PNT1–PNT5 remain; not addressed here.
 - Blueprint coverage: N/A (scaffold module)
 - Blocking issues: Many sorries remain in later PNT files; scaffold compiles independently.
 
+2025-10-01T07:22:52Z [PNT0_Scaffold] Verified clean compile; no sorries in file.
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Theorems: helper lemmas for log/abs; all proven
+- Blueprint coverage: N/A (scaffold only)
+- Notes: lake build OK; many sorries remain in PNT1–PNT5 (out of current frontier scope).
