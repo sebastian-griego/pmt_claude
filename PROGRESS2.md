@@ -272,3 +272,6 @@ Timestamp: 2025-10-01T00:23:53Z
   - Blueprint coverage: N/A (scaffolding module only)
   - Notes: Left heavier modules untouched; numerous sorries remain in PNT2–PNT5. This scaffold provides trivial lemmas (logs/abs) to keep downstream signatures stable.
 [2025-10-01T00:52:42Z] PNT0_Scaffold — scaffold compile check\n- File: StrongPNT/PNT0_Scaffold.lean (73 lines)\n- Status: lake build OK; no sorries in this file\n- Blueprint coverage: N/A (scaffold)\n- Notes: Minimal imports and helper log/abs lemmas retained; downstream modules can safely import. Numerous sorries remain in heavy modules (PNT1–PNT5), outside current frontier scope.\n
+[2025-10-01] PNT0_Scaffold — verification complete\n- File: StrongPNT/PNT0_Scaffold.lean (73 lines)\n- Status: CLEAN — builds, no sorries\n- Changes: none needed; imports minimal; namespace tidy\n- Blueprint coverage: N/A (scaffold only)\n- Notes: Default target builds only scaffold; deeper modules with sorries remain out of scope for this step.
+[Scaffold] Verified: StrongPNT/PNT0_Scaffold.lean builds cleanly (no sorries).
+Lines: 73. Blueprint coverage: scaffolding only (0% theorem coverage).
