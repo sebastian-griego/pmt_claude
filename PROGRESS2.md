@@ -550,3 +550,4 @@ Notes: Build OK. Downstream files contain sorries; not modified in this step.
 - Imports: minimal (Real.Basic, Log.Basic)
 - Notes: Default target Scaffold builds fast and clean; deeper modules (PNT1–PNT5) still contain sorries and are not part of this frontier.
 ---
+[PNT0_Scaffold] Verified scaffold compiles cleanly; no sorries. Lines: 81.
