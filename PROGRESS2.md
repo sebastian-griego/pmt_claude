@@ -946,3 +946,10 @@ Blocking: numerous sorries in other modules; scaffold unaffected.
 - Blueprint: N/A (scaffolding infrastructure)
 
 [2025-10-01T05:16Z] PNT0_Scaffold — scaffold sanity check\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Status: CLEAN — builds; zero sorries in file\n- Build: lake build → SUCCESS\n- Notes: Verified minimal imports and helper lemmas compile. Global sorries remain in PNT1–PNT5; next pass will target a small, local sorry (e.g., lem_removable_singularity) to reduce count progressively.\n---
+[PNT0_Scaffold] — scaffolding refactor
+- Status: compiled cleanly, no sorries
+- Lines: 81
+- Blueprint coverage: N/A (scaffold)
+- Notes: Provides basic Real.log / abs simp lemmas and SmoothingKernel alias for downstream files.
+- Blocking: Many sorries remain in later modules (see grep).
+
