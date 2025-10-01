@@ -1243,3 +1243,18 @@ Blocking: Many sorries in PNT1–PNT5 remain; not addressed here.
 - Theorems: helper lemmas for log/abs; all proven
 - Blueprint coverage: N/A (scaffold only)
 - Notes: lake build OK; many sorries remain in PNT1–PNT5 (out of current frontier scope).
+[PNT0_Scaffold] Refactor check — compiled cleanly, no changes required. Wed Oct  1 07:24:23 UTC 2025
+- File: StrongPNT/PNT0_Scaffold.lean
+- Status: OK (no sorries), lake build succeeded
+- Lines: 112
+- Blocking: Many sorries remain in StrongPNT/PNT2_LogDerivative.lean and StrongPNT/PNT4_ZeroFreeRegion.lean
+[2025-10-01T07:26:42Z] PNT0_Scaffold — scaffold verified clean\n- File: StrongPNT/PNT0_Scaffold.lean (112 lines)\n- Status: Compiles cleanly; no sorries in module\n- Blueprint coverage: N/A (scaffold)\n- Notes: Downstream files still contain sorries; frontier limited to scaffold per task.\n
+[2025-10-01T07:30:00Z] PNT0_Scaffold — scaffolding module verification complete
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Status: CLEAN; lake build successful; zero sorries
+- Blueprint coverage: N/A (scaffold module)
+- Content: Minimal imports (Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic); 
+  namespace StrongPNT; type alias SmoothingKernel; logarithm simplification lemmas
+- Verified: All proofs complete; no placeholders; module serves as lightweight foundation
+- Notes: Downstream PNT modules contain sorries (outside current scope)
+---
