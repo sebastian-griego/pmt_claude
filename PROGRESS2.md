@@ -1097,3 +1097,8 @@ Timestamp: 2025-10-01T05:14:18Z
 - Notes: Verified imports and lemmas; build OK.
 - PNT0_Scaffold.lean: scaffold refactor compiled (no sorries). Lines: 105. Blueprint coverage: N/A (scaffold). Blocking: many sorries remain in PNT1–PNT5; not modified here.
 2025-10-01T06:03Z [Scaffold] Verified clean compile; no sorries.\n- File: StrongPNT/PNT0_Scaffold.lean (105 lines)\n- Build: lake build OK\n- Notes: Imports minimal; namespace intact; helper log/abs lemmas present.\n- Blocking: Many sorries remain in PNT1–PNT5 (out of scope for this task).
+[2025-10-01T06:05:50Z] PNT0_Scaffold — scaffold verification pass
+- File: StrongPNT/PNT0_Scaffold.lean (105 lines)
+- Status: CLEAN (build OK; no sorries in this module)
+- Notes: Imports minimal; helper log/abs lemmas verified; downstream files still contain sorries (out of scope for this task).
+
