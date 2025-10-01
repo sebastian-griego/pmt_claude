@@ -143,3 +143,11 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 - Build: lake build OK; no sorries in PNT0
 - Blueprint coverage: unchanged (scaffold only)
 - Blocking: sorries remain in PNT1/PNT2/PNT4 (to tackle sequentially)
+[PNT0_Scaffold] Scaffold clean; no sorries; compiles with lake build.
+Lines: 65
+Blueprint [PNT0_Scaffold] Scaffold clean; no sorries; compiles with lake build.
+Lines: 65
+Blueprint %: N/A (scaffold only)
+Blockers: Many sorries remain in PNT1–PNT5; not imported in default build.
+Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+---
