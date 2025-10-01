@@ -306,3 +306,12 @@ Notes: kept imports minimal; added/verified basic log-abs lemmas; lake build cle
 - Build: lake build OK
 - Timestamp: 2025-10-01T01:13:35Z
 ---
+- PNT0_Scaffold: scaffolding lemmas clean and compiling (no sorries).
+  File: StrongPNT/PNT0_Scaffold.lean (80 lines)
+  Blueprint coverage: N/A for scaffolding; main files still pending.
+  Blocking: Many sorries remain in PNT1–PNT5; not addressed in this refactor.
+[PNT0_Scaffold] Status: compiled cleanly; no sorries; imports minimal
+File: StrongPNT/PNT0_Scaffold.lean (80 lines)
+Blueprint coverage: unchanged (scaffold-only)
+Blocking issues: Many sorries remain in PNT1–PNT5; will tackle next in sequence per blueprint.
+Timestamp: 2025-10-01T01:17:13Z
