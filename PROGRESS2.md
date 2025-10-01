@@ -639,3 +639,13 @@ Timestamp: 2025-10-01T02:47:07Z
   - Lines: 81
   - Blueprint coverage: N/A (scaffold module)
   - Notes: Build clean; numerous sorries remain in downstream files, untouched this pass.
+2025-10-01 — PNT0_Scaffold refactor
+
+- File: StrongPNT/PNT0_Scaffold.lean
+- Changes: tightened harmless helper lemmas and ensured clean compile
+  - Verified build: `lake build` OK
+  - Verified no sorries in this module
+  - Adjusted `log_abs_mul_of_ne_zero` and `log_abs_div_of_ne_zero` to use Mathlib APIs that compile reliably in current toolchain
+- Line count (file): 81
+- Blueprint coverage: N/A (scaffolding module only)
+- Blocking issues: project contains many `sorry` in downstream files; left unchanged per current frontier scope. Scaffold compiles and can be safely imported elsewhere.
