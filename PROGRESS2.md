@@ -1003,3 +1003,11 @@ Timestamp: 2025-10-01T05:14:18Z
 - Blueprint coverage: N/A (scaffolding module)
 - Notes: Minimal imports verified; namespace StrongPNT stable; helper log/abs lemmas compile correctly; no incomplete proofs. Ready for downstream use.
 [2025-10-01] PNT0_Scaffold — Verified clean build, zero sorries in module; kept minimal imports and added helper simp lemmas.\n- File: StrongPNT/PNT0_Scaffold.lean (95 lines)\n- Blueprint coverage: N/A (scaffolding module)\n- Notes: Project builds (lake build StrongPNT). Deeper files contain sorries but are not imported by the build target; next steps will address them sequentially as per blueprint.
+[PNT0_Scaffold] Scaffolding refactor: clean compile, no sorries in this module.
+- File: StrongPNT/PNT0_Scaffold.lean
+- Status: COMPLETED (scaffold utilities and simp lemmas)
+- Lines: 95
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Default target 'Scaffold' builds; downstream PNT files contain sorries and are out of scope for this step.
+- Next: When ready, target least-progress blueprint lemma in PNT1_ComplexAnalysis after clearing sorries policy-wise or building PNT explicitly.
+
