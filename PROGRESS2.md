@@ -983,3 +983,11 @@ Timestamp: 2025-10-01T05:14:18Z
 - Build: lake build (default target Scaffold) → SUCCESS
 - Blueprint coverage: N/A (scaffold)
 - Notes: Imports minimal; namespace stable; helper lemmas available for downstream. Full `PNT` target still has sorries (not in scope here).
+[2025-10-01 05:26:04 UTC] PNT0_Scaffold — scaffolding check
+- File: StrongPNT/PNT0_Scaffold.lean
+- Status: clean; compiles; 0 sorries in file
+- Lines: 95
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Minimal imports; adds small simp lemmas for Real.log and abs; no heavy dependencies.
+- Repo-wide sorries present elsewhere (see PNT1/2/4/5); unchanged per frontier scope.
+
