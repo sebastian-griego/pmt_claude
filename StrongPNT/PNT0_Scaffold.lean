@@ -50,6 +50,10 @@ This is convenient because `(n : ℝ) ≥ 0`. -/
   have hn : (0 : ℝ) ≤ n := by exact_mod_cast (Nat.zero_le n)
   simp [abs_of_nonneg hn]
 
+/-- A convenience specialization of `log_abs_nat` for `2`. -/
+@[simp] theorem log_abs_two : Real.log (|2| : ℝ) = Real.log (2 : ℝ) := by
+  exact (log_abs_nat 2)
+
 /-- For nonzero reals, `log |x * y| = log |x| + log |y|`. -/
 theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
     Real.log (|x * y|) = Real.log (|x|) + Real.log (|y|) := by
