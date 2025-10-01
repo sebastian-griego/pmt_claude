@@ -1471,3 +1471,17 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - Build verification: `lake build` succeeds with no warnings or errors
 - Frontier goal: ACHIEVED (PNT scaffolding module compiles cleanly)
 ---
+2025-10-01T08:58:31+00:00 [PNT0_Scaffold] Verified clean scaffold compile
+- File: StrongPNT/PNT0_Scaffold.lean (no sorries)
+- Status: lake build OK
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Notes: Frontier goal satisfied; downstream PNT1–PNT5 contain sorries outside current scope.
+---
+[PNT0_Scaffold] Status: Compiled cleanly (no sorries)
+- File: StrongPNT/PNT0_Scaffold.lean
+- Lines: 112
+- Blueprint coverage: scaffolding only (0 0irect theorems)
+- Notes: Verified imports minimal; namespace closed; provides small Real.log simp lemmas used downstream.
+- Blockers: Many sorries remain in PNT1–PNT5; not addressed in this scaffolding pass.
+- Build: lake build OK
+
