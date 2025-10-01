@@ -597,3 +597,14 @@ Notes: Build OK. Downstream files contain sorries; not modified in this step.
 - Notes: kept imports minimal (Real.Basic, Log.Basic); added only safe @[simp] lemmas.
 - Date: 2025-10-01T02:41:56Z
 
+[2025-10-01] PNT0_Scaffold compile hygiene: OK
+- File: StrongPNT/PNT0_Scaffold.lean (81 lines)
+- Theorems: trivial simplification lemmas only; zero sorries
+- Blueprint coverage: unchanged (scaffold only)
+- Notes: Build succeeds; many sorries remain in PNT1–PNT5; not expanded here per scaffold focus
+[PNT0_Scaffold] Status: Clean compile, no sorries.
+Lines: 81
+Blueprint coverage: N/A (scaffold only)
+Notes: Global sorries exist in downstream files; scaffold ready.
+Timestamp: 2025-10-01T02:47:07Z
+---
