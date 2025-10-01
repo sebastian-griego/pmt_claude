@@ -422,3 +422,8 @@ Notes: Built project successfully; many sorries remain in heavy modules, unchang
 - Content: 10 complete log/abs lemmas + SmoothingKernel alias
 - Notes: No changes needed; scaffold ready for downstream use.
 
+[Scaffold] PNT0_Scaffold.lean verified clean build
+> Lines: 80
+> Status: OK (no sorries in this module)
+> Note: Project contains sorries elsewhere; scaffold compiles fast and clean.
+> Next: pick smallest downstream sorry to replace with a lemma once allowed.
