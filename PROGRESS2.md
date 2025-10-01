@@ -991,3 +991,7 @@ Timestamp: 2025-10-01T05:14:18Z
 - Notes: Minimal imports; adds small simp lemmas for Real.log and abs; no heavy dependencies.
 - Repo-wide sorries present elsewhere (see PNT1/2/4/5); unchanged per frontier scope.
 
+>> PNT0_Scaffold.lean — scaffolding refactor completed; compiles cleanly with zero sorries.
+>> Lines: 95
+>> Blueprint coverage: N/A (scaffold only)
+>> Blocking issues: none for scaffold; many sorries remain in advanced modules (PNT1–PNT5).
