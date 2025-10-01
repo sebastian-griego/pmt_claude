@@ -732,3 +732,8 @@ Lines: 81
 % Blueprint covered: N/A (scaffold module)
 Blocking: Multiple sorries exist in PNT1–PNT5 modules; scaffold compiles cleanly.
 ---
+[PNT0_Scaffold] Scaffolding verified — compile clean; no sorries.
+Lines: 81
+Blueprint %: N/A (scaffold)
+Blocking: 50 sorries across StrongPNT/*.lean — must resolve before advancing blueprint lemmas.
+
