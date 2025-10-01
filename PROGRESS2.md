@@ -811,3 +811,10 @@ Blocking: numerous sorries in other modules; scaffold unaffected.
 - Notes: Other StrongPNT modules contain sorries but are not built now.
 - Timestamp: 2025-10-01T04:13:10Z
 
+[2025-10-01T04:15Z] PNT0_Scaffold — verification complete
+- File: StrongPNT/PNT0_Scaffold.lean (81 lines)
+- Status: CLEAN (build OK; zero sorries in file)
+- Build: lake build → SUCCESS
+- Notes: Imports minimal; namespace intact; helper lemmas compile. Other PNT modules still contain sorries (unchanged this iteration).
+---
+2025-10-01T04:16Z [Scaffold] Verified StrongPNT/PNT0_Scaffold.lean clean compile (no sorries). Lines: 81. Blueprint: N/A (scaffold only). Notes: Minimal imports; namespace intact; helper log/abs lemmas present. Build OK; sorries remain in PNT1–PNT5 (out of scope for this refactor).
