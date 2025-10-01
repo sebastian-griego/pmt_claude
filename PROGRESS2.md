@@ -49,6 +49,14 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 - Lean lines: 68
 - Blueprint coverage: N/A (scaffolding module)
 ---
+[2025-10-01] PNT0_Scaffold: Refactor complete — clean compile verified
+- File: StrongPNT/PNT0_Scaffold.lean (113 lines)
+- Status: Build OK, zero sorries
+- Content: SmoothingKernel alias + comprehensive log-abs lemma suite
+- Lemmas added: log_one_real, log_abs_of_pos/nonneg, log_abs_nat/two, log_abs_mul/div/inv/pow, specialized versions for positive args
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Minimal imports (Real.Basic, Log.Basic); namespace StrongPNT; all proofs complete
+---
 [2025-10-01] PNT0_Scaffold refactor COMPLETE
 - File: StrongPNT/PNT0_Scaffold.lean (113 lines)
 - Status: Clean compilation verified; no sorries
@@ -1588,3 +1596,11 @@ Blocking issues: Repository contains sorries in advanced modules (PNT2, PNT4); s
   - Lean LOC: 112
   - Blueprint coverage: N/A (scaffolding only)
   - Notes: Minimal imports; namespace stable; helper log/abs lemmas available to downstream files.
+[2025-10-01T09:46:32Z] PNT0_Scaffold refactor — Compile-only scaffolding
+- Status: OK (no sorries), lake build Scaffold passes with -KwarnAsError
+- File: StrongPNT/PNT0_Scaffold.lean, lines: 112
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Kept imports minimal; namespace ; added only trivial log/abs lemmas; default target remains fast and green. Other PNT files contain sorries but are excluded from default build by lakefile config.
+
+[Correction] Notes: Kept imports minimal; namespace StrongPNT; helper log/abs lemmas; default target fast and green.
+
