@@ -1431,3 +1431,10 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
   Lines: 112; Blueprint coverage: N/A (scaffold only).
   Verified: 'lake build' default target (Scaffold) succeeds.
   Note: sorries remain in PNT1–PNT5 (non-default target); not modified this iteration.
+[PNT0_Scaffold] Verified clean compile; no sorries.
+- File: StrongPNT/PNT0_Scaffold.lean:1
+- Lines: 112
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Notes: Minimal scaffold ready for downstream imports; project still contains sorries in PNT1–PNT5 which are out of scope for this step.
+- Timestamp: 2025-10-01T08:47:21Z
+
