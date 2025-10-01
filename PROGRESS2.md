@@ -1604,3 +1604,18 @@ Blocking issues: Repository contains sorries in advanced modules (PNT2, PNT4); s
 
 [Correction] Notes: Kept imports minimal; namespace StrongPNT; helper log/abs lemmas; default target fast and green.
 
+
+---
+Iteration: Scaffold check and polish
+Timestamp: 2025-10-01 09:48:47 UTC
+File: StrongPNT/PNT0_Scaffold.lean
+Status: Clean (no sorry), compiles
+Details:
+- Verified `lake build` succeeds
+- Verified scaffold has no `sorry`
+- Provides small helper lemmas: `log_one_real`, `log_abs_of_pos`, `log_abs_of_nonneg`, `log_abs_mul_of_ne_zero`, `log_abs_div_of_ne_zero`, `log_abs_inv`, `log_abs_pow`, etc.
+- Purpose: lightweight imports and namespace for downstream PNT files
+Lean LOC (file): 112
+Blueprint coverage: n/a (scaffold only)
+Blocking issues: none for this module; many sorries remain in downstream PNT files
+- [PNT0_Scaffold] Scaffold module compiles cleanly; no sorries. (112 lines). Blueprint coverage unchanged. 2025-10-01T09:50:56+00:00
