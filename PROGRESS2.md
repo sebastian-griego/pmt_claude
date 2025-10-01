@@ -322,3 +322,10 @@ Timestamp: 2025-10-01T01:17:13Z
   Blueprint coverage: N/A (scaffold only)
   Notes: Downstream files contain sorries; left untouched per frontier goal.
 
+
+[PNT0_Scaffold] Verify clean scaffold compile
+- File: StrongPNT/PNT0_Scaffold.lean (80 lines)
+- Status: build OK; zero sorries in this file
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Notes: Kept minimal, added simp conveniences earlier; global project still has many sorries (PNT1–PNT5), which block advancing new theorems per policy. Frontier limited to scaffold refactor this pass.
+- Timestamp: 2025-10-01T01:24:51Z
