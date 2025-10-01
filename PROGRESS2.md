@@ -1344,3 +1344,4 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - Blueprint coverage: N/A (scaffolding module)
 - Notes: confirmed Mathlib imports sufficient; downstream modules import this. Build: OK.
 
+2025-10-01T07:59:41Z [Scaffold] StrongPNT/PNT0_Scaffold.lean — verified clean compile\n- Status: BUILD OK; zero sorries in this file\n- Lines: 112\n- Theorems touched: simp helpers for log/abs (no changes)\n- Blueprint coverage: N/A (scaffold only)\n- Notes: Project still contains many sorries in PNT1–PNT5; frontier limited to scaffold per task.
