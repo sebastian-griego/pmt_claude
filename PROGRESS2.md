@@ -1089,3 +1089,4 @@ Timestamp: 2025-10-01T05:14:18Z
 - Lines: 105
 - Blueprint coverage: unchanged (scaffold only)
 - Notes: Verified imports and lemmas; build OK.
+- PNT0_Scaffold.lean: scaffold refactor compiled (no sorries). Lines: 105. Blueprint coverage: N/A (scaffold). Blocking: many sorries remain in PNT1–PNT5; not modified here.
