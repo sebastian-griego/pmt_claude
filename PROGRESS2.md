@@ -1521,3 +1521,10 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - Content: SmoothingKernel abbrev + 14 log simp lemmas
 - Conclusion: Refactoring task complete; scaffold ready for use
 ---
+[2025-10-01T09:13:47Z] PNT0_Scaffold – scaffolding refactor compile check
+- Status: Clean (no changes needed)
+- File: StrongPNT/PNT0_Scaffold.lean
+- Lean lines: 112
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Build succeeds; other modules contain sorries not addressed in this refactor.
+
