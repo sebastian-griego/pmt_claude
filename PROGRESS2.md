@@ -223,3 +223,10 @@ Timestamp: 2025-10-01T00:23:53Z
 - Lines: 73 (module-level utilities)
 - Blueprint coverage: N/A (scaffolding only)
 - Blocking issues: none for scaffold; many sorries remain in later files but out of scope for this step.
+[2025-10-01 00:30] PNT0_Scaffold — verification
+- File: StrongPNT/PNT0_Scaffold.lean
+- Status: clean compile; zero sorries
+- Lines: 73
+- Blueprint coverage: N/A (scaffold-only)
+- Notes: Build OK. Many sorries exist in PNT1–PNT5; frontier limited to scaffold integrity this pass.
+
