@@ -538,3 +538,15 @@ Notes: Build OK. Downstream files contain sorries; not modified in this step.
 - Content: 10 helper lemmas (log/abs simplifications) + SmoothingKernel alias
 - Notes: Module ready for downstream use; no changes required.
 
+[2025-10-01] PNT0_Scaffold — verification complete
+- File: StrongPNT/PNT0_Scaffold.lean (81 lines)
+- Status: build clean; zero sorries
+- Imports: minimal (Real.Basic, Log.Basic)
+- Notes: Default target  builds fast and clean; deeper modules (PNT1–PNT5) still contain sorries and are not part of this frontier.
+---
+[2025-10-01] PNT0_Scaffold — verification complete
+- File: StrongPNT/PNT0_Scaffold.lean (81 lines)
+- Status: build clean; zero sorries
+- Imports: minimal (Real.Basic, Log.Basic)
+- Notes: Default target Scaffold builds fast and clean; deeper modules (PNT1–PNT5) still contain sorries and are not part of this frontier.
+---
