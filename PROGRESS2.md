@@ -1423,3 +1423,7 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 ---
 [2025-10-01T08:38Z] PNT0_Scaffold — verification complete\n- File: StrongPNT/PNT0_Scaffold.lean (112 lines)\n- Status: CLEAN (build OK; zero sorries in file)\n- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic\n- Notes: Minimal scaffold verified; downstream files still contain sorries (out of scope this pass).
 [PNT0_Scaffold] Scaffold verified clean compile\n- File: StrongPNT/PNT0_Scaffold.lean (112 lines)\n- Status: build OK; zero sorries in file\n- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic\n- Blueprint coverage: N/A (scaffolding only)\n- Notes: Grepped repository shows sorries in PNT1–PNT5; frontier limited to scaffold prep.\n- Timestamp: 2025-10-01T08:39:36+00:00\n
+[2025-10-01T[2025-10-01T07:35:00Z] PNT0_Scaffold — verified clean compile; no sorries
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Build: lake build OK
+- Notes: Imports minimal; helper log/abs lemmas intact; downstream modules unchanged.
