@@ -953,3 +953,4 @@ Blocking: numerous sorries in other modules; scaffold unaffected.
 - Notes: Provides basic Real.log / abs simp lemmas and SmoothingKernel alias for downstream files.
 - Blocking: Many sorries remain in later modules (see grep).
 
+2025-10-01T05:07:21Z [PNT0_Scaffold] Verified clean scaffold compile\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Status: build OK; zero sorries in file\n- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic\n- Notes: Grepped for sorries; many exist in PNT1–PNT5. Frontier limited to scaffold refactor.\n---
