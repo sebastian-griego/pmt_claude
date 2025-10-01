@@ -663,3 +663,5 @@ Lines: 81
 Blueprint coverage: 0% (scaffold only)
 Notes: Verified imports and namespace; downstream files still contain sorries. Focus kept on scaffolding integrity per frontier goal.
 
+[2025-10-01T03:14Z] PNT0_Scaffold — verified clean compile\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Status: COMPLETE — no changes; zero sorries in file\n- Build: lake build OK\n- Blueprint coverage: N/A (scaffold)\n- Notes: Global sorries persist in PNT1–PNT5 (e.g., StrongPNT/PNT1_ComplexAnalysis.lean:1104); scaffold ready for downstream use.\n
+[2025-10-01T03:20Z] PNT0_Scaffold — verified clean compile\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Status: COMPLETE — no changes; zero sorries in file\n- Build: lake build OK\n- Notes: Imports minimal (Real.Basic, Log.Basic); namespace StrongPNT; helper log/abs simp lemmas ready for downstream modules.\n
