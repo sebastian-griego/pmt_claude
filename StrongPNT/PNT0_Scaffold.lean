@@ -62,4 +62,12 @@ theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
   have hy' : |y| ≠ 0 := abs_ne_zero.mpr hy
   simp [abs_div, Real.log_div hx' hy']
 
+/-- A convenient power rule inside a log–absolute: `log |x^n| = n * log |x|`. -/
+@[simp] theorem log_abs_pow (x : ℝ) (n : ℕ) :
+    Real.log (|x ^ n|) = (n : ℝ) * Real.log (|x|) := by
+  calc
+    Real.log (|x ^ n|) = Real.log ((|x|) ^ n) := by
+      simp [abs_pow]
+    _ = (n : ℝ) * Real.log (|x|) := Real.log_pow (|x|) n
+
 end StrongPNT

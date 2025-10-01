@@ -118,6 +118,12 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 - Lines: 61 (no sorries)
 - Blueprint: N/A (scaffold utilities only)
 - Notes: kept imports minimal; added small log/abs lemmas; build clean.
+
+2025-10-01T00:15Z [PNT0_Scaffold] Verify clean scaffold compile
+- File: StrongPNT/PNT0_Scaffold.lean (65 lines)
+- Status: lake build OK; zero sorries in this file
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Notes: Ran grep for sorries across project; many remain in PNT1–PNT5. Frontier limited to scaffolding; no code changes needed here.
 - Blocking: repository contains many sorries in PNT2–PNT5; unchanged in this pass.
 
 [2025-09-30 23:49] PNT0_Scaffold refactor — status: COMPLETE
@@ -173,3 +179,22 @@ Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)
 - Blueprint coverage: N/A (scaffold module)
 - Notes: Verified lake build; other PNT modules still contain sorries to address later.
 
+[2025-10-01 Autonomous] PNT0_Scaffold — Refactor verification session
+- Task: Ensure PNT scaffolding modules compile cleanly
+- File: StrongPNT/PNT0_Scaffold.lean (65 lines)
+- Status: ✓ VERIFIED — module already compiles cleanly
+- Build: lake build → SUCCESS (1816 jobs)
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Contents: 8 complete log/abs helper lemmas, SmoothingKernel type alias
+- All proofs: Complete (no sorries)
+- Downstream: 5 modules import PNT0_Scaffold (PNT1-PNT5)
+- Blueprint coverage: N/A (scaffolding infrastructure)
+- Notes: No changes required; module already meets all requirements.
+
+[2025-10-01 00:20:00] PNT0_Scaffold — minor scaffold enhancement
+- Added: `[simp]` lemma `log_abs_pow` and cleaned proof style
+- File: StrongPNT/PNT0_Scaffold.lean (73 lines)
+- Status: COMPLETE (no sorries; lints clean)
+- Build: lake build → SUCCESS (1816 jobs)
+- Blueprint coverage: N/A (scaffold utility only)
+- Blockers: Numerous sorries remain in PNT1–PNT5; untouched in this pass
