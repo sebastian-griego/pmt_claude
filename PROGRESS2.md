@@ -485,3 +485,10 @@ Notes: Build OK. Downstream files contain sorries; not modified in this step.
 - Notes: Minimal imports; helper log/abs lemmas for downstream use.
 - Blocking: Many sorries in PNT1–PNT5; not modified in this step.
 
+[PNT0_Scaffold]
+- Status: scaffold compiles cleanly; minor lemma added (log_abs_two); no sorries
+- Lines in file: 81
+- Blueprint coverage: N/A (scaffold module)
+- Blocking: none for scaffold; other files contain sorries by design
+- Date: 2025-10-01T02:18:02Z
+
