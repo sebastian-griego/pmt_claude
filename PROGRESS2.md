@@ -1201,3 +1201,11 @@ Blocking: Many sorries in PNT1–PNT5 remain; not addressed here.
 - Blueprint coverage: N/A (scaffold)
 - Notes: Imports minimal; namespace intact; helper log/abs lemmas present. Many sorries remain in PNT1–PNT5 (not touched this pass).
 ---
+[2025-10-01] PNT0_Scaffold — Scaffolding module verified\n- File: StrongPNT/PNT0_Scaffold.lean\n- Status: Compiles cleanly, no sorries\n- Lines: 112\n- Blueprint coverage: N/A (scaffold only)\n- Notes: Minimal imports; provides small Real.log + abs lemmas and alias SmoothingKernel.\n
+[2025-10-01] PNT0_Scaffold — Scaffolding module verified
+- File: StrongPNT/PNT0_Scaffold.lean
+- Status: Compiles cleanly, no sorries
+- Lines: 112
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Minimal imports; provides small Real.log + abs lemmas and alias SmoothingKernel.
+---
