@@ -1266,3 +1266,16 @@ PNT0_Scaffold — Minimal scaffolding module [COMPLETED]
 - Blueprint coverage: N/A (scaffold utilities only)
 - Notes: provides small `Real.log` + `abs` lemmas and a `SmoothingKernel` alias to support downstream files; imports kept minimal.
 - Blocking issues: many `sorry` placeholders remain in PNT1–PNT5 modules; not modified in this pass.
+[PNT0_Scaffold] Status: verified clean build; no sorries.
+File: StrongPNT/PNT0_Scaffold.lean
+Lines: 112
+Blueprint coverage: N/A (scaffold module)
+Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Frontier scoped to scaffold only; no changes needed.
+---
+[2025-10-01T07:33:18+00:00] PNT0_Scaffold — refactor verified clean; no changes needed
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Status: Compiles cleanly (`lake build` OK); zero sorries in module
+- Blueprint coverage: N/A (scaffold module provides utility lemmas)
+- Content: Minimal imports, namespace StrongPNT, SmoothingKernel alias, log/abs simp lemmas
+- Notes: All proofs complete; module serves as lightweight foundation for downstream PNT files
+
