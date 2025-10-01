@@ -1550,3 +1550,4 @@ Timestamp: 2025-10-01T09:15:22Z
 - File: StrongPNT/PNT0_Scaffold.lean (current lines: 112)
 - Status: build OK; zero sorries in file
 - Notes: Imports minimal; namespace intact; helper log/abs lemmas stable. Project contains sorries in PNT1–PNT5 (out of scope for this scaffold task).
+[PNT0_Scaffold] Refactor scaffolding module compiles cleanly; no sorries. Lines: 112. Blueprint coverage unchanged (scaffold only). Blocking: many sorries remain in PNT1–PNT5; frontier limited to scaffold refactor this iteration.
