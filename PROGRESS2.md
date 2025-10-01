@@ -454,3 +454,4 @@ Notes: Built project successfully; many sorries remain in heavy modules, unchang
   Lines: 80
   Blueprint coverage: unchanged (scaffold only)
   Blocking: many `sorry` remain in PNT1–PNT5; deep complex-analytic results required.
+[2025-10-01] PNT0_Scaffold — verified clean compile; no sorries. Lines: 77. Blueprint: N/A (scaffold only). Notes: Imports minimal; namespace intact; helper lemmas consistent with Mathlib (log_mul/div/inv/pow).
