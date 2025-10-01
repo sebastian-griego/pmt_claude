@@ -1583,3 +1583,8 @@ Line count: 112
 Status: Builds cleanly; no sorries in file
 Blueprint coverage: N/A (setup module)
 Blocking issues: Repository contains sorries in advanced modules (PNT2, PNT4); scaffold remains independent and safe.
+- [Scaffold] StrongPNT/PNT0_Scaffold.lean — compile clean
+  - Status: Completed (no sorries)
+  - Lean LOC: 112
+  - Blueprint coverage: N/A (scaffolding only)
+  - Notes: Minimal imports; namespace stable; helper log/abs lemmas available to downstream files.
