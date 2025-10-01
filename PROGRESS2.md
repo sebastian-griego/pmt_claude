@@ -825,3 +825,8 @@ Blocking: numerous sorries in other modules; scaffold unaffected.
 - Blueprint coverage: N/A (scaffold only)
 - Notes: Verified minimal imports and namespace. No changes needed.
 
+[PNT0_Scaffold] Scaffold module compiles cleanly; no sorries in file.
+- Lines: 81 (StrongPNT/PNT0_Scaffold.lean)
+- Blueprint coverage: N/A (scaffold); 0% new this iteration
+- Notes: Project builds. Many sorries remain in heavy modules; left untouched per frontier task.
+
