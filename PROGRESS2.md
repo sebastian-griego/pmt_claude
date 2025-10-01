@@ -1155,3 +1155,10 @@ Blocking: Many sorries remain in PNT1–PNT5; will address sequentially in next 
 ---
 [PNT0_Scaffold] Status: clean compile, no sorries. Lines: 112. Blueprint coverage: N/A (scaffold). Blocking: none. Timestamp: 2025-10-01T06:37:59Z
 [PNT0_Scaffold] Status: Clean compile; no sorries in file.\n- Lines: 112\n- Blueprint coverage: N/A (scaffold)\n- Notes: Verified minimal imports; downstream modules import this scaffold. Global sorries remain elsewhere, not modified in this iteration.\n- Timestamp: 2025-10-01T06:39:15Z\n
+[PNT0_Scaffold] Status: CLEAN (no sorries)
+File: StrongPNT/PNT0_Scaffold.lean
+Lines: 112
+Blueprint coverage: N/A (scaffold)
+Notes: Verified lake build succeeds; other modules contain sorries not in scope for this scaffold refactor.
+Timestamp: 2025-10-01T06:41:39Z
+---
