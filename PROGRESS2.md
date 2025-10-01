@@ -674,3 +674,15 @@ Notes: Verified imports and namespace; downstream files still contain sorries. F
 - Blocking: Many sorries remain in PNT1–PNT5; outside current scope
 
 [Scaffold] StrongPNT/PNT0_Scaffold.lean — verified clean compile; no sorries.\n- Lines: 81\n- Blueprint coverage: N/A (scaffold-only)\n- Notes: Minimal imports; namespace intact; helper log/abs lemmas available for downstream files.\n- Build: lake build OK; project still contains sorries in PNT1–PNT5 (out of scope for this scaffold refactor).\n- Timestamp: 2025-10-01T03:20:54Z
+
+---
+Date: 2025-10-01T03:22:27Z
+File: StrongPNT/PNT0_Scaffold.lean
+Task: Scaffold refactor/validation (no theorems)
+Status: Completed — compiles cleanly, no sorries
+Lean LOC: 2025-10-01T03:22:27Z_LINES
+Blueprint coverage: N/A (scaffolding only)
+Notes:
+- Verified minimal imports and namespace.
+- Added no new obligations; build remains green.
+- Next: proceed to frontier theorem in PNT1 when ready.
