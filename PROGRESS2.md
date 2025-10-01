@@ -966,3 +966,8 @@ Timestamp: 2025-10-01T05:14:18Z
 - Status: build OK; zero sorries in scaffold
 - Blueprint coverage: N/A (scaffold)
 - Notes: Minimal imports; namespace stable. Downstream files still contain sorries (unchanged this pass).
+[2025-10-01T05:20Z] PNT0_Scaffold — refactor verification
+- File: StrongPNT/PNT0_Scaffold.lean (95 lines)
+- Status: CLEAN (build OK; zero sorries in file)
+- Imports: minimal (Real.Basic, Log.Basic)
+- Notes: Helper log/abs lemmas present; namespace Stable. Downstream modules already import this scaffold. Many sorries remain in PNT1–PNT5 (out of scope for this scaffold step).
