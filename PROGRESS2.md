@@ -118,6 +118,11 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 - Lines: 61 (no sorries)
 - Blueprint: N/A (scaffold utilities only)
 - Notes: kept imports minimal; added small log/abs lemmas; build clean.
+\n+2025-10-01T01:45Z [PNT0_Scaffold] Verified clean compile
+- File: StrongPNT/PNT0_Scaffold.lean (current ~80 lines)
+- Status: build OK; zero sorries in file
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Notes: No code changes needed for this pass; scaffold provides small `[simp]` lemmas for `Real.log` and `abs` used downstream. Project still contains sorries in PNT1–PNT5; frontier kept to scaffold per task.
 
 2025-10-01T00:15Z [PNT0_Scaffold] Verify clean scaffold compile
 - File: StrongPNT/PNT0_Scaffold.lean (65 lines)
