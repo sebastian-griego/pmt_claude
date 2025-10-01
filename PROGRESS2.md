@@ -1345,3 +1345,9 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - Notes: confirmed Mathlib imports sufficient; downstream modules import this. Build: OK.
 
 2025-10-01T07:59:41Z [Scaffold] StrongPNT/PNT0_Scaffold.lean — verified clean compile\n- Status: BUILD OK; zero sorries in this file\n- Lines: 112\n- Theorems touched: simp helpers for log/abs (no changes)\n- Blueprint coverage: N/A (scaffold only)\n- Notes: Project still contains many sorries in PNT1–PNT5; frontier limited to scaffold per task.
+[2025-10-01T[2025-10-01T07:15Z] PNT0_Scaffold — verification complete
+- File: StrongPNT/PNT0_Scaffold.lean (~80 lines)
+- Status: build OK; zero sorries in file
+- Change: removed stray .ipynb_checkpoints Lean file to keep scaffold clean
+- Notes: Imports minimal; namespace intact; downstream modules still contain sorries (out of scope for this scaffold task).
+---
