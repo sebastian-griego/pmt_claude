@@ -238,3 +238,7 @@ Timestamp: 2025-10-01T00:23:53Z
 - Notes: Many sorries remain in PNT1–PNT5; frontier goal complete.
 
 [2025-10-01T00:36Z] PNT0_Scaffold — Verified clean compile; no sorries in file. Lines: 73. Blueprint: N/A (scaffold). Note: Many sorries remain in PNT1–PNT5; frontier scope limited to scaffold integrity.
+2025-10-01T00:39Z [PNT0_Scaffold] Scaffold compile check — SUCCESS
+- File: StrongPNT/PNT0_Scaffold.lean (73 lines)
+- Status: lake build OK; no sorries in this file
+- Notes: Many sorries persist in PNT1–PNT5; frontier limited to scaffold integrity this pass.
