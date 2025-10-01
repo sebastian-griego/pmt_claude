@@ -961,3 +961,8 @@ Notes: Build succeeds. Global sorries remain in other files; focusing on scaffol
 Timestamp: 2025-10-01T05:14:18Z
 
 [2025-10-01T05:15Z] PNT0_Scaffold: verified clean compile; no sorries.\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Blueprint coverage: N/A (scaffold module)\n- Notes: Imports minimal; helper log/abs lemmas stable; downstream files still contain sorries (out of scope for this scaffold refactor).
+[2025-10-01] PNT0_Scaffold — verified clean compile; added pos variants for log|mul| and log|div|; lints clean.
+- File: StrongPNT/PNT0_Scaffold.lean (95 lines)
+- Status: build OK; zero sorries in scaffold
+- Blueprint coverage: N/A (scaffold)
+- Notes: Minimal imports; namespace stable. Downstream files still contain sorries (unchanged this pass).

@@ -78,4 +78,18 @@ theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
     Real.log (|x ^ n|) = (n : ℝ) * Real.log (|x|) := by
   rw [abs_pow, Real.log_pow]
 
+/-- If `x, y > 0` then `log |x*y| = log x + log y`. -/
+@[simp] theorem log_abs_mul_of_pos {x y : ℝ} (hx : 0 < x) (hy : 0 < y) :
+    Real.log (|x * y|) = Real.log x + Real.log y := by
+  have hx' : x ≠ 0 := ne_of_gt hx
+  have hy' : y ≠ 0 := ne_of_gt hy
+  simp [abs_of_pos (mul_pos hx hy), Real.log_mul hx' hy']
+
+/-- If `x, y > 0` then `log |x / y| = log x - log y`. -/
+@[simp] theorem log_abs_div_of_pos {x y : ℝ} (hx : 0 < x) (hy : 0 < y) :
+    Real.log (|x / y|) = Real.log x - Real.log y := by
+  have hx' : x ≠ 0 := ne_of_gt hx
+  have hy' : y ≠ 0 := ne_of_gt hy
+  simp [abs_of_pos (div_pos hx hy), Real.log_div hx' hy']
+
 end StrongPNT
