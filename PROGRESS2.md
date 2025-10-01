@@ -582,3 +582,10 @@ Notes: Build OK. Downstream files contain sorries; not modified in this step.
 - Content: 10 complete log/abs lemmas + SmoothingKernel alias; all proofs idiomatic
 - Notes: Module already in ideal state per frontier goal.
 
+[2025-10-01] PNT0_Scaffold refactor — VERIFIED\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Status: clean compile; zero sorries\n- Build: lake build OK\n- Notes: Kept imports minimal; namespace intact; helper log/abs lemmas present.\n        Next logical target: fix lem_removable_singularity at StrongPNT/PNT1_ComplexAnalysis.lean:1104 using removable singularity at 0 (define extension via deriv f 0).\n
+
+[PNT0_Scaffold] 2025-10-01 — Final verification: scaffold optimal
+- File: StrongPNT/PNT0_Scaffold.lean (81 lines)
+- Status: ✓ builds clean, ✓ no sorries, ✓ minimal imports, ✓ well-documented
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Module serves as clean baseline; ready for downstream use.
