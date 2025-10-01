@@ -152,3 +152,4 @@ Blockers: Many sorries remain in PNT1–PNT5; not imported in default build.
 Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)
 ---
 [2025-10-01_00:06:07] PNT0_Scaffold: compile check OK; no sorries in file; 65 loc; blueprint coverage unaffected (scaffold only).
+2025-10-01T00:09:47Z | PNT0_Scaffold: scaffolding lemmas compiled cleanly (no sorries). Line count: 65. Blueprint coverage: N/A (scaffold). Notes: Refined log abs lemmas with nonzero hypotheses compatible with Mathlib API; ensured minimal imports and namespace. Build: OK.
