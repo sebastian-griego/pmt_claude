@@ -1372,3 +1372,8 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
   Blueprint coverage: N/A (scaffold module; no direct blueprint theorems)
   Notes: verified lake build; many sorries remain in other modules (see PNT2–PNT5, PNT3). Next step would be to start eliminating sorries from earliest dependency file.
 - PNT0_Scaffold: status=clean (no sorries), build OK\n  Lines: 112\n  Blueprint coverage: unchanged (scaffold only)\n  Blocking: many sorries in PNT1–PNT5; heavy complex analysis lemmas required.
+2025-10-01T08:20Z [Scaffold] Verified StrongPNT/PNT0_Scaffold.lean compiles cleanly; zero sorries in this module.
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Status: BUILD OK (lake build)
+- Blueprint coverage: N/A (scaffold module)
+- Notes: Minimal imports and namespace; provides basic log/abs helpers and `SmoothingKernel` alias. Downstream files still contain sorries (50 occurrences across PNT1–PNT5); not addressed in this pass per frontier scope.
