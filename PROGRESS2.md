@@ -1427,3 +1427,7 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - File: StrongPNT/PNT0_Scaffold.lean (112 lines)
 - Build: lake build OK
 - Notes: Imports minimal; helper log/abs lemmas intact; downstream modules unchanged.
+- [Scaffold] StrongPNT.PNT0_Scaffold: scaffold lemmas compile (no sorries).
+  Lines: 112; Blueprint coverage: N/A (scaffold only).
+  Verified: 'lake build' default target (Scaffold) succeeds.
+  Note: sorries remain in PNT1–PNT5 (non-default target); not modified this iteration.
