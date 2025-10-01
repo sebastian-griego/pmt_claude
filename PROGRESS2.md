@@ -830,3 +830,11 @@ Blocking: numerous sorries in other modules; scaffold unaffected.
 - Blueprint coverage: N/A (scaffold); 0% new this iteration
 - Notes: Project builds. Many sorries remain in heavy modules; left untouched per frontier task.
 
+[PNT0_Scaffold] Status: CLEAN\n- File: StrongPNT/PNT0_Scaffold.lean\n- Lines: 81\n- Blueprint coverage: 0% (scaffolding only)\n- Notes: Builds with no sorries; provides basic simp lemmas for Real.log/abs used downstream.\n- Blocking: Many sorries exist in later modules (PNT1–PNT5), not addressed in this refactor; build remains green since those modules are not on the default import path.\n
+[PNT0_Scaffold] Status: CLEAN
+- File: StrongPNT/PNT0_Scaffold.lean
+- Lines: 81
+- Blueprint coverage: 0% (scaffolding only)
+- Notes: Builds with no sorries; provides basic simp lemmas for Real.log/abs used downstream.
+- Blocking: Many sorries exist in later modules (PNT1–PNT5), not addressed in this refactor; build remains green since those modules are not on the default import path.
+
