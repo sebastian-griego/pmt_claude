@@ -854,3 +854,9 @@ Blocking: numerous sorries in other modules; scaffold unaffected.
 - Notes: Module ready for downstream use.
 ---
 - PNT0_Scaffold: scaffolding compiles cleanly; no sorries.\n  Lines: 81\n  Blueprint coverage: no change (scaffold only)\n  Notes: Verified imports minimal; used by PNT1–PNT5. Build OK.
+[2025-10-01 04:42] PNT0_Scaffold — Scaffolding verified
+- Status: Build OK, no sorries in file
+- Lines: 81
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Minimal imports; downstream modules already import this. Project still contains sorries in later files (PNT2, PNT4).
+
