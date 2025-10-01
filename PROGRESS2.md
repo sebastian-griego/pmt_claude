@@ -315,3 +315,10 @@ File: StrongPNT/PNT0_Scaffold.lean (80 lines)
 Blueprint coverage: unchanged (scaffold-only)
 Blocking issues: Many sorries remain in PNT1–PNT5; will tackle next in sequence per blueprint.
 Timestamp: 2025-10-01T01:17:13Z
+>> PNT0_Scaffold: scaffolding module compiles cleanly; 80 LOC; no sorries in file; build OK. Global sorries remain in downstream files; not addressed in this iteration.
+[jovyan] 2025-10-01T01:20:12+00:00 - PNT0_Scaffold: Verified clean compile, no sorries in StrongPNT/PNT0_Scaffold.lean:1. lake build OK. Sorries present in downstream files (PNT1–PNT5). Lines: 80. Blueprint coverage: N/A (scaffold).
+- PNT0_Scaffold: Refactor minor lemmas to ensure clean compile; status: OK
+  Lines: 80
+  Blueprint coverage: N/A (scaffold only)
+  Notes: Downstream files contain sorries; left untouched per frontier goal.
+
