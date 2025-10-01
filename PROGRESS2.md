@@ -1366,3 +1366,4 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
   Lines: 112
   Blueprint coverage: n/a (scaffolding only)
   Notes: Ensured minimal imports; serves as stable base for downstream files.
+2025-10-01T08:13:22Z [Scaffold] Verified StrongPNT/PNT0_Scaffold.lean compiles cleanly (no sorries in file).\n- Status: build OK\n- Lines: 112\n- Notes: Imports minimal; ready for downstream modules.\n
