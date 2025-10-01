@@ -652,3 +652,9 @@ Timestamp: 2025-10-01T02:47:07Z
 [2025-10-01] PNT0_Scaffold: scaffold compiles cleanly.\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Status: no sorries; lake build OK\n- Blueprint coverage: n/a (scaffold)\n- Notes: Provides basic Real.log/abs utilities for downstream modules.\n
 [PNT0_Scaffold] Status: clean compile; no sorries.\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Build: lake build OK\n- Blueprint coverage: N/A (scaffold module)\n- Notes: Minimal imports (Real, log); namespace, noncomputable section. Added no new lemmas beyond harmless Real.log simp utilities.\n- Blocking issues: Project contains many sorries in other PNT files; left untouched per frontier scope.\n
 - [Scaffold] StrongPNT.PNT0_Scaffold: verified clean compile; no sorries. Lines: 81. Blueprint: N/A. Notes: Imports minimal; namespace intact; ready for downstream use.
+[2025-10-01] PNT0_Scaffold — scaffolding module compiles cleanly.\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Status: OK (no sorries, minimal imports)\n- Blueprint coverage: N/A (scaffold utility only)\n- Notes: Provides basic /abs simp lemmas and a  alias for downstream files.\n
+[2025-10-01] PNT0_Scaffold — scaffolding module compiles cleanly.
+- File: StrongPNT/PNT0_Scaffold.lean (81 lines)
+- Status: OK (no sorries, minimal imports)
+- Blueprint coverage: N/A (scaffold utility only)
+- Notes: Provides basic `Real.log`/abs simp lemmas and a `SmoothingKernel` alias for downstream files.
