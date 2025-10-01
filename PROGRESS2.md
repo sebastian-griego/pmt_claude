@@ -686,3 +686,8 @@ Notes:
 - Verified minimal imports and namespace.
 - Added no new obligations; build remains green.
 - Next: proceed to frontier theorem in PNT1 when ready.
+[PNT0_Scaffold] Status: Clean compile, no sorries in file
+Lines: 81
+% Blueprint covered: N/A (scaffold)
+Blocking: Many sorries remain in PNT1–PNT5; not addressed in this scaffold refactor.
+---
