@@ -658,3 +658,8 @@ Timestamp: 2025-10-01T02:47:07Z
 - Status: OK (no sorries, minimal imports)
 - Blueprint coverage: N/A (scaffold utility only)
 - Notes: Provides basic `Real.log`/abs simp lemmas and a `SmoothingKernel` alias for downstream files.
+[PNT0_Scaffold] Status: Clean compile, no sorries in file
+Lines: 81
+Blueprint coverage: 0% (scaffold only)
+Notes: Verified imports and namespace; downstream files still contain sorries. Focus kept on scaffolding integrity per frontier goal.
+
