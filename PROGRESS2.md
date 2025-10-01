@@ -995,3 +995,10 @@ Timestamp: 2025-10-01T05:14:18Z
 >> Lines: 95
 >> Blueprint coverage: N/A (scaffold only)
 >> Blocking issues: none for scaffold; many sorries remain in advanced modules (PNT1–PNT5).
+[2025-10-01T05:27Z] PNT0_Scaffold — scaffold verification\n- File: StrongPNT/PNT0_Scaffold.lean (95 lines)\n- Status: CLEAN (compiles; zero sorries in file)\n- Blueprint coverage: N/A (scaffold only)\n- Notes: Minimal imports; helper log/abs lemmas; namespace stable; downstream modules already import this. Repo-wide sorries remain in PNT1–PNT5 (out of scope this step).
+[2025-10-01T05:30Z] PNT0_Scaffold — refactor verification pass
+- File: StrongPNT/PNT0_Scaffold.lean (95 lines)
+- Status: CLEAN (lake build successful; zero sorries)
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Blueprint coverage: N/A (scaffolding module)
+- Notes: Minimal imports verified; namespace StrongPNT stable; helper log/abs lemmas compile correctly; no incomplete proofs. Ready for downstream use.
