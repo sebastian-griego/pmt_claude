@@ -1209,3 +1209,9 @@ Blocking: Many sorries in PNT1–PNT5 remain; not addressed here.
 - Blueprint coverage: N/A (scaffold only)
 - Notes: Minimal imports; provides small Real.log + abs lemmas and alias SmoothingKernel.
 ---
+[2025-10-01T07:05:46Z] PNT0_Scaffold — scaffolding verified clean
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Status: lake build OK; zero sorries in this file
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Imports minimal; added small log/abs lemmas; downstream files still contain sorries (out of scope for this task).
+---
