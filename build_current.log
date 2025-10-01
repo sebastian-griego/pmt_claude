@@ -1,6 +1,1 @@
 Build completed successfully (1816 jobs).
-⚠ [1815/1816] Built StrongPNT.PNT0_Scaffold (1.6s)
-warning: StrongPNT/PNT0_Scaffold.lean:55:2: try 'simp' instead of 'simpa'
-
-Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
-Build completed successfully (1816 jobs).
