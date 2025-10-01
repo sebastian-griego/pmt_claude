@@ -1528,3 +1528,10 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - Blueprint coverage: N/A (scaffold only)
 - Notes: Build succeeds; other modules contain sorries not addressed in this refactor.
 
+[PNT0_Scaffold] Status: Clean (no sorries in file)
+File: StrongPNT/PNT0_Scaffold.lean
+Lines: 112
+Blueprint coverage: N/A (scaffold only)
+Notes: Project contains sorries in other modules; scaffold compiles cleanly.
+Timestamp: 2025-10-01T09:15:22Z
+---
