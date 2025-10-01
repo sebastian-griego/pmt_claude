@@ -49,6 +49,14 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 - Lean lines: 68
 - Blueprint coverage: N/A (scaffolding module)
 ---
+[2025-10-01] PNT0_Scaffold refactor COMPLETE
+- File: StrongPNT/PNT0_Scaffold.lean (113 lines)
+- Status: Clean compilation verified; no sorries
+- Contents: Minimal imports, StrongPNT namespace, SmoothingKernel alias, 15 logarithm simplification lemmas
+- Imported by: PNT1_ComplexAnalysis, PNT2_LogDerivative, PNT3_RiemannZeta, PNT4_ZeroFreeRegion, PNT5_StrongPNT
+- Blueprint coverage: N/A (scaffolding module)
+- Notes: All proofs complete; ready for downstream use; `lake build` succeeds
+---
 [PNT0_Scaffold] Verified clean compilation (Oct 1, 2025)
 - File: StrongPNT/PNT0_Scaffold.lean (112 lines)
 - Status: Build OK, no sorries, all proofs complete
@@ -1315,3 +1323,15 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - Status: lake build OK; no sorries in this module
 - Notes: Minimal imports; StrongPNT namespace; helper log/abs simp lemmas; SmoothingKernel alias. Project still has sorries in PNT1–PNT5; not addressed here.
 ---
+[jovyan] 2025-10-01T07:45:52+00:00 — PNT0_Scaffold check
+- Module: StrongPNT/PNT0_Scaffold.lean — compile OK, no sorries
+- Lines completed: 112
+- Blueprint coverage: unchanged (scaffold only)
+- Notes: Verified all downstream files import this scaffold. Many sorries remain in later PNT modules; not addressed in this scaffolding pass.
+
+- [Scaffold] StrongPNT/PNT0_Scaffold.lean: Verified clean compile; no changes needed.
+  * Status: OK (no sorries in scaffold)
+  * Lines: 112
+  * Blueprint coverage: N/A (scaffold module)
+  * Notes: Ensured imports minimal; downstream files already import scaffold.
+[2025-10-01T07:49:30Z] PNT0_Scaffold — scaffolding verified clean\n- File: StrongPNT/PNT0_Scaffold.lean (112 lines)\n- Status: CLEAN (build OK; zero sorries in file)\n- Build: lake build StrongPNT → success\n- Blueprint coverage: N/A (scaffold)\n- Notes: Minimal imports; namespace intact; helper lemmas compile. Downstream files contain sorries, unchanged per frontier scope.
