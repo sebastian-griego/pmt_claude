@@ -210,3 +210,11 @@ Blueprint coverage: N/A (scaffold module)
 Blocking: Many sorries remain across StrongPNT/*; zero-sorry build not yet achievable.
 Timestamp: 2025-10-01T00:23:53Z
 ---
+2025-10-01T00:25:16Z [PNT0_Scaffold] Verified clean scaffold compile; no sorries in file\n- File: StrongPNT/PNT0_Scaffold.lean (73 lines)\n- Status: lake build OK; grep shows sorries in PNT1–PNT5 (out of scope for this scaffold refactor)\n- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic\n- Notes: Minimal lemmas ([simp] for logs/abs), stable namespace; ready for downstream use.
+[PNT0_Scaffold] Verify clean compile; no sorries
+- File: StrongPNT/PNT0_Scaffold.lean (73 lines)
+- Status: build OK; zero sorries in file
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Notes: Used grep fallback (rg unavailable). Many sorries remain in PNT2/PNT4 but out of scope for this scaffold task.
+- Timestamp: 2025-10-01T00:28:03Z
+---
