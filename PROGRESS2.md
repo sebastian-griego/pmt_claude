@@ -1409,3 +1409,9 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
   Blocking: Repository contains existing sorries in other modules; scaffold remains independent and clean.
   Timestamp: 2025-10-01T08:32:45Z
 
+[2025-10-01T08:35:17] PNT0_Scaffold — verification complete
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Status: CLEAN (build OK; zero sorries in file)
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Notes: Minimal scaffold ready; downstream files still contain sorries out of scope for this task.
+---
