@@ -1279,3 +1279,9 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - Content: Minimal imports, namespace StrongPNT, SmoothingKernel alias, log/abs simp lemmas
 - Notes: All proofs complete; module serves as lightweight foundation for downstream PNT files
 
+[2025-10-01T07:40Z] PNT0_Scaffold — scaffold verified clean
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Status: Compiles cleanly; no sorries in this file
+- Build: lake build OK; project contains sorries in PNT1–PNT5 (out of scope for this refactor)
+- Notes: Minimal imports; namespace StrongPNT; helper log/abs simp lemmas; SmoothingKernel alias
+---
