@@ -266,3 +266,8 @@ Timestamp: 2025-10-01T00:23:53Z
 - Status: lake build OK; no sorries in this file
 - Notes: Minimal imports; helper log/abs lemmas stable for downstream.
 ---
+- [Scaffold] StrongPNT/PNT0_Scaffold.lean — verified clean compile, no sorries
+  - Status: OK (no changes needed)
+  - Line count: 73
+  - Blueprint coverage: N/A (scaffolding module only)
+  - Notes: Left heavier modules untouched; numerous sorries remain in PNT2–PNT5. This scaffold provides trivial lemmas (logs/abs) to keep downstream signatures stable.
