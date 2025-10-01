@@ -960,3 +960,4 @@ Blueprint coverage: N/A (scaffold)
 Notes: Build succeeds. Global sorries remain in other files; focusing on scaffold as frontier requested.
 Timestamp: 2025-10-01T05:14:18Z
 
+[2025-10-01T05:15Z] PNT0_Scaffold: verified clean compile; no sorries.\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Blueprint coverage: N/A (scaffold module)\n- Notes: Imports minimal; helper log/abs lemmas stable; downstream files still contain sorries (out of scope for this scaffold refactor).
