@@ -1356,3 +1356,7 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
   Lines: 112
   Blueprint coverage: N/A (scaffold module)
   Blocking: Downstream files contain sorries; untouched per frontier scope.
+- [Scaffold] PNT0_Scaffold compiles cleanly; no sorries in file.
+  Lines: 112
+  Blueprint coverage: N/A (scaffold)
+  Notes: Many sorries remain in PNT1–PNT5; scaffold ready for downstream work.
