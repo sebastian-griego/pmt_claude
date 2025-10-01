@@ -349,3 +349,5 @@ Timestamp: 2025-10-01T01:17:13Z
 - Status: lake build OK; no sorries in this file
 - Notes: Minimal imports; namespace StrongPNT; helper log/abs lemmas stable. Downstream files contain sorries but are out of scope for this frontier.
 
+[2025-10-01] PNT0_Scaffold — verified clean compile; no sorries.\n- File: StrongPNT/PNT0_Scaffold.lean (80 lines)\n- Build: lake build OK\n- Blueprint coverage: N/A (scaffold)\n- Notes: Imports minimal; namespace intact; helper lemmas compile; no changes needed.
+[2025-10-01T01:39Z] PNT0_Scaffold — verified clean compile; no sorries in file (80 lines). Build OK.
