@@ -158,6 +158,12 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 Lines: 65
 Blueprint [PNT0_Scaffold] Scaffold clean; no sorries; compiles with lake build.
 Lines: 65
+\n+[2025-10-01T02:55Z] PNT0_Scaffold — verification complete
+- File: StrongPNT/PNT0_Scaffold.lean (81 lines)
+- Status: CLEAN (build OK; zero sorries in file)
+- Build: lake build StrongPNT.PNT0_Scaffold → success
+- Blueprint coverage: N/A (scaffolding module)
+- Notes: Imports minimal; namespace intact; helper log/abs lemmas present. Many sorries remain in PNT1–PNT5 (out of scope for this scaffold task).
 Blueprint %: N/A (scaffold only)
 Blockers: Many sorries remain in PNT1–PNT5; not imported in default build.
 Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)
@@ -621,4 +627,15 @@ Timestamp: 2025-10-01T02:47:07Z
 - Proofs: All complete, zero sorries, idiomatic Lean 4
 - Blueprint coverage: N/A (scaffolding infrastructure)
 - Notes: Module serves as lightweight import for downstream PNT files.
+[2025-10-01T02:53Z] PNT0_Scaffold — verified clean compile\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Status: COMPLETE — no changes required; zero sorries\n- Build: lake build OK\n- Notes: Scaffold ready; downstream files still contain sorries not addressed in this step.
+[2025-10-01 00:00] PNT0_Scaffold — verified clean compile
+- File: StrongPNT/PNT0_Scaffold.lean (81 lines)
+- Status: no sorries; Build completed successfully (1816 jobs). OK
+- Blueprint coverage: N/A (scaffold)
+- Notes: Downstream files contain sorries (PNT1–PNT5), outside this frontier.
 
+- PNT0_Scaffold refactor — OK\n  - Lines: 81\n  - Blueprint coverage: N/A (scaffold module)\n  - Notes: Build clean; numerous sorries remain in downstream files, untouched this pass.
+- PNT0_Scaffold refactor — OK
+  - Lines: 81
+  - Blueprint coverage: N/A (scaffold module)
+  - Notes: Build clean; numerous sorries remain in downstream files, untouched this pass.
