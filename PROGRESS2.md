@@ -1540,4 +1540,9 @@ Timestamp: 2025-10-01T09:15:22Z
 - [Scaffold] StrongPNT/PNT0_Scaffold.lean: compiled cleanly; no sorries (112 lines).
   Blueprint coverage: N/A (scaffolding only).
   Notes: Verified imports and simp lemmas; build OK. Existing sorries remain in advanced files (PNT2, PNT4).
-[%(date -u +
+[%(date -u +[2025-10-01T09:25:17Z] PNT0_Scaffold — scaffolding compile check
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Status: CLEAN (build OK; zero sorries in file)
+- Blueprint coverage: N/A (scaffolding)
+- Notes: Minimal imports; namespace StrongPNT; downstream files still contain sorries (see grep).
+---
