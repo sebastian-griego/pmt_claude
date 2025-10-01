@@ -753,3 +753,9 @@ Blocking: 50 sorries across StrongPNT/*.lean — must resolve before advancing b
 - Proofs: All complete, zero sorries, idiomatic style
 - Action: No modifications needed; module meets all scaffold requirements
 
+[2025-10-01] PNT0_Scaffold — verified clean compile; no changes needed.\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Build: lake build → SUCCESS; grep sorries → many in PNT1–PNT5, none here\n- Blueprint coverage: N/A (scaffold)\n- Next: ready to tackle earliest sorry in PNT1_ComplexAnalysis if desired.\n---
+[PNT0_Scaffold] — Scaffolding module compiles cleanly
+- Status: COMPLETE (no sorries)
+- File: StrongPNT/PNT0_Scaffold.lean (81 lines)
+- Blueprint coverage: N/A (scaffolding only)
+- Notes: Minimal imports, namespace StrongPNT; added/confirmed simp lemmas for Real.log with abs, inv, mul/div, pow, nat-casts.
