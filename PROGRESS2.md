@@ -1383,3 +1383,8 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - File: StrongPNT/PNT0_Scaffold.lean (112 lines)
 - Blueprint coverage: no change (scaffold module)
 - Notes: Other PNT modules contain sorries; scoped this iteration to scaffolding refactor only.
+[PNT0_Scaffold] Verified clean compile; no sorries.
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Lemmas: log_one_real, log_abs_of_pos/nonneg, log_abs_mul/div (pos & ne_zero), log_abs_pow
+- Blueprint coverage: N/A (scaffold module)
+- Notes: Build OK; many sorries remain in PNT1–PNT5 (out of current scope for this scaffold refactor).
