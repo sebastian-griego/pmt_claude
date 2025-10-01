@@ -1421,3 +1421,4 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
 - Notes: Minimal scaffold verified; downstream files still contain sorries (not changed this iteration).
 ---
+[2025-10-01T08:38Z] PNT0_Scaffold — verification complete\n- File: StrongPNT/PNT0_Scaffold.lean (112 lines)\n- Status: CLEAN (build OK; zero sorries in file)\n- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic\n- Notes: Minimal scaffold verified; downstream files still contain sorries (out of scope this pass).
