@@ -1190,3 +1190,8 @@ Timestamp: 2025-10-01T06:41:39Z
 - Blueprint coverage: N/A (scaffolding only)
 - Notes: Minimal imports; downstream files import this module successfully.
 
+[PNT0_Scaffold] Status: Scaffold compiles cleanly (no sorries in this file)
+Lines: 112
+Blueprint coverage: N/A (scaffold)
+Blocking: Many sorries in PNT1–PNT5 remain; not addressed here.
+---
