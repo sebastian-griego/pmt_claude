@@ -691,3 +691,4 @@ Lines: 81
 % Blueprint covered: N/A (scaffold)
 Blocking: Many sorries remain in PNT1–PNT5; not addressed in this scaffold refactor.
 ---
+- PNT0_Scaffold: scaffolding compiles cleanly; 0 sorries in file; line count: 81. Blueprint coverage unchanged (scaffold-only).
