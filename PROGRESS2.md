@@ -665,3 +665,11 @@ Notes: Verified imports and namespace; downstream files still contain sorries. F
 
 [2025-10-01T03:14Z] PNT0_Scaffold — verified clean compile\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Status: COMPLETE — no changes; zero sorries in file\n- Build: lake build OK\n- Blueprint coverage: N/A (scaffold)\n- Notes: Global sorries persist in PNT1–PNT5 (e.g., StrongPNT/PNT1_ComplexAnalysis.lean:1104); scaffold ready for downstream use.\n
 [2025-10-01T03:20Z] PNT0_Scaffold — verified clean compile\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Status: COMPLETE — no changes; zero sorries in file\n- Build: lake build OK\n- Notes: Imports minimal (Real.Basic, Log.Basic); namespace StrongPNT; helper log/abs simp lemmas ready for downstream modules.\n
+[2025-10-01] PNT0_Scaffold — scaffolding clean.\n- Theorem/module: PNT0_Scaffold setup (no theorems)\n- Status: compiled, no sorries in file\n- Lean lines completed: 81 (StrongPNT/PNT0_Scaffold.lean)\n- Blueprint coverage: N/A (utility scaffold)\n- Notes: Build overall OK; remaining sorries exist in downstream files (PNT1–PNT5) to address next.
+[PNT0_Scaffold] Scaffolding compile check — Completed
+- Lean LOC: 81
+- Blueprint coverage: unchanged (PNT0 is scaffolding)
+- Build: lake build OK; no sorries in PNT0
+- Notes: Added no new imports; kept minimal, all lemmas simp-friendly
+- Blocking: Many sorries remain in PNT1–PNT5; outside current scope
+
