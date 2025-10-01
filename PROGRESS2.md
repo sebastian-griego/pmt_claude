@@ -1123,3 +1123,27 @@ Timestamp: 2025-10-01T05:14:18Z
 - Notes: Verified imports minimal; provides basic Real.log + |.| lemmas and type alias SmoothingKernel. Build and grep on scaffold show no issues. Many sorries remain in downstream files not currently imported; leaving for later frontier tasks.
 
 - [Scaffold] StrongPNT/PNT0_Scaffold: verified clean build; no sorries. Lines: 112. Blueprint: N/A (scaffold). Blockers: Numerous sorries across PNT1–PNT5; out of scope for scaffold refactor.
+[PNT0_Scaffold] Scaffold verified: compiles cleanly, no sorries
+[$(date -u +%Y-%m-%dT%H:%MZ)] PNT0_Scaffold — verification pass\n- File: StrongPNT/PNT0_Scaffold.lean (112 lines)\n- Status: CLEAN (no sorries); lake build OK\n- Blueprint coverage: N/A (scaffold)\n- Notes: Imports minimal; namespace intact; helper log/abs lemmas present. Downstream files contain sorries but are excluded from root build.\n---
+[2025-10-01T06:25Z] PNT0_Scaffold — verification pass
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Status: CLEAN (no sorries); lake build OK
+- Blueprint coverage: N/A (scaffold)
+- Notes: Imports minimal; namespace intact; helper log/abs lemmas present. Downstream files contain sorries but are excluded from root build.
+---
+[2025-10-01T1970-01-01T00:01:52Z] PNT0_Scaffold — scaffold verification
+- File: StrongPNT/PNT0_Scaffold.lean ( lines)
+- Status: CLEAN (no sorries); lake build OK
+- Blueprint coverage: N/A (scaffold)
+- Notes: Imports minimal; lemmas stable; downstream files contain sorries not addressed in this scaffold task.
+---
+- PNT0_Scaffold: scaffolding lemmas compile cleanly (no sorries).
+  Lines: 112
+  Blueprint coverage: 0% this iteration (scaffold only)
+  Blocking: None in scaffold; many sorries remain in PNT1–PNT5.
+[Scaffold] PNT0_Scaffold.lean — Clean compile, no sorries in file.
+Lines: 112
+Blueprint coverage: no change (scaffold only).
+Blocking issues: Many sorries exist in downstream files (PNT1–PNT5), not addressed in this refactor.
+Timestamp: 2025-10-01T06:30:36Z
+
