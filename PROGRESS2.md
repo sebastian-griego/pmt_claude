@@ -230,3 +230,4 @@ Timestamp: 2025-10-01T00:23:53Z
 - Blueprint coverage: N/A (scaffold-only)
 - Notes: Build OK. Many sorries exist in PNT1–PNT5; frontier limited to scaffold integrity this pass.
 
+[2025-10-01T00:35Z] PNT0_Scaffold — Verified clean compile; no sorries in file. Lines: 73. Blueprint: N/A (scaffold). Note: Many sorries remain in PNT1–PNT5; not modified in this pass.
