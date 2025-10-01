@@ -1168,3 +1168,12 @@ Timestamp: 2025-10-01T06:41:39Z
 - Blueprint coverage: N/A (scaffold)
 - Notes: Imports minimal; namespace intact; helper log/abs lemmas present. Downstream PNT1–PNT5 contain sorries; out of scope for this frontier.
 ---
+[PNT0_Scaffold] Verification: clean compile; no sorries. Lines: 112. Timestamp: 2025-10-01T06:46Z
+- [PNT0_Scaffold] Scaffold compiles cleanly; no sorries in file.\n  - Lines: 112\n  - Blueprint coverage: 0% (scaffold only)\n  - Notes: Prepared minimal imports, namespace, simp lemmas for logs; other project files still contain sorries not addressed in this iteration.
+[PNT0_Scaffold] Verification
+- Status: CLEAN (no sorries); lake build OK
+- Lines: 112
+- Blueprint coverage: 0% (scaffold only)
+- Notes: Kept imports minimal; namespace intact; added simp log/abs lemmas.
+- Blocking: Other StrongPNT files contain sorries; not tackled here per frontier.
+---
