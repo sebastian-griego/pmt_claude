@@ -713,3 +713,4 @@ Notes:
 - Notes: Minimal imports, namespace closed, trivial log/abs lemmas added; downstream modules can import safely.
 - Blocking: Many sorries remain in later PNT files; not addressed in this scaffolding refactor.
 
+[2025-10-01] PNT0_Scaffold: Verified clean compile.\n- File: StrongPNT/PNT0_Scaffold.lean\n- Status: OK (no sorries)\n- Actions: lake build successful; scanned for sorries across StrongPNT; many in later modules, none in scaffold.\n- Notes: PNT1 imports scaffold correctly. No refactor needed.\n
