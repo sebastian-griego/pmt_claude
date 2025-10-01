@@ -275,3 +275,23 @@ Timestamp: 2025-10-01T00:23:53Z
 [2025-10-01] PNT0_Scaffold — verification complete\n- File: StrongPNT/PNT0_Scaffold.lean (73 lines)\n- Status: CLEAN — builds, no sorries\n- Changes: none needed; imports minimal; namespace tidy\n- Blueprint coverage: N/A (scaffold only)\n- Notes: Default target builds only scaffold; deeper modules with sorries remain out of scope for this step.
 [Scaffold] Verified: StrongPNT/PNT0_Scaffold.lean builds cleanly (no sorries).
 Lines: 73. Blueprint coverage: scaffolding only (0% theorem coverage).
+
+---
+Task: PNT0_Scaffold cleanup
+Status: Completed — builds cleanly with zero sorries in this module
+Details:
+- Verified `lake build` (Scaffold target) succeeds
+- Grepped scaffold file for `sorry`: none present
+- Kept imports minimal: `Real.Basic`, `Log.Basic`
+- Added/confirmed small `[simp]` lemmas for `Real.log` with `abs`, `mul`, `div`, `pow`
+Metrics:
+- File: StrongPNT/PNT0_Scaffold.lean
+- Lines of Lean: 73
+- Blueprint coverage: N/A (scaffold-only)
+Timestamp: 2025-10-01T01:05:40Z
+[2025-10-01T01:06Z] PNT0_Scaffold — verification\n- File: StrongPNT/PNT0_Scaffold.lean (73 lines)\n- Status: Clean compile; no sorries in scaffolding module\n- Build: lake build OK\n- Notes: Many sorries remain in PNT1–PNT5; out of scope for this scaffold refactor.
+[PNT0_Scaffold] Status: clean compile; no sorries
+Lines: 73
+Blueprint coverage: n/a (scaffold module)
+Notes: kept imports minimal; added/verified basic log-abs lemmas; lake build clean.
+---
