@@ -250,3 +250,4 @@ Timestamp: 2025-10-01T00:23:53Z
 - Blueprint coverage: N/A (scaffold only)
 - Blocking issues: None for scaffold; other PNT files contain placeholders/sorries and are not part of current build target.
 2025-10-01T00:43Z [Scaffold] Verified StrongPNT/PNT0_Scaffold.lean compiles (no sorries). Lines: 73. Minimal imports stable; helper lemmas for log/abs ready.
+- 2025-10-01: PNT0_Scaffold refactor — ensured minimal imports, namespace, and zero sorries in file. Build OK. Lines: 73. Blueprint coverage: N/A (scaffolding). Blockers: many sorries remain across PNT1–PNT5; focusing on scaffold per frontier goal.
