@@ -295,3 +295,7 @@ Lines: 73
 Blueprint coverage: n/a (scaffold module)
 Notes: kept imports minimal; added/verified basic log-abs lemmas; lake build clean.
 ---
+- PNT0_Scaffold: scaffolding lemmas compile cleanly (no sorries)
+  Lines: 80 in StrongPNT/PNT0_Scaffold.lean
+  Blueprint %: unchanged (scaffold-only)
+  Notes: added simp lemma log_abs_nat; kept imports minimal; build clean.

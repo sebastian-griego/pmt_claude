@@ -43,6 +43,13 @@ abbrev SmoothingKernel := ℝ → ℝ
 
 -- Additional small utilities can be added here as needed.
 
+/-- For any natural number `n`, the absolute value disappears inside `Real.log`.
+This is convenient because `(n : ℝ) ≥ 0`. -/
+@[simp] theorem log_abs_nat (n : ℕ) :
+    Real.log (|(n : ℝ)|) = Real.log (n : ℝ) := by
+  have hn : (0 : ℝ) ≤ n := by exact_mod_cast (Nat.zero_le n)
+  simp [abs_of_nonneg hn]
+
 /-- For nonzero reals, `log |x * y| = log |x| + log |y|`. -/
 theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
     Real.log (|x * y|) = Real.log (|x|) + Real.log (|y|) := by
