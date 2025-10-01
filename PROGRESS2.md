@@ -372,3 +372,4 @@ Timestamp: 2025-10-01T01:17:13Z
 - Ready to serve as lightweight dependency for downstream PNT work
 
 [2025-10-01T01:44Z] PNT0_Scaffold — scaffold refactor check\n- File: StrongPNT/PNT0_Scaffold.lean (80 lines)\n- Status: Clean compile; no sorries in file\n- Build: lake build OK\n- Notes: Imports minimal; helper lemmas stable; leaving deep sorries (PNT1–PNT5) untouched per frontier scope.
+[2025-10-01T01:45Z] PNT0_Scaffold — verification\n- File: StrongPNT/PNT0_Scaffold.lean (80 lines)\n- Status: Clean compile; no sorries in this file\n- Build: lake build OK (root only)\n- Notes: Minimal imports; helper log/abs lemmas stable. Downstream PNT modules still contain sorries but are not built by default. Frontier goal satisfied.
