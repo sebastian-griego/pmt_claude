@@ -507,3 +507,8 @@ Notes: Build OK. Downstream files contain sorries; not modified in this step.
 
 [2025-10-01T02:23Z] PNT0_Scaffold — verified clean scaffold\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Task: Refactor/import hygiene; ensure no sorries\n- Status: SUCCESS (build OK; zero sorries in file)\n- Blueprint coverage: N/A (scaffold only)\n- Notes: No further changes needed; downstream files still contain placeholders not addressed here.
 [2025-10-01 02:24] PNT0_Scaffold — Scaffolding compiled cleanly\n- Status: Verified, no sorries in file\n- Lines: 81\n- Blueprint coverage: N/A (scaffolding utility)\n- Notes: Minimal imports; downstream files can import StrongPNT.PNT0_Scaffold for shared helpers. Many sorries remain in later modules (PNT1–PNT5).\n
+[PNT0_Scaffold] Status: clean compile; no sorries
+- File: StrongPNT/PNT0_Scaffold.lean (81 lines)
+- Blueprint coverage: N/A (scaffolding only)
+- Notes: Provides basic Real.log simp lemmas; ready for downstream imports.
+
