@@ -692,3 +692,4 @@ Lines: 81
 Blocking: Many sorries remain in PNT1–PNT5; not addressed in this scaffold refactor.
 ---
 - PNT0_Scaffold: scaffolding compiles cleanly; 0 sorries in file; line count: 81. Blueprint coverage unchanged (scaffold-only).
+[2025-10-01 02:59Z] PNT0_Scaffold — verified clean\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Status: CLEAN (build OK; zero sorries in file)\n- Build: lake build → success\n- Blueprint coverage: N/A (scaffolding)\n- Blockers: Many sorries remain in PNT1–PNT5; next to tackle per blueprint is PNT1_ComplexAnalysis.lean:1104.\n---
