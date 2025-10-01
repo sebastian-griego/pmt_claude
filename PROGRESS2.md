@@ -151,3 +151,4 @@ Blueprint %: N/A (scaffold only)
 Blockers: Many sorries remain in PNT1–PNT5; not imported in default build.
 Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)
 ---
+[2025-10-01_00:06:07] PNT0_Scaffold: compile check OK; no sorries in file; 65 loc; blueprint coverage unaffected (scaffold only).
