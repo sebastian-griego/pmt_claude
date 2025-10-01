@@ -1494,3 +1494,9 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - Action: No changes required; all refactoring requirements already met
 ---
 [Scaffold] PNT0_Scaffold.lean — Verified clean compile, no sorries. Lines: 112. Blueprint coverage: unchanged. Blocking: 50 sorries remain across PNT1–PNT5 (see grep).
+2025-10-01T09:03:54+00:00 | PNT0_Scaffold — scaffold verified clean compile
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Status: CLEAN (no sorries in file)
+- Blueprint coverage: N/A (scaffold only)
+- Notes: lake build OK; other modules contain sorries pending heavy analysis (PNT1–PNT5).
+---
