@@ -357,3 +357,18 @@ Timestamp: 2025-10-01T01:17:13Z
 - Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
 - Content: namespace StrongPNT, SmoothingKernel alias, 9 complete log/abs helper lemmas
 - Notes: Module ready for downstream imports; all proofs complete and idiomatic.
+
+---
+**2025-10-01** — PNT0_Scaffold refactor verification  
+**Status:** ✓ Complete  
+**Task:** Ensure PNT scaffolding module compiles cleanly  
+**File:** `StrongPNT/PNT0_Scaffold.lean`  
+**Result:**
+- Module verified clean: 81 lines, no `sorry` statements
+- Builds successfully with no warnings or errors
+- Contains minimal imports (Real.Basic, Log.Basic)
+- Provides 10 helper lemmas for logarithm simplifications
+- All proofs complete and well-documented
+- Ready to serve as lightweight dependency for downstream PNT work
+
+[2025-10-01T01:44Z] PNT0_Scaffold — scaffold refactor check\n- File: StrongPNT/PNT0_Scaffold.lean (80 lines)\n- Status: Clean compile; no sorries in file\n- Build: lake build OK\n- Notes: Imports minimal; helper lemmas stable; leaving deep sorries (PNT1–PNT5) untouched per frontier scope.
