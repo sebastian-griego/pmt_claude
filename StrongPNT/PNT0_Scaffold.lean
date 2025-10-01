@@ -5,12 +5,18 @@ import Mathlib.Analysis.SpecialFunctions.Log.Basic
 noncomputable section
 
 /-!
-PNT0_Scaffold — minimal scaffolding module
+# PNT0_Scaffold — Minimal Scaffolding Module
 
 This module sets up a lightweight namespace and imports that can be
 used by downstream PNT files. It intentionally contains only trivial
 content with no incomplete proofs, so it compiles quickly and can serve as the
 default build target while heavier modules are under development.
+
+## Main declarations
+
+- `SmoothingKernel`: A type alias for smoothing kernel functions (ℝ → ℝ)
+- Logarithm simplification lemmas for absolute values
+
 -/
 
 namespace StrongPNT
@@ -18,6 +24,8 @@ namespace StrongPNT
 /-- A placeholder smoothing kernel type alias.
 This is used as a stand‑in to keep dependent signatures consistent. -/
 abbrev SmoothingKernel := ℝ → ℝ
+
+/-! ## Basic logarithm simplifications -/
 
 /-- A very small helper lemma used throughout: `log 1 = 0`. -/
 @[simp] theorem log_one_real : Real.log (1 : ℝ) = 0 := by
@@ -35,13 +43,11 @@ abbrev SmoothingKernel := ℝ → ℝ
 @[simp] theorem log_abs_one : Real.log (|1| : ℝ) = 0 := by
   simp
 
-/-! Additional harmless simplifications used pervasively in later files. -/
-
 /-- Logging an absolute value is invariant under negation inside the absolute. -/
 @[simp] theorem log_abs_neg (x : ℝ) : Real.log (|(-x)|) = Real.log (|x|) := by
   simp [abs_neg]
 
--- Additional small utilities can be added here as needed.
+/-! ## Logarithms of natural numbers -/
 
 /-- For any natural number `n`, the absolute value disappears inside `Real.log`.
 This is convenient because `(n : ℝ) ≥ 0`. -/
@@ -52,7 +58,9 @@ This is convenient because `(n : ℝ) ≥ 0`. -/
 
 /-- A convenience specialization of `log_abs_nat` for `2`. -/
 @[simp] theorem log_abs_two : Real.log (|2| : ℝ) = Real.log (2 : ℝ) := by
-  exact (log_abs_nat 2)
+  exact log_abs_nat 2
+
+/-! ## Logarithm arithmetic with absolute values -/
 
 /-- For nonzero reals, `log |x * y| = log |x| + log |y|`. -/
 theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
@@ -77,6 +85,8 @@ theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
 @[simp] theorem log_abs_pow (x : ℝ) (n : ℕ) :
     Real.log (|x ^ n|) = (n : ℝ) * Real.log (|x|) := by
   rw [abs_pow, Real.log_pow]
+
+/-! ## Specialized versions for positive arguments -/
 
 /-- If `x, y > 0` then `log |x*y| = log x + log y`. -/
 @[simp] theorem log_abs_mul_of_pos {x y : ℝ} (hx : 0 < x) (hy : 0 < y) :
