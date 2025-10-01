@@ -1182,3 +1182,4 @@ Timestamp: 2025-10-01T06:41:39Z
 - Notes: Kept imports minimal; namespace intact; added simp log/abs lemmas.
 - Blocking: Other StrongPNT files contain sorries; not tackled here per frontier.
 ---
+- [PNT0_Scaffold] Scaffold module compiles cleanly; no sorries. Lines: 112. Blueprint coverage: N/A (scaffold), no change. Blocking: Many sorries remain in PNT1–PNT5; not addressed in this refactor.
