@@ -1551,3 +1551,11 @@ Timestamp: 2025-10-01T09:15:22Z
 - Status: build OK; zero sorries in file
 - Notes: Imports minimal; namespace intact; helper log/abs lemmas stable. Project contains sorries in PNT1–PNT5 (out of scope for this scaffold task).
 [PNT0_Scaffold] Refactor scaffolding module compiles cleanly; no sorries. Lines: 112. Blueprint coverage unchanged (scaffold only). Blocking: many sorries remain in PNT1–PNT5; frontier limited to scaffold refactor this iteration.
+[PNT0_Scaffold] Status: Clean compile after small refactor
+- File: StrongPNT/PNT0_Scaffold.lean
+- Lines: 112
+- Blueprint coverage: N/A (scaffold)
+- Build: lake build OK
+- Notes: ensured log lemmas use robust forms; overall scaffold compiles quickly. Other modules contain sorries but are not part of this scaffold refactor.
+
+[PNT0_Scaffold] Verified clean scaffold compile\n- File: StrongPNT/PNT0_Scaffold.lean (112 lines)\n- Status: build OK; zero sorries in file\n- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic\n- Notes: Frontier refactor complete; minimal helpers (log/abs, mul/div/pow) available for downstream modules.\n- Timestamp: 2025-10-01T09:33:07Z
