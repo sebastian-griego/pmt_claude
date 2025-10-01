@@ -242,3 +242,10 @@ Timestamp: 2025-10-01T00:23:53Z
 - File: StrongPNT/PNT0_Scaffold.lean (73 lines)
 - Status: lake build OK; no sorries in this file
 - Notes: Many sorries persist in PNT1–PNT5; frontier limited to scaffold integrity this pass.
+
+[${NOW}] Module: StrongPNT/PNT0_Scaffold.lean
+- Status: Clean compile, no sorries
+- Notes: Minimal imports; added robust use of Real.log_pow with abs_nonneg
+- Lean lines: $(wc -l < StrongPNT/PNT0_Scaffold.lean)
+- Blueprint coverage: N/A (scaffold only)
+- Blocking issues: None for scaffold; other PNT files contain placeholders/sorries and are not part of current build target.
