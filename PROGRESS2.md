@@ -759,3 +759,10 @@ Blocking: 50 sorries across StrongPNT/*.lean — must resolve before advancing b
 - File: StrongPNT/PNT0_Scaffold.lean (81 lines)
 - Blueprint coverage: N/A (scaffolding only)
 - Notes: Minimal imports, namespace StrongPNT; added/confirmed simp lemmas for Real.log with abs, inv, mul/div, pow, nat-casts.
+[2025-10-01 03:50Z] PNT0_Scaffold — compile check
+- File: StrongPNT/PNT0_Scaffold.lean (81 lines)
+- Status: CLEAN (no sorries)
+- Build: lake build → SUCCESS
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Verified minimal imports and namespace; no changes needed.
+---
