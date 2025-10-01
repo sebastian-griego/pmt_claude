@@ -1513,3 +1513,11 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 [2025-10-01] PNT0_Scaffold verified clean compile\n- File: StrongPNT/PNT0_Scaffold.lean\n- Status: Build OK; zero sorries in file\n- Lines: 112\n- Blueprint coverage: N/A (scaffolding)\n- Notes: Minimal imports; namespace StrongPNT; ready for downstream modules. Many sorries remain in PNT1–PNT5 (out of scope for this step).
 [jovyan] 2025-10-01T09:07:42+00:00 PNT0_Scaffold — verified clean compile (no changes).
 2025-10-01T09:09:25Z [Scaffold] PNT0_Scaffold — verified clean compile\n- File: StrongPNT/PNT0_Scaffold.lean (112 lines)\n- Status: lake build OK; zero sorries in this file\n- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic\n- Notes: Frontier limited to scaffolding; project contains many sorries in PNT1–PNT5 outside current scope.\n---
+[2025-10-01] PNT0_Scaffold — verified clean compile (no sorries).\n- File: StrongPNT/PNT0_Scaffold.lean (112 lines)\n- Status: OK; imports minimal; namespace established\n- Blueprint coverage: N/A (scaffolding module)\n- Notes: Build succeeds; many sorries remain in PNT1–PNT5 (out of scope for this scaffold task).
+[2025-10-01T10:45:00Z] PNT0_Scaffold — final verification COMPLETE
+- File: StrongPNT/PNT0_Scaffold.lean (113 lines)
+- Status: ✓ BUILD OK; ✓ ZERO SORRIES; ✓ MINIMAL IMPORTS
+- Build: lake build succeeds cleanly
+- Content: SmoothingKernel abbrev + 14 log simp lemmas
+- Conclusion: Refactoring task complete; scaffold ready for use
+---
