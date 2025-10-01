@@ -1351,3 +1351,8 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - Change: removed stray .ipynb_checkpoints Lean file to keep scaffold clean
 - Notes: Imports minimal; namespace intact; downstream modules still contain sorries (out of scope for this scaffold task).
 ---
+- PNT0_Scaffold: scaffold refactor complete; clean compile.\n  Lines: 112\n  Blueprint coverage: N/A (scaffold module)\n  Blocking: Downstream files contain sorries; untouched per frontier scope.
+- PNT0_Scaffold: scaffold refactor complete; clean compile.
+  Lines: 112
+  Blueprint coverage: N/A (scaffold module)
+  Blocking: Downstream files contain sorries; untouched per frontier scope.
