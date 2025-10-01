@@ -1195,3 +1195,9 @@ Lines: 112
 Blueprint coverage: N/A (scaffold)
 Blocking: Many sorries in PNT1–PNT5 remain; not addressed here.
 ---
+[2025-10-01T06:59z] PNT0_Scaffold — verification pass
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Status: CLEAN (no sorries); lake build OK
+- Blueprint coverage: N/A (scaffold)
+- Notes: Imports minimal; namespace intact; helper log/abs lemmas present. Many sorries remain in PNT1–PNT5 (not touched this pass).
+---
