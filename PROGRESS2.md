@@ -1012,3 +1012,10 @@ Timestamp: 2025-10-01T05:14:18Z
 - Next: When ready, target least-progress blueprint lemma in PNT1_ComplexAnalysis after clearing sorries policy-wise or building PNT explicitly.
 
 [2025-10-01T05:37Z] PNT0_Scaffold — scaffold verified clean\n- File: StrongPNT/PNT0_Scaffold.lean (95 lines)\n- Status: CLEAN (lake build OK; zero sorries in file)\n- Blueprint coverage: N/A (scaffold)\n- Notes: Minimal imports; helper log/abs lemmas verified; downstream files still contain sorries, out of scope for this scaffolding task.
+[2025-10-01T05:40:23Z] PNT0_Scaffold — verification complete
+- File: StrongPNT/PNT0_Scaffold.lean (95 lines)
+- Status: CLEAN (build OK; zero sorries in this file)
+- Build: lake build → success
+- Blueprint coverage: N/A (scaffolding module)
+- Notes: Imports minimal; namespace intact; helper log/abs lemmas present. Many sorries remain in PNT1–PNT5 (out of scope for this scaffold task).
+---
