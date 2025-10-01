@@ -1395,3 +1395,10 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - Notes: lake build OK; grep shows sorries in downstream PNT1–PNT5; will address sequentially next.
 
 2025-10-01 | PNT0_Scaffold scaffolding check | status: compiled cleanly, no sorries | lines: 112 | blueprint coverage: N/A | notes: Verified minimal imports; heavy modules still contain sorries but outside scaffold scope.
+[2025-10-01] PNT0_Scaffold — verification complete
+- File: StrongPNT/PNT0_Scaffold.lean (112 lines)
+- Status: CLEAN (build OK; zero sorries in file)
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Contents: SmoothingKernel alias; basic [simp] lemmas for Real.log and |·| (mul/div/inv/pow); convenience lemmas for n : ℕ
+- Notes: Many sorries remain in PNT1–PNT5; out of scope for this scaffolding task.
+---
