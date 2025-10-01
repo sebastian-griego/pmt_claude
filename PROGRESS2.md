@@ -455,3 +455,10 @@ Notes: Built project successfully; many sorries remain in heavy modules, unchang
   Blueprint coverage: unchanged (scaffold only)
   Blocking: many `sorry` remain in PNT1–PNT5; deep complex-analytic results required.
 [2025-10-01] PNT0_Scaffold — verified clean compile; no sorries. Lines: 77. Blueprint: N/A (scaffold only). Notes: Imports minimal; namespace intact; helper lemmas consistent with Mathlib (log_mul/div/inv/pow).
+[PNT0_Scaffold refactor — COMPLETE]
+- Theorem: N/A (scaffolding lemmas only)
+- Lean lines updated: 77 (StrongPNT/PNT0_Scaffold.lean)
+- Blueprint coverage advanced: 0% (scaffold only)
+- Notes: File compiles cleanly; no sorrys; minimal imports.
+- Blocking issues: Many sorries in downstream files; per protocol they must be resolved before adding new theorems.
+
