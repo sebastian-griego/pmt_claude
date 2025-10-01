@@ -60,7 +60,7 @@ This is convenient because `(n : ℝ) ≥ 0`. -/
 @[simp] theorem log_abs_two : Real.log (|2| : ℝ) = Real.log (2 : ℝ) := by
   exact log_abs_nat 2
 
-/-! ## Logarithm arithmetic with absolute values -/
+/-! ## Logarithm arithmetic with absolute values -/ 
 
 /-- For nonzero reals, `log |x * y| = log |x| + log |y|`. -/
 theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
@@ -86,6 +86,11 @@ theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
     Real.log (|x ^ n|) = (n : ℝ) * Real.log (|x|) := by
   rw [abs_pow, Real.log_pow]
 
+/-- A very common specialization of `log_abs_pow` to squares. -/
+@[simp] theorem log_abs_pow_two (x : ℝ) :
+    Real.log (|x ^ 2|) = (2 : ℝ) * Real.log (|x|) := by
+  simp
+
 /-! ## Specialized versions for positive arguments -/
 
 /-- If `x, y > 0` then `log |x*y| = log x + log y`. -/
@@ -101,5 +106,7 @@ theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
   have hx' : x ≠ 0 := ne_of_gt hx
   have hy' : y ≠ 0 := ne_of_gt hy
   simp [abs_of_pos (div_pos hx hy), Real.log_div hx' hy']
+
+/-! (No additional inequality helpers needed in the scaffold.) -/
 
 end StrongPNT
