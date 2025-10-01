@@ -705,3 +705,11 @@ Notes:
 - No sorries in this file; default target builds green.
 - Project still contains sorries in PNT1–PNT5 (out of scope here).
 ---
+[PNT0_Scaffold] Clean refactor: module compiles with no sorries
+- File: StrongPNT/PNT0_Scaffold.lean
+- Status: OK (build passes)
+- Lines: 81
+- Blueprint coverage: N/A (scaffolding only)
+- Notes: Minimal imports, namespace closed, trivial log/abs lemmas added; downstream modules can import safely.
+- Blocking: Many sorries remain in later PNT files; not addressed in this scaffolding refactor.
+
