@@ -1222,3 +1222,4 @@ Blocking: Many sorries in PNT1–PNT5 remain; not addressed here.
 - Blueprint coverage: unchanged (scaffold only)
 - Notes: Many sorries remain across StrongPNT modules; per protocol, avoid adding new theorems until sorries resolved.
 
+[PNT0_Scaffold] Refactor/verify scaffolding module\n- Status: Compiles cleanly, zero sorries in file\n- Lines (Lean): 112\n- Blueprint coverage: n/a (scaffold only), overall unchanged\n- Blocking: Multiple sorries across StrongPNT/PNT1_ComplexAnalysis.lean and later; earliest at StrongPNT/PNT1_ComplexAnalysis.lean:1104 (removable singularity for power series).\n
