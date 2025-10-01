@@ -1122,3 +1122,4 @@ Timestamp: 2025-10-01T05:14:18Z
 - Blueprint coverage: N/A (scaffold module)
 - Notes: Verified imports minimal; provides basic Real.log + |.| lemmas and type alias SmoothingKernel. Build and grep on scaffold show no issues. Many sorries remain in downstream files not currently imported; leaving for later frontier tasks.
 
+- [Scaffold] StrongPNT/PNT0_Scaffold: verified clean build; no sorries. Lines: 112. Blueprint: N/A (scaffold). Blockers: Numerous sorries across PNT1–PNT5; out of scope for scaffold refactor.
