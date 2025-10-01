@@ -1049,3 +1049,8 @@ Timestamp: 2025-10-01T05:14:18Z
 
 - [Scaffold] Revalidated PNT0_Scaffold clean compile; no sorries. Lines: 95. Blueprint: N/A. Blocking: many sorries in PNT1–PNT5 (unchanged). Timestamp: 2025-10-01T05:45:48Z
 [2025-10-01 00:00Z] PNT0_Scaffold — verified clean compile\n- File: StrongPNT/PNT0_Scaffold.lean (95 lines)\n- Status: lake build OK; zero sorries in this file\n- Imports: Mathlib.Data.Real.Basic; Mathlib.Analysis.SpecialFunctions.Log.Basic\n- Notes: No code changes required; scaffold provides small  lemmas for Real.log/abs used downstream. Project still contains sorries in PNT1–PNT5 (unchanged this pass).\n
+[2025-10-01 00:05Z] PNT0_Scaffold — verified clean compile
+- File: StrongPNT/PNT0_Scaffold.lean (95 lines)
+- Status: lake build OK; zero sorries in this file
+- Imports: Mathlib.Data.Real.Basic; Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Notes: No code changes required; scaffold provides small [simp] lemmas for Real.log/abs used downstream. Project still contains sorries in PNT1–PNT5 (unchanged this pass).
