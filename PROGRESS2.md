@@ -1402,3 +1402,10 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
 - Contents: SmoothingKernel alias; basic [simp] lemmas for Real.log and |·| (mul/div/inv/pow); convenience lemmas for n : ℕ
 - Notes: Many sorries remain in PNT1–PNT5; out of scope for this scaffolding task.
 ---
+- [Scaffold] StrongPNT/PNT0_Scaffold.lean — Verified clean compile, no sorries.
+  Lines: 112
+  Blueprint coverage: N/A (scaffolding only)
+  Notes: Minimal imports (Real basic + log), namespace StrongPNT, helper lemmas for log/abs; stable baseline.
+  Blocking: Repository contains existing sorries in other modules; scaffold remains independent and clean.
+  Timestamp: 2025-10-01T08:32:45Z
+
