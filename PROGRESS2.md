@@ -1111,3 +1111,14 @@ Timestamp: 2025-10-01T05:14:18Z
 - LOC: 105
 - Blueprint coverage: N/A (scaffold module)
 - Notes: Provides basic log/abs convenience lemmas for downstream use. Other PNT modules contain sorries; left untouched per current frontier (scaffold integrity).
+- [Scaffold] StrongPNT/PNT0_Scaffold: Added small simp lemma (log_abs_pow_two) and kept imports minimal. Status: compiled cleanly.
+  Lines: 112
+  Blueprint coverage: N/A (scaffold only)
+  Blocking: Many sorries remain in PNT1–PNT5; unchanged this iteration.
+
+[PNT0_Scaffold] Status: clean (no sorries), builds OK
+- File: StrongPNT/PNT0_Scaffold.lean
+- Lines: 112
+- Blueprint coverage: N/A (scaffold module)
+- Notes: Verified imports minimal; provides basic Real.log + |.| lemmas and type alias SmoothingKernel. Build and grep on scaffold show no issues. Many sorries remain in downstream files not currently imported; leaving for later frontier tasks.
+
