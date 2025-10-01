@@ -505,3 +505,4 @@ Notes: Build OK. Downstream files contain sorries; not modified in this step.
 - Blueprint coverage: unchanged (scaffold only)
 - Notes: kept helper simp lemmas for log/abs; verified lake build
 
+[2025-10-01T02:23Z] PNT0_Scaffold — verified clean scaffold\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Task: Refactor/import hygiene; ensure no sorries\n- Status: SUCCESS (build OK; zero sorries in file)\n- Blueprint coverage: N/A (scaffold only)\n- Notes: No further changes needed; downstream files still contain placeholders not addressed here.
