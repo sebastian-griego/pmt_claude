@@ -1546,3 +1546,7 @@ Timestamp: 2025-10-01T09:15:22Z
 - Blueprint coverage: N/A (scaffolding)
 - Notes: Minimal imports; namespace StrongPNT; downstream files still contain sorries (see grep).
 ---
+2025-10-01T09:27:03Z [PNT0_Scaffold] Verified clean compile; no changes needed
+- File: StrongPNT/PNT0_Scaffold.lean (current lines: 112)
+- Status: build OK; zero sorries in file
+- Notes: Imports minimal; namespace intact; helper log/abs lemmas stable. Project contains sorries in PNT1–PNT5 (out of scope for this scaffold task).
