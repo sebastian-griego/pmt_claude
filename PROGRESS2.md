@@ -877,3 +877,4 @@ Blocking: numerous sorries in other modules; scaffold unaffected.
 - Notes: Provides minimal Real.log/abs lemmas and `SmoothingKernel` alias for downstream files.
 - Blocking issues: Multiple sorries remain across PNT1–PNT5; per protocol, next iterations should target eliminating those in order.
 [PNT0_Scaffold] Verified clean scaffold compile\n- File: StrongPNT/PNT0_Scaffold.lean (81 lines)\n- Status: build OK; zero sorries in file\n- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic\n- Notes: Ran lake build and grep; many sorries remain in PNT1–PNT5. Frontier limited to scaffolding this pass.
+- [Scaffold] StrongPNT/PNT0_Scaffold.lean — compile-only refactor COMPLETE; no sorries. Lines: 81. Blueprint coverage: N/A (scaffold). Blockers: Many sorries remain in PNT1–PNT5; not touched in this refactor.
