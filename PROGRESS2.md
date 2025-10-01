@@ -249,3 +249,4 @@ Timestamp: 2025-10-01T00:23:53Z
 - Lean lines: $(wc -l < StrongPNT/PNT0_Scaffold.lean)
 - Blueprint coverage: N/A (scaffold only)
 - Blocking issues: None for scaffold; other PNT files contain placeholders/sorries and are not part of current build target.
+2025-10-01T00:43Z [Scaffold] Verified StrongPNT/PNT0_Scaffold.lean compiles (no sorries). Lines: 73. Minimal imports stable; helper lemmas for log/abs ready.
