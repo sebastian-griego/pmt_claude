@@ -257,3 +257,12 @@ Timestamp: 2025-10-01T00:23:53Z
 - Lean lines: 73
 - Blueprint coverage: N/A (scaffolding only)
 - Notes: Kept helper log/abs lemmas small and general; ready for downstream use. Project still contains sorries in heavy modules; not addressed in this refactor.
+[2025-10-01T00:47:55] PNT0_Scaffold — verified clean compile; no sorries in file.
+- File: StrongPNT/PNT0_Scaffold.lean (73 lines)
+- Status: lake build OK; scaffold ready for downstream imports.
+
+[2025-10-01T00:49:58Z] PNT0_Scaffold — scaffolding verification
+- File: StrongPNT/PNT0_Scaffold.lean (73 lines)
+- Status: lake build OK; no sorries in this file
+- Notes: Minimal imports; helper log/abs lemmas stable for downstream.
+---
