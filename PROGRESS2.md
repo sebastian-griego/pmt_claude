@@ -204,3 +204,9 @@ Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)
 - Lines: 73
 - Notes: Minimal imports; namespace intact; helper log/abs lemmas available for downstream.
 ---
+[Scaffold] PNT0_Scaffold — Verified clean compile; no sorries.
+Lines: 73
+Blueprint coverage: N/A (scaffold module)
+Blocking: Many sorries remain across StrongPNT/*; zero-sorry build not yet achievable.
+Timestamp: 2025-10-01T00:23:53Z
+---
