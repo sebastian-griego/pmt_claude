@@ -1258,3 +1258,4 @@ Blocking: Many sorries in PNT1–PNT5 remain; not addressed here.
 - Verified: All proofs complete; no placeholders; module serves as lightweight foundation
 - Notes: Downstream PNT modules contain sorries (outside current scope)
 ---
+[PNT0_Scaffold] Scaffolding module verified clean — no sorries.\n- File: StrongPNT/PNT0_Scaffold.lean\n- Status: Compiles (lake build OK)\n- Lines: 112\n- Blueprint coverage: N/A (scaffold only)\n- Notes: Provides basic log/abs lemmas and SmoothingKernel alias; downstream modules import it.\n---
