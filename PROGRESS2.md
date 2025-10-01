@@ -1360,3 +1360,9 @@ Notes: Project builds; many sorries remain in advanced modules (PNT1–PNT5). Fr
   Lines: 112
   Blueprint coverage: N/A (scaffold)
   Notes: Many sorries remain in PNT1–PNT5; scaffold ready for downstream work.
+- Module: StrongPNT/PNT0_Scaffold.lean
+  Status: Compiles cleanly, no sorries
+  Theorems: trivial log/abs lemmas + alias `SmoothingKernel`
+  Lines: 112
+  Blueprint coverage: n/a (scaffolding only)
+  Notes: Ensured minimal imports; serves as stable base for downstream files.
