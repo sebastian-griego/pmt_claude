@@ -329,3 +329,4 @@ Timestamp: 2025-10-01T01:17:13Z
 - Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
 - Notes: Kept minimal, added simp conveniences earlier; global project still has many sorries (PNT1–PNT5), which block advancing new theorems per policy. Frontier limited to scaffold refactor this pass.
 - Timestamp: 2025-10-01T01:24:51Z
+- [PNT0_Scaffold] Refactor scaffolding: compiles cleanly with no sorries\n  - File: StrongPNT/PNT0_Scaffold.lean\n  - Lines: 80\n  - Blueprint coverage: n/a for scaffolding (0% change)\n  - Notes: Verified lake build succeeds; many sorries remain in heavy modules (PNT1–PNT5), not addressed here.
