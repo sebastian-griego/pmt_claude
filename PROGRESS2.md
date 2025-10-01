@@ -1154,3 +1154,4 @@ Blueprint coverage: scaffolding only (pre-blueprint), 0% of core blueprint.
 Blocking: Many sorries remain in PNT1–PNT5; will address sequentially in next iterations.
 ---
 [PNT0_Scaffold] Status: clean compile, no sorries. Lines: 112. Blueprint coverage: N/A (scaffold). Blocking: none. Timestamp: 2025-10-01T06:37:59Z
+[PNT0_Scaffold] Status: Clean compile; no sorries in file.\n- Lines: 112\n- Blueprint coverage: N/A (scaffold)\n- Notes: Verified minimal imports; downstream modules import this scaffold. Global sorries remain elsewhere, not modified in this iteration.\n- Timestamp: 2025-10-01T06:39:15Z\n
