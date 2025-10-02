@@ -1912,3 +1912,4 @@ Blocking: None for scaffold; many sorries remain in PNT1–PNT5.
 - Status: Module already clean; no edits required
 - Frontier goal: "Ensure PNT scaffolding modules compile cleanly" — SATISFIED
 [2025-10-02T20:31:36Z] PNT0_Scaffold — scaffold verification\n- File: StrongPNT/PNT0_Scaffold.lean (113 lines)\n- Build: lake build Scaffold → SUCCESS\n- grep sorry: none in this file (others remain in PNT1–PNT5, excluded from default target)\n- Notes: Imports minimal; StrongPNT namespace; SmoothingKernel alias; basic Real.log/abs simp lemmas. Frontier goal satisfied.
+2025-10-02T20:33Z [PNT0_Scaffold] Verify clean scaffold compile\n- File: StrongPNT/PNT0_Scaffold.lean (113 lines)\n- Status: lake build OK; zero sorries in this file\n- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic\n- Notes: Kept minimal; helper log/abs lemmas ready for downstream. Repo still has sorries in PNT1–PNT5 (out of scope for this step).\n
