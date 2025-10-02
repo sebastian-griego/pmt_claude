@@ -2062,3 +2062,24 @@ Timestamp: 2025-10-02T20:53:55Z
 - Notes: Imports minimal (Real + log); helpers compile and are used downstream. No changes needed.
 
 - [Scaffold] StrongPNT/PNT0_Scaffold.lean — Verified clean compile; no sorries; no changes required. Lines: 113. Blueprint coverage: N/A (scaffold). Blockers: numerous pending sorries in downstream modules (PNT1–PNT5).
+[Scaffold] PNT0_Scaffold.lean — compile check
+- Status: Clean (no sorries in file)
+- Build: lake build OK at 2025-10-02T21:38Z
+- Lines: 113
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Added no changes; verified minimal imports and all lemmas are -friendly. Global project still contains sorries in advanced modules; leaving untouched per frontier scope.
+
+[Scaffold] StrongPNT/PNT0_Scaffold.lean — compile check (refactor)
+- Status: Clean (file has no sorries)
+- Build: lake build OK at $DATE
+- Lines: 113
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Verified minimal imports; small log/abs helper lemmas simp as expected. Downstream files still contain sorries; left untouched per frontier scope.
+
+[2025-10-02 refine/scaffold-log] PNT0_Scaffold — Refactor verification complete
+- Status: Clean compile (zero sorries)
+- Build: lake build OK (1816 jobs)
+- Lines: 113 (StrongPNT/PNT0_Scaffold.lean)
+- Content: Minimal imports, SmoothingKernel alias, 14 simp lemmas for log/abs arithmetic
+- Blueprint coverage: N/A (scaffolding support module)
+- Notes: No changes required; module ready for downstream use. Verified all lemmas compile and simplify correctly.
