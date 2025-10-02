@@ -2344,3 +2344,5 @@ Blocking issues: Global sorries exist in other files; not addressed in this refa
 - Notes: Removed redundant lemmas covered by Mathlib; kept log_abs_mul/div helpers for ne_zero and pos cases
 - Build: lake build StrongPNT.PNT0_Scaffold → OK
 ---
+- [Scaffold] StrongPNT.PNT0_Scaffold: verified Real.log_mul/Real.log_div use nonzero hypotheses; build OK. Lines: 69. Blueprint: N/A. Notes: No sorries in scaffold; ready for downstream imports.
+- [Scaffold] StrongPNT.PNT0_Scaffold: refined log/abs lemmas to use nonzero hypotheses; build OK. Lines: 65. Blueprint: N/A (scaffold). Timestamp: 2025-10-02T23:11:26Z
