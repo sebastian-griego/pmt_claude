@@ -2148,3 +2148,16 @@ Timestamp: 2025-10-02T20:53:55Z
 - Sorries: 0 (all lemmas complete)
 - Blueprint: N/A (infrastructure/scaffolding)
 - Notes: Module provides minimal, clean foundation; ready for downstream imports
+[Scaffold] PNT0_Scaffold.lean — verified clean build, no sorries. Lines: 111. Blueprint coverage: N/A (scaffold). Blocking: Many sorries remain in PNT1–PNT5; focusing on scaffold only this iteration.
+
+---
+2025-10-02T22:15Z [Refactor] PNT0_Scaffold — Clean Compilation Verified
+- Task: Refactor — ensure PNT scaffolding modules compile cleanly
+- File: StrongPNT/PNT0_Scaffold.lean (111 lines, 0 sorries)
+- Build: ✓ lake build → SUCCESS (1816 jobs)
+- Module structure:
+  * Import: Mathlib.Analysis.SpecialFunctions.Log.Basic
+  * Namespace: StrongPNT
+  * Type alias: SmoothingKernel := ℝ → ℝ
+  * Lemmas: 14 log/abs simplification rules (all proven)
+- Status: COMPLETE — scaffold compiles cleanly, ready for downstream use
