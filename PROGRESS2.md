@@ -1650,3 +1650,9 @@ Blocking issues: none for this module; many sorries remain in downstream PNT fil
   * Lines: 113
   * Blueprint coverage: N/A (scaffold module)
   * Notes: Simplified log_abs_inv and log_abs_pow using mathlib simp lemmas; no functional changes.
+[2025-10-01T18:02Z] PNT0_Scaffold — verification
+- File: StrongPNT/PNT0_Scaffold.lean (113 lines)
+- Status: lake build OK; zero sorries in this file
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Notes: Scaffold clean and ready; project contains many sorries in PNT1–PNT5, so no new theorems added per protocol.
+---
