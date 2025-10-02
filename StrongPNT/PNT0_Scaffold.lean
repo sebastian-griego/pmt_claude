@@ -82,8 +82,15 @@ theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
 /-- A convenient power rule inside a log–absolute: `log |x^n| = n * log |x|`. -/
 @[simp] theorem log_abs_pow (x : ℝ) (n : ℕ) :
     Real.log (|x ^ n|) = (n : ℝ) * Real.log (|x|) := by
-  -- Use the power rule for `Real.log` on `|x|`.
-  simp [abs_pow]
+  -- Split off the degenerate case `x = 0`, where both sides are `0`.
+  by_cases hx : x = 0
+  · subst hx
+    cases n with
+    | zero => simp
+    | succ _ => simp
+  -- For `x ≠ 0`, rewrite the absolute value of the power and apply the
+  -- power rule for `Real.log`.
+  simp [abs_pow, Real.log_pow]
 
 /-- A very common specialization of `log_abs_pow` to squares. -/
 @[simp] theorem log_abs_pow_two (x : ℝ) :

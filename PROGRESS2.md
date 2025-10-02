@@ -2216,3 +2216,10 @@ Timestamp: 2025-10-02T20:53:55Z
   Lines: 111 (Lean). Blueprint coverage: N/A (scaffold).
   Notes: Build OK. Many pending sorries in advanced modules; left untouched per frontier scope.
 - [Scaffold] StrongPNT.PNT0_Scaffold: verified clean compile; no sorries.\n  Lines: 111 (StrongPNT/PNT0_Scaffold.lean)\n  Blueprint coverage: N/A (scaffold module).\n  Notes: Imports minimal; namespace intact; helper log/abs lemmas compile. Build overall OK; many sorries remain in advanced modules (out of scope for this scaffold refactor).
+[2025-10-02] StrongPNT/PNT0_Scaffold.lean — Refactor
+- Change: Made  proof robust (case split; now uses ), removed linter warning.
+- Status: Compiles cleanly; no sorries in this module.
+- Lines: 119
+- Blueprint coverage: N/A (scaffold module)
+- Notes: Global repo still contains sorries in PNT1–PNT5; left untouched per frontier focus.
+
