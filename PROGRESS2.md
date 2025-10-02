@@ -1863,3 +1863,9 @@ Blocking: Many sorries remain in PNT1–PNT5; out of scope for scaffold refactor
 - Build: `lake build StrongPNT` OK; `lake build StrongPNT.PNT0_Scaffold` OK
 - Blueprint coverage: N/A (scaffold file)
 - Notes: Imports minimal; namespace intact; helper log/abs lemmas available. Many sorries remain in PNT1–PNT5 (out of scope for this scaffold step).
+[2025-10-02] PNT0_Scaffold refactor/verification — COMPLETE
+- File: StrongPNT/PNT0_Scaffold.lean (113 lines)
+- Status: Build OK; zero sorries in file
+- Blueprint coverage: N/A (scaffold module)
+- Notes: Imports minimal; namespace StrongPNT; ready for downstream use.
+---
