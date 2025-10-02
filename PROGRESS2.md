@@ -2223,3 +2223,27 @@ Timestamp: 2025-10-02T20:53:55Z
 - Blueprint coverage: N/A (scaffold module)
 - Notes: Global repo still contains sorries in PNT1–PNT5; left untouched per frontier focus.
 
+[2025-10-02] StrongPNT/PNT0_Scaffold.lean — Refactor
+- Change: Made log_abs_pow proof robust (case split; now uses simp [abs_pow, Real.log_pow]), removed linter warning.
+- Status: Compiles cleanly; no sorries in this module.
+- Lines: 119
+- Blueprint coverage: N/A (scaffold module)
+- Notes: Global repo still contains sorries in PNT1–PNT5; left untouched per frontier focus.
+
+[Scaffold] PNT0_Scaffold.lean — clean refactor\n- Status: Compiles, no sorries, build passes\n- Lines: 118\n- Blueprint coverage: N/A (scaffold module)\n- Notes: Provides basic Real.log + |.| helper lemmas and type alias . Other PNT files still contain sorries; left unchanged per scope.\n
+[2025-10-02] StrongPNT/PNT0_Scaffold.lean — Scaffold verification
+- Status: Compiles, no sorries, build passes
+- Lines: 118
+- Blueprint coverage: N/A (scaffold module)
+- Notes: Provides basic Real.log + abs helpers and alias `SmoothingKernel`. Other PNT files still contain sorries; left unchanged per frontier focus.
+[2025-10-02T22:16Z] PNT0_Scaffold — Verified clean build; no sorries in module.
+- File: StrongPNT/PNT0_Scaffold.lean
+- Build: lake build (default target Scaffold) → OK
+- Next: I can target the single remaining sorry in StrongPNT/PNT1_ComplexAnalysis.lean unless you prefer a different file.
+
+[PNT0_Scaffold] Scaffold module compiles cleanly.
+- Status: COMPLETE (no sorries)
+- Lean lines: 118
+- Blueprint coverage: N/A (scaffold only)
+- Notes: Added/verified basic log|.| lemmas and kernel alias; imports minimal, namespace StrongPNT; builds with lake.
+
