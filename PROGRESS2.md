@@ -2280,3 +2280,16 @@ Timestamp: 2025-10-02T20:53:55Z
   * Notes: Used dslope and AnalyticWithinAt.congr_of_eventuallyEq_insert to remove the isolated sorry cleanly; preserves downstream usage in lem_g_analytic without changing definitions. Build is clean.
 [2025-10-02] PNT0_Scaffold: Verified clean compile, zero sorries\n- File: StrongPNT/PNT0_Scaffold.lean (118 lines)\n- Status: Build OK; no changes required\n- Blueprint coverage: N/A (scaffold)\n- Notes: Minimal imports, namespace StrongPNT; ready for downstream use\n---
 2025-10-02T22:35:54Z | PNT0_Scaffold: Scaffold compiles cleanly; no sorries in file; lines=118; blueprint%: N/A
+[2025-10-02T22:40Z] PNT0_Scaffold — verified clean compile
+- File: StrongPNT/PNT0_Scaffold.lean (lines stable)
+- Status: Build OK; no sorries in this module
+- Notes: Imports minimal; namespace StrongPNT; helpers for Real.log and abs ready for downstream.
+---
+2025-10-02T22:40:12Z [PNT0_Scaffold] Verify scaffold compiles cleanly\n- File: StrongPNT/PNT0_Scaffold.lean (118 lines)\n- Status: build OK; zero sorries in file\n- Imports: Mathlib.Analysis.SpecialFunctions.Log.Basic\n- Notes: Downstream files still contain sorries; frontier limited to scaffolding per task.\n---
+---
+Date: '
+2025-10-02T22:41:53Z [PNT0_Scaffold] Verify clean scaffold compile
+- File: StrongPNT/PNT0_Scaffold.lean (118 lines)
+- Status: lake build OK; zero sorries in this file
+- Notes: Imports minimal; namespace intact; helper / lemmas ready. Project still has sorries in PNT2–PNT5; frontier limited to scaffolding.
+---
