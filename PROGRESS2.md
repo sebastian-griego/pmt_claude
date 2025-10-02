@@ -1790,3 +1790,6 @@ Blocking issues: none for this module; many sorries remain in downstream PNT fil
 - Status: clean compile; no sorries in this module
 - Blueprint coverage: N/A (scaffold)
 - Notes: Minimal imports and namespace; basic Real.log/abs simp lemmas; `SmoothingKernel` alias. Ready for downstream use.
+[PNT0_Scaffold] Scaffold module compiles cleanly; no sorries.
+Lines: 113; Blueprint coverage: N/A (scaffold).
+Blocking: Many sorries remain in PNT1–PNT5; out of scope for scaffold refactor.
