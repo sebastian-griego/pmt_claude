@@ -1882,3 +1882,4 @@ Blueprint coverage: N/A (scaffold only)
 Blocking: None for scaffold; many sorries remain in PNT1–PNT5.
 
 2025-10-02T20:23:08+00:00 [Scaffold] Verified StrongPNT/PNT0_Scaffold.lean compiles cleanly; no sorries; imports minimal. Lines: 113
+[jovyan@jupyter-sgriego5421-sdsu-edu---7c5549a6 2025-10-02T20:25:25+00:00] PNT0_Scaffold verification — build OK; no sorries in StrongPNT/PNT0_Scaffold.lean (113 lines).
