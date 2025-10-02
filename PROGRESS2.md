@@ -1982,3 +1982,15 @@ Timestamp: 2025-10-02T20:53:55Z
 - PNT0_Scaffold — scaffolding verified clean (no sorries).\n  File: StrongPNT/PNT0_Scaffold.lean (113 lines)\n  Build: lake build OK\n  Blueprint coverage: N/A (scaffold prep)\n  Blocking: many sorries remain in StrongPNT/PNT[1-5]_*.lean; not modified this pass.
 - [Scaffold] StrongPNT/PNT0_Scaffold.lean: compiled cleanly; no sorries.\n  Lines: 113 Lean lines.\n  Blueprint coverage: N/A (support module).\n  Notes: Verified Build completed successfully (1816 jobs). succeeds. Many sorries remain in other PNT files; next step is to pick the earliest sorry in PNT1_ComplexAnalysis.\n  Date: 2025-10-02T21:06:26+00:00
 [2025-10-02T21:12Z] PNT0_Scaffold — scaffold verification\n- File: StrongPNT/PNT0_Scaffold.lean (113 lines)\n- Build: lake build → SUCCESS\n- grep sorry: none in this file (others remain in PNT1–PNT5)\n- Notes: Imports minimal; StrongPNT namespace; SmoothingKernel alias; basic Real.log/abs simp lemmas. Frontier goal satisfied.
+[jovyan@jupyter-sgriego5421-sdsu-edu---7c5549a6 2025-10-02T21:12:34Z] PNT0_Scaffold — scaffold verification
+- File: StrongPNT/PNT0_Scaffold.lean (113 lines)
+- Build: lake build → SUCCESS
+- grep sorry: none in this file (others remain in PNT1–PNT5)
+- Notes: Imports minimal; StrongPNT namespace; SmoothingKernel alias; basic Real.log/abs lemmas. Frontier goal satisfied.
+---
+[PNT0_Scaffold] Minimal scaffolding module compile check
+- Status: Completed (no sorries, builds cleanly)
+- File: StrongPNT/PNT0_Scaffold.lean (113 lines)
+- Blueprint coverage: N/A (scaffold only)
+- Notes: imports kept minimal; lemmas are trivial conveniences used downstream
+
