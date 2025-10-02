@@ -2326,3 +2326,4 @@ Blocking issues: Global sorries exist in other files; not addressed in this refa
 - Blueprint coverage: N/A (scaffolding)
 - Notes: Provides basic Real.log + abs lemmas and SmoothingKernel alias.
 
+[PNT0_Scaffold] Refactor scaffold module compile check\n- Status: Clean, no sorries in this module\n- Lines: 118 (Lean)\n- Blueprint coverage: N/A (scaffold)\n- Notes: Verified imports and namespace; downstream files import this module.\n- Blocking: Many sorries remain in PNT2–PNT5; focusing on them in future iterations.\n
