@@ -1855,3 +1855,4 @@ Blocking: Many sorries remain in PNT1–PNT5; out of scope for scaffold refactor
 - Content: SmoothingKernel type alias + 15 logarithm/absolute value simp lemmas
 - Blueprint coverage: N/A (scaffold utilities)
 - Notes: Module already meets all requirements; serves as lightweight foundation for PNT formalization.
+[2025-10-02] PNT0_Scaffold — verified clean compile; no sorries\n- File: StrongPNT/PNT0_Scaffold.lean (~80 lines)\n- Build: lake build OK\n- Notes: Imports minimal; helper log/abs lemmas available; frontier satisfied.\n
