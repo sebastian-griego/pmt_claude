@@ -1760,3 +1760,4 @@ Blocking issues: none for this module; many sorries remain in downstream PNT fil
 - Blueprint coverage: N/A (scaffold only)
 - Notes: Verified imports, namespace, and basic log/abs lemmas; downstream modules still have sorries (out of scope here).
 
+[PNT0_Scaffold] Refactor check — status: CLEAN\n- File: StrongPNT/PNT0_Scaffold.lean\n- Lines: 113\n- Build: lake build OK\n- Sorries: none in this file (others remain across project)\n- Blueprint coverage: N/A (scaffold module)\n- Notes: Verified minimal imports and namespace. No changes needed.\n- Next: Keep PNT0 as stable base; heavy modules still contain sorries.\n
