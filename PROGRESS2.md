@@ -2125,3 +2125,26 @@ Timestamp: 2025-10-02T20:53:55Z
 - Notes: Minimal imports and simp lemmas verified; ready for downstream use
 - Timestamp: 2025-10-02T21:45:24Z
 
+- PNT0_Scaffold: scaffold compiles cleanly, no sorries; imports minimal.\n  Lines: 111 in StrongPNT/PNT0_Scaffold.lean\n  Blueprint coverage: scaffolding only (0% of theorem content).\n  Blocking: Many sorries remain in PNT1–PNT5; not addressed in this scaffolding pass.
+- PNT0_Scaffold: scaffold compiles cleanly, no sorries; imports minimal.
+  Lines: 111 in StrongPNT/PNT0_Scaffold.lean
+  Blueprint coverage: scaffolding only (0% of theorem content).
+  Blocking: Many sorries remain in PNT1–PNT5; not addressed in this scaffolding pass.
+[2025-10-02T21:49Z] PNT0_Scaffold — scaffold verification
+- File: StrongPNT/PNT0_Scaffold.lean (111 lines)
+- Build: lake build → SUCCESS
+- grep sorry: none in this file (others remain in PNT1–PNT5)
+- Notes: Imports minimal; StrongPNT namespace; SmoothingKernel alias; log/abs simp lemmas. Frontier goal satisfied.
+
+2025-10-02T21:51Z [Scaffold] Verify clean compile for PNT0_Scaffold\n- File: StrongPNT/PNT0_Scaffold.lean (111 lines)\n- Status: lake build StrongPNT OK; zero sorries in this file\n- Blueprint coverage: N/A (scaffold helpers only)\n- Notes: Minimal imports; namespace intact; ready for downstream use.
+
+---
+2025-10-02T22:00Z [PNT0_Scaffold] Final verification — scaffold build confirmed clean
+- Task: Refactor — ensure PNT scaffolding modules compile cleanly
+- File: StrongPNT/PNT0_Scaffold.lean (111 lines)
+- Build status: ✓ lake build StrongPNT.PNT0_Scaffold → SUCCESS (1815 jobs)
+- Imports: Mathlib.Analysis.SpecialFunctions.Log.Basic only
+- Content: SmoothingKernel type alias, comprehensive log/abs simp lemmas
+- Sorries: 0 (all lemmas complete)
+- Blueprint: N/A (infrastructure/scaffolding)
+- Notes: Module provides minimal, clean foundation; ready for downstream imports
