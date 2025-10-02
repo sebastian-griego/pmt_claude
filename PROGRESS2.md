@@ -1793,3 +1793,10 @@ Blocking issues: none for this module; many sorries remain in downstream PNT fil
 [PNT0_Scaffold] Scaffold module compiles cleanly; no sorries.
 Lines: 113; Blueprint coverage: N/A (scaffold).
 Blocking: Many sorries remain in PNT1–PNT5; out of scope for scaffold refactor.
+[Scaffold] PNT0_Scaffold.lean — compile clean check: OK
+- Status: Completed (no changes needed)
+- Lines: 113
+- Blueprint coverage: N/A (scaffold module)
+- Notes: lake build OK; many sorries remain in other PNT files (not modified).
+- Date: 2025-10-02T19:15:00Z
+
