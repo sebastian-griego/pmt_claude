@@ -1911,3 +1911,4 @@ Blocking: None for scaffold; many sorries remain in PNT1–PNT5.
 - Sorries: 0
 - Status: Module already clean; no edits required
 - Frontier goal: "Ensure PNT scaffolding modules compile cleanly" — SATISFIED
+[2025-10-02T20:31:36Z] PNT0_Scaffold — scaffold verification\n- File: StrongPNT/PNT0_Scaffold.lean (113 lines)\n- Build: lake build Scaffold → SUCCESS\n- grep sorry: none in this file (others remain in PNT1–PNT5, excluded from default target)\n- Notes: Imports minimal; StrongPNT namespace; SmoothingKernel alias; basic Real.log/abs simp lemmas. Frontier goal satisfied.
