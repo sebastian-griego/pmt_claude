@@ -2210,3 +2210,8 @@ Timestamp: 2025-10-02T20:53:55Z
 - Blueprint coverage: N/A (scaffold only)
 - Notes: Build overall OK, but sorries present in other StrongPNT/*.lean files; focusing on scaffold correctness per frontier.
 
+- [PNT0_Scaffold] Minimal scaffolding module compiles cleanly; no sorries.\n  Lines: 111 (Lean). Blueprint coverage: N/A (scaffold).\n  Notes: Build OK. Many pending sorries in advanced modules; left untouched per frontier scope.
+
+- [PNT0_Scaffold] Minimal scaffolding module compiles cleanly; no sorries.
+  Lines: 111 (Lean). Blueprint coverage: N/A (scaffold).
+  Notes: Build OK. Many pending sorries in advanced modules; left untouched per frontier scope.
