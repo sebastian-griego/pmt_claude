@@ -1972,3 +1972,9 @@ Timestamp: 2025-10-02T20:53:55Z
 - Blueprint coverage: N/A (scaffold-only)
 - Blocking issues: Many sorries exist in PNT1–PNT5; not addressed in this scaffold task
 ---
+2025-10-02T20:59:16Z [PNT0_Scaffold] Verify clean scaffold compile
+- File: StrongPNT/PNT0_Scaffold.lean (113 lines)
+- Status: build OK; zero sorries in file
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Notes: Frontier goal satisfied; many sorries remain in advanced modules (PNT1–PNT5) outside current scope.
+---
