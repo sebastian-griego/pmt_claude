@@ -49,6 +49,14 @@ PNT0_Scaffold: scaffolding compiles; added small log/abs lemmas; fixed log_abs_i
 - Lean lines: 68
 - Blueprint coverage: N/A (scaffolding module)
 ---
+[PNT0_Scaffold] Refactored and verified scaffold module compiles cleanly
+- File: StrongPNT/PNT0_Scaffold.lean
+- Status: COMPLETE (build OK, zero sorries)
+- Content: SmoothingKernel alias, 16 log/abs helper lemmas (all proven)
+- Lean lines: 113
+- Blueprint coverage: N/A (scaffolding module)
+- Notes: All imports minimal; namespace clean; ready for downstream use
+---
 [2025-10-01] PNT0_Scaffold: Refactor complete — clean compile verified
 - File: StrongPNT/PNT0_Scaffold.lean (113 lines)
 - Status: Build OK, zero sorries
