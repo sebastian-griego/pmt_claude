@@ -25,38 +25,8 @@ abbrev SmoothingKernel := ℝ → ℝ
 
 /-! ## Basic logarithm simplifications -/
 
-/-- A very small helper lemma used throughout: `log 1 = 0`. -/
-@[simp] theorem log_one_real : Real.log (1 : ℝ) = 0 := by
-  simp
-
-/-- Simplification for absolute values inside a logarithm, when the argument is positive. -/
-@[simp] theorem log_abs_of_pos {x : ℝ} (hx : 0 < x) : Real.log (|x|) = Real.log x := by
-  simp [abs_of_pos hx]
-
-/-- As a convenience, the same simplification under a nonnegativity hypothesis. -/
-@[simp] theorem log_abs_of_nonneg {x : ℝ} (hx : 0 ≤ x) : Real.log (|x|) = Real.log x := by
-  simp [abs_of_nonneg hx]
-
-/-- A tiny convenience lemma: `log |1| = 0`. -/
-@[simp] theorem log_abs_one : Real.log (|1| : ℝ) = 0 := by
-  simp
-
-/-- Logging an absolute value is invariant under negation inside the absolute. -/
-@[simp] theorem log_abs_neg (x : ℝ) : Real.log (|(-x)|) = Real.log (|x|) := by
-  simp [abs_neg]
-
-/-! ## Logarithms of natural numbers -/
-
-/-- For any natural number `n`, the absolute value disappears inside `Real.log`.
-This is convenient because `(n : ℝ) ≥ 0`. -/
-@[simp] theorem log_abs_nat (n : ℕ) :
-    Real.log (|(n : ℝ)|) = Real.log (n : ℝ) := by
-  have hn : (0 : ℝ) ≤ n := by exact_mod_cast (Nat.zero_le n)
-  simp [abs_of_nonneg hn]
-
-/-- A convenience specialization of `log_abs_nat` for `2`. -/
-@[simp] theorem log_abs_two : Real.log (|2| : ℝ) = Real.log (2 : ℝ) := by
-  exact log_abs_nat 2
+-- Note: Mathlib already provides Real.log_one, Real.log_abs for most cases
+-- We keep only non-redundant helper lemmas here
 
 /-! ## Logarithm arithmetic with absolute values -/ 
 
@@ -67,10 +37,7 @@ theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
   have hy' : |y| ≠ 0 := abs_ne_zero.mpr hy
   rw [abs_mul, Real.log_mul hx' hy']
 
-/-- `log |x⁻¹| = - log |x|` holds without any nonzero hypothesis. -/
-@[simp] theorem log_abs_inv (x : ℝ) :
-    Real.log (|x⁻¹|) = - Real.log (|x|) := by
-  simp [abs_inv]
+-- Note: log_abs_inv is redundant with Mathlib's abs_inv + Real.log_inv + Real.log_abs
 
 /-- For nonzero reals, `log |x / y| = log |x| - log |y|`. -/
 theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
@@ -79,23 +46,7 @@ theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
   have hy' : |y| ≠ 0 := abs_ne_zero.mpr hy
   simp [abs_div, Real.log_div hx' hy']
 
-/-- A convenient power rule inside a log–absolute: `log |x^n| = n * log |x|`. -/
-@[simp] theorem log_abs_pow (x : ℝ) (n : ℕ) :
-    Real.log (|x ^ n|) = (n : ℝ) * Real.log (|x|) := by
-  -- Split off the degenerate case `x = 0`, where both sides are `0`.
-  by_cases hx : x = 0
-  · subst hx
-    cases n with
-    | zero => simp
-    | succ _ => simp
-  -- For `x ≠ 0`, rewrite the absolute value of the power and apply the
-  -- power rule for `Real.log`.
-  simp [abs_pow, Real.log_pow]
-
-/-- A very common specialization of `log_abs_pow` to squares. -/
-@[simp] theorem log_abs_pow_two (x : ℝ) :
-    Real.log (|x ^ 2|) = (2 : ℝ) * Real.log (|x|) := by
-  simp
+-- Note: log_abs_pow and log_abs_pow_two are redundant with Mathlib's abs_pow + Real.log_pow + Real.log_abs
 
 /-! ## Specialized versions for positive arguments -/
 
