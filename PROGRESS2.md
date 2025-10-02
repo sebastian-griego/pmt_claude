@@ -1762,3 +1762,19 @@ Blocking issues: none for this module; many sorries remain in downstream PNT fil
 
 [PNT0_Scaffold] Refactor check — status: CLEAN\n- File: StrongPNT/PNT0_Scaffold.lean\n- Lines: 113\n- Build: lake build OK\n- Sorries: none in this file (others remain across project)\n- Blueprint coverage: N/A (scaffold module)\n- Notes: Verified minimal imports and namespace. No changes needed.\n- Next: Keep PNT0 as stable base; heavy modules still contain sorries.\n
 [PNT0_Scaffold] Refactor: scaffold compiles cleanly; no sorries.\n- Status: COMPLETE\n- Lines: 113 (StrongPNT/PNT0_Scaffold.lean)\n- Blueprint coverage: N/A (support module)\n- Notes: Minimal imports; namespace StrongPNT; basic Real.log + |·| lemmas; SmoothingKernel alias. Verified lake build OK. Other modules contain sorries not addressed in this refactor.\n
+- [Scaffold] StrongPNT.PNT0_Scaffold: verified clean compile; no sorries in this module.\n  - Lines: 113 (StrongPNT/PNT0_Scaffold.lean)\n  - Blueprint coverage: N/A (scaffold utilities only)\n  - Notes: Imports minimal; namespace ok; provides basic Real.log/abs lemmas and  alias.\n  - Blocking: Many sorries remain in PNT1–PNT5; out of scope for this scaffold refactor.
+- [Scaffold] StrongPNT.PNT0_Scaffold: verified clean compile; no sorries in this module.
+  - Lines: 113 (StrongPNT/PNT0_Scaffold.lean)
+  - Blueprint coverage: N/A (scaffold utilities only)
+  - Notes: Imports minimal; namespace ok; provides basic Real.log/abs lemmas and `SmoothingKernel` alias.
+  - Blocking: Many sorries remain in PNT1–PNT5; out of scope for this scaffold refactor.
+
+---
+[2025-10-02 Auto-verify] PNT0_Scaffold refactor task
+- Task: Ensure PNT scaffolding modules compile cleanly
+- File: StrongPNT/PNT0_Scaffold.lean (113 lines)
+- Status: **COMPLETE** — already clean
+- Build: `lake build StrongPNT.PNT0_Scaffold` → SUCCESS
+- Sorries: 0 in this file
+- Blueprint coverage: N/A (scaffold support module)
+- Notes: Imports minimal; namespace StrongPNT properly set; all lemmas proven; no refactoring needed.
