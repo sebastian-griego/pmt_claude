@@ -2061,3 +2061,4 @@ Timestamp: 2025-10-02T20:53:55Z
 - Blueprint coverage: N/A (scaffolding/support module)
 - Notes: Imports minimal (Real + log); helpers compile and are used downstream. No changes needed.
 
+- [Scaffold] StrongPNT/PNT0_Scaffold.lean — Verified clean compile; no sorries; no changes required. Lines: 113. Blueprint coverage: N/A (scaffold). Blockers: numerous pending sorries in downstream modules (PNT1–PNT5).
