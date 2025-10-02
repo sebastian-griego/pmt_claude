@@ -2171,3 +2171,4 @@ Timestamp: 2025-10-02T20:53:55Z
 - File: StrongPNT/PNT0_Scaffold.lean (111 lines)
 - Status: build OK
 - Notes: Minimal imports; helpers for Real.log and abs; ready for downstream use.
+2025-10-02T21:59:35Z [PNT0_Scaffold] Verified clean compile; no sorries in file.\n- File: StrongPNT/PNT0_Scaffold.lean (~80 lines)\n- Build: lake build OK\n- Notes: Imports minimal; helper log/abs lemmas intact. Project still contains sorries in PNT1–PNT5; frontier limited to scaffold.
