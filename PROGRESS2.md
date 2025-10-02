@@ -1778,3 +1778,15 @@ Blocking issues: none for this module; many sorries remain in downstream PNT fil
 - Sorries: 0 in this file
 - Blueprint coverage: N/A (scaffold support module)
 - Notes: Imports minimal; namespace StrongPNT properly set; all lemmas proven; no refactoring needed.
+[PNT0_Scaffold] Scaffold compile check — SUCCESS
+- Lines: 113
+- Blueprint coverage: N/A (scaffold)
+- Notes: Imports minimal; namespace clean; no sorries; provides simp lemmas for log/abs and a SmoothingKernel alias.
+- Date: 2025-10-02T19:07:20Z
+
+[2025-10-02T19:08:58Z] PNT0_Scaffold — refactor verification\n- File: StrongPNT/PNT0_Scaffold.lean (113 lines)\n- Status: clean compile; no sorries in this module\n- Blueprint coverage: N/A (scaffold)\n- Notes: Minimal imports and namespace; basic Real.log/abs simp lemmas;  alias. Ready for downstream use.
+[2025-10-02T19:09:04Z] PNT0_Scaffold — refactor verification
+- File: StrongPNT/PNT0_Scaffold.lean (113 lines)
+- Status: clean compile; no sorries in this module
+- Blueprint coverage: N/A (scaffold)
+- Notes: Minimal imports and namespace; basic Real.log/abs simp lemmas; `SmoothingKernel` alias. Ready for downstream use.
