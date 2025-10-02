@@ -1800,3 +1800,5 @@ Blocking: Many sorries remain in PNT1–PNT5; out of scope for scaffold refactor
 - Notes: lake build OK; many sorries remain in other PNT files (not modified).
 - Date: 2025-10-02T19:15:00Z
 
+[2025-10-02] PNT0_Scaffold: verified clean compile; no sorries\n- File: StrongPNT/PNT0_Scaffold.lean (113 lines)\n- Status: COMPLETE (scaffold refactor; minimal imports, namespace, simp lemmas)\n- Blueprint coverage: N/A (scaffold only)\n- Notes: Project contains sorries in PNT1–PNT5; out of scope for this scaffolding task.\n---
+[PNT0_Scaffold] Scaffold refactor/verification: build clean.\n- File: StrongPNT/PNT0_Scaffold.lean (lines: 113)\n- Status: Compiles with minimal imports; no sorries\n- Blueprint %: n/a (scaffold only)\n- Notes: Confirmed clean baseline despite sorries in deeper modules (not imported).\n- Next: Keep this as lightweight import for downstream files.\n
