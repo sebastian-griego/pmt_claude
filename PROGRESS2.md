@@ -1733,3 +1733,11 @@ Blocking issues: none for this module; many sorries remain in downstream PNT fil
 - Status: lake build OK; zero sorries in this file
 - Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
 - Notes: Scaffold provides small  log/abs lemmas for downstream use. Project still contains many sorries in PNT1–PNT5; frontier kept to scaffolding only this pass.
+
+[Scaffold] PNT0_Scaffold.lean — Minimal log/abs utilities
+- Status: Completed (no sorries)
+- Lines: 113
+- Blueprint coverage: N/A (scaffolding)
+- Notes: Provides basic  +  lemmas and  alias. Heavy modules still contain sorries; scaffold compiles cleanly and is imported by PNT1.
+[Scaffold] PNT0_Scaffold.lean — Minimal utilities (correction)
+- Notes: Provides basic Real.log/abs lemmas and SmoothingKernel alias.
