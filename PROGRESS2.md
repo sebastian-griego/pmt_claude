@@ -2319,3 +2319,10 @@ Blocking issues: Global sorries exist in other files; not addressed in this refa
 - Build: lake build StrongPNT.PNT0_Scaffold → OK
 - Notes: Imports minimal; namespace intact; helper log/abs lemmas compile. Downstream modules still contain sorries (out of scope for this scaffold pass).
 ---
+[2025-10-02 22:54:58 UTC] PNT0_Scaffold — Scaffold module compiles cleanly
+- File: StrongPNT/PNT0_Scaffold.lean
+- Status: CLEAN (no sorries); build OK
+- Lines: 118
+- Blueprint coverage: N/A (scaffolding)
+- Notes: Provides basic Real.log + abs lemmas and SmoothingKernel alias.
+
