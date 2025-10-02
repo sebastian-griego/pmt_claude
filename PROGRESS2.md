@@ -1753,3 +1753,4 @@ Blocking issues: none for this module; many sorries remain in downstream PNT fil
 - Blueprint coverage: N/A (scaffold only)
 - Notes: Verified minimal imports, namespace, and simp lemmas; downstream files contain sorries (out of scope for this step).
 
+- [Scaffold] StrongPNT.PNT0_Scaffold: build OK; no sorries. Lines: 113. Blueprint: N/A. Notes: Imports minimal; provides basic Real.log lemmas and type alias.
