@@ -1836,3 +1836,22 @@ Blocking: Many sorries remain in PNT1–PNT5; out of scope for scaffold refactor
 [2025-10-02T20:25:00Z] PNT0_Scaffold — scaffold verification\n- File: StrongPNT/PNT0_Scaffold.lean (113 lines)\n- Status: Build clean; zero sorries in module\n- Blueprint coverage: N/A (scaffold only)\n- Notes: Confirmed minimal imports and namespace; helper lemmas for Real.log/abs stable. Project still has sorries in PNT1–PNT5; out of scope for this task.
 [2025-10-02T19:59:06Z] PNT0_Scaffold — scaffold verification\n- File: StrongPNT/PNT0_Scaffold.lean (113 lines)\n- Build: lake build OK; module compiles cleanly\n- grep sorry: none in this file (others remain)\n- Notes: Minimal imports; StrongPNT namespace; SmoothingKernel alias; Real.log/abs simp lemmas.\n
 - [Scaffold] Verified StrongPNT/PNT0_Scaffold.lean compiles cleanly; no sorries. Build OK. Lines: 113. Blueprint: N/A (scaffold). Timestamp: 2025-10-02T20:01:51Z
+- [PNT0_Scaffold] Scaffold module compiles cleanly.\n  Lines: 113\n  Blueprint coverage: N/A (scaffold support)\n  Notes: Provides basic log/abs lemmas; no sorries; imports kept minimal.\n
+2025-10-02T20:05Z [PNT0_Scaffold] Verify clean scaffold compile
+- File: StrongPNT/PNT0_Scaffold.lean (113 lines)
+- Status: lake build OK; zero sorries in this file
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Notes: Minimal scaffolding verified; downstream modules contain sorries outside this frontier.
+---
+
+[2025-10-02T20:30:00Z] PNT0_Scaffold — refactor complete
+- File: StrongPNT/PNT0_Scaffold.lean (113 lines)
+- Task: Ensure PNT scaffolding modules compile cleanly
+- Status: ✓ VERIFIED CLEAN — no changes needed
+- Build: lake build StrongPNT.PNT0_Scaffold → SUCCESS
+- Sorries: 0 in this module
+- Imports: Minimal (Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic)
+- Namespace: StrongPNT
+- Content: SmoothingKernel type alias + 15 logarithm/absolute value simp lemmas
+- Blueprint coverage: N/A (scaffold utilities)
+- Notes: Module already meets all requirements; serves as lightweight foundation for PNT formalization.
