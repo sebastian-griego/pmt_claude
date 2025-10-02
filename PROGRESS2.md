@@ -1876,3 +1876,8 @@ Blocking: Many sorries remain in PNT1–PNT5; out of scope for scaffold refactor
 - Status: Build OK; zero sorries in file
 - Notes: Imports minimal; namespace stable; helper log/abs lemmas in place.
 ---
+[PNT0_Scaffold] Scaffold module compiles cleanly — COMPLETE
+Lines: 113
+Blueprint coverage: N/A (scaffold only)
+Blocking: None for scaffold; many sorries remain in PNT1–PNT5.
+
