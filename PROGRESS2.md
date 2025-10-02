@@ -1741,3 +1741,8 @@ Blocking issues: none for this module; many sorries remain in downstream PNT fil
 - Notes: Provides basic  +  lemmas and  alias. Heavy modules still contain sorries; scaffold compiles cleanly and is imported by PNT1.
 [Scaffold] PNT0_Scaffold.lean — Minimal utilities (correction)
 - Notes: Provides basic Real.log/abs lemmas and SmoothingKernel alias.
+[2025-10-02T18:45Z] PNT0_Scaffold — verification
+- File: StrongPNT/PNT0_Scaffold.lean (113 lines)
+- Status: build OK; zero sorries in file
+- Notes: Scaffold ready; many sorries persist in advanced modules (out of scope here).
+
