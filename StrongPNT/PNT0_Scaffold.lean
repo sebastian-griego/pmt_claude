@@ -42,9 +42,9 @@ theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
 /-- For nonzero reals, `log |x⁻¹| = - log |x|`. -/
 @[simp] theorem log_abs_inv_of_ne_zero {x : ℝ} (hx : x ≠ 0) :
     Real.log (|x⁻¹|) = - Real.log (|x|) := by
-  have hx' : |x| ≠ 0 := abs_ne_zero.mpr hx
-  simp [abs_inv]
-  rw [Real.log_inv hx']
+  rw [abs_inv]
+  have hx_pos : 0 < |x| := abs_pos.mpr hx
+  rw [Real.log_inv hx_pos]
 
 /-- For nonzero reals, `log |x / y| = log |x| - log |y|`. -/
 theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
