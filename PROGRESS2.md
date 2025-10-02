@@ -1978,3 +1978,4 @@ Timestamp: 2025-10-02T20:53:55Z
 - Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
 - Notes: Frontier goal satisfied; many sorries remain in advanced modules (PNT1–PNT5) outside current scope.
 ---
+2025-10-02T21:01Z [PNT0_Scaffold] Verified clean scaffold compile\n- File: StrongPNT/PNT0_Scaffold.lean (~80 lines)\n- Status: lake build OK; zero sorries in file\n- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic\n- Notes: No changes needed; helper  log/abs lemmas ready for downstream use. Repo still contains sorries in PNT1–PNT5 (out of current scope).
