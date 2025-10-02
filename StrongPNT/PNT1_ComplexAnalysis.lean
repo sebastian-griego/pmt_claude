@@ -1149,7 +1149,7 @@ lemma lem_removable_singularity (R : Real) (hR : R > 0) (f : Complex → Complex
         refine Filter.mem_of_superset ?_ (by intro w hw; exact hw.2)
         -- `ball 0 R ∩ insert 0 s ⊆ {w | w ≠ 0} ∪ {0}`, but removing `{0}` suffices.
         -- More simply, use `ball 0 R \ {0}` which belongs to the filter.
-        have : Metric.ball (0 : ℂ) R \\ {0} ∈ 𝓝[insert 0 {w : ℂ | ‖w‖ ≤ R}] 0 := by
+        have : Metric.ball (0 : ℂ) R \ {0} ∈ 𝓝[insert 0 {w : ℂ | ‖w‖ ≤ R}] 0 := by
           -- `ball 0 R` is in `𝓝 0`; intersecting with `insert 0 s` keeps a neighborhood.
           have hb : Metric.ball (0 : ℂ) R ∈ 𝓝 (0 : ℂ) := Metric.ball_mem_nhds 0 hR
           -- Turn this into a nhdsWithin statement and remove `{0}`.
