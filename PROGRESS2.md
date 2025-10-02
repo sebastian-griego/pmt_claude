@@ -1832,3 +1832,4 @@ Blocking: Many sorries remain in PNT1–PNT5; out of scope for scaffold refactor
 - Dependencies: 5 downstream modules (PNT1–PNT5) import this scaffold
 - Full project build: SUCCESS (1816 jobs)
 - Notes: No changes needed; module serves as clean lightweight foundation.
+[2025-10-02] PNT0_Scaffold — scaffold verified clean\n- File: StrongPNT/PNT0_Scaffold.lean\n- Status: Compiles cleanly (lake build OK); zero sorries in file\n- Lines: 113\n- Blueprint coverage: N/A (support module)\n- Notes: Minimal imports; StrongPNT namespace; SmoothingKernel alias; basic Real.log + |·| simp lemmas. Project still has sorries in PNT1–PNT5; out of scope for this scaffolding task.\n---
