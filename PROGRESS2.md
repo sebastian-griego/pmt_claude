@@ -1920,3 +1920,4 @@ LOC: 113
 Blueprint coverage: 0% (scaffold utility only)
 Notes: Minimal imports; added/verified basic log/abs lemmas; ready for downstream use.
 Blocking: Repo contains many sorries in later modules; out of current scaffold scope.
+[PNT0_Scaffold] Scaffold sanity pass\n- Status: compiled cleanly, no sorries in file\n- Lean lines: 113 (StrongPNT/PNT0_Scaffold.lean)\n- Blueprint coverage: N/A (scaffolding module)\n- Notes: Kept imports minimal; provided basic Real.log + abs lemmas for downstream files.
