@@ -2247,3 +2247,18 @@ Timestamp: 2025-10-02T20:53:55Z
 - Blueprint coverage: N/A (scaffold only)
 - Notes: Added/verified basic log|.| lemmas and kernel alias; imports minimal, namespace StrongPNT; builds with lake.
 
+2025-10-02T22:19Z [Scaffold] PNT0_Scaffold — verified clean compile; no sorries.
+- File: StrongPNT/PNT0_Scaffold.lean (118 lines)
+- Build: lake build OK
+- Blueprint coverage: N/A (scaffold helpers only)
+- Notes: Minimal imports; namespace intact; ready for downstream use. Other PNT files still contain sorries (out of scope this step).
+
+[Scaffold] 2025-10-02T22:21:04Z — Verified StrongPNT/PNT0_Scaffold builds cleanly; zero sorries.
+- File: StrongPNT/PNT0_Scaffold.lean (118 lines)
+- Blueprint coverage: N/A (scaffold only)
+- Notes: No changes required; downstream modules contain sorries outside scaffold scope.
+---
+[PNT0_Scaffold] Verified clean compile; no sorries.
+- File: StrongPNT/PNT0_Scaffold.lean (118 lines)
+- Blueprint coverage: N/A (scaffold-only)
+- Notes: Minimal imports; namespace intact; helper log/abs lemmas ready for downstream use. Project still has sorries in PNT1–PNT5 (out of scope for this frontier).
