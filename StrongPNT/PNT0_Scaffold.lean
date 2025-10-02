@@ -1,5 +1,3 @@
--- Keep top-level Mathlib import minimal but flexible
-import Mathlib.Data.Real.Basic
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
 
 noncomputable section
