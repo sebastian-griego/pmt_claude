@@ -2313,3 +2313,9 @@ Line count: 118
 Blueprint coverage: N/A (scaffold only)
 Blocking issues: Global sorries exist in other files; not addressed in this refactor
 ---
+[2025-10-02] PNT0_Scaffold — sanity pass\n- File: StrongPNT/PNT0_Scaffold.lean (118 lines)\n- Status: CLEAN (build OK; zero sorries)\n- Changes: None; verified imports/lemmas compile cleanly\n- Blueprint coverage: N/A (scaffold module)\n- Notes: Provides SmoothingKernel alias and log/abs lemmas; downstream modules import it successfully.\n
+[2025-10-02T22:49:43+00:00] [Scaffold] Verified StrongPNT.PNT0_Scaffold compiles cleanly; zero sorries in file.
+- File: StrongPNT/PNT0_Scaffold.lean (118 lines)
+- Build: lake build StrongPNT.PNT0_Scaffold → OK
+- Notes: Imports minimal; namespace intact; helper log/abs lemmas compile. Downstream modules still contain sorries (out of scope for this scaffold pass).
+---
