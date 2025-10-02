@@ -1803,3 +1803,17 @@ Blocking: Many sorries remain in PNT1–PNT5; out of scope for scaffold refactor
 [2025-10-02] PNT0_Scaffold: verified clean compile; no sorries\n- File: StrongPNT/PNT0_Scaffold.lean (113 lines)\n- Status: COMPLETE (scaffold refactor; minimal imports, namespace, simp lemmas)\n- Blueprint coverage: N/A (scaffold only)\n- Notes: Project contains sorries in PNT1–PNT5; out of scope for this scaffolding task.\n---
 [PNT0_Scaffold] Scaffold refactor/verification: build clean.\n- File: StrongPNT/PNT0_Scaffold.lean (lines: 113)\n- Status: Compiles with minimal imports; no sorries\n- Blueprint %: n/a (scaffold only)\n- Notes: Confirmed clean baseline despite sorries in deeper modules (not imported).\n- Next: Keep this as lightweight import for downstream files.\n
 [PNT0_Scaffold] Status: clean compile; 0 sorries. Lines: 113. Blueprint coverage: N/A (scaffold). Notes: confirmed minimal imports; lemmas stable and used across modules.
+[PNT0_Scaffold] Status: COMPLETE
+- File: StrongPNT/PNT0_Scaffold.lean
+- Lines: 113
+- Blueprint coverage: N/A (scaffold module)
+- Notes: Verified clean build and zero sorries in scaffold; other modules contain sorries per roadmap. No code changes needed.
+
+[2025-10-02] PNT0_Scaffold refactor verification: COMPLETE
+- File: StrongPNT/PNT0_Scaffold.lean
+- Lines: 113
+- Status: Build clean; no sorries; minimal imports verified
+- Imports: Mathlib.Data.Real.Basic, Mathlib.Analysis.SpecialFunctions.Log.Basic
+- Content: SmoothingKernel alias + log/abs simp lemmas (28 lemmas total)
+- Blueprint coverage: N/A (scaffold module)
+- Notes: Module serves as lightweight foundation for downstream PNT files; all proofs complete.
