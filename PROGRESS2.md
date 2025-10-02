@@ -2293,3 +2293,15 @@ Date: '
 - Status: lake build OK; zero sorries in this file
 - Notes: Imports minimal; namespace intact; helper / lemmas ready. Project still has sorries in PNT2–PNT5; frontier limited to scaffolding.
 ---
+[2025-10-02T22:43:27Z] [Scaffold] Verified StrongPNT/PNT0_Scaffold compiles cleanly; no sorries.
+- File: StrongPNT/PNT0_Scaffold.lean (118 lines)
+- Build: lake build → OK
+- Notes: Imports minimal; namespace intact; helper log/abs lemmas compile.
+---
+
+[2025-10-02] PNT0_Scaffold refactor: compile cleanly, no sorries.
+- File: StrongPNT/PNT0_Scaffold.lean
+- Status: OK (build passes)
+- Lean lines: 118
+- Blueprint coverage: unchanged (scaffold only)
+- Notes: verified imports minimal; added no new deps; keeps trivial lemmas for logs/abs as helpers.
