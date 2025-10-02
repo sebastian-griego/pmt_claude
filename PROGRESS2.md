@@ -1746,3 +1746,4 @@ Blocking issues: none for this module; many sorries remain in downstream PNT fil
 - Status: build OK; zero sorries in file
 - Notes: Scaffold ready; many sorries persist in advanced modules (out of scope here).
 
+2025-10-02T18:49:56Z [PNT0_Scaffold] Scaffold compile check\n- File: StrongPNT/PNT0_Scaffold.lean (113 lines)\n- Status: clean compile; no sorries in this file\n- Blueprint coverage: N/A (scaffold only)\n- Notes: Verified imports/namespace and simp lemmas; downstream modules still contain sorries (not modified here).\n
