@@ -2335,3 +2335,12 @@ Blocking issues: Global sorries exist in other files; not addressed in this refa
 - Notes: Minimal helpers (log/abs) under StrongPNT; ready for downstream use. Project still contains sorries in PNT2–PNT5 (out of this frontier scope).
 - Timestamp: 2025-10-02T23:00:23Z
 ---
+[Scaffold] PNT0_Scaffold — verified clean build, no sorries (88 lines). Blueprint coverage: unchanged (scaffold module). Blocking: many sorries in later modules; not part of scaffold.
+[2025-10-02] Verified PNT0_Scaffold compiles cleanly; no changes required.\n- File: StrongPNT/PNT0_Scaffold.lean (current lines: 69)\n- Status: Build OK, zero sorries in scaffold\n- Notes: Imports minimal; namespace StrongPNT; downstream modules already import this scaffold.\n---
+[2025-10-02 Scaffold-Refactor] PNT0_Scaffold — final clean state confirmed
+- File: StrongPNT/PNT0_Scaffold.lean (69 lines)
+- Status: CLEAN build; zero sorries
+- Refactor goals achieved: minimal imports, proper namespace, non-redundant lemmas only
+- Notes: Removed redundant lemmas covered by Mathlib; kept log_abs_mul/div helpers for ne_zero and pos cases
+- Build: lake build StrongPNT.PNT0_Scaffold → OK
+---
