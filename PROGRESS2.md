@@ -2273,3 +2273,8 @@ Timestamp: 2025-10-02T20:53:55Z
 - Status: ✓ Builds cleanly, ✓ No sorries, ✓ Minimal imports, ✓ Proper namespace
 - Coverage: N/A (scaffold utilities only)
 - Notes: Refactor goal achieved; module ready for downstream use.
+
+- lem_removable_singularity (PNT1_ComplexAnalysis): PROVED
+  * Lean lines added: 80
+  * Blueprint coverage: n/a (scaffold/early analytic lemmas)
+  * Notes: Used dslope and AnalyticWithinAt.congr_of_eventuallyEq_insert to remove the isolated sorry cleanly; preserves downstream usage in lem_g_analytic without changing definitions. Build is clean.
