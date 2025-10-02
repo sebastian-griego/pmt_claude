@@ -39,6 +39,13 @@ theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
 
 -- Note: log_abs_inv is redundant with Mathlib's abs_inv + Real.log_inv + Real.log_abs
 
+/-- For nonzero reals, `log |x⁻¹| = - log |x|`. -/
+@[simp] theorem log_abs_inv_of_ne_zero {x : ℝ} (hx : x ≠ 0) :
+    Real.log (|x⁻¹|) = - Real.log (|x|) := by
+  have hx' : |x| ≠ 0 := abs_ne_zero.mpr hx
+  simp [abs_inv]
+  rw [Real.log_inv hx']
+
 /-- For nonzero reals, `log |x / y| = log |x| - log |y|`. -/
 theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
     Real.log (|x / y|) = Real.log (|x|) - Real.log (|y|) := by
@@ -59,6 +66,12 @@ theorem log_abs_div_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
 @[simp] theorem log_abs_div_of_pos {x y : ℝ} (hx : 0 < x) (hy : 0 < y) :
     Real.log (|x / y|) = Real.log x - Real.log y := by
   simp [abs_of_pos (div_pos hx hy), Real.log_div (ne_of_gt hx) (ne_of_gt hy)]
+
+/-- If `x > 0` then `log |x⁻¹| = - log x`. -/
+@[simp] theorem log_abs_inv_of_pos {x : ℝ} (hx : 0 < x) :
+    Real.log (|x⁻¹|) = - Real.log x := by
+  rw [log_abs_inv_of_ne_zero (ne_of_gt hx)]
+  simp [abs_of_pos hx]
 
 /-! (No additional inequality helpers needed in the scaffold.) -/
 

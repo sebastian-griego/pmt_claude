@@ -2352,3 +2352,9 @@ Blocking issues: Global sorries exist in other files; not addressed in this refa
 - Status: Compiles; no sorries in this module. Imports minimal and targeted.
 - Notes: Downstream modules import this scaffold successfully. No action required beyond verification for this frontier task.
 ---
+- [Scaffold] PNT0_Scaffold: added  log_abs_inv lemmas; build OK.
+  - File: StrongPNT/PNT0_Scaffold.lean (77 lines)
+  - Blueprint coverage: N/A (scaffold only)
+  - Blocking issues: Numerous sorries in PNT1–PNT5 remain; out of scope for this step.
+  - Timestamp: 2025-10-02T23:15:05Z
+---
