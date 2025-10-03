@@ -23,12 +23,7 @@ namespace StrongPNT
 This is used as a stand‑in to keep dependent signatures consistent. -/
 abbrev SmoothingKernel := ℝ → ℝ
 
-/-! ## Basic logarithm simplifications -/
-
--- Note: Mathlib already provides Real.log_one, Real.log_abs for most cases
--- We keep only non-redundant helper lemmas here
-
-/-! ## Logarithm arithmetic with absolute values -/ 
+/-! ## Logarithm arithmetic with absolute values -/
 
 /-- For nonzero reals, `log |x * y| = log |x| + log |y|`. -/
 theorem log_abs_mul_of_ne_zero {x y : ℝ} (hx : x ≠ 0) (hy : y ≠ 0) :
