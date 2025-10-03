@@ -28,36 +28,36 @@ abbrev SmoothingKernel := ℝ → ℝ
 /-! ## Basic logarithm simplifications -/
 
 /-- A very small helper lemma used throughout: `log 1 = 0`. -/
-@[simp] theorem log_one_real : Real.log (1 : ℝ) = 0 := by
+theorem log_one_real : Real.log (1 : ℝ) = 0 := by
   simp
 
 /-- Simplification for absolute values inside a logarithm, when the argument is positive. -/
-@[simp] theorem log_abs_of_pos {x : ℝ} (hx : 0 < x) : Real.log (|x|) = Real.log x := by
+theorem log_abs_of_pos {x : ℝ} (hx : 0 < x) : Real.log (|x|) = Real.log x := by
   simp [abs_of_pos hx]
 
 /-- As a convenience, the same simplification under a nonnegativity hypothesis. -/
-@[simp] theorem log_abs_of_nonneg {x : ℝ} (hx : 0 ≤ x) : Real.log (|x|) = Real.log x := by
+theorem log_abs_of_nonneg {x : ℝ} (hx : 0 ≤ x) : Real.log (|x|) = Real.log x := by
   simp [abs_of_nonneg hx]
 
 /-- A tiny convenience lemma: `log |1| = 0`. -/
-@[simp] theorem log_abs_one : Real.log (|1| : ℝ) = 0 := by
+theorem log_abs_one : Real.log (|1| : ℝ) = 0 := by
   simp
 
 /-- Logging an absolute value is invariant under negation inside the absolute. -/
-@[simp] theorem log_abs_neg (x : ℝ) : Real.log (|(-x)|) = Real.log (|x|) := by
+theorem log_abs_neg (x : ℝ) : Real.log (|(-x)|) = Real.log (|x|) := by
   simp [abs_neg]
 
 /-! ## Logarithms of natural numbers -/
 
 /-- For any natural number `n`, the absolute value disappears inside `Real.log`.
 This is convenient because `(n : ℝ) ≥ 0`. -/
-@[simp] theorem log_abs_nat (n : ℕ) :
+theorem log_abs_nat (n : ℕ) :
     Real.log (|(n : ℝ)|) = Real.log (n : ℝ) := by
   have hn : (0 : ℝ) ≤ n := by exact_mod_cast (Nat.zero_le n)
   simp [abs_of_nonneg hn]
 
 /-- A convenience specialization of `log_abs_nat` for `2`. -/
-@[simp] theorem log_abs_two : Real.log (|2| : ℝ) = Real.log (2 : ℝ) := by
+theorem log_abs_two : Real.log (|2| : ℝ) = Real.log (2 : ℝ) := by
   exact log_abs_nat 2
 
 /-! ## Logarithm arithmetic with absolute values -/ 
