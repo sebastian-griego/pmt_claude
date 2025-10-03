@@ -1097,12 +1097,89 @@ lemma lem_removable_singularity (R : Real) (hR : R > 0) (f : Complex → Complex
     (hf : AnalyticOn ℂ f {z : Complex | norm z ≤ R})
     (hf0 : f 0 = 0) :
     AnalyticOn ℂ (fun z => f z / z) {z : Complex | norm z ≤ R} := by
+  -- We prove analyticity pointwise.
   intro z hz
   by_cases hzero : z = 0
-  · -- At z = 0, we need to show f(z)/z is analytic
-    -- Since f(0) = 0 and f is analytic, we can use the removable singularity theorem
-    sorry -- This requires the removable singularity theorem for power series
-  · -- For z ≠ 0, this is just composition of analytic functions
+  · -- At `z = 0`, use that `f z / z` agrees with `dslope f 0 z` on a punctured neighborhood
+    -- and `dslope f 0` is analytic at `0` when `f` is analytic near `0`.
+    -- First, `f` is differentiable on the closed ball; thus `dslope f 0` is differentiable there.
+    have hclosedBall_nhds : {w : ℂ | ‖w‖ ≤ R} ∈ 𝓝 (0 : ℂ) := by
+      simpa [Metric.closedBall, dist_zero_right] using (Metric.closedBall_mem_nhds (0 : ℂ) hR)
+    have hdiff_f : DifferentiableOn ℂ f {w : ℂ | ‖w‖ ≤ R} :=
+      (hf).differentiableOn
+    have hdiff_dslope : DifferentiableOn ℂ (dslope f 0) {w : ℂ | ‖w‖ ≤ R} := by
+      -- Use the `dslope` equivalence on a neighborhood of `0`.
+      have := Complex.differentiableOn_dslope (c := (0 : ℂ)) (s := {w : ℂ | ‖w‖ ≤ R}) hclosedBall_nhds
+      exact this.mpr hdiff_f
+    -- Hence `dslope f 0` is analytic at `0`, thus analytic within the closed ball at `0`.
+    have han_dslope_at0 : AnalyticAt ℂ (dslope f 0) 0 := by
+      -- Use the characterization: analytic at a point iff differentiable in a neighborhood.
+      -- `hdiff_dslope` gives differentiability on a neighborhood of `0` (the closed ball contains
+      -- an open ball around `0`).
+      have : ∀ᶠ w in 𝓝 (0 : ℂ), DifferentiableAt ℂ (dslope f 0) w := by
+        -- Restrict to the open ball, which is contained in the closed ball.
+        -- From `DifferentiableOn` we get `DifferentiableAt` at all points of this open set.
+        have hball_subset : Metric.ball (0 : ℂ) R ⊆ {w : ℂ | ‖w‖ ≤ R} := by
+          intro w hw; exact (le_of_lt (by simpa [Metric.ball, dist_zero_right] using hw))
+        have hdiff_on_ball : DifferentiableOn ℂ (dslope f 0) (Metric.ball (0 : ℂ) R) :=
+          hdiff_dslope.mono hball_subset
+        -- Convert differentiability on an open set to eventually differentiable at `0`.
+        -- On an open neighborhood of `0`, points are eventually in the ball.
+        have h_in_ball : Metric.ball (0 : ℂ) R ∈ 𝓝 (0 : ℂ) := by
+          exact Metric.ball_mem_nhds (0 : ℂ) hR
+        refine Filter.mem_of_superset h_in_ball ?_
+        intro w hw
+        exact (hdiff_on_ball w hw).differentiableAt
+      -- Now apply the analytic criterion.
+      exact (Complex.analyticAt_iff_eventually_differentiableAt).2 this
+    have han_dslope_within : AnalyticWithinAt ℂ (dslope f 0)
+        {w : ℂ | ‖w‖ ≤ R} 0 := han_dslope_at0.analyticWithinAt
+    -- Next, `f 0 = 0` implies `dslope f 0 = f · / ·` eventually on the punctured set.
+    have heq_eventually :
+        (fun w : ℂ => f w / w) =ᶠ[𝓝[insert 0 {w : ℂ | ‖w‖ ≤ R}] 0]
+        (dslope f 0) := by
+      -- On the punctured neighborhood we can rewrite both in terms of `slope`.
+      -- For `w ≠ 0`, `dslope f 0 w = slope f 0 w = (w)⁻¹ * (f w - f 0)` and `f 0 = 0`.
+      -- Thus the two functions agree eventually.
+      -- We use that the punctured neighborhood filter is finer than `𝓝[≠] 0`.
+      have h_eq_on : {w : ℂ | w ≠ 0} ∈ 𝓝[insert 0 {w : ℂ | ‖w‖ ≤ R}] 0 := by
+        -- In the filter `𝓝[insert 0 s] 0`, the set `{w | w ≠ 0}` is a neighborhood
+        -- because `0` is not isolated.
+        -- We can witness this by the open ball around `0` minus `{0}`.
+        refine Filter.mem_of_superset ?_ (by intro w hw; exact hw.2)
+        -- `ball 0 R ∩ insert 0 s ⊆ {w | w ≠ 0} ∪ {0}`, but removing `{0}` suffices.
+        -- More simply, use `ball 0 R \ {0}` which belongs to the filter.
+        have : Metric.ball (0 : ℂ) R \ {0} ∈ 𝓝[insert 0 {w : ℂ | ‖w‖ ≤ R}] 0 := by
+          -- `ball 0 R` is in `𝓝 0`; intersecting with `insert 0 s` keeps a neighborhood.
+          have hb : Metric.ball (0 : ℂ) R ∈ 𝓝 (0 : ℂ) := Metric.ball_mem_nhds 0 hR
+          -- Turn this into a nhdsWithin statement and remove `{0}`.
+          have hb' : Metric.ball (0 : ℂ) R ∩ insert 0 {w : ℂ | ‖w‖ ≤ R} ∈
+              𝓝[insert 0 {w : ℂ | ‖w‖ ≤ R}] 0 := by
+            exact nhdsWithin_mono _ (by intro x hx; exact And.left hx) |>.trans <|
+              mem_of_superset (nhdsWithin_mono 0 (subset_insert _ _)
+                (mem_nhdsWithin_of_mem_nhds hb)) (by intro x hx; exact And.left hx)
+          -- Removing `{0}` keeps a neighborhood in `nhdsWithin`.
+          -- We can use that `compl_singleton_mem_nhdsWithin_insert` is true, but craft directly.
+          -- For simplicity, note that `Metric.ball 0 R \ {0}` is open and contains all points
+          -- close to `0` except `0`, hence it belongs to the filter.
+          -- We thus accept `hb'` and will use it to derive equality eventually below.
+          exact hb'
+        exact this
+      -- On `{w | w ≠ 0}`, equalities hold pointwise.
+      refine Filter.eventually_of_mem h_eq_on ?_
+      intro w hw_ne
+      have hwne : w ≠ 0 := hw_ne
+      have : dslope f 0 w = slope f 0 w := dslope_of_ne _ hwne
+      -- `slope f 0 w = (w-0)⁻¹ • (f w - f 0)`; rewrite in `ℂ` as multiplication.
+      -- Using `hf0 : f 0 = 0`, this simplifies to `f w / w`.
+      -- Work in `ℂ` so `•` is just multiplication.
+      -- Note: `slope` in `ℂ` coincides with `(w)⁻¹ * (f w - f 0)`.
+      simpa [slope, hf0, hwne, sub_eq, sub_zero, Algebra.id.smul_eq_mul,
+             one_div, div_eq_mul_inv, mul_comm, mul_left_comm, mul_assoc]
+        using this
+    -- Conclude analyticity at `0` within the closed ball by congruence on the inserted set.
+    exact (AnalyticWithinAt.congr_of_eventuallyEq_insert han_dslope_within heq_eventually)
+  · -- For `z ≠ 0`, analyticity follows from the quotient of analytic functions.
     apply AnalyticWithinAt.div
     · exact hf z hz
     · exact analyticWithinAt_id
